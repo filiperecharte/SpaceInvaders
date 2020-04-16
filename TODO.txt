@@ -1,0 +1,7 @@
+classe design:
+  - characterMatrix 
+
+
+Classe nave:
+  - Posição
+  - Shape
