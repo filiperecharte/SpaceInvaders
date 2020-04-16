@@ -1,5 +1,7 @@
 package View;
 
+import Model.Ship;
+
 public class ViewShip {
     Ship ship;
 
