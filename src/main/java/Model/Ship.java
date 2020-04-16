@@ -5,10 +5,9 @@ public class Ship {
     private boolean isAlive;
     private String design;
 
-    public Ship(int x, int y){
+    public Ship(Position position){
         design="/-^-\\";
-        this.position.setX(x);
-        this.position.setY(y);
+        this.position=position;
         isAlive=true;
     }
 
