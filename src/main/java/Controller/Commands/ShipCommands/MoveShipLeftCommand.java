@@ -2,7 +2,6 @@ package Controller.Commands.ShipCommands;
 
 import Controller.Commands.Command;
 import Model.Position;
-import Model.Ship;
 
 public class MoveShipLeftCommand extends Command {
     private Arena arena;
@@ -14,7 +13,7 @@ public class MoveShipLeftCommand extends Command {
     public void execute() {
 
         // move ship 1 unit right
-        Position nextShipPosition = arena.getShipPosition().right(1);
+        Position nextShipPosition = arena.getShipPosition().left(1);
         arena.moveShipTo(nextShipPosition);
     }
 }
