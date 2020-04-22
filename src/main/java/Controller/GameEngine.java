@@ -1,8 +1,10 @@
 package Controller;
 
 import Controller.Commands.Command;
+import Controller.Commands.ShipCommands.DoNothingCommand;
 import Controller.Commands.ShipCommands.MoveShipLeftCommand;
 import Controller.Commands.ShipCommands.MoveShipRightCommand;
+import Controller.Commands.ShipCommands.QuitCommand;
 import Model.Arena;
 import com.googlecode.lanterna.input.KeyStroke;
 
@@ -27,7 +29,9 @@ public class GameEngine {
                 if (key.getCharacter() == ' ') {
                     // ship shoot
                 }
+            case EOF:
+                return new QuitCommand(arena);
         }
-        return null;
+        return new DoNothingCommand();
     }
 }

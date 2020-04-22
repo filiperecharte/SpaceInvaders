@@ -2,23 +2,21 @@ package Controller;
 
 import Controller.Commands.Command;
 import Model.Arena;
-import View.ArenaRenderer;
+import View.GameRenderer;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class Game {
     private TextGraphics graphics;
     private Screen screen;
     private Arena arena;
-    private ArenaRenderer arenaRenderer;
+    private GameRenderer gameRenderer;
     private GameEngine gameEngine;
 
     public Game() {
@@ -32,10 +30,11 @@ public class Game {
 
             this.graphics = screen.newTextGraphics();
 
-            /*this.arena = new Arena(100,100);
-            this.arenaRenderer= new ArenaRenderer(arena);
+            this.arena = new Arena(100,100); //create arena and ship
 
-            this.gameEngine = new GameEngine(arena);*/
+            this.gameRenderer = new GameRenderer(arena,arena.getShip());
+
+            this.gameEngine = new GameEngine(arena);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -43,22 +42,18 @@ public class Game {
 
     private void update() throws IOException { //this should be on GameRenderer? Do we need a game renderer?
         screen.clear();
-        arenaRenderer.render(graphics);
+        gameRenderer.render(graphics); //render all objects
         screen.refresh();
     }
 
     public void run() throws IOException{
-        while (true) {
+        while (!arena.isFinished()) {
             update();
 
             KeyStroke key = screen.readInput();
             Command command = gameEngine.getNextCommand(key);
             command.execute();
-
-            if (key.getKeyType() == KeyType.EOF) {
-                screen.close();
-                break;
-            }
         }
+        screen.close();
     }
 }
