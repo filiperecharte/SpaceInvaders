@@ -1,5 +1,6 @@
 package Controller;
 
+import Controller.Commands.Command;
 import Model.Arena;
 import View.ArenaRenderer;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -23,16 +24,18 @@ public class Game {
     public Game() {
         try {
             Terminal terminal = new DefaultTerminalFactory().createTerminal();
-            screen = new TerminalScreen(terminal);
+            this.screen = new TerminalScreen(terminal);
 
-            screen.setCursorPosition(null);   // we don't need a cursor
-            screen.startScreen();             // screens must be started
-            screen.doResizeIfNecessary();     // resize screen if necessary
+            this.screen.setCursorPosition(null);   // we don't need a cursor
+            this.screen.startScreen();             // screens must be started
+            this.screen.doResizeIfNecessary();     // resize screen if necessary
 
             this.graphics = screen.newTextGraphics();
 
-            arena = new Arena(10,10);
-            arenaRenderer= new ArenaRenderer(arena);
+            /*this.arena = new Arena(100,100);
+            this.arenaRenderer= new ArenaRenderer(arena);
+
+            this.gameEngine = new GameEngine(arena);*/
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,7 +52,8 @@ public class Game {
             update();
 
             KeyStroke key = screen.readInput();
-            gameEngine.keyHandler(key);
+            Command command = gameEngine.getNextCommand(key);
+            command.execute();
 
             if (key.getKeyType() == KeyType.EOF) {
                 screen.close();

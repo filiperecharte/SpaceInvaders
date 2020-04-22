@@ -17,19 +17,19 @@ public class Ship {
         this.position=position;
     }
 
-    public Position MoveUp() {
+    public Position moveUp() {
         return new Position(position.getX(), position.getY() - 1);
     }
 
-    public Position MoveDown(){
+    public Position moveDown(){
         return new Position(position.getX(), position.getY() + 1);
     }
 
-    public Position MoveRight(){
+    public Position moveRight(){
         return new Position(position.getX()+1, position.getY());
     }
 
-    public Position MoveLeft(){
+    public Position moveLeft(){
         return new Position(position.getX()-1, position.getY());
     }
 
