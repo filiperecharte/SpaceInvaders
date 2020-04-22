@@ -1,5 +1,5 @@
 package View;
 
-public class GameRenderer {
+public class GameRenderer{
 
 }
