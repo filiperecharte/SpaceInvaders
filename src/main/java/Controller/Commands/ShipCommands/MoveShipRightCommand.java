@@ -2,6 +2,7 @@ package Controller.Commands.ShipCommands;
 
 import Controller.Commands.Command;
 import Controller.NeighboursPosition;
+import Model.Arena;
 import Model.Position;
 
 public class MoveShipRightCommand extends Command {

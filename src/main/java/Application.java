@@ -1,10 +1,14 @@
-import Model.Position;
-import Model.Ship;
+import Controller.Game;
+import java.io.IOException;
 
 public class Application {
     public static void main(String[] args) {
-        Ship s = new Ship(new Position(0,0) );
-        System.out.println("Hello World!");
-        System.out.println(s.getDesign());
+        Game game = new Game();
+        try {
+            game.run();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

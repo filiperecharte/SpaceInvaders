@@ -17,22 +17,6 @@ public class Ship {
         this.position=position;
     }
 
-    public Position MoveUp() {
-        return new Position(position.getX(), position.getY() - 1);
-    }
-
-    public Position MoveDown(){
-        return new Position(position.getX(), position.getY() + 1);
-    }
-
-    public Position MoveRight(){
-        return new Position(position.getX()+1, position.getY());
-    }
-
-    public Position MoveLeft(){
-        return new Position(position.getX()-1, position.getY());
-    }
-
     public boolean getHeroStatus(){
         return isAlive;
     }
