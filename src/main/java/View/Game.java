@@ -1,6 +1,7 @@
-package Controller;
+package View;
 
 import Controller.Commands.Command;
+import Controller.GameEngine;
 import Model.Arena;
 import View.GameRenderer;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -47,12 +48,14 @@ public class Game {
     }
 
     public void run() throws IOException{
-        while (!arena.isFinished()) {
+        //while (!arena.isFinished()) {
+        while (!gameEngine.isFinished()) {
             update();
 
             KeyStroke key = screen.readInput();
-            Command command = gameEngine.getNextCommand(key);
-            command.execute();
+            //Command command = gameEngine.getNextCommand(key);
+            //command.execute();
+            gameEngine.executeNextCommand(key);
         }
         screen.close();
     }

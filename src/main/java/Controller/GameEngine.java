@@ -10,9 +10,15 @@ import com.googlecode.lanterna.input.KeyStroke;
 
 public class GameEngine {
     private Arena arena;
+    private boolean isFinished;
 
     public GameEngine(Arena arena) {
+        isFinished = false;
         this.arena=arena;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
     }
 
     public Command getNextCommand(KeyStroke key) {
@@ -33,5 +39,26 @@ public class GameEngine {
                 return new QuitCommand(arena);
         }
         return new DoNothingCommand();
+    }
+
+    public void executeNextCommand(KeyStroke key) {
+        switch (key.getKeyType()) {
+            case ArrowLeft:
+                (new MoveShipLeftCommand(arena)).execute();
+                break;
+
+            case ArrowRight:
+                (new MoveShipRightCommand(arena)).execute();
+                break;
+
+            case Character:
+
+                if (key.getCharacter() == ' ') {
+                    // ship shoot
+                }
+            case EOF:
+                isFinished = true;
+                break;
+        }
     }
 }

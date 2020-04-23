@@ -11,6 +11,6 @@ public class QuitCommand extends Command {
     }
 
     public void execute() {
-        arena.finish();
+        //arena.finish();
     }
 }

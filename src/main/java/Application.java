@@ -1,4 +1,4 @@
-import Controller.Game;
+import View.Game;
 import java.io.IOException;
 
 public class Application {

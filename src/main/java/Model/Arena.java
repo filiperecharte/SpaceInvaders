@@ -4,13 +4,13 @@ public class Arena {
     private int width;
     private int height;
     private Ship ship;
-    private boolean isFinished;
+    //private boolean isFinished;
 
     public Arena(int width, int height){
         this.height=height;
         this.width=width;
         this.ship= new Ship(new Position(30,22));
-        isFinished=false;
+        //isFinished=false;
     }
 
     public int getWidth() {
@@ -37,13 +37,13 @@ public class Arena {
         return this.ship;
     }
 
-    public boolean isFinished(){
+    /*public boolean isFinished(){
         return isFinished;
-    }
+    }*/
 
-    public void finish() {
+    /*public void finish() {
         this.isFinished = true;
-    }
+    }*/
 
     public Position getShipPosition() {
         return ship.getPosition();
