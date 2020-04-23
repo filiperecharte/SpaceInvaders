@@ -15,7 +15,7 @@ public class ArenaRenderer implements Renderer {
     }
 
     public void render(TextGraphics graphics) {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#92a8d1"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString(arena.getBackgroundColor()));
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(arena.getWidth(), arena.getHeight()), ' ');
         new ShipRenderer(arena.getShip()).render(graphics);
     }

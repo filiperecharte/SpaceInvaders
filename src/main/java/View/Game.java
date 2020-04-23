@@ -3,6 +3,7 @@ package View;
 import Controller.Commands.Command;
 import Controller.GameEngine;
 import Model.Arena;
+import Model.ArenaCreator;
 import View.GameRenderer;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -31,7 +32,7 @@ public class Game {
 
             this.graphics = screen.newTextGraphics();
 
-            this.arena = new Arena(100,100); //create arena and ship
+            this.arena = (new ArenaCreator()).createArena(100, 100, "#92a8d1");
 
             this.gameRenderer = new GameRenderer(arena,arena.getShip());
 

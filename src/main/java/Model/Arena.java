@@ -4,12 +4,15 @@ public class Arena {
     private int width;
     private int height;
     private Ship ship;
+    private String backgroundColor;
     //private boolean isFinished;
 
-    public Arena(int width, int height){
+    public Arena(int width, int height, String backgroundColor, Ship ship){
         this.height=height;
         this.width=width;
-        this.ship= new Ship(new Position(30,22));
+        this.backgroundColor = backgroundColor;
+        this.ship= ship;
+
         //isFinished=false;
     }
 
@@ -49,4 +52,11 @@ public class Arena {
         return ship.getPosition();
     }
 
+    public String getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
 }
