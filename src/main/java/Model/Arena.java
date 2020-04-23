@@ -12,7 +12,6 @@ public class Arena {
         this.width=width;
         this.backgroundColor = backgroundColor;
         this.ship= ship;
-
         //isFinished=false;
     }
 
