@@ -1,6 +1,8 @@
 package View;
 
 import Controller.Commands.Command;
+import Controller.Commands.ShipCommands.MoveShipLeftCommand;
+import Controller.Commands.ShipCommands.MoveShipRightCommand;
 import Controller.GameEngine;
 import Model.Arena;
 import Model.ArenaCreator;
@@ -14,14 +16,18 @@ import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
 
-public class Game {
+import static com.googlecode.lanterna.input.KeyType.ArrowLeft;
+
+public class GameView {
     private TextGraphics graphics;
     private Screen screen;
     private Arena arena;
     private GameRenderer gameRenderer;
     private GameEngine gameEngine;
+    public enum keysNames {NONE, LEFT, RIGHT, SPACE, CLOSE};
 
-    public Game() {
+    public GameView(Arena arena) {
+        this.arena = arena;
         try {
             Terminal terminal = new DefaultTerminalFactory().createTerminal();
             this.screen = new TerminalScreen(terminal);
@@ -32,32 +38,53 @@ public class Game {
 
             this.graphics = screen.newTextGraphics();
 
-            this.arena = (new ArenaCreator()).createArena(100, 100, "#92a8d1");
-
             this.gameRenderer = new GameRenderer(arena,arena.getShip());
-
-            this.gameEngine = new GameEngine(arena);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void update() throws IOException { //this should be on GameRenderer? Do we need a game renderer?
+    public void update() throws IOException { //this should be on GameRenderer? Do we need a game renderer?
         screen.clear();
         gameRenderer.render(graphics); //render all objects
         screen.refresh();
     }
 
-    public void run() throws IOException{
-        //while (!arena.isFinished()) {
+    public keysNames getInput() throws IOException {
+
+        KeyStroke key = screen.readInput();;
+
+        switch (key.getKeyType()) {
+            case ArrowLeft:
+                return keysNames.LEFT;
+
+            case ArrowRight:
+                return keysNames.RIGHT;
+
+            case Character:
+
+                if (key.getCharacter() == ' ') {
+                    return keysNames.SPACE;
+                }
+            case EOF:
+                return keysNames.CLOSE;
+
+            default:
+                return keysNames.NONE;
+        }
+    }
+
+    public void end() throws IOException {
+        screen.close();
+    }
+
+    /*public void run() throws IOException{
         while (!gameEngine.isFinished()) {
             update();
 
             KeyStroke key = screen.readInput();
-            //Command command = gameEngine.getNextCommand(key);
-            //command.execute();
             gameEngine.executeNextCommand(key);
         }
         screen.close();
-    }
+    }*/
 }

@@ -6,59 +6,52 @@ import Controller.Commands.ShipCommands.MoveShipLeftCommand;
 import Controller.Commands.ShipCommands.MoveShipRightCommand;
 import Controller.Commands.ShipCommands.QuitCommand;
 import Model.Arena;
+import View.GameView;
 import com.googlecode.lanterna.input.KeyStroke;
 
-public class GameEngine {
-    private Arena arena;
-    private boolean isFinished;
+import java.io.IOException;
 
-    public GameEngine(Arena arena) {
+public class GameEngine {
+    private boolean isFinished;
+    private GameView gameView;
+    private Arena arena;
+
+    public GameEngine(GameView gameView, Arena arena) {
         isFinished = false;
-        this.arena=arena;
+        this.gameView = gameView;
+        this.arena = arena;
     }
 
     public boolean isFinished() {
         return isFinished;
     }
 
-    public Command getNextCommand(KeyStroke key) {
-
-        switch (key.getKeyType()) {
-            case ArrowLeft:
-                return new MoveShipLeftCommand(arena);
-
-            case ArrowRight:
-                return new MoveShipRightCommand(arena);
-
-            case Character:
-
-                if (key.getCharacter() == ' ') {
-                    // ship shoot
-                }
-            case EOF:
-                return new QuitCommand(arena);
-        }
-        return new DoNothingCommand();
-    }
-
-    public void executeNextCommand(KeyStroke key) {
-        switch (key.getKeyType()) {
-            case ArrowLeft:
+    public void executeNextCommand() throws IOException{
+        GameView.keysNames key = gameView.getInput();
+        switch (key) {
+            case LEFT:
                 (new MoveShipLeftCommand(arena)).execute();
                 break;
 
-            case ArrowRight:
+            case RIGHT:
                 (new MoveShipRightCommand(arena)).execute();
                 break;
 
-            case Character:
+            case SPACE:
+                // ship shoot
+                break;
 
-                if (key.getCharacter() == ' ') {
-                    // ship shoot
-                }
-            case EOF:
+            case CLOSE:
                 isFinished = true;
                 break;
+        }
+    }
+
+    public void run() throws IOException {
+        while (!isFinished) {
+            gameView.update();
+
+            executeNextCommand();
         }
     }
 }

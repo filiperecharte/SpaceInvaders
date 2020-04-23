@@ -1,13 +1,18 @@
-import View.Game;
+import Controller.GameEngine;
+import Model.Arena;
+import Model.ArenaCreator;
+import View.GameView;
 import java.io.IOException;
 
 public class Application {
     public static void main(String[] args) {
-        Game game = new Game();
+        Arena arena = new ArenaCreator().createArena(100, 100, "#92a8d1");
+        GameView gameView = new GameView(arena);
+        GameEngine gameEngine = new GameEngine(gameView, arena);
         try {
-            game.run();
-        }
-        catch (IOException e) {
+            gameEngine.run();
+            gameView.end();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
