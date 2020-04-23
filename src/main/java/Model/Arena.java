@@ -9,7 +9,7 @@ public class Arena {
     public Arena(int width, int height){
         this.height=height;
         this.width=width;
-        this.ship= new Ship(new Position(30,22));
+        this.ship= new Ship(30,22);
         //isFinished=false;
     }
 

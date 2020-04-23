@@ -1,28 +1,14 @@
 package Model;
 
-public class Ship {
+public class Ship extends Element{
     private Position position;
     private boolean isAlive;
     private String design;
 
-    public Ship(Position position){
+    public Ship(int x, int y){
+        super(x,y);
         design="/-^-\\";
-        this.position=position;
         isAlive=true;
-    }
-
-    public Position getPosition(){ return position; }
-
-    public void setPosition(Position position){
-        this.position=position;
-    }
-
-    public boolean getHeroStatus(){
-        return isAlive;
-    }
-
-    public void setHeroStatus(boolean status){
-        isAlive = status;
     }
 
     public String getDesign() {return design;}
