@@ -17,11 +17,11 @@ public class NeighboursPosition {
     }
 
     public Position up() {
-        return new Position(position.getX(), position.getY() + range);
+        return new Position(position.getX(), position.getY() - range);
     }
 
     public Position down() {
-        return new Position(position.getX(), position.getY() - range);
+        return new Position(position.getX(), position.getY() + range);
     }
 
     public Position left() {
