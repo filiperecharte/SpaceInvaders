@@ -1,10 +1,19 @@
-import Model.Position;
-import Model.Ship;
+import Controller.GameEngine;
+import Model.Arena;
+import Model.ArenaCreator;
+import View.GameView;
+import java.io.IOException;
 
 public class Application {
     public static void main(String[] args) {
-        Ship s = new Ship(new Position(0,0) );
-        System.out.println("Hello World!");
-        System.out.println(s.getDesign());
+        Arena arena = new ArenaCreator().createArena(100, 100, "#92a8d1");
+        GameView gameView = new GameView(arena);
+        GameEngine gameEngine = new GameEngine(gameView, arena);
+        try {
+            gameEngine.run();
+            gameView.end();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

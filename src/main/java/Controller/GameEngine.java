@@ -1,25 +1,57 @@
 package Controller;
 
+import Controller.Commands.Command;
+import Controller.Commands.ShipCommands.DoNothingCommand;
+import Controller.Commands.ShipCommands.MoveShipLeftCommand;
+import Controller.Commands.ShipCommands.MoveShipRightCommand;
+import Controller.Commands.ShipCommands.QuitCommand;
+import Model.Arena;
+import View.GameView;
 import com.googlecode.lanterna.input.KeyStroke;
 
+import java.io.IOException;
+
 public class GameEngine {
+    private boolean isFinished;
+    private GameView gameView;
+    private Arena arena;
 
-    public void keyHandler(KeyStroke key) {
+    public GameEngine(GameView gameView, Arena arena) {
+        isFinished = false;
+        this.gameView = gameView;
+        this.arena = arena;
+    }
 
-        switch (key.getKeyType()) {
-            case ArrowLeft:
-                // move ship left
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void executeNextCommand() throws IOException{
+        GameView.keysNames key = gameView.getInput();
+        switch (key) {
+            case LEFT:
+                (new MoveShipLeftCommand(arena)).execute();
                 break;
 
-            case ArrowRight:
-                // move ship right
+            case RIGHT:
+                (new MoveShipRightCommand(arena)).execute();
                 break;
 
-            case Character:
+            case SPACE:
+                // ship shoot
+                break;
 
-                if (key.getCharacter() == ' ') {
-                    // ship shoot
-                }
+            case CLOSE:
+                isFinished = true;
+                break;
+        }
+    }
+
+    public void run() throws IOException {
+        while (!isFinished) {
+            gameView.update();
+
+            executeNextCommand();
         }
     }
 }
