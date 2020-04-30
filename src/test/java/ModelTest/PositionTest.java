@@ -1,6 +1,6 @@
 package ModelTest;
 
-import Model.Position;
+import Model.geometry.Position;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

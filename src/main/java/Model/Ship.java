@@ -1,5 +1,8 @@
 package Model;
 
+import Model.geometry.Position;
+import Model.geometry.Size;
+
 public class Ship extends Box {
     private boolean isAlive;
     private String design;

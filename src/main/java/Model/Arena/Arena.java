@@ -1,6 +1,6 @@
 package Model.Arena;
 
-import Model.Position;
+import Model.geometry.Position;
 import Model.Ship;
 
 public class Arena {

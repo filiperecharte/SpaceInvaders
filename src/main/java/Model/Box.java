@@ -1,5 +1,8 @@
 package Model;
 
+import Model.geometry.Position;
+import Model.geometry.Size;
+
 public class Box extends Element {
     protected Size size;
     public Box(Position position, Size size) {

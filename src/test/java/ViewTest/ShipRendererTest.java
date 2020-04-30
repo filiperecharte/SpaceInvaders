@@ -1,10 +1,9 @@
 package ViewTest;
 
-import Model.Position;
+import Model.geometry.Position;
 import Model.Ship;
 import View.ShipRenderer;
 import com.googlecode.lanterna.TextCharacter;
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import org.junit.Before;
 import org.junit.Test;

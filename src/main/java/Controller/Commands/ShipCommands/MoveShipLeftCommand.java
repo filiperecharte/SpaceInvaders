@@ -3,7 +3,7 @@ package Controller.Commands.ShipCommands;
 import Controller.Commands.Command;
 import Controller.NeighboursPosition;
 import Model.Arena.Arena;
-import Model.Position;
+import Model.geometry.Position;
 
 public class MoveShipLeftCommand extends Command {
     private Arena arena;

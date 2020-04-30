@@ -1,5 +1,7 @@
 package Model;
 
+import Model.geometry.Position;
+
 public class Element {
     protected Position position;
 

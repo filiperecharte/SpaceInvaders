@@ -1,4 +1,4 @@
-package Model;
+package Model.geometry;
 
 public class Size {
     protected int width;
