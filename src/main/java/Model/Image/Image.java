@@ -19,13 +19,21 @@ public class Image extends Box {
         matrix.add(pixel);
     }
 
-    public void removePixel(Position position) {
+    public int findPixelIndex(Position position) {
         for (int i = 0; i < matrix.size(); i++) {
             if (matrix.get(i).getPosition().equals(position)) {
-                matrix.remove(i);
-                break;
+                return i;
             }
         }
+        return -1;
+    }
+
+    public void removePixel(Position position) {
+        matrix.remove(findPixelIndex(position));
+    }
+
+    public void changePixelCharacter(Position position, char newChar) {
+        matrix.get(findPixelIndex(position)).setCharacter(newChar);
     }
 
     public int calculateMaxPixelX() {
