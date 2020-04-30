@@ -1,6 +1,6 @@
 package ModelTest;
 
-import Model.Arena;
+import Model.Arena.Arena;
 import Model.Position;
 import Model.Ship;
 import org.junit.Before;

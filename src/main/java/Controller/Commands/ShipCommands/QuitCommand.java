@@ -1,7 +1,7 @@
 package Controller.Commands.ShipCommands;
 
 import Controller.Commands.Command;
-import Model.Arena;
+import Model.Arena.Arena;
 
 public class QuitCommand extends Command {
     private final Arena arena;

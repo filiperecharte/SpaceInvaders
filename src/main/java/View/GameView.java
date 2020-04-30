@@ -1,12 +1,7 @@
 package View;
 
-import Controller.Commands.Command;
-import Controller.Commands.ShipCommands.MoveShipLeftCommand;
-import Controller.Commands.ShipCommands.MoveShipRightCommand;
 import Controller.GameEngine;
-import Model.Arena;
-import Model.ArenaCreator;
-import View.GameRenderer;
+import Model.Arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
@@ -15,8 +10,6 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
-
-import static com.googlecode.lanterna.input.KeyType.ArrowLeft;
 
 public class GameView {
     private TextGraphics graphics;
