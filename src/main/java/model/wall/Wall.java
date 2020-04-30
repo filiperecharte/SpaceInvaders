@@ -4,6 +4,7 @@ import model.Box;
 import model.Fragment;
 import model.geometry.Position;
 import model.geometry.Size;
+import model.image.Image;
 
 import java.util.ArrayList;
 import java.util.List;

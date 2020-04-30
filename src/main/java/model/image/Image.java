@@ -15,6 +15,10 @@ public class Image extends Box {
         matrix = new ArrayList<>();
     }
 
+    public ArrayList<Pixel> getMatrix(){
+        return matrix;
+    }
+
     public void addPixel(Pixel pixel) {
         matrix.add(pixel);
     }
@@ -53,7 +57,7 @@ public class Image extends Box {
 
         for (Pixel pixel : matrix) {
             if (pixel.getPosition().getY() > maxY) {
-                maxY = pixel.getPosition().getX();
+                maxY = pixel.getPosition().getY();
             }
         }
 

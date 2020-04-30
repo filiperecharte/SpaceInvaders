@@ -4,7 +4,7 @@ import model.arena.Arena;
 import model.Ship;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class GameRenderer{
+public class GameRenderer implements Renderer{
     private Arena arena;
     private Ship ship;
 
