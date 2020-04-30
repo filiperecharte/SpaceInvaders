@@ -1,12 +1,11 @@
 package Model;
 
-public class Ship extends Element{
-    private Position position;
+public class Ship extends Box {
     private boolean isAlive;
     private String design;
 
-    public Ship(int x, int y){
-        super(x,y);
+    public Ship(Position position, Size size){
+        super(position, size);
         design="/-^-\\";
         isAlive=true;
     }

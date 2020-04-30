@@ -1,11 +1,11 @@
 package Model;
 
-public class Enemy extends Element{
+public class Enemy extends Box {
     private Position position;
     private boolean isAlive;
 
-    public Enemy(int x, int y){
-        super(x,y);
+    public Enemy(Position position, Size size) {
+        super(position, size);
         isAlive=true;
     }
 

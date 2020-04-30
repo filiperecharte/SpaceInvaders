@@ -25,4 +25,12 @@ public class Position {
         this.y = y;
     }
 
+    public Position add(Position otherPosition) {
+        return new Position(x + otherPosition.getX(), y + otherPosition.getY());
+    }
+
+    public Position sub(Position otherPosition) {
+        return new Position(x - otherPosition.getX(), y - otherPosition.getY());
+    }
+
 }
