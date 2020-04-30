@@ -33,4 +33,8 @@ public class Position {
         return new Position(x - otherPosition.getX(), y - otherPosition.getY());
     }
 
+    public boolean equals(Position otherPosition) {
+        return (x == otherPosition.getX()) && (y == otherPosition.getY());
+    }
+
 }
