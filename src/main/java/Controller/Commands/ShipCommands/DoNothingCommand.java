@@ -1,6 +1,6 @@
-package Controller.Commands.ShipCommands;
+package controller.commands.shipcommands;
 
-import Controller.Commands.Command;
+import controller.commands.Command;
 
 public class DoNothingCommand extends Command {
 

@@ -1,9 +1,9 @@
-package Controller;
+package controller;
 
-import Controller.Commands.ShipCommands.MoveShipLeftCommand;
-import Controller.Commands.ShipCommands.MoveShipRightCommand;
-import Model.Arena.Arena;
-import View.GameView;
+import controller.commands.shipcommands.MoveShipLeftCommand;
+import controller.commands.shipcommands.MoveShipRightCommand;
+import model.arena.Arena;
+import view.GameView;
 
 import java.io.IOException;
 

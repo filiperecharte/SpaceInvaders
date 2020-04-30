@@ -1,9 +1,9 @@
-package Controller.Commands.ShipCommands;
+package controller.commands.shipcommands;
 
-import Controller.Commands.Command;
-import Controller.NeighboursPosition;
-import Model.Arena.Arena;
-import Model.geometry.Position;
+import controller.commands.Command;
+import controller.NeighboursPosition;
+import model.arena.Arena;
+import model.geometry.Position;
 
 public class MoveShipLeftCommand extends Command {
     private Arena arena;

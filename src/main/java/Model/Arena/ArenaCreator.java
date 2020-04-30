@@ -1,8 +1,8 @@
-package Model.Arena;
+package model.arena;
 
-import Model.geometry.Position;
-import Model.Ship;
-import Model.geometry.Size;
+import model.geometry.Position;
+import model.Ship;
+import model.geometry.Size;
 
 public class ArenaCreator {
 

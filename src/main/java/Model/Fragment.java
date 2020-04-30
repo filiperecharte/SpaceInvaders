@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class Fragment extends Box{
     private char design ='#';

@@ -1,7 +1,7 @@
-package Controller.Commands.ShipCommands;
+package controller.commands.shipcommands;
 
-import Controller.Commands.Command;
-import Model.Arena.Arena;
+import controller.commands.Command;
+import model.arena.Arena;
 
 public class QuitCommand extends Command {
     private final Arena arena;

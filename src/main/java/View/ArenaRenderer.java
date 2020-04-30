@@ -1,6 +1,6 @@
-package View;
+package view;
 
-import Model.Arena.Arena;
+import model.arena.Arena;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;

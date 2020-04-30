@@ -1,8 +1,8 @@
-package Model.Image;
+package model.image;
 
-import Model.Box;
-import Model.geometry.Position;
-import Model.geometry.Size;
+import model.Box;
+import model.geometry.Position;
+import model.geometry.Size;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Model.Arena.Arena;
-import Model.Ship;
+import model.arena.Arena;
+import model.Ship;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class GameRenderer{

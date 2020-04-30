@@ -1,7 +1,7 @@
-package ControllerTest;
+package controllertest;
 
-import Controller.NeighboursPosition;
-import Model.geometry.Position;
+import controller.NeighboursPosition;
+import model.geometry.Position;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

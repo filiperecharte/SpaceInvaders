@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Controller.GameEngine;
-import Model.Arena.Arena;
+import controller.GameEngine;
+import model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;

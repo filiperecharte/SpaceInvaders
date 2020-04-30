@@ -1,7 +1,7 @@
-package ViewTest;
+package viewtest;
 
-import Model.Arena.Arena;
-import View.ArenaRenderer;
+import model.arena.Arena;
+import view.ArenaRenderer;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.screen.TerminalScreen;

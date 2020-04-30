@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 

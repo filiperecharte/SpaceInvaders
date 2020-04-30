@@ -1,8 +1,8 @@
-package ViewTest;
+package viewtest;
 
-import Model.geometry.Position;
-import Model.Ship;
-import View.ShipRenderer;
+import model.geometry.Position;
+import model.Ship;
+import view.ShipRenderer;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import org.junit.Before;

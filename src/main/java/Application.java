@@ -1,7 +1,7 @@
-import Controller.GameEngine;
-import Model.Arena.Arena;
-import Model.Arena.ArenaCreator;
-import View.GameView;
+import controller.GameEngine;
+import model.arena.Arena;
+import model.arena.ArenaCreator;
+import view.GameView;
 import java.io.IOException;
 
 public class Application {
