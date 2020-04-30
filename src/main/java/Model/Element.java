@@ -1,6 +1,6 @@
-package Model;
+package model;
 
-import Model.geometry.Position;
+import model.geometry.Position;
 
 public class Element {
     protected Position position;

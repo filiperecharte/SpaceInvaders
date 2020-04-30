@@ -1,6 +1,6 @@
-package Controller;
+package controller;
 
-import Model.geometry.Position;
+import model.geometry.Position;
 
 public class NeighboursPosition {
     private Position position;

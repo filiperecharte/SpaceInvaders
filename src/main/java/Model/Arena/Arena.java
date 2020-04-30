@@ -1,7 +1,7 @@
-package Model.Arena;
+package model.arena;
 
-import Model.geometry.Position;
-import Model.Ship;
+import model.geometry.Position;
+import model.Ship;
 
 public class Arena {
     private int width;

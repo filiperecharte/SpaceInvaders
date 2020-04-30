@@ -1,8 +1,8 @@
-package ModelTest;
+package modeltest;
 
-import Model.Arena.Arena;
-import Model.geometry.Position;
-import Model.Ship;
+import model.arena.Arena;
+import model.geometry.Position;
+import model.Ship;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

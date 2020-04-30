@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class DefaultWallCreator implements WallCreator {
     Wall wall = new Wall(new Position(10,10),new Size(5,5));
