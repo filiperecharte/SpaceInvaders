@@ -7,7 +7,6 @@ import Controller.Commands.ShipCommands.MoveShipRightCommand;
 import Controller.Commands.ShipCommands.QuitCommand;
 import Model.Arena;
 import View.GameView;
-import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
 

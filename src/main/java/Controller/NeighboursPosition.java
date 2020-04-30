@@ -4,31 +4,31 @@ import Model.Position;
 
 public class NeighboursPosition {
     private Position position;
-    private int distance;
+    private int range;
 
     public NeighboursPosition(Position position) {
         this.position = position;
-        this.distance = 1;
+        this.range = 1;
     }
 
-    public NeighboursPosition(Position position, int distance) {
+    public NeighboursPosition(Position position, int range) {
         this.position = position;
-        this.distance = distance;
+        this.range = range;
     }
 
     public Position up() {
-        return new Position(position.getX(), position.getY() + distance);
+        return new Position(position.getX(), position.getY() - range);
     }
 
     public Position down() {
-        return new Position(position.getX(), position.getY() - distance);
+        return new Position(position.getX(), position.getY() + range);
     }
 
     public Position left() {
-        return new Position(position.getX() - distance, position.getY());
+        return new Position(position.getX() - range, position.getY());
     }
 
     public Position right() {
-        return new Position(position.getX() + distance, position.getY());
+        return new Position(position.getX() + range, position.getY());
     }
 }
