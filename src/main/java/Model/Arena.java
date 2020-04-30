@@ -23,7 +23,7 @@ public class Arena {
         return height;
     }
 
-    private boolean canMove(Position position) {
+    public boolean canMove(Position position) {
         if (position.getX() < 0 || position.getX() >= width) return false;
         if (position.getY() < 0 || position.getY() >= height) return false;
 
