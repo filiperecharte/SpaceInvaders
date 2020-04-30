@@ -1,5 +1,6 @@
-package model;
+package model.wall;
 
+import model.Fragment;
 import model.geometry.Position;
 import model.geometry.Size;
 

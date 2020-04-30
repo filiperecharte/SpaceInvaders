@@ -1,7 +1,6 @@
 package controller.commands.shipcommands;
 
 import controller.commands.Command;
-import controller.NeighboursPosition;
 import model.arena.Arena;
 import model.geometry.Position;
 import model.geometry.Translaction;

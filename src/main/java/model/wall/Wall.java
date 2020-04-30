@@ -1,12 +1,14 @@
-package model;
+package model.wall;
 
+import model.Box;
+import model.Fragment;
 import model.geometry.Position;
 import model.geometry.Size;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Wall extends Box{
+public class Wall extends Box {
     private Size size;
     private List<Fragment> fragments = new ArrayList<Fragment>();
 
