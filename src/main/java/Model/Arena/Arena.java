@@ -1,4 +1,7 @@
-package Model;
+package Model.Arena;
+
+import Model.Position;
+import Model.Ship;
 
 public class Arena {
     private int width;

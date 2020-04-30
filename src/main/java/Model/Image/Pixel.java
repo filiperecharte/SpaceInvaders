@@ -1,4 +1,7 @@
-package Model;
+package Model.Image;
+
+import Model.Element;
+import Model.Position;
 
 public class Pixel extends Element {
     char c;

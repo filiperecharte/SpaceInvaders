@@ -1,6 +1,6 @@
 package ViewTest;
 
-import Model.Arena;
+import Model.Arena.Arena;
 import View.ArenaRenderer;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;

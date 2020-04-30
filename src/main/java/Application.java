@@ -1,6 +1,6 @@
 import Controller.GameEngine;
-import Model.Arena;
-import Model.ArenaCreator;
+import Model.Arena.Arena;
+import Model.Arena.ArenaCreator;
 import View.GameView;
 import java.io.IOException;
 

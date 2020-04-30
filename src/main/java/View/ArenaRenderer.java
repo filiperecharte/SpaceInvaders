@@ -1,11 +1,10 @@
 package View;
 
-import Model.Arena;
+import Model.Arena.Arena;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import org.w3c.dom.ls.LSResourceResolver;
 
 public class ArenaRenderer implements Renderer {
     private Arena arena;

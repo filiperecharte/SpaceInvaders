@@ -1,4 +1,8 @@
-package Model;
+package Model.Image;
+
+import Model.Box;
+import Model.Position;
+import Model.Size;
 
 import java.util.ArrayList;
 
