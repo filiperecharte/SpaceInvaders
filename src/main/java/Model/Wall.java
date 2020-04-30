@@ -1,5 +1,8 @@
 package model;
 
+import model.geometry.Position;
+import model.geometry.Size;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +22,7 @@ public class Wall extends Box{
         for(int i=0;i<fragments.size();i++){
             if(fragments.get(i).getPosition()==fragment.getPosition()){
                 fragments.remove(i);
+                break;
             }
         }
     }

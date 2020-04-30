@@ -1,5 +1,8 @@
 package model;
 
+import model.geometry.Position;
+import model.geometry.Size;
+
 public class DefaultWallCreator implements WallCreator {
     Wall wall = new Wall(new Position(10,10),new Size(5,5));
 

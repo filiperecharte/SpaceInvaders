@@ -4,6 +4,8 @@ import controller.commands.Command;
 import controller.NeighboursPosition;
 import model.arena.Arena;
 import model.geometry.Position;
+import model.geometry.Translaction;
+import model.geometry.Vector;
 
 public class MoveShipRightCommand extends Command {
     private Arena arena;
@@ -14,9 +16,9 @@ public class MoveShipRightCommand extends Command {
 
     public void execute() {
 
-        // move ship 1 unit left
+        // move ship 1 unit right
         Position shipPosition = arena.getShipPosition();
-        NeighboursPosition neighboursPosition = new NeighboursPosition(shipPosition);
-        arena.moveShipTo(neighboursPosition.right());
+        Translaction translaction = new Translaction(shipPosition, new Vector(1, 0));
+        arena.moveShipTo(translaction.apply());
     }
 }
