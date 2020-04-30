@@ -24,9 +24,32 @@ public class Image extends Box {
         }
     }
 
-    public void updateSize() {
+    public int calculateMaxPixelX() {
+        int maxX = Integer.MIN_VALUE;
 
+        for (Pixel pixel : matrix) {
+            if (pixel.getPosition().getX() > maxX) {
+                maxX = pixel.getPosition().getX();
+            }
+        }
+
+        return maxX;
     }
 
+    public int calculateMaxPixelY() {
+        int maxY = Integer.MIN_VALUE;
 
+        for (Pixel pixel : matrix) {
+            if (pixel.getPosition().getY() > maxY) {
+                maxY = pixel.getPosition().getX();
+            }
+        }
+
+        return maxY;
+    }
+
+    public void updateSize() {
+        this.size.setWidth(calculateMaxPixelX());
+        this.size.setHeight(calculateMaxPixelY());
+    }
 }

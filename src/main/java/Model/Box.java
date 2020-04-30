@@ -1,7 +1,7 @@
 package Model;
 
 public class Box extends Element {
-    private Size size;
+    protected Size size;
     public Box(Position position, Size size) {
         super(position);
         this.size = size;
