@@ -12,10 +12,12 @@ public class Image extends Box {
 
     private ArrayList<Pixel> pixels;
     private String color;
+    private boolean bold;
 
-    public Image(String color) {
+    public Image() {
         super(new Position(0, 0), new Size(0, 0));
-        this.color = color;
+        this.color = "#000000";
+        this.bold = false;
         this.pixels = new ArrayList<>();
     }
 
@@ -25,6 +27,14 @@ public class Image extends Box {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public boolean isBold() {
+        return this.bold;
+    }
+
+    public void setBold(boolean newBold) {
+        this.bold = newBold;
     }
 
     public ArrayList<Pixel> getPixels(){

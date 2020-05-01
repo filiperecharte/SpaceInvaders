@@ -1,5 +1,6 @@
 package view;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import model.image.Image;
@@ -21,6 +22,9 @@ public class ImageRenderer implements Renderer {
     @Override
     public void render(TextGraphics graphics) {
         graphics.setForegroundColor(TextColor.Factory.fromString(image.getColor()));
+        if (image.isBold()) {
+            graphics.enableModifiers(SGR.BOLD);
+        }
         renderPixels(graphics);
     }
 }
