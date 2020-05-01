@@ -8,24 +8,34 @@ import java.util.ArrayList;
 
 public class Image extends Box {
 
-    private ArrayList<Pixel> matrix;
+    private ArrayList<Pixel> pixels;
+    private String color;
 
-    public Image() {
+    public Image(String color) {
         super(new Position(0, 0), new Size(0, 0));
-        matrix = new ArrayList<>();
+        this.color = color;
+        this.pixels = new ArrayList<>();
     }
 
-    public ArrayList<Pixel> getMatrix(){
-        return matrix;
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public ArrayList<Pixel> getPixels(){
+        return pixels;
     }
 
     public void addPixel(Pixel pixel) {
-        matrix.add(pixel);
+        pixels.add(pixel);
     }
 
     public int findPixelIndex(Position position) {
-        for (int i = 0; i < matrix.size(); i++) {
-            if (matrix.get(i).getPosition().equals(position)) {
+        for (int i = 0; i < pixels.size(); i++) {
+            if (pixels.get(i).getPosition().equals(position)) {
                 return i;
             }
         }
@@ -33,17 +43,17 @@ public class Image extends Box {
     }
 
     public void removePixel(Position position) {
-        matrix.remove(findPixelIndex(position));
+        pixels.remove(findPixelIndex(position));
     }
 
     public void changePixelCharacter(Position position, char newChar) {
-        matrix.get(findPixelIndex(position)).setCharacter(newChar);
+        pixels.get(findPixelIndex(position)).setCharacter(newChar);
     }
 
     public int calculateMaxPixelX() {
         int maxX = Integer.MIN_VALUE;
 
-        for (Pixel pixel : matrix) {
+        for (Pixel pixel : pixels) {
             if (pixel.getPosition().getX() > maxX) {
                 maxX = pixel.getPosition().getX();
             }
@@ -55,7 +65,7 @@ public class Image extends Box {
     public int calculateMaxPixelY() {
         int maxY = Integer.MIN_VALUE;
 
-        for (Pixel pixel : matrix) {
+        for (Pixel pixel : pixels) {
             if (pixel.getPosition().getY() > maxY) {
                 maxY = pixel.getPosition().getY();
             }
