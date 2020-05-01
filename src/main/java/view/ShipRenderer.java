@@ -14,8 +14,10 @@ public class ShipRenderer implements Renderer {
     }
 
     public void render(TextGraphics graphics) {
-        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
-        graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(ship.getPosition().getX(), ship.getPosition().getY()), ship.getDesign());
+        //graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
+        //graphics.enableModifiers(SGR.BOLD);
+        //graphics.putString(new TerminalPosition(ship.getPosition().getX(), ship.getPosition().getY()), ship.getDesign());
+
+        new ImageRenderer(ship.getImage()).render(graphics);
     }
 }

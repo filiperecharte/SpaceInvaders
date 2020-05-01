@@ -35,6 +35,7 @@ public class Arena {
 
     public void moveShipTo(Position position) {
         ship.setPosition(position);
+        ship.update();
 
     }
 

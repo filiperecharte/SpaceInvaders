@@ -3,6 +3,8 @@ package model.image;
 import model.Box;
 import model.geometry.Position;
 import model.geometry.Size;
+import model.geometry.Translaction;
+import model.geometry.Vector;
 
 import java.util.ArrayList;
 
@@ -77,5 +79,27 @@ public class Image extends Box {
     public void updateSize() {
         this.size.setWidth(calculateMaxPixelX());
         this.size.setHeight(calculateMaxPixelY());
+    }
+
+    /*public void move() {
+
+        Vector v = new Vector()
+        for (Pixel pixel : pixels) {
+            Translaction translaction = new Translaction()
+            pixel.
+        }
+    }*/
+
+    @Override
+    public void setPosition(Position position) {
+
+        Vector v = new Vector(this.position, position);
+
+        for (Pixel pixel : pixels) {
+            Translaction translaction = new Translaction(pixel.getPosition(), v);
+            pixel.setPosition(translaction.apply());
+        }
+
+        super.setPosition(position);
     }
 }

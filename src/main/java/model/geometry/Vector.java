@@ -8,6 +8,12 @@ public class Vector {
         this.y = y;
     }
 
+    public Vector(Position origin, Position dest) {
+        Position subPosition = dest.sub(origin);
+        this.x = subPosition.getX();
+        this.y = subPosition.getY();
+    }
+
     public int getX() {
         return x;
     }
