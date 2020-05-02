@@ -30,7 +30,6 @@ public class MoveShipLeftCommandTest {
 
         assertEquals(9, mockArena.getShipPosition().getX());
         assertEquals(20, mockArena.getShipPosition().getY());
-
     }
 
 }

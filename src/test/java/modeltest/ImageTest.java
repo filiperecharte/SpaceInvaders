@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 public class ImageTest {
@@ -28,12 +29,24 @@ public class ImageTest {
     }
 
     @Test
+    public void imageColorTest() {
+        image.setColor("#00FFFF");
+        assertEquals("00FFFF", image.getColor());
+    }
+
+    @Test
+    public void imageBoldTest() {
+        image.setBold(true);
+        assertTrue(image.isBold());
+    }
+
+    @Test
     public void addPixelTest() {
 
-        assertEquals(5,image.getMatrix().size());
-        assertEquals('#',image.getMatrix().get(0).getCharacter());
-        assertEquals('p',image.getMatrix().get(1).getCharacter());
-        assertEquals('y',image.getMatrix().get(4).getCharacter());
+        assertEquals(5,image.getPixels().size());
+        assertEquals('#',image.getPixels().get(0).getCharacter());
+        assertEquals('p',image.getPixels().get(1).getCharacter());
+        assertEquals('y',image.getPixels().get(4).getCharacter());
     }
 
     @Test
@@ -50,7 +63,7 @@ public class ImageTest {
 
         image.removePixel(new Position(23,48));
 
-        assertEquals(4,image.getMatrix().size());
+        assertEquals(4,image.getPixels().size());
         assertEquals(-1,image.findPixelIndex(new Position(23,48))); //nao sei se podemos usar funcoes da classe
 
     }
@@ -59,7 +72,7 @@ public class ImageTest {
     public void changePixelCharacterTest() {
 
         image.changePixelCharacter(new Position(23,48),'U');
-        assertEquals('U',image.getMatrix().get(image.findPixelIndex(new Position(23,48))).getCharacter());
+        assertEquals('U',image.getPixels().get(image.findPixelIndex(new Position(23,48))).getCharacter());
 
     }
 
@@ -88,5 +101,30 @@ public class ImageTest {
         assertEquals(34,image.getSize().getWidth());
         assertEquals(48,image.getSize().getHeight());
 
+    }
+
+    @Test
+    public void setPositionTest() {
+        Position setPosition = new Position(10, 20);
+
+        image.setPosition(setPosition);
+
+        assertEquals(15, image.getPixels().get(0).getPosition().getX());
+        assertEquals(25, image.getPixels().get(0).getPosition().getY());
+
+        assertEquals(16, image.getPixels().get(1).getPosition().getX());
+        assertEquals(39, image.getPixels().get(1).getPosition().getY());
+
+        assertEquals(13, image.getPixels().get(2).getPosition().getX());
+        assertEquals(65, image.getPixels().get(2).getPosition().getY());
+
+        assertEquals(33, image.getPixels().get(3).getPosition().getX());
+        assertEquals(68, image.getPixels().get(3).getPosition().getY());
+
+        assertEquals(44, image.getPixels().get(4).getPosition().getX());
+        assertEquals(32, image.getPixels().get(4).getPosition().getY());
+
+        assertEquals(10, image.getPosition().getX());
+        assertEquals(20, image.getPosition().getY());
     }
 }

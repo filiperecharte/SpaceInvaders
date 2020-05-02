@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 public class ShipRendererTest {
-    TerminalScreen screen;
+    /*TerminalScreen screen;
 
     @Before
     public void setUp() {
@@ -29,5 +29,5 @@ public class ShipRendererTest {
 
         // Verify
         Mockito.verify(screen, Mockito.times(1)).setCharacter(10, 10, new TextCharacter('/'));
-    }
+    }*/
 }
