@@ -32,11 +32,11 @@ We decided to use the **Command pattern** because it makes our code cleaner and 
 **Imlementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
-  <img width="594" height="326" src="https://i.imgur.com/jyrxTTh.png">
+  <img width="594" height="326" src="https://i.imgur.com/GJUjPLT.png">
 </p>
 
-   These classes can be found in the following files:
-* [Application](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/Application.java)</br>
+These classes can be found in the following files:
+* [GameView](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/GameView.java)</br>
 * [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/arena/Arena.java)</br>
 * [GameEngine](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameEngine.java)</br>
 * [Command](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/commands/Command.java)</br>
@@ -46,6 +46,10 @@ The following figure shows how the pattern’s roles were mapped to the game cla
 **Consequences**</br> 
 This Design Pattern decoupled our invoker from each specific command, because the invoker does not need to know anything about what the command does. All of that is now encapsulated on each command. **Our GameEngine does not know anything about moving the ship.**</br>
 
+### The data to perform a command should be encapsulated
 
 
 ## Code smells and Refactoring suggestions
+
+## Testing
+
