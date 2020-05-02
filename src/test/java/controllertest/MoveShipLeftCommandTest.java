@@ -18,8 +18,6 @@ public class MoveShipLeftCommandTest {
     public void setUp() {
         mockArena = Mockito.mock(Arena.class);
         when(mockArena.getShipPosition()).thenReturn(new Position(10,20));
-
-        mockArena= new Arena(10,15,"FFFFFF",new Ship(new Position(10,20),new Size(4,1)));
     }
 
     @Test

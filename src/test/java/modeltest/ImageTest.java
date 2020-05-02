@@ -31,7 +31,7 @@ public class ImageTest {
     @Test
     public void imageColorTest() {
         image.setColor("#00FFFF");
-        assertEquals("00FFFF", image.getColor());
+        assertEquals("#00FFFF", image.getColor());
     }
 
     @Test
