@@ -4,7 +4,7 @@ plugins {
     id 'info.solidsoft.pitest' version '1.4.6'
 }
 
-group 'org.example'
+group 'com.spaceinvaders'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
