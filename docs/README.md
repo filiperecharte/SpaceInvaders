@@ -23,20 +23,28 @@ The enemies can also fire at the ship and have different strengths.</br>
 
 ## Design
 ### The data to perform a command should be encapsulated
-* **Problem in context**</br>
-We needed to implement the commands in a way that would allow us to easily add new commands to the game, and update them without changing the existing code. Also avoid the code that performs the given action to be spread in our code.</br></br>
+**Problem in context**</br>
+We needed to implement the commands in a way that would allow us to easily add new commands to the game, and update them without changing the existing code, and avoid the code that performs the given action to be spread.</br></br>
 
-* **The Pattern**</br>
+**The Pattern**</br>
 We decided to use the **Command pattern** because it makes our code cleaner and help us developing the game, allowing us to add new commands to it, manipulate them whenever we want, and change their inner details of how to perform without changing the calling of the command. </br></br>
 
-* **Imlementation**</br>
+**Imlementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
   <img width="594" height="326" src="https://i.imgur.com/jyrxTTh.png">
 </p>
 
-* **Consequences**</br> 
-This Design Pattern decoupled our invoker from each specific command, because the invoker does not need to know anything about what the command does. All of that is now encapsulated in each command. **Our GameEngine does not know anything about moving the ship.**</br>
+   These classes can be found in the following files:
+* [Application](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/Application.java)</br>
+* [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/arena/Arena.java)</br>
+* [GameEngine](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameEngine.java)</br>
+* [Command](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/commands/Command.java)</br>
+* [MoveShipLeftCommand](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/commands/shipcommands/MoveShipLeftCommand.java)</br>
+* [MoveShipRightCommand](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/commands/shipcommands/MoveShipRightCommand.java)</br>
+
+**Consequences**</br> 
+This Design Pattern decoupled our invoker from each specific command, because the invoker does not need to know anything about what the command does. All of that is now encapsulated on each command. **Our GameEngine does not know anything about moving the ship.**</br>
 
 
 
