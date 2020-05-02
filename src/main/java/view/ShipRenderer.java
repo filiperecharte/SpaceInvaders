@@ -1,9 +1,6 @@
 package view;
 
 import model.Ship;
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class ShipRenderer implements Renderer {
@@ -14,10 +11,6 @@ public class ShipRenderer implements Renderer {
     }
 
     public void render(TextGraphics graphics) {
-        //graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
-        //graphics.enableModifiers(SGR.BOLD);
-        //graphics.putString(new TerminalPosition(ship.getPosition().getX(), ship.getPosition().getY()), ship.getDesign());
-
         new ImageRenderer(ship.getImage()).render(graphics);
     }
 }

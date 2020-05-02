@@ -8,14 +8,12 @@ public class Arena {
     private int height;
     private Ship ship;
     private String backgroundColor;
-    //private boolean isFinished;
 
     public Arena(int width, int height, String backgroundColor, Ship ship){
         this.height=height;
         this.width=width;
         this.backgroundColor = backgroundColor;
         this.ship= ship;
-        //isFinished=false;
     }
 
     public int getWidth() {
@@ -42,14 +40,6 @@ public class Arena {
     public Ship getShip(){
         return this.ship;
     }
-
-    /*public boolean isFinished(){
-        return isFinished;
-    }*/
-
-    /*public void finish() {
-        this.isFinished = true;
-    }*/
 
     public Position getShipPosition() {
         return ship.getPosition();

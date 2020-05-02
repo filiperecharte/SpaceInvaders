@@ -91,15 +91,6 @@ public class Image extends Box {
         this.size.setHeight(calculateMaxPixelY());
     }
 
-    /*public void move() {
-
-        Vector v = new Vector()
-        for (Pixel pixel : pixels) {
-            Translaction translaction = new Translaction()
-            pixel.
-        }
-    }*/
-
     @Override
     public void setPosition(Position position) {
 

@@ -16,7 +16,6 @@ public class GameView {
     private Screen screen;
     private Arena arena;
     private GameRenderer gameRenderer;
-    private GameEngine gameEngine;
     public enum keysNames {NONE, LEFT, RIGHT, SPACE, CLOSE};
 
     public GameView(Arena arena) {
@@ -70,14 +69,4 @@ public class GameView {
     public void end() throws IOException {
         screen.close();
     }
-
-    /*public void run() throws IOException{
-        while (!gameEngine.isFinished()) {
-            update();
-
-            KeyStroke key = screen.readInput();
-            gameEngine.executeNextCommand(key);
-        }
-        screen.close();
-    }*/
 }
