@@ -70,6 +70,29 @@ We do not have to create different classes for different wall types. We can have
 
 ## Code smells and Refactoring suggestions
 
+### Long Parameter List
+
+The [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/arena/Arena.java) class is receiving too much parameters (4) unnecessarily: there are three related parameters. Too much parameters are bad for code readability and organization.</br>
+</br>
+A way to improve the code is to join the *weight* and *height* parameters in one object, and the *backgroundColor* on another. Those classes are already implemented but by the time of this report they are not connected to the arena class, only to the [Ship](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Ship.java) one. **We will get to them at the end of this topic.**</br>
+
+### Feature Envy
+
+The [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/arena/Arena.java) class has many methods accessing to a lot of data from the ship. The problem with this situation, is because it breaks encapsulation.</br>
+</br>
+An alternative way that we think might help is to separate the arena from the ship and join them in a class that contains all of the information and objects of the game, so that the arena would be independent from the ship and other elements that we might create in the future.
+
+**Notes**</br>
+We have some **Speculative Generality** code smells in our code because there are objects in our game that are not used yet but we are sure that they will be update and used in the future since they are essential for our game to be playable: the [Wall](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/wall/Wall.java) class, the [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Enemy.java) class and every class related to them like creators and renderers.
+
+---
+
+We implemented a [Box](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Box.java) class that extends the [Element](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Element.java) class to save the size of everything we have in our game. Then, an [Image](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Image.java) class saves a matrix of [Pixels](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Pixel.java), each Pixel contains the position and the character for that position.</br>
+**Summing up:** Our Image is owned by every drawable object, when we draw an object we are drawing their image. This is already implemented to the Ship. We start by [Creating the ship](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/ShipCreator.java), and then the [ShipRender](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/ShipRenderer.java) will return their image using the [ImageRenderer](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/ImageRenderer.java).</br>
+This help us avoiding some code smells making our code more organized, and give us flexibility to draw diferent variations of objects in the future.
+
+---
+
 ### Image
 In this class we can identify two code smells: **Large class** and **Duplicate code**.
 
