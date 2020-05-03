@@ -1,5 +1,3 @@
-package com.spaceinvaders;
-
 import com.spaceinvaders.controller.GameEngine;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.arena.ArenaCreator;
