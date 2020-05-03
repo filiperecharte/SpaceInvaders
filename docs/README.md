@@ -49,6 +49,16 @@ This Design Pattern decoupled our invoker from each specific command, because th
 ### The data to perform a command should be encapsulated
 
 
+### Different factories should create objects of different types
+**Problem in context**</br>
+We have to make different objects of the same type. For example, we have an object Wall and we need to create walls with different designs. Also, we have an object enemy and other object ship, and we would like to have those objects with different designs and behavors. It would be useful if we have diferent factories in order to create those objects in different ways.</br></br>
+
+**The Pattern**</br>
+We will use a variation of the **Factory Method** where we have multiple factories creating the same object with different desings and behaviors. It makes the creation of those objects easier and more organized. For example, if we want to add a wall with a different design, we just need to create one factory class for the object.</br></br>
+
+**Imlementation**</br>
+
+
 ## Code smells and Refactoring suggestions
 
 ## Testing
