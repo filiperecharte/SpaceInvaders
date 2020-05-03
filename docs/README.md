@@ -93,14 +93,14 @@ This help us avoiding some code smells making our code more organized, and give 
 
 ---
 
-### Image
-In this class we can identify two code smells: **Large class** and **Duplicate code**.
+### Large class and Duplicate code
+In the [Image](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Image.java) class we can identify two code smells: **Large class** and **Duplicate code**.
 
-The problem with the **Large class** is the large amount of methods that the developers has to remember. There are 12 methods in the **image** class.
+The problem with the **Large class** is the large amount of methods that the developers has to remember. There are 12 methods in the [Image](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Image.java).
 
-The **Duplicate code** occurs in the methods **calculateMaxPixelX()** and **calculateMaxPixelY()**. This is problematic because it makes the class larger and less cleaner.
+The **Duplicate code** occurs in the methods **calculateMaxPixelX()** and **calculateMaxPixelY()**. This is problematic because it makes the class larger and less clean.
 
-To solve those problems we will create a class **PixelMatrix**, which contains the list of Pixels, and we will move the methods **calculateMaxPixelX()**, **calculateMaxPixelY()**, **findPixelIndex()**, **removePixel()**, **addPixel()**, **changePixelCharacter** and **getPixels()** from **Image** to **PixelMatrix**.
+To solve those problems we will create a class **PixelMatrix**, which contains the list of Pixels, and we will move the methods **calculateMaxPixelX()**, **calculateMaxPixelY()**, **findPixelIndex()**, **removePixel()**, **addPixel()**, **changePixelCharacter()** and **getPixels()** from [Image](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Image.java) to **PixelMatrix**.
 
 ## Testing
 The following screenshot shows our **tests coverage** at this point.</br>
