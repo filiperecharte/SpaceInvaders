@@ -134,6 +134,8 @@ The following screenshot shows our **tests coverage** at this point.</br>
 </p>
 
 The **mutation testing report** can be accessed [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/docs/test_reports/pitest).</br></br>
+We are using Mockito framework in our tests to create mocks and set the exact return values it should give us to perform the test we want. For example on the [Arena Test](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/test/java/com/spaceinvaders/modeltest/ArenaTest.java).</br>
+In the command tests ([MoveShipLeftCommandTest](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/test/java/com/spaceinvaders/controllertest/MoveShipLeftCommandTest.java) and [MoveShipRightCommandTest](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/test/java/com/spaceinvaders/controllertest/MoveShipRightCommandTest.java)) we use ArgumentCaptor to see if the arguments passed to the functions that we are not testing are correct.</br></br>
 **Notes**</br>
 We have two tests on the view package, one to test the **arena rendering** and other to test the **ship rendering**.These tests fail because we are using functions from the Graphics class, and unfortunately this class does not have a constructor wich creates problems using Mockito. Running those tests we are confronted with a *java.lang.NullPointerException*.</br>
 Due to that they are commented and can be found [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/src/test/java/com/spaceinvaders/viewtest).
