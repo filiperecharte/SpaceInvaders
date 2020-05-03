@@ -27,7 +27,7 @@ In this project, we decide to follow the architectural pattern **Model-View-Cont
 #### Model
 We use the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/) package to store all the data of the game.
 #### View
-Our [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view) package is the only package that import lanterna and it is used only to display images from the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/) on the screen and receive inputs from the user.
+Our [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view) package is the only package that imports lanterna and it is used only to display images from the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/) on the screen and receive inputs from the user.
 #### Controller
 Finally, we have a [Controller](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/) package that uses the input from the [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view) and updates the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/) data, by sending the respective command from the specific input. Also, it uses the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/) data to render the images to the screen.
 In conclusion, we use the Model to store information, the View to interact with the user and the Controller to execute the rules of the game.
@@ -95,7 +95,7 @@ An alternative way that we think might help is to separate the arena from the sh
 ### Large class and Duplicate code
 In the [Image](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Image.java) class we can identify two code smells: **Large class** and **Duplicate code**.
 
-The problem with the **Large class** is the large amount of methods that the developers has to remember. There are 12 methods in the [Image](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Image.java).
+The problem with the **Large class** is the large amount of methods that the developers have to remember. There are 12 methods in the [Image](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Image.java).
 
 The **Duplicate code** occurs in the methods **calculateMaxPixelX()** and **calculateMaxPixelY()**. This is problematic because it makes the class larger and less clean.
 
@@ -114,7 +114,7 @@ This uses the Collections class of the java.util package and makes the code smal
 ### Data class
 We use Data class in [Size](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/geometry/Size.java), [Vector](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/geometry/Vector.java), [Pixel](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Pixel.java), [Box](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Box.java), [Element](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Element.java), [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Enemy.java) and [Fragment](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Fragment.java).
 The classes [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Enemy.java) and [Fragment](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Fragment.java) are incompleted at this point and we will add behaviors later in the project.
-The remaining classes, we will, for example, implement methods like **equals()** to verify if two objects of the same class are equals. However, as those classes are the bases of the project, we would like to keep as simple as possible, with few behavior, since they do not know anything about the game.
+In the remaining classes, we will, for example, implement methods like **equals()** to verify if two objects of the same class are equal. However, as those classes are the base of the project, we would like to keep them as simple as possible, with a few behavior, since they do not know anything about the game.
 
 **Notes**</br>
 We have some **Speculative Generality** code smells in our code because there are objects in our game that are not used yet but we are sure that they will be update and used in the future since they are essential for our game to be playable: the [Wall](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/wall/Wall.java) class, the [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Enemy.java) class and every class related to them like creators and renderers.
@@ -123,7 +123,7 @@ We have some **Speculative Generality** code smells in our code because there ar
 
 We implemented a [Box](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Box.java) class that extends the [Element](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Element.java) class to save the size of everything we have in our game. Then, an [Image](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Image.java) class saves a matrix of [Pixels](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Pixel.java), each Pixel contains the position and the character for that position.</br>
 **Summing up:** Our Image is owned by every drawable object, when we draw an object we are drawing their image. This is already implemented to the Ship. We start by [Creating the ship](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/ShipCreator.java), and then the [ShipRender](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/ShipRenderer.java) will return their image using the [ImageRenderer](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/ImageRenderer.java).</br>
-This help us avoiding some code smells making our code more organized, and give us flexibility to draw diferent variations of objects in the future.
+This help us avoid some code smells making our code more organized, and give us flexibility to draw different variations of objects in the future.
 
 ---
 
