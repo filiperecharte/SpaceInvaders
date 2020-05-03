@@ -82,6 +82,9 @@ The [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java
 </br>
 An alternative way that we think might help is to separate the arena from the ship and join them in a class that contains all of the information and objects of the game, so that the arena would be independent from the ship and other elements that we might create in the future.
 
+**Notes**</br>
+We have some **Speculative Generality** code smells in our code because there are objects in our game that are not used for anything yet but we are sure that they will be implemented in the future since they are essential for our game to be playable.
+
 ---
 
 We implemented a [Box](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Box.java) class that extends the [Element](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Element.java) class to save the size of everything we have in our game. Then, an [Image](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Image.java) class saves a matrix of [Pixels](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Pixel.java), each Pixel contains the position and the character for that position.</br>
