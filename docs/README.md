@@ -59,6 +59,15 @@ We will use a variation of the **Factory Method** where we have multiple factori
 **Imlementation**</br>
 
 
+These classes can be found in the following files:
+* [Fragment](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Fragment.java)</br>
+* [Wall](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/wall/Wall.java)</br>
+* [WallCreator](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/wall/WallCreator.java)</br>
+* [DefaultWallCreator](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/wall/DefaultWallCreator.java)</br>
+
+**Consequences**</br>
+We do not have to create different classes for different wall types. We can have only one product wall and have different factories to create the Wall with different designs
+
 ## Code smells and Refactoring suggestions
 
 ## Testing
