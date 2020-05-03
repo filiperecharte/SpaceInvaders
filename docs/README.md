@@ -59,7 +59,7 @@ We will use a variation of the **Factory Method** where we have multiple factori
 **Imlementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
-  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/docs/imgs/FactoryMethod.png">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/FactoryMethod.png">
 </p>
 
 These classes can be found in the following files:
