@@ -58,10 +58,10 @@ This Design Pattern decoupled our invoker from each specific command, because th
 
 ### Different factories should create objects of different types
 **Problem in context**</br>
-We have to make different objects of the same type. For example, we have an object Wall and we need to create walls with different designs. Also, we have an object enemy and other object ship, and we would like to have those objects with different designs and behavors. It would be useful if we have diferent factories in order to create those objects in different ways.</br></br>
+We have to make different objects of the same type. For example, we have an object Wall and we need to create walls with different designs. Also, we have an object enemy and other object ship, and we would like to have those objects with different designs and behaviors. It would be useful if we have diferent factories in order to create those objects in different ways.</br></br>
 
 **The Pattern**</br>
-We will use a variation of the **Factory Method** where we have multiple factories creating the same object with different desings and behaviors. It makes the creation of those objects easier and more organized. For example, if we want to add a wall with a different design, we just need to create one factory class for the object.</br></br>
+We will use a variation of the **Factory Method** where we have multiple factories creating the same object with different designs and behaviors. It makes the creation of those objects easier and more organized. For example, if we want to add a wall with a different design, we just need to create one factory class for the object.</br></br>
 
 **Imlementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
@@ -82,7 +82,7 @@ We do not have to create different classes for different wall types. We can have
 
 ### Long Parameter List
 
-The [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/arena/Arena.java) class is receiving too much parameters (4) unnecessarily: there are three related parameters. Too much parameters are bad for code readability and organization.</br>
+The [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/arena/Arena.java) class is receiving too many parameters (4) unnecessarily: there are three related parameters. Too many parameters are bad for code readability and organization.</br>
 </br>
 A way to improve the code is to join the *weight* and *height* parameters in one object, and the *backgroundColor* on another. Those classes are already implemented but by the time of this report they are not connected to the arena class, only to the [Ship](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Ship.java) one. **We will get to them at the end of this topic.**</br>
 
@@ -114,7 +114,7 @@ This uses the Collections class of the java.util package and makes the code smal
 ### Data class
 We use Data class in [Size](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/geometry/Size.java), [Vector](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/geometry/Vector.java), [Pixel](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Pixel.java), [Box](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Box.java), [Element](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Element.java), [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Enemy.java) and [Fragment](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Fragment.java).
 The classes [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Enemy.java) and [Fragment](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Fragment.java) are incompleted at this point and we will add behaviors later in the project.
-In the remaining classes, we will, for example, implement methods like **equals()** to verify if two objects of the same class are equal. However, as those classes are the base of the project, we would like to keep them as simple as possible, with a few behavior, since they do not know anything about the game.
+In the remaining classes, we will, for example, implement methods like **equals()** to verify if two objects of the same class are equal. However, as those classes are the base of the project, we would like to keep them as simple as possible, with few behaviors, since they do not know anything about the game.
 
 **Notes**</br>
 We have some **Speculative Generality** code smells in our code because there are objects in our game that are not used yet but we are sure that they will be update and used in the future since they are essential for our game to be playable: the [Wall](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/wall/Wall.java) class, the [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Enemy.java) class and every class related to them like creators and renderers.
