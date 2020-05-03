@@ -7,6 +7,7 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.spaceinvaders.model.wall.DefaultWallCreator;
 
 import java.io.IOException;
 
@@ -29,7 +30,7 @@ public class GameView {
 
             this.graphics = screen.newTextGraphics();
 
-            this.gameRenderer = new GameRenderer(arena,arena.getShip());
+            this.gameRenderer = new GameRenderer(arena);
         } catch (IOException e) {
             e.printStackTrace();
         }

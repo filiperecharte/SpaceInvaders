@@ -5,13 +5,11 @@ import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.image.Image;
 
 public class Ship extends Box {
-    private boolean isAlive;
     private Image image;
 
     public Ship(Position position, Size size, Image image){
         super(position, size);
         this.image = image;
-        isAlive=true;
     }
 
     public Image getImage() {

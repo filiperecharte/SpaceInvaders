@@ -8,7 +8,7 @@ public class DefaultWallCreator implements WallCreator {
     private Wall wall = new Wall(new Position(10,10),new Size(5,5));
 
     @Override
-    public void build() {
+    public Wall build() {
         for(int x=20; x<23;x++){
             wall.addFragment(new Fragment(new Position(x,10),new Size(1,1)));
         }
@@ -21,7 +21,7 @@ public class DefaultWallCreator implements WallCreator {
         for(int x=17; x<26;x++){
             wall.addFragment(new Fragment(new Position(x,13),new Size(1,1)));
         }
-
+        return wall;
     }
 
 }

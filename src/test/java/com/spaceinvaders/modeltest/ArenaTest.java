@@ -1,5 +1,6 @@
 package com.spaceinvaders.modeltest;
 
+import com.spaceinvaders.model.Element;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.Ship;
@@ -12,14 +13,14 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 public class ArenaTest {
-    private Ship mockShip;
+    private Element mockElement;
     private Arena arena;
     @Before
     public void setUp() {
-        mockShip = Mockito.mock(Ship.class);
-        doThrow(NullPointerException.class).when(mockShip).setPosition(new Position(10,20));
-        when(mockShip.getPosition()).thenReturn(new Position(10,20));
-        arena= new Arena(10,15,"FFFFFF",mockShip);
+        mockElement = Mockito.mock(Element.class);
+        doThrow(NullPointerException.class).when(mockElement).setPosition(new Position(10,20));
+        when(mockElement.getPosition()).thenReturn(new Position(10,20));
+        arena= new Arena(10,15,"FFFFFF",mockElement);
     }
 
     @Test

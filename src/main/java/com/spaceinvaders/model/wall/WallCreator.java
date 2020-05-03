@@ -1,5 +1,5 @@
 package com.spaceinvaders.model.wall;
 
 public interface WallCreator {
-    void build();
+    Wall build();
 }
