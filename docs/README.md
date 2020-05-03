@@ -57,7 +57,10 @@ We have to make different objects of the same type. For example, we have an obje
 We will use a variation of the **Factory Method** where we have multiple factories creating the same object with different desings and behaviors. It makes the creation of those objects easier and more organized. For example, if we want to add a wall with a different design, we just need to create one factory class for the object.</br></br>
 
 **Imlementation**</br>
-
+The following figure shows how the pattern’s roles were mapped to the game classes.</br>
+<p align="center">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/docs/imgs/FatoryMethod.png">
+</p>
 
 These classes can be found in the following files:
 * [Fragment](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Fragment.java)</br>
