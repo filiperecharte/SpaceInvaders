@@ -90,6 +90,16 @@ The problem with the **Large class** is the large amount of methods that the dev
 The **Duplicate code** occurs in the methods **calculateMaxPixelX()** and **calculateMaxPixelY()**. This is problematic because it makes the class larger and less clean.
 
 To solve those problems we will create a class **PixelMatrix**, which contains the list of Pixels, and we will move the methods **calculateMaxPixelX()**, **calculateMaxPixelY()**, **findPixelIndex()**, **removePixel()**, **addPixel()**, **changePixelCharacter()** and **getPixels()** from [Image](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Image.java) to **PixelMatrix**.
+We also will change the implementation of the methods **calculateMaxPixelX()** and **calculateMaxPixelY()** to the following:
+```
+Pixel pixel = Collections.max(pixels, Comparator.comparing(p -> p.getPosition().getX()));
+return pixel.getPosition().getX();
+```
+```
+Pixel pixel = Collections.max(pixels, Comparator.comparing(p -> p.getPosition().getY()));
+return pixel.getPosition().getY();
+```
+This uses the Collections class of the java.util package and makes the code smaller and cleaner.
 
 ### Data class
 We use Data class in [Size](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/geometry/Size.java), [Vector](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/geometry/Vector.java), [Pixel](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/image/Pixel.java), [Box](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Box.java), [Element](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Element.java), [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Enemy.java) and [Fragment](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/Fragment.java).
