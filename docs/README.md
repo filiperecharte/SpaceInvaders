@@ -32,7 +32,7 @@ We decided to use the **Command pattern** because it makes our code cleaner and 
 **Imlementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
-  <img width="594" height="326" src="https://i.imgur.com/GJUjPLT.png">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/Command.png">
 </p>
 
 These classes can be found in the following files:
@@ -45,9 +45,6 @@ These classes can be found in the following files:
 
 **Consequences**</br> 
 This Design Pattern decoupled our invoker from each specific command, because the invoker does not need to know anything about what the command does. All of that is now encapsulated on each command. **Our GameEngine does not know anything about moving the ship.**</br>
-
-### The data to perform a command should be encapsulated
-
 
 ### Different factories should create objects of different types
 **Problem in context**</br>
@@ -74,4 +71,17 @@ We do not have to create different classes for different wall types. We can have
 ## Code smells and Refactoring suggestions
 
 ## Testing
+The following screenshot shows our **tests coverage** at this point.</br>
+<p align="center">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/TestCoverage.png">
+</p>
 
+The **mutation testing report** can be accessed [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/docs/test_reports/pitest).</br></br>
+**Notes**</br>
+We have two tests on the view package, one to test the **arena rendering** and other to test the **ship rendering**.These tests fail because we are using functions from the Graphics class, and unfortunately this class does not have a constructor wich creates problems using Mockito. Running those tests we are confronted with a *java.lang.NullPointerException*.</br>
+Due to that they are commented and can be found [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/src/test/java/com/spaceinvaders/viewtest).
+
+## Self-evaluation
+
+* Pedro Azevedo **50%**</br>
+* Filipe Recharte **50%**</br>
