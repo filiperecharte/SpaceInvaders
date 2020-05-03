@@ -27,7 +27,7 @@ In this project, we decide to follow the architectural pattern **Model-View-Cont
 #### Model
 We use the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/) package to store all the data of the game.
 #### View
-Our [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view) package is the only package that import lanterna and it is used only to display images from the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/) on the screen and recive inputs from the user.
+Our [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view) package is the only package that import lanterna and it is used only to display images from the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/) on the screen and receive inputs from the user.
 #### Controller
 Finally, we have a [Controller](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/) package that uses the input from the [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view) and updates the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/) data, by sending the respective command from the specific input. Also, it uses the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/) data to render the images to the screen.
 In conclusion, we use the Model to store information, the View to interact with the user and the Controller to execute the rules of the game.
