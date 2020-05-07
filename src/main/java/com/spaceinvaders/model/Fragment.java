@@ -4,9 +4,14 @@ import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 
 public class Fragment extends Box{
-
-    public Fragment(Position position, Size size) {
+    private char c;
+    public Fragment(Position position, Size size, char c) {
         super(position, size);
+        this.c=c;
+    }
+
+    public char getChar(){
+        return c;
     }
 
 }

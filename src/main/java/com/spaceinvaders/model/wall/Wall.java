@@ -18,14 +18,18 @@ public class Wall extends Box {
 
     public Wall(Position position, Size size) {
         super(position, size);
+        this.image= new Image();
     }
 
     public void addFragment(Fragment fragment){
+        //adiciona fragmento a lista de fragmentos
         fragments.add(fragment);
-        for (int i=fragment.getPosition().getX();i<fragment.getSize().getWidth();i++)
-            image.addPixel(new Pixel(new Position(i,fragment.getPosition().getY()), '#'));
 
-        image.setColor("#FFFF33");
+        //adiciona pixeis do fragmento a image da wall
+        for (int i=0;i<=fragment.getSize().getWidth();i++)
+            image.addPixel(new Pixel(new Position(fragment.getPosition().getX()+i,fragment.getPosition().getY()), fragment.getChar()));
+
+        image.setColor("#000000");
         image.setBold(true);
     }
 
