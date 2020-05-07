@@ -4,6 +4,8 @@ import com.spaceinvaders.model.Box;
 import com.spaceinvaders.model.Fragment;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
+import com.spaceinvaders.model.image.Image;
+import com.spaceinvaders.model.image.Pixel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +13,24 @@ import java.util.List;
 public class Wall extends Box {
     private Size size;
     private char c;
+    private Image image;
     private List<Fragment> fragments = new ArrayList<Fragment>();
 
     public Wall(Position position, Size size) {
         super(position, size);
+        this.image= new Image();
     }
 
     public void addFragment(Fragment fragment){
+        //adiciona fragmento a lista de fragmentos
         fragments.add(fragment);
+
+        //adiciona pixeis do fragmento a image da wall
+        for (int i=0;i<=fragment.getSize().getWidth();i++)
+            image.addPixel(new Pixel(new Position(fragment.getPosition().getX()+i,fragment.getPosition().getY()), fragment.getChar()));
+
+        image.setColor("#000000");
+        image.setBold(true);
     }
 
     public void removeFragment(Fragment fragment){
@@ -28,6 +40,10 @@ public class Wall extends Box {
                 break;
             }
         }
+    }
+
+    public Image getImage() {
+        return image;
     }
 
     public List<Fragment> getFragments(){
