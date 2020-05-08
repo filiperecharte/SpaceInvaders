@@ -4,10 +4,10 @@ import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.image.Image;
 
-public class Ship extends Box {
-    private Image image;
+public class Frame extends Box {
+    protected Image image;
 
-    public Ship(Position position, Size size, Image image){
+    public Frame(Position position, Size size, Image image) {
         super(position, size);
         this.image = image;
     }
@@ -16,11 +16,7 @@ public class Ship extends Box {
         return image;
     }
 
-    public void setImage(Image newImage) {
-        this.image = newImage;
-    }
-
-    public void update() {
-        this.image.setPosition(this.position);
+    public void setImage(Image image) {
+        this.image = image;
     }
 }
