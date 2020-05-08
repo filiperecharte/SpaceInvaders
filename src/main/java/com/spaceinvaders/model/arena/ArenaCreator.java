@@ -2,23 +2,30 @@ package com.spaceinvaders.model.arena;
 
 import com.spaceinvaders.model.ShipCreator;
 import com.spaceinvaders.model.Ship;
+import com.spaceinvaders.model.enemy.DefaultEnemyCreator;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.wall.DefaultWallCreator;
-import com.spaceinvaders.model.wall.Wall;
 
 public class ArenaCreator {
 
     public Arena createArena(Position position,Size size, String backgroundColor ) {
         Arena arena = new Arena(position,size, backgroundColor);
         Ship ship = new ShipCreator().createShip();
-
-        int posx=5; //posicao da primeira parede
-        for(int i=0;i<5;i++) {
-            arena.addElement((new DefaultWallCreator()).build(new Position(posx, 18), new Size(5, 5)));
-            posx+=15;
-        }
         arena.addElement(ship);
+
+        int Wposx=5; //posicao da primeira parede
+        for(int i=0;i<5;i++) {
+            arena.addElement((new DefaultWallCreator()).build(new Position(Wposx, 18), new Size(5, 5)));
+            Wposx+=15;
+        }
+
+        int Eposx=5; //posicao do primeiro inimigo
+        for(int i=0;i<5;i++) {
+            arena.addElement((new DefaultEnemyCreator()).build(new Position(Eposx, 10), new Size(5, 5)));
+            Eposx+=3;
+        }
+
         ship.update();
 
         return arena;
