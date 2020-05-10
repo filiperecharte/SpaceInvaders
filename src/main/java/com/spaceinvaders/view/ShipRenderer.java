@@ -1,6 +1,6 @@
 package com.spaceinvaders.view;
 
-import com.spaceinvaders.model.Ship;
+import com.spaceinvaders.model.ship.Ship;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class ShipRenderer implements Renderer {

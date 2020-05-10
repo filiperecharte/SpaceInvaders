@@ -4,7 +4,7 @@ import com.spaceinvaders.model.Box;
 import com.spaceinvaders.model.Element;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.Ship;
+import com.spaceinvaders.model.ship.Ship;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.wall.Wall;
 
@@ -33,7 +33,7 @@ public class Arena extends Box{
 
     public void moveShipTo(Position position) {
         ship.setPosition(position);
-        ship.update();
+        //ship.update();
     }
 
     public void addElement(Element element) {

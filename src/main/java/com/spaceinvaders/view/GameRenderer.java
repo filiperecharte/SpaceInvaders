@@ -1,12 +1,7 @@
 package com.spaceinvaders.view;
 
 import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.model.Ship;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.geometry.Translaction;
-import com.spaceinvaders.model.geometry.Vector;
-import com.spaceinvaders.model.wall.Wall;
 
 public class GameRenderer implements Renderer{
     private Arena arena;

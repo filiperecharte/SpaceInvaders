@@ -1,7 +1,6 @@
 package com.spaceinvaders.model.wall;
 
 import com.spaceinvaders.model.Box;
-import com.spaceinvaders.model.Fragment;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.image.Image;

@@ -1,7 +1,7 @@
 package com.spaceinvaders.model.arena;
 
-import com.spaceinvaders.model.ShipCreator;
-import com.spaceinvaders.model.Ship;
+import com.spaceinvaders.model.ship.ShipCreator;
+import com.spaceinvaders.model.ship.Ship;
 import com.spaceinvaders.model.enemy.DefaultEnemyCreator;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
@@ -26,7 +26,7 @@ public class ArenaCreator {
             Eposx+=3;
         }
 
-        ship.update();
+        //ship.update();
 
         return arena;
     }

@@ -1,9 +1,7 @@
 package com.spaceinvaders.model.wall;
 
-import com.spaceinvaders.model.Fragment;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import javafx.geometry.Pos;
 
 public class DefaultWallCreator implements WallCreator {
     private Wall wall;

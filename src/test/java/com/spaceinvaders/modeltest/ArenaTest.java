@@ -1,9 +1,8 @@
 package com.spaceinvaders.modeltest;
 
-import com.spaceinvaders.model.Element;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.Ship;
+import com.spaceinvaders.model.ship.Ship;
 import com.spaceinvaders.model.geometry.Size;
 import org.junit.Before;
 import org.junit.Test;

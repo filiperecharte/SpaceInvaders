@@ -1,9 +1,10 @@
-package com.spaceinvaders.model;
+package com.spaceinvaders.model.ship;
 
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.image.Image;
 import com.spaceinvaders.model.image.Pixel;
+import com.spaceinvaders.model.ship.Ship;
 
 public class ShipCreator {
 

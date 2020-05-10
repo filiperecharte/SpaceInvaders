@@ -24,4 +24,12 @@ public class Size {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    public boolean equals(Size otherSize) {
+        return (width == otherSize.getWidth()) && (height == otherSize.getHeight());
+    }
+
+    public boolean fitIn(Size otherSize) {
+        return (width <= otherSize.getWidth()) && (height <= otherSize.getHeight());
+    }
 }
