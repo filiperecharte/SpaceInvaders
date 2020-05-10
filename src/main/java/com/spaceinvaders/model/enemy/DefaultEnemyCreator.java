@@ -6,11 +6,9 @@ import com.spaceinvaders.model.image.Image;
 import com.spaceinvaders.model.image.Pixel;
 
 public class DefaultEnemyCreator implements EnemyCreator {
-    private Enemy enemy;
 
     @Override
     public Enemy build(Position position, Size size) {
-        enemy = new Enemy(position, size);
 
         Image enemyImage = new Image();
         enemyImage.addPixel(new Pixel(new Position(0, 0), '/'));
@@ -19,10 +17,7 @@ public class DefaultEnemyCreator implements EnemyCreator {
         enemyImage.setColor("#000080");
         enemyImage.setBold(true);
 
-        enemy.setImage(enemyImage);
-        enemy.update();
-
-        return enemy;
+        return new Enemy(position, size, enemyImage);
     }
 
 }
