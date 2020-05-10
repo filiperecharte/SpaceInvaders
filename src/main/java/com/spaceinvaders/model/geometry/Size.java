@@ -4,7 +4,14 @@ public class Size {
     protected int width;
     protected int height;
 
-    public Size(int width, int height) {
+    public Size(int width, int height) throws IllegalArgumentException {
+
+        if (width < 0)
+            throw new IllegalArgumentException("width must be >= 0");
+
+        if (height < 0)
+            throw new IllegalArgumentException("height must be >= 0");
+
         this.width = width;
         this.height = height;
     }
