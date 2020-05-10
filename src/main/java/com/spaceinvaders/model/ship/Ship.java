@@ -8,9 +8,11 @@ import com.spaceinvaders.model.image.Image;
 
 public class Ship extends MovableFrame implements Shooter {
 
-    public Ship(Position position, Size size, Image image){
+    public Ship(Position position, Size size, Image image) throws IllegalArgumentException {
         super(position, size, image);
-        this.image = image;
+
+        if (!this.isPerfectlyOverlapped())
+            throw new IllegalArgumentException("Image must perfectly overlap Box");
     }
 
     @Override
