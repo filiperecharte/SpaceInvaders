@@ -1,6 +1,5 @@
 package com.spaceinvaders.model.enemy;
 
-import com.spaceinvaders.model.Box;
 import com.spaceinvaders.model.MovableFrame;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
