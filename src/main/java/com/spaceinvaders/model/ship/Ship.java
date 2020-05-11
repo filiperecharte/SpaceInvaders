@@ -13,7 +13,7 @@ import com.spaceinvaders.model.image.Image;
 
 public class Ship extends MovableFrame implements IElementVisited, Shooter {
 
-    public Ship(Position position, Size size, Image image) throws IllegalArgumentException
+public Ship(Position position, Size size, Image image) throws IllegalArgumentException
 
     {
         super(position, size, image);

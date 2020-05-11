@@ -98,8 +98,8 @@ public class ImageTest {
     public void updateSizeTest() {
         image.updateSize();
 
-        assertEquals(34,image.getSize().getWidth());
-        assertEquals(48,image.getSize().getHeight());
+        assertEquals(35,image.getSize().getWidth());
+        assertEquals(49,image.getSize().getHeight());
 
     }
 

@@ -1,5 +1,4 @@
 import com.spaceinvaders.controller.GameEngine;
-import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.arena.ArenaCreator;
 import com.spaceinvaders.model.geometry.Position;

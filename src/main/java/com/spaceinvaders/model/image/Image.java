@@ -87,8 +87,8 @@ public class Image extends Box {
     }
 
     public void updateSize() {
-        this.size.setWidth(calculateMaxPixelX());
-        this.size.setHeight(calculateMaxPixelY());
+        this.size.setWidth(calculateMaxPixelX() + 1);
+        this.size.setHeight(calculateMaxPixelY() + 1);
     }
 
     @Override

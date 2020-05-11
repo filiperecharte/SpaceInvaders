@@ -21,6 +21,8 @@ public class ShipCreator {
         shipImage.setColor("#FFFF33");
         shipImage.setBold(true);
 
+        shipImage.updateSize();
+
         Ship ship = null;
 
         try {

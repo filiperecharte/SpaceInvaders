@@ -51,6 +51,10 @@ public class Arena extends Box{
         return this.ship;
     }
 
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
+
     public Position getShipPosition() {
         return ship.getPosition();
     }
