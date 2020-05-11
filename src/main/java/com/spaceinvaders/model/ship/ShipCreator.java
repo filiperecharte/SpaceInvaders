@@ -1,5 +1,6 @@
 package com.spaceinvaders.model.ship;
 
+import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.image.Image;
@@ -20,6 +21,14 @@ public class ShipCreator {
         shipImage.setColor("#FFFF33");
         shipImage.setBold(true);
 
-        return new Ship(new Position(30, 22), new Size(5, 1), shipImage);
+        Ship ship = null;
+
+        try {
+            ship = new Ship(new Position(30, 22), new Size(5, 1), shipImage);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+
+        return ship;
     }
 }

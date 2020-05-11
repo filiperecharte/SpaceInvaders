@@ -1,6 +1,8 @@
 package com.spaceinvaders.model.wall;
 
 import com.spaceinvaders.model.Box;
+import com.spaceinvaders.model.IElementVisited;
+import com.spaceinvaders.model.IElementsVisitor;
 import com.spaceinvaders.model.MovableFrame;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
@@ -10,7 +12,7 @@ import com.spaceinvaders.model.image.Pixel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Wall extends Box {
+public class Wall extends Box implements IElementVisited {
     private Size size;
     private char c;
     private Image image;
@@ -50,4 +52,8 @@ public class Wall extends Box {
         return fragments;
     }
 
+    @Override
+    public void accept(IElementsVisitor visitor) {
+        visitor.visit(this);
+    }
 }

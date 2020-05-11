@@ -1,28 +1,37 @@
 package com.spaceinvaders.model.shots;
 
 import com.spaceinvaders.model.Frame;
+import com.spaceinvaders.model.IElementVisited;
+import com.spaceinvaders.model.IElementsVisitor;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
+import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.image.Image;
 
-public class Shot extends Frame {
-    protected int damage, speed;
+public class Shot extends Frame implements IElementVisited {
+    protected int damage;
+    protected Vector velocity;
 
-    public Shot(Position position, Size size, Image image, int damage, int speed) {
+    public Shot(Position position, Size size, Image image, int damage, Vector velocity) {
         super(position, size, image);
         this.damage = damage;
-        this.speed = speed;
+        this.velocity = velocity;
     }
 
     public int getDamage() {
         return damage;
     }
 
-    public int getSpeed() {
-        return speed;
+    public Vector getVelocity() {
+        return velocity;
     }
 
     public void update() {
         this.image.setPosition(this.position);
+    }
+
+    @Override
+    public void accept(IElementsVisitor visitor) {
+        visitor.visit(this);
     }
 }
