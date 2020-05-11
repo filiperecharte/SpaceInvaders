@@ -2,6 +2,8 @@ package com.spaceinvaders.model.arena;
 
 import com.spaceinvaders.model.Box;
 import com.spaceinvaders.model.Element;
+import com.spaceinvaders.model.ElementsVisitor;
+import com.spaceinvaders.model.IElementVisited;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.ship.Ship;
@@ -39,11 +41,15 @@ public class Arena extends Box{
         ship.setPosition(position);
     }
 
-    public void addElement(Element element) {
+    /*public void addElement(Element element) {
         if (element instanceof Ship) ship = (Ship) element;
         if (element instanceof Wall) walls.add((Wall) element);
         if (element instanceof Enemy) enemies.add((Enemy) element);
         if (element instanceof Shot) shots.add((Shot) element);
+    }*/
+
+    public void addElement(IElementVisited element) {
+        element.accept(new ElementsVisitor(this));
     }
 
 
