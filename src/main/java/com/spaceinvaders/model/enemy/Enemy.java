@@ -8,8 +8,9 @@ import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Translaction;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.image.Image;
+import com.spaceinvaders.model.shots.Shooter;
 
-public class Enemy extends MovableFrame implements IElementVisited {
+public class Enemy extends MovableFrame implements IElementVisited, Shooter {
     private int direction;
 
     public Enemy(Position position, Size size, Image image) {
@@ -28,6 +29,12 @@ public class Enemy extends MovableFrame implements IElementVisited {
 
     public  int getDirection(){
         return direction;
+    }
+
+    @Override
+    public Position getShootPosition() {
+        Translaction t = new Translaction(this.position, new Vector((this.size.getWidth() - 1) / 2, 0));
+        return t.apply();
     }
 
     @Override

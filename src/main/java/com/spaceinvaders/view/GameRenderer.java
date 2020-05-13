@@ -25,8 +25,8 @@ public class GameRenderer implements Renderer{
         }
 
         for (Shot shot : arena.getShots()) {
-            System.out.println("X: " + shot.getPosition().getX());
-            System.out.println("Y: " + shot.getPosition().getY());
+            //System.out.println("X: " + shot.getPosition().getX());
+            //System.out.println("Y: " + shot.getPosition().getY());
             new ShotRenderer(shot).render(graphics);
         }
 
