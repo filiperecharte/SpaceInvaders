@@ -11,6 +11,7 @@ import com.spaceinvaders.model.wall.Wall;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Arena extends Box{
     private Ship ship;
@@ -18,6 +19,7 @@ public class Arena extends Box{
     private List<Enemy> enemies;
     private List<Shot> shots;
     private String backgroundColor;
+
 
     public Arena(Position position, Size size, String backgroundColor){
         super(position,size);
@@ -48,7 +50,6 @@ public class Arena extends Box{
     public void addElement(IElementVisited element) {
         element.accept(new ElementsVisitor(this));
     }
-
 
     public Ship getShip(){
         return this.ship;
