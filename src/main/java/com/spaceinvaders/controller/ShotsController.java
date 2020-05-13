@@ -7,6 +7,8 @@ import com.spaceinvaders.model.geometry.Translaction;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
 import com.spaceinvaders.model.shots.Shot;
 
+import java.util.Iterator;
+
 public class ShotsController {
     private Arena arena;
     private Translaction shotTranslaction;
@@ -24,8 +26,9 @@ public class ShotsController {
 
         Shot shot;
         IShotVisited shotVisited;
-        for (int shotIndex = 0; shotIndex < arena.getShots().size(); shotIndex++) {
-            shot = arena.getShots().get(shotIndex);
+
+        for (Iterator<Shot> iterator = arena.getShots().iterator(); iterator.hasNext();) {
+            shot = iterator.next();
             shotTranslaction.setPosition(shot.getPosition());
             shotTranslaction.setVector(shot.getVelocity());
             shot.setPosition(shotTranslaction.apply());
@@ -33,6 +36,7 @@ public class ShotsController {
             if (!arena.contain(shot.getPosition())) {
                 shotVisited = (IShotVisited)shot;
                 shotVisited.accept(new ShotsVisitor(shotPoolGroup));
+                iterator.remove();
             }
         }
     }
