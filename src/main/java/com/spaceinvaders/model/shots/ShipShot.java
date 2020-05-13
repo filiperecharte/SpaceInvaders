@@ -1,5 +1,6 @@
 package com.spaceinvaders.model.shots;
 
+import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
@@ -21,7 +22,11 @@ public class ShipShot extends Shot implements IShotVisited, ImageCreator {
     public Image createImage() {
         Image image = new Image();
 
-        image.addPixel(new Pixel(new Position(0, 0), '.'));
+        try {
+            image.getPixelMatrix().addPixel(new Pixel(new Position(0, 0), '.'));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
 
         image.setColor("#000000");
         image.setBold(true);

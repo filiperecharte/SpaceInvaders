@@ -14,7 +14,7 @@ public class ImageRenderer implements Renderer {
     }
 
     public void renderPixels(TextGraphics graphics) {
-        for (Pixel pixel : image.getPixels()) {
+        for (Pixel pixel : image.getPixelMatrix().getPixels()) {
             graphics.setCharacter(pixel.getPosition().getX(), pixel.getPosition().getY(), pixel.getCharacter());
         }
     }

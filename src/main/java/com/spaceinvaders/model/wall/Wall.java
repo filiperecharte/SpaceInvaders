@@ -1,5 +1,6 @@
 package com.spaceinvaders.model.wall;
 
+import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.Box;
 import com.spaceinvaders.model.IElementVisited;
 import com.spaceinvaders.model.IElementsVisitor;
@@ -28,8 +29,13 @@ public class Wall extends Box implements IElementVisited {
         fragments.add(fragment);
 
         //adiciona pixeis do fragmento a image da wall
-        for (int i=0;i<=fragment.getSize().getWidth();i++)
-            image.addPixel(new Pixel(new Position(fragment.getPosition().getX()+i,fragment.getPosition().getY()), fragment.getChar()));
+        for (int i=0;i<=fragment.getSize().getWidth();i++) {
+            try {
+                image.getPixelMatrix().addPixel(new Pixel(new Position(fragment.getPosition().getX() + i, fragment.getPosition().getY()), fragment.getChar()));
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
 
         image.setColor("#000000");
         image.setBold(true);
