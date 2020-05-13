@@ -3,12 +3,13 @@ package com.spaceinvaders.model.shots;
 import com.spaceinvaders.model.Frame;
 import com.spaceinvaders.model.IElementVisited;
 import com.spaceinvaders.model.IElementsVisitor;
+import com.spaceinvaders.model.MovableFrame;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.image.Image;
 
-public class Shot extends Frame implements IElementVisited {
+public class Shot extends MovableFrame implements IElementVisited {
     protected int damage;
     protected Vector velocity;
 

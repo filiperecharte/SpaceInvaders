@@ -1,9 +1,6 @@
 package com.spaceinvaders.model.arena;
 
-import com.spaceinvaders.model.Box;
-import com.spaceinvaders.model.Element;
-import com.spaceinvaders.model.ElementsVisitor;
-import com.spaceinvaders.model.IElementVisited;
+import com.spaceinvaders.model.*;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.ship.Ship;

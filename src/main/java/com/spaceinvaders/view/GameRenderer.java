@@ -2,6 +2,7 @@ package com.spaceinvaders.view;
 
 import com.spaceinvaders.model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.spaceinvaders.model.shots.Shot;
 
 public class GameRenderer implements Renderer{
     private Arena arena;
@@ -21,6 +22,11 @@ public class GameRenderer implements Renderer{
 
         for(int i=0;i<arena.getEnemies().size();i++){
             new EnemyRenderer(arena.getEnemies().get(i)).render(graphics);
+        }
+
+        for (Shot shot : arena.getShots()) {
+
+            new ShotRenderer(shot).render(graphics);
         }
 
     }

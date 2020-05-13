@@ -1,5 +1,7 @@
 package com.spaceinvaders.model.shots;
 
+import com.spaceinvaders.model.IShotVisited;
+import com.spaceinvaders.model.IShotsVisitor;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
@@ -7,7 +9,7 @@ import com.spaceinvaders.model.image.Image;
 import com.spaceinvaders.model.image.ImageCreator;
 import com.spaceinvaders.model.image.Pixel;
 
-public class ShipShot extends Shot implements ImageCreator {
+public class ShipShot extends Shot implements IShotVisited, ImageCreator {
     public ShipShot(Position position) {
         super(position, new Size(1, 1), new Image(), 1, new Vector(0, -1));
         this.setImage(createImage());
@@ -27,5 +29,10 @@ public class ShipShot extends Shot implements ImageCreator {
         image.setBold(true);
 
         return image;
+    }
+
+    @Override
+    public void accept(IShotsVisitor visitor) {
+        visitor.visit(this);
     }
 }
