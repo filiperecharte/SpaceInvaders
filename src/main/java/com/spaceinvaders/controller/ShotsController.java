@@ -47,7 +47,7 @@ public class ShotsController {
     }
 
     public void generateEnemyShot(){
-        if (rand.nextInt(100)%10==0) { //aumentando o divisor são gerados mais tiros
+        if (rand.nextInt(100)%10==0) { //diminuindo o divisor são gerados mais tiros
             Position shootEnemyPosition = arena.getEnemies().get(rand.nextInt(arena.getEnemies().size())).getShootPosition();
             Shot shot = shotPoolGroup.getEnemyShotPool().extract();
             shot.setPosition(shootEnemyPosition);

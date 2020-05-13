@@ -36,7 +36,7 @@ public class GameView {
     }
 
     public void update() throws IOException {
-        screen.clear();
+        //screen.clear();
         gameRenderer.render(graphics); //render all objects
         screen.refresh();
     }

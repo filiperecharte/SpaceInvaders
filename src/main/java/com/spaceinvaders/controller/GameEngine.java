@@ -19,12 +19,15 @@ public class GameEngine {
     private ShotPoolGroup shotPoolGroup;
     private ShotsController shotsController;
 
+    private long start;
+
     public GameEngine(GameView gameView, Arena arena) {
         isFinished = false;
         this.gameView = gameView;
         this.arena = arena;
         this.shotPoolGroup = new ShotPoolGroup();
         this.shotsController = new ShotsController(arena, shotPoolGroup);
+        start = System.currentTimeMillis();
     }
 
     public boolean isFinished() {
@@ -59,18 +62,19 @@ public class GameEngine {
         if (arena.getEnemies().get(0).getPosition().getX() < 1|| arena.getEnemies().get(0).getPosition().getX()  + arena.getEnemies().size()*3> 78) {
             arena.changeEnemiesDir();
         }
-
         shotsController.generateEnemyShot();
         shotsController.processShots();
         arena.updateEnemies();
-        try { Thread.sleep (50); } catch (InterruptedException ex) {}
     }
 
     public void run() throws IOException {
+        long counter=0;
         while (!isFinished) {
+            if(counter%65==0)
+                gameActions();
             gameView.update();
-            gameActions();
             executeNextCommand();
+            counter++;
         }
     }
 }
