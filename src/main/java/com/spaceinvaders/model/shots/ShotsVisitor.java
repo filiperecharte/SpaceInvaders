@@ -1,10 +1,6 @@
-package com.spaceinvaders.model;
+package com.spaceinvaders.model.shots;
 
-import com.spaceinvaders.model.pools.shotpools.EnemyShotPool;
-import com.spaceinvaders.model.pools.shotpools.ShipShotPool;
-import com.spaceinvaders.model.pools.shotpools.ShotPoolGroup;
-import com.spaceinvaders.model.shots.EnemyShot;
-import com.spaceinvaders.model.shots.ShipShot;
+import com.spaceinvaders.model.pools.ShotPoolGroup;
 
 public class ShotsVisitor implements IShotsVisitor {
     private ShotPoolGroup shotPoolGroup;
@@ -17,5 +13,6 @@ public class ShotsVisitor implements IShotsVisitor {
         shotPoolGroup.getShipShotPool().put(shipShot);
     }
     public void visit(EnemyShot enemyShot) {
+        shotPoolGroup.getEnemyShotPool().put(enemyShot);
     }
 }

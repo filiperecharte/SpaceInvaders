@@ -3,7 +3,7 @@ package com.spaceinvaders.controller.commands.shipcommands;
 import com.spaceinvaders.controller.commands.Command;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.pools.shotpools.ShotPoolGroup;
+import com.spaceinvaders.model.pools.ShotPoolGroup;
 import com.spaceinvaders.model.shots.Shot;
 
 public class ShootShipCommand implements Command {

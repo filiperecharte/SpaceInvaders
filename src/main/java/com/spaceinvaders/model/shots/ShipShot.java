@@ -1,7 +1,5 @@
 package com.spaceinvaders.model.shots;
 
-import com.spaceinvaders.model.IShotVisited;
-import com.spaceinvaders.model.IShotsVisitor;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;

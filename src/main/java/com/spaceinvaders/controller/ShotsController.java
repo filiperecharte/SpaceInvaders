@@ -1,12 +1,10 @@
 package com.spaceinvaders.controller;
 
-import com.spaceinvaders.model.IShotVisited;
-import com.spaceinvaders.model.ShotsVisitor;
+import com.spaceinvaders.model.shots.IShotVisited;
+import com.spaceinvaders.model.shots.ShotsVisitor;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.geometry.Translaction;
-import com.spaceinvaders.model.pools.shotpools.EnemyShotPool;
-import com.spaceinvaders.model.pools.shotpools.ShipShotPool;
-import com.spaceinvaders.model.pools.shotpools.ShotPoolGroup;
+import com.spaceinvaders.model.pools.ShotPoolGroup;
 import com.spaceinvaders.model.shots.Shot;
 
 public class ShotsController {

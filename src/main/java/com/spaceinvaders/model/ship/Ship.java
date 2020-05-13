@@ -4,7 +4,7 @@ import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.IElementVisited;
 import com.spaceinvaders.model.IElementsVisitor;
 import com.spaceinvaders.model.MovableFrame;
-import com.spaceinvaders.model.Shooter;
+import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Translaction;
