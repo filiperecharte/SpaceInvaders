@@ -43,8 +43,18 @@ public class Wall extends Box implements IElementVisited {
 
     public void removeFragment(Fragment fragment){
         for(int i=0;i<fragments.size();i++){
-            if(fragments.get(i).getPosition()==fragment.getPosition()){
+            if(fragments.get(i).getPosition().equals(fragment.getPosition())){
                 fragments.remove(i);
+                break;
+            }
+        }
+        for (int i=0;i<fragment.getSize().getWidth();i++) {
+            if(fragment.getPosition().equals(fragment.getPosition())) {
+                try {
+                    image.getPixelMatrix().removePixel(new Position(fragment.getPosition().getX() + i, fragment.getPosition().getY()));
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
         }
