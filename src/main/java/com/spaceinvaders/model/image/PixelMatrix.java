@@ -24,7 +24,7 @@ public class PixelMatrix {
 
     public int findPixelIndex(Position position) {
         for (int i = 0; i < pixels.size(); i++) {
-            if (pixels.get(i).getPosition()==position) {
+            if (pixels.get(i).getPosition().equals(position)) {
                 return i;
             }
         }

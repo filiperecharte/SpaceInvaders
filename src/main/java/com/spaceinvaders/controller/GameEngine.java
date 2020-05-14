@@ -5,9 +5,7 @@ import com.spaceinvaders.controller.commands.shipcommands.MoveShipLeftCommand;
 import com.spaceinvaders.controller.commands.shipcommands.MoveShipRightCommand;
 import com.spaceinvaders.controller.commands.shipcommands.ShootShipCommand;
 import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
-import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.view.GameView;
 
 import java.io.IOException;
@@ -65,12 +63,13 @@ public class GameEngine {
         shotsController.generateEnemyShot();
         shotsController.processShots();
         arena.updateEnemies();
+        //try { Thread.sleep (50); } catch (InterruptedException ex) {}
     }
 
     public void run() throws IOException {
         long counter=0;
         while (!isFinished) {
-            if(counter%65==0)
+            if(counter%100==0)
                 gameActions();
             gameView.update();
             executeNextCommand();

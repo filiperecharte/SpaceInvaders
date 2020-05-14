@@ -29,7 +29,7 @@ public class Wall extends Box implements IElementVisited {
         fragments.add(fragment);
 
         //adiciona pixeis do fragmento a image da wall
-        for (int i=0;i<=fragment.getSize().getWidth();i++) {
+        for (int i=0;i<fragment.getSize().getWidth();i++) {
             try {
                 image.getPixelMatrix().addPixel(new Pixel(new Position(fragment.getPosition().getX() + i, fragment.getPosition().getY()), fragment.getChar()));
             } catch (IllegalArgumentException e) {

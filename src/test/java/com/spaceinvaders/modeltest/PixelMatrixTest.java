@@ -16,12 +16,21 @@ public class PixelMatrixTest {
     public void setUp() {
         pixelMatrix = new PixelMatrix();
 
-        pixelMatrix.addPixel(new Pixel(new Position(5,5),'#'));
-        pixelMatrix.addPixel(new Pixel(new Position(6,19),'p'));
-        pixelMatrix.addPixel(new Pixel(new Position(3,45),'x'));
-        pixelMatrix.addPixel(new Pixel(new Position(23,48),'8'));
-        pixelMatrix.addPixel(new Pixel(new Position(34,12),'y'));
+        try {
+            pixelMatrix.addPixel(new Pixel(new Position(5, 5), '#'));
+            pixelMatrix.addPixel(new Pixel(new Position(6, 19), 'p'));
+            pixelMatrix.addPixel(new Pixel(new Position(3, 45), 'x'));
+            pixelMatrix.addPixel(new Pixel(new Position(23, 48), '8'));
+            pixelMatrix.addPixel(new Pixel(new Position(34, 12), 'y'));
+        }catch(IllegalArgumentException e){
+            e.printStackTrace();
+        }
     }
+
+    /*@Test(expected = IllegalArgumentException.class)
+    public void IllegalArgumentTest() {
+        pixelMatrix.addPixel(new Pixel(new Position(6, 19), 'p'));
+    }*/
 
     @Test
     public void addPixelTest() {
