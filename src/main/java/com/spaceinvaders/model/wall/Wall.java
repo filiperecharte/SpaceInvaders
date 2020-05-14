@@ -39,6 +39,8 @@ public class Wall extends Box implements IElementVisited {
 
         image.setColor("#000000");
         image.setBold(true);
+
+        image.updateSize();
     }
 
     public void removeFragment(Fragment fragment){
@@ -58,6 +60,7 @@ public class Wall extends Box implements IElementVisited {
                 break;
             }
         }
+        image.updateSize();
     }
 
     public Image getImage() {
