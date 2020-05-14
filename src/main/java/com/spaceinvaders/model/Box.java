@@ -17,4 +17,11 @@ public class Box extends Element {
     public void setSize(Size size) {
         this.size = size;
     }
+
+    public boolean contain(Position otherPosition) {
+        boolean checkHorizontal = (otherPosition.getX() >= position.getX()) && (otherPosition.getX() <= position.getX() + size.getWidth());
+        boolean checkVertical = (otherPosition.getY() >= position.getY()) && (otherPosition.getY() <= position.getY() + size.getHeight());
+
+        return checkHorizontal && checkVertical;
+    }
 }

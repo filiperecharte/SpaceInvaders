@@ -6,15 +6,15 @@ import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Translaction;
 import com.spaceinvaders.model.geometry.Vector;
 
-public class MoveShipRightCommand extends Command {
+public class MoveShipRightCommand implements Command {
     private Arena arena;
 
     public MoveShipRightCommand(Arena arena) {
         this.arena = arena;
     }
 
+    @Override
     public void execute() {
-
         // move ship 1 unit right
         Position shipPosition = arena.getShipPosition();
         Translaction translaction = new Translaction(shipPosition, new Vector(1, 0));

@@ -7,7 +7,6 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.spaceinvaders.model.wall.DefaultWallCreator;
 
 import java.io.IOException;
 
@@ -36,15 +35,18 @@ public class GameView {
         }
     }
 
-    public void update() throws IOException { //this should be on GameRenderer? Do we need a game renderer?
-        screen.clear();
+    public void update() throws IOException {
+        //screen.clear();
         gameRenderer.render(graphics); //render all objects
         screen.refresh();
     }
 
     public keysNames getInput() throws IOException {
 
-        KeyStroke key = screen.readInput();;
+        KeyStroke key = screen.pollInput();
+        if (key==null){
+            return keysNames.NONE;
+        }
 
         switch (key.getKeyType()) {
             case ArrowLeft:

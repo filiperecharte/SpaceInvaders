@@ -1,9 +1,9 @@
 package com.spaceinvaders.modeltest;
 
-import com.spaceinvaders.model.Element;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.Ship;
+import com.spaceinvaders.model.ship.Ship;
+import com.spaceinvaders.model.geometry.Size;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -13,32 +13,26 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 public class ArenaTest {
-    private Element mockElement;
+    private Ship mockShip;
     private Arena arena;
     @Before
     public void setUp() {
-        mockElement = Mockito.mock(Element.class);
-        doThrow(NullPointerException.class).when(mockElement).setPosition(new Position(10,20));
-        when(mockElement.getPosition()).thenReturn(new Position(10,20));
-        arena= new Arena(10,15,"FFFFFF",mockElement);
+        mockShip = Mockito.mock(Ship.class);
+        doThrow(NullPointerException.class).when(mockShip).setPosition(new Position(10,20));
+        when(mockShip.getPosition()).thenReturn(new Position(10,20));
+
+        arena= new Arena(new Position(0, 0), new Size(10, 15),"FFFFFF");
+        arena.addElement(mockShip);
     }
 
     @Test
-    public void ArenaTestGets() {
-
-        assertEquals(10, arena.getWidth());
-        assertEquals(15,arena.getHeight());
-
-    }
-
-    @Test
-    public void ArenaTestGetBack() {
+    public void ArenaTestGetBackgrounColor() {
         assertEquals("FFFFFF", arena.getBackgroundColor());
 
     }
 
     @Test
-    public void ArenaTestSetBack() {
+    public void ArenaTestSetBackgroundColor() {
         arena.setBackgroundColor("#92a8d1");
         assertEquals("#92a8d1", arena.getBackgroundColor());
 
@@ -52,13 +46,4 @@ public class ArenaTest {
         assertFalse(arena.canMove(new Position(4,-8)));
         assertFalse(arena.canMove(new Position(10,15)));
     }
-
-    @Test
-    public void ArenaTestMoveShip() {
-        arena.moveShipTo(new Position(10,20));
-
-        assertEquals(10,arena.getShipPosition().getX());
-        assertEquals(20,arena.getShipPosition().getY());
-    }
-
 }
