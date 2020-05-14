@@ -1,5 +1,6 @@
 package com.spaceinvaders.model.enemy;
 
+import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.IElementVisited;
 import com.spaceinvaders.model.IElementsVisitor;
 import com.spaceinvaders.model.MovableFrame;
@@ -13,8 +14,13 @@ import com.spaceinvaders.model.shots.Shooter;
 public class Enemy extends MovableFrame implements IElementVisited, Shooter {
     private int direction;
 
-    public Enemy(Position position, Size size, Image image) {
+    public Enemy(Position position, Size size, Image image) throws IllegalArgumentException {
         super(position, size, image);
+        if (!this.isPerfectlyOverlapped())
+            throw new IllegalArgumentException("Image must perfectly overlap Box");
+
+        if (size.getWidth() % 2 == 0)
+            throw new IllegalArgumentException("Ship size must be odd");
         this.direction=1;
     }
 

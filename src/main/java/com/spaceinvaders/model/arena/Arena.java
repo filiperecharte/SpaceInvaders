@@ -24,8 +24,8 @@ public class Arena extends Box{
     public Arena(Position position, Size size, String backgroundColor){
         super(position,size);
         this.backgroundColor=backgroundColor;
-        this.enemies = new ArrayList<Enemy>();
-        this.walls = new ArrayList<Wall>();
+        this.enemies = new ArrayList<>();
+        this.walls = new ArrayList<>();
         this.shots = new ArrayList<>();
     }
 

@@ -24,7 +24,17 @@ public class DefaultEnemyCreator implements EnemyCreator {
         enemyImage.setColor("#000080");
         enemyImage.setBold(true);
 
-        return new Enemy(position, size, enemyImage);
+        enemyImage.updateSize();
+
+        Enemy enemy = null;
+
+        try {
+            enemy = new Enemy(position, size, enemyImage);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+
+        return enemy;
     }
 
 }
