@@ -18,14 +18,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class ShootShipCommandTest {
-    private Arena mockArena;
+    private Arena arena;
     private Image imageMock;
     @Before
     public void setUp() {
         imageMock = Mockito.mock(Image.class);
         when(imageMock.getSize()).thenReturn(new Size(3, 1));
-
-        mockArena = Mockito.mock(Arena.class);
 
         Ship ship =null;
         try {
@@ -35,14 +33,20 @@ public class ShootShipCommandTest {
         }
         assert  ship != null;
 
-        when(mockArena.getShip()).thenReturn(ship);
+        arena= new Arena(new Position(0, 0), new Size(10, 15),"FFFFFF");
+        arena.addElement(ship);
     }
 
     @Test
     public void ShootTest() {
-            ShootShipCommand shootShipCommand = new ShootShipCommand(mockArena, new ShotPoolGroup());
+            ShootShipCommand shootShipCommand = new ShootShipCommand(arena, new ShotPoolGroup());
             shootShipCommand.execute();
 
-            assertEquals(1, mockArena.getShots().size());
+            assertEquals(1, arena.getShots().size());
+            assertEquals(11, arena.getShots().get(0).getPosition().getX());
+            assertEquals(10, arena.getShots().get(0).getPosition().getY());
+
+            shootShipCommand.execute();
+            assertEquals(2, arena.getShots().size());
     }
 }
