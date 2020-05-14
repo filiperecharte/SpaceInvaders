@@ -22,9 +22,14 @@ public class ArenaCreator {
         }
 
         int Eposx=5; //posicao do primeiro inimigo
-        for(int i=0;i<5;i++) {
-            arena.addElement((new DefaultEnemyCreator()).build(new Position(Eposx, 10), new Size(5, 5)));
-            Eposx+=3;
+        int Eposy=10;
+        for(int j=0;j<8;j++) {
+            for (int i = 0; i < 8; i++) {
+                arena.addElement((new DefaultEnemyCreator()).build(new Position(Eposx, Eposy), new Size(5, 5)));
+                Eposx += 3;
+            }
+            Eposx=5;
+            Eposy-=1;
         }
 
         return arena;

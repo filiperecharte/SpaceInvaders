@@ -57,7 +57,7 @@ public class GameEngine {
     }
 
     public void gameActions(){
-        if (arena.getEnemies().get(0).getPosition().getX() < 1|| arena.getEnemies().get(0).getPosition().getX()  + arena.getEnemies().size()*3> 78) {
+        if (arena.getEnemies().get(0).getPosition().getX() < 1|| arena.getEnemies().get(arena.getEnemies().size()-1).getPosition().getX()> 78) {
             arena.changeEnemiesDir();
         }
         shotsController.generateEnemyShot();
