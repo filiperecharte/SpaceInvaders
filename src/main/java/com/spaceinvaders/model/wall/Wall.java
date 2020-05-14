@@ -19,9 +19,9 @@ public class Wall extends Box implements IElementVisited {
     private Image image;
     private List<Fragment> fragments = new ArrayList<Fragment>();
 
-    public Wall(Position position, Size size) {
+    public Wall(Position position, Size size, Image image) {
         super(position, size);
-        this.image= new Image();
+        this.image= image;
     }
 
     public void addFragment(Fragment fragment){
