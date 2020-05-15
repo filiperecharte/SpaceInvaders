@@ -54,7 +54,8 @@ public class GameEngine {
     }
 
     public void gameActions(){
-        if (arena.getEnemies().get(0).getPosition().getX() < 1|| arena.getEnemies().get(arena.getEnemies().size()-1).getPosition().getX()> 78) {
+        if (!arena.getEnemies().isEmpty() && (arena.getLeftMostEnemy().getPosition().getX() < 1||
+                arena.getRightMostEnemy().getPosition().getX() + arena.getRightMostEnemy().getSize().getWidth() > arena.getSize().getWidth())) {
             arena.changeEnemiesDir();
         }
         shotsController.generateEnemyShot();

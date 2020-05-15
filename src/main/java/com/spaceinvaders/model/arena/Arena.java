@@ -11,6 +11,8 @@ import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.wall.Wall;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Arena extends Box{
@@ -85,6 +87,16 @@ public class Arena extends Box{
         for (int i=0;i<enemies.size();i++){
             enemies.get(i).update();
         }
+    }
+
+    public Enemy getLeftMostEnemy(){
+       Enemy enemy = Collections.min(enemies, Comparator.comparing(p -> p.getPosition().getX()));
+       return enemy;
+    }
+
+    public Enemy getRightMostEnemy(){
+        Enemy enemy = Collections.max(enemies, Comparator.comparing(p -> p.getPosition().getX()));
+        return enemy;
     }
 
     public String getBackgroundColor() {
