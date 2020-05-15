@@ -1,6 +1,7 @@
 package com.spaceinvaders.controller;
 
 import com.spaceinvaders.model.geometry.Position;
+import com.spaceinvaders.model.image.Pixel;
 import com.spaceinvaders.model.shots.IShotVisited;
 import com.spaceinvaders.model.shots.ShotsVisitor;
 import com.spaceinvaders.model.arena.Arena;
@@ -30,7 +31,6 @@ public class ShotsController {
     public void processShots() {
 
         Shot shot;
-        IShotVisited shotVisited;
 
         for (Iterator<Shot> iterator = arena.getShots().iterator(); iterator.hasNext();) {
             shot = iterator.next();
@@ -38,12 +38,21 @@ public class ShotsController {
             shotTranslaction.setVector(shot.getVelocity());
             shot.setPosition(shotTranslaction.apply());
 
-            if (!arena.contain(shot.getPosition())) {
-                shotVisited = (IShotVisited)shot;
-                shotVisited.accept(new ShotsVisitor(shotPoolGroup));
-                iterator.remove();
+            for (int i=0;i<arena.getWalls().size();i++) {
+                for (int j=0;j<arena.getWalls().get(i).getFragments().size();j++) {
+                    if (arena.getWalls().get(i).getFragments().get(j).contain(shot.getPosition())) {
+                        arena.colide(arena.getWalls().get(i).getFragments().get(j), shot);
+                        shotToPoolGroup(shot,iterator);
+                    }
+                }
             }
+
+            if (!arena.contain(shot.getPosition())) {
+                shotToPoolGroup(shot,iterator);
+            }
+
         }
+
     }
 
     public void generateEnemyShot(){
@@ -54,4 +63,12 @@ public class ShotsController {
             arena.addElement(shot);
         }
     }
+
+    public void shotToPoolGroup(Shot shot, Iterator<Shot> iterator){
+        IShotVisited shotVisited;
+        shotVisited = (IShotVisited) shot;
+        shotVisited.accept(new ShotsVisitor(shotPoolGroup));
+        iterator.remove();
+    }
+
 }
