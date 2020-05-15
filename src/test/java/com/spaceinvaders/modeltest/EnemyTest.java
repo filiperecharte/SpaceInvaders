@@ -1,5 +1,6 @@
 package com.spaceinvaders.modeltest;
 
+import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
@@ -24,8 +25,14 @@ public class EnemyTest {
 
     @Test
     public void updateTest() {
-        Enemy enemy = new Enemy(new Position(10, 3), new Size(7, 1), imageMock);
+        Enemy enemy = null;
+        try {
+            enemy = new Enemy(new Position(10, 3), new Size(7, 1), imageMock);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
 
+        assert enemy != null;
         enemy.update();
 
         assertEquals(11, enemy.getPosition().getX());
