@@ -3,6 +3,8 @@ package com.spaceinvaders.model.collisions;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.ship.Ship;
+import com.spaceinvaders.model.shots.EnemyShot;
+import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.wall.Fragment;
 
@@ -16,8 +18,10 @@ public class CollideableVisitor implements ICollideableVisitor{
     }
 
     public void visit(Ship ship) {
+        ship.decreaseLife();
         //diminuir as vidas da ship conforme o shot
     }
+
     public void visit(Fragment wallFragment) {
         for (int i=0; i<arena.getWalls().size();i++){
             for (int j=0; j<arena.getWalls().get(i).getFragments().size();j++){
@@ -28,8 +32,8 @@ public class CollideableVisitor implements ICollideableVisitor{
     }
 
     public void visit(Enemy enemy) {
-            arena.getEnemies().remove(enemy);
-        //aqui depois eliminamos conforme a strenght do enemy
+        arena.getEnemies().remove(enemy);
+        //aqui depois eliminamos dependendo da strenght do enemy
     }
 
 }

@@ -3,6 +3,7 @@ package com.spaceinvaders.controller;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.image.Pixel;
 import com.spaceinvaders.model.shots.IShotVisited;
+import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.shots.ShotsVisitor;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.geometry.Translaction;
@@ -29,28 +30,18 @@ public class ShotsController {
     }
 
     public void processShots() {
-
         Shot shot;
-
         for (Iterator<Shot> iterator = arena.getShots().iterator(); iterator.hasNext();) {
             shot = iterator.next();
             shotTranslaction.setPosition(shot.getPosition());
             shotTranslaction.setVector(shot.getVelocity());
             shot.setPosition(shotTranslaction.apply());
 
-            for (int i=0;i<arena.getWalls().size();i++) {
-                for (int j=0;j<arena.getWalls().get(i).getFragments().size();j++) {
-                    if (arena.getWalls().get(i).getFragments().get(j).contain(shot.getPosition())) {
-                        arena.colide(arena.getWalls().get(i).getFragments().get(j), shot);
-                        shotToPoolGroup(shot,iterator);
-                    }
-                }
-            }
+            checkShotCollision(shot,iterator);
 
             if (!arena.contain(shot.getPosition())) {
                 shotToPoolGroup(shot,iterator);
             }
-
         }
 
     }
@@ -61,6 +52,32 @@ public class ShotsController {
             Shot shot = shotPoolGroup.getEnemyShotPool().extract();
             shot.setPosition(shootEnemyPosition);
             arena.addElement(shot);
+        }
+    }
+
+    public void checkShotCollision(Shot shot, Iterator<Shot> iterator){
+        for (int i=0;i<arena.getWalls().size();i++) {
+            for (int j=0;j<arena.getWalls().get(i).getFragments().size();j++) {
+                if (arena.getWalls().get(i).getFragments().get(j).contain(shot.getPosition())) {
+                    arena.colide(arena.getWalls().get(i).getFragments().get(j), shot);
+
+                    shotToPoolGroup(shot,iterator);
+                }
+            }
+        }
+
+        if (shot instanceof ShipShot) {
+            for (int i = 0; i < arena.getEnemies().size(); i++) {
+                if (arena.getEnemies().get(i).contain(shot.getPosition())) {
+                    arena.colide(arena.getEnemies().get(i), shot);
+
+                    shotToPoolGroup(shot, iterator);
+                }
+            }
+        }
+
+        if (arena.getShip().contain(shot.getPosition())) {
+            arena.colide(arena.getShip(), shot);
         }
     }
 

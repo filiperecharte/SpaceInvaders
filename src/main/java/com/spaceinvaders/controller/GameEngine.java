@@ -17,15 +17,12 @@ public class GameEngine {
     private ShotPoolGroup shotPoolGroup;
     private ShotsController shotsController;
 
-    private long start;
-
     public GameEngine(GameView gameView, Arena arena) {
         isFinished = false;
         this.gameView = gameView;
         this.arena = arena;
         this.shotPoolGroup = new ShotPoolGroup();
         this.shotsController = new ShotsController(arena, shotPoolGroup);
-        start = System.currentTimeMillis();
     }
 
     public boolean isFinished() {
@@ -63,7 +60,6 @@ public class GameEngine {
         shotsController.generateEnemyShot();
         shotsController.processShots();
         arena.updateEnemies();
-        //try { Thread.sleep (50); } catch (InterruptedException ex) {}
     }
 
     public void run() throws IOException {

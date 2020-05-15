@@ -15,10 +15,9 @@ import com.spaceinvaders.model.image.Image;
 import com.spaceinvaders.model.shots.Shot;
 
 public class Ship extends MovableFrame implements IElementVisited, ICollideableVisited, Shooter {
+    private int life=5;
 
-public Ship(Position position, Size size, Image image) throws IllegalArgumentException
-
-    {
+    public Ship(Position position, Size size, Image image) throws IllegalArgumentException {
         super(position, size, image);
 
         if (!this.isPerfectlyOverlapped())
@@ -26,6 +25,10 @@ public Ship(Position position, Size size, Image image) throws IllegalArgumentExc
 
         if (size.getWidth() % 2 == 0)
             throw new IllegalArgumentException("Ship size must be odd");
+    }
+
+    public void decreaseLife(){
+        life--;
     }
 
     @Override
