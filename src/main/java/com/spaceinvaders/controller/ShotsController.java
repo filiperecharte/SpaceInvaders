@@ -2,7 +2,7 @@ package com.spaceinvaders.controller;
 
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.shots.IShotVisited;
-import com.spaceinvaders.model.shots.ShotsVisitor;
+import com.spaceinvaders.model.shots.ShotsPoolVisitor;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.geometry.Translaction;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
@@ -40,7 +40,7 @@ public class ShotsController {
 
             if (!arena.contain(shot.getPosition())) {
                 shotVisited = (IShotVisited)shot;
-                shotVisited.accept(new ShotsVisitor(shotPoolGroup));
+                shotVisited.accept(new ShotsPoolVisitor(shotPoolGroup));
                 iterator.remove();
             }
         }

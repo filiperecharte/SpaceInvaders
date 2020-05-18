@@ -1,14 +1,5 @@
 package com.spaceinvaders.viewtest;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.screen.TerminalScreen;
-import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.view.ArenaRenderer;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mockito;
-
 public class ArenaRendererTest {
     /*TerminalScreen screen;
 

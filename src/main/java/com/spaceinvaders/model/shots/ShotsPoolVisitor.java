@@ -2,10 +2,10 @@ package com.spaceinvaders.model.shots;
 
 import com.spaceinvaders.model.pools.ShotPoolGroup;
 
-public class ShotsVisitor implements IShotsVisitor {
+public class ShotsPoolVisitor implements IShotsVisitor {
     private ShotPoolGroup shotPoolGroup;
 
-    public ShotsVisitor(ShotPoolGroup shotPoolGroup) {
+    public ShotsPoolVisitor(ShotPoolGroup shotPoolGroup) {
         this.shotPoolGroup = shotPoolGroup;
     }
 

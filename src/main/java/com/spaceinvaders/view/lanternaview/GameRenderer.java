@@ -1,5 +1,6 @@
-package com.spaceinvaders.view;
+package com.spaceinvaders.view.lanternaview;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.spaceinvaders.model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -26,7 +27,7 @@ public class GameRenderer implements Renderer {
     }
 
     public void render(TextGraphics graphics) {
-        
+
         TextColor backgroundColor = new TextColor.RGB(128, 128, 128);
 
         new BoxImageRenderer(arena, new ArenaImageFactory().createTextImage(backgroundColor)).render(graphics);
@@ -44,18 +45,6 @@ public class GameRenderer implements Renderer {
             shotVisited = (IShotVisited)shot;
             shotVisited.accept(new ShotsRendererVisitor(backgroundColor, graphics));
         }
-
-        /*for(int i=0;i<arena.getWalls().size();i++)
-            new WallRenderer(arena.getWalls().get(i)).render(graphics);*/
-
-        /*for(int i=0;i<arena.getEnemies().size();i++){
-            new EnemyRenderer(arena.getEnemies().get(i)).render(graphics);
-        }*/
-
-        /*for (Shot shot : arena.getShots()) {
-            new ShotRenderer(shot).render(graphics);
-        }*/
-
     }
 
 }

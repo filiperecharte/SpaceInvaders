@@ -1,6 +1,5 @@
 package com.spaceinvaders.modeltest;
 
-import com.spaceinvaders.model.Frame;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.image.Image;

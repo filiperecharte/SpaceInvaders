@@ -5,7 +5,6 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.spaceinvaders.model.shots.EnemyShot;
 import com.spaceinvaders.model.shots.IShotsVisitor;
 import com.spaceinvaders.model.shots.ShipShot;
-import com.spaceinvaders.view.lanternaview.imagesfactories.DefaultFragmentImageFactory;
 import com.spaceinvaders.view.lanternaview.imagesfactories.EnemyShotImageFactory;
 import com.spaceinvaders.view.lanternaview.imagesrederers.BoxImageRenderer;
 

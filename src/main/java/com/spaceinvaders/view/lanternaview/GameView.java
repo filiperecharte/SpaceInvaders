@@ -1,5 +1,6 @@
-package com.spaceinvaders.view;
+package com.spaceinvaders.view.lanternaview;
 
+import com.googlecode.lanterna.SGR;
 import com.spaceinvaders.model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -7,6 +8,7 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.spaceinvaders.view.lanternaview.GameRenderer;
 
 import java.io.IOException;
 
@@ -28,6 +30,7 @@ public class GameView {
             this.screen.doResizeIfNecessary();     // resize screen if necessary
 
             this.graphics = screen.newTextGraphics();
+            graphics.enableModifiers(SGR.BOLD);
 
             this.gameRenderer = new GameRenderer(arena);
         } catch (IOException e) {
