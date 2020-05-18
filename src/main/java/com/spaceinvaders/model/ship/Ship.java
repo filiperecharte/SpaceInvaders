@@ -4,18 +4,20 @@ import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.IElementVisited;
 import com.spaceinvaders.model.IElementsVisitor;
 import com.spaceinvaders.model.MovableFrame;
+import com.spaceinvaders.model.collisions.ICollideableVisited;
+import com.spaceinvaders.model.collisions.ICollideableVisitor;
 import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Translaction;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.image.Image;
+import com.spaceinvaders.model.shots.Shot;
 
-public class Ship extends MovableFrame implements IElementVisited, Shooter {
+public class Ship extends MovableFrame implements IElementVisited, ICollideableVisited, Shooter {
+    private int life=5;
 
-public Ship(Position position, Size size, Image image) throws IllegalArgumentException
-
-    {
+    public Ship(Position position, Size size, Image image) throws IllegalArgumentException {
         super(position, size, image);
 
         if (!this.isPerfectlyOverlapped())
@@ -23,6 +25,10 @@ public Ship(Position position, Size size, Image image) throws IllegalArgumentExc
 
         if (size.getWidth() % 2 == 0)
             throw new IllegalArgumentException("Ship size must be odd");
+    }
+
+    public void decreaseLife(){
+        life--;
     }
 
     @Override
@@ -34,5 +40,10 @@ public Ship(Position position, Size size, Image image) throws IllegalArgumentExc
     @Override
     public void accept(IElementsVisitor visitor) {
         visitor.visit(this);
+    }
+
+    @Override
+    public void acceptShot(ICollideableVisitor collideableVisitor) {
+        collideableVisitor.visit(this);
     }
 }

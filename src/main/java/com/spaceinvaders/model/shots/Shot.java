@@ -3,10 +3,15 @@ package com.spaceinvaders.model.shots;
 import com.spaceinvaders.model.IElementVisited;
 import com.spaceinvaders.model.IElementsVisitor;
 import com.spaceinvaders.model.MovableFrame;
+import com.spaceinvaders.model.collisions.ICollideableVisited;
+import com.spaceinvaders.model.collisions.ICollideableVisitor;
+import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.image.Image;
+import com.spaceinvaders.model.ship.Ship;
+import com.spaceinvaders.model.wall.Wall;
 
 public class Shot extends MovableFrame implements IElementVisited {
     protected int damage;
@@ -34,4 +39,5 @@ public class Shot extends MovableFrame implements IElementVisited {
     public void accept(IElementsVisitor visitor) {
         visitor.visit(this);
     }
+
 }

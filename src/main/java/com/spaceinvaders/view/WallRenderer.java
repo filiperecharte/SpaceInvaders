@@ -11,6 +11,7 @@ public class WallRenderer implements Renderer{
 
     public WallRenderer(Wall wall) {this.wall=wall; }
     public void render(TextGraphics graphics) {
-        new ImageRenderer(wall.getImage()).render(graphics);
+        for(int i=0;i<wall.getFragments().size();i++)
+            new ImageRenderer(wall.getFragments().get(i).getImage()).render(graphics);
     }
 }

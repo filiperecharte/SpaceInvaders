@@ -4,6 +4,8 @@ import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.IElementVisited;
 import com.spaceinvaders.model.IElementsVisitor;
 import com.spaceinvaders.model.MovableFrame;
+import com.spaceinvaders.model.collisions.ICollideableVisited;
+import com.spaceinvaders.model.collisions.ICollideableVisitor;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Translaction;
@@ -11,7 +13,7 @@ import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.image.Image;
 import com.spaceinvaders.model.shots.Shooter;
 
-public class Enemy extends MovableFrame implements IElementVisited, Shooter {
+public class Enemy extends MovableFrame implements IElementVisited, ICollideableVisited, Shooter {
     private int direction;
 
     public Enemy(Position position, Size size, Image image) throws IllegalArgumentException {
@@ -46,5 +48,10 @@ public class Enemy extends MovableFrame implements IElementVisited, Shooter {
     @Override
     public void accept(IElementsVisitor visitor) {
         visitor.visit(this);
+    }
+
+    @Override
+    public void acceptShot(ICollideableVisitor collideableVisitor) {
+        collideableVisitor.visit(this);
     }
 }

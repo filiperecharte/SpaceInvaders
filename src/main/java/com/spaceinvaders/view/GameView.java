@@ -1,5 +1,6 @@
 package com.spaceinvaders.view;
 
+import com.googlecode.lanterna.TerminalSize;
 import com.spaceinvaders.model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -21,6 +22,7 @@ public class GameView {
         this.arena = arena;
         try {
             Terminal terminal = new DefaultTerminalFactory().createTerminal();
+
             this.screen = new TerminalScreen(terminal);
 
             this.screen.setCursorPosition(null);   // we don't need a cursor
