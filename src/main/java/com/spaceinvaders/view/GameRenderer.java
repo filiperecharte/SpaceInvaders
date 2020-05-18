@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TextColor;
 import com.spaceinvaders.model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.spaceinvaders.model.shots.Shot;
+import com.spaceinvaders.view.lanternaview.imagesfactories.ArenaImageFactory;
 import com.spaceinvaders.view.lanternaview.imagesfactories.ShipImageFactory;
 import com.spaceinvaders.view.lanternaview.imagesrederers.BoxImageRenderer;
 import com.spaceinvaders.view.lanternaview.imagesrederers.Renderer;
@@ -18,8 +19,13 @@ public class GameRenderer implements Renderer {
     }
 
     public void render(TextGraphics graphics) {
-        new ArenaRenderer(arena).render(graphics);
-        new BoxImageRenderer(arena.getShip(), new ShipImageFactory().createTextImage(new TextColor.RGB(0, 0, 0))).render(graphics);
+
+        //graphics.fill(' ');
+        TextColor backgroundColor = new TextColor.RGB(128, 128, 128);
+
+        //new ArenaRenderer(arena).render(graphics);
+        new BoxImageRenderer(arena, new ArenaImageFactory().createTextImage(backgroundColor)).render(graphics);
+        new BoxImageRenderer(arena.getShip(), new ShipImageFactory().createTextImage(backgroundColor)).render(graphics);
 
         for(int i=0;i<arena.getWalls().size();i++)
             new WallRenderer(arena.getWalls().get(i)).render(graphics);
@@ -29,8 +35,6 @@ public class GameRenderer implements Renderer {
         }
 
         for (Shot shot : arena.getShots()) {
-            //System.out.println("X: " + shot.getPosition().getX());
-            //System.out.println("Y: " + shot.getPosition().getY());
             new ShotRenderer(shot).render(graphics);
         }
 
