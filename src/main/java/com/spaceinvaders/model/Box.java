@@ -20,8 +20,8 @@ public class Box extends Element {
     }
 
     public boolean contain(Position otherPosition) {
-        boolean checkHorizontal = (otherPosition.getX() >= position.getX()) && (otherPosition.getX() <= position.getX() + size.getWidth());
-        boolean checkVertical = (otherPosition.getY() >= position.getY()) && (otherPosition.getY() <= position.getY() + size.getHeight());
+        boolean checkHorizontal = (otherPosition.getX() >= position.getX()) && (otherPosition.getX() <= position.getX() + size.getWidth()-1);
+        boolean checkVertical = (otherPosition.getY() >= position.getY()) && (otherPosition.getY() <= position.getY() + size.getHeight()-1);
 
         return checkHorizontal && checkVertical;
     }

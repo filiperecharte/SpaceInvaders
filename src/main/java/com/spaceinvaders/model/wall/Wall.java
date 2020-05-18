@@ -20,13 +20,14 @@ public class Wall extends Box implements IElementVisited {
         fragments.add(fragment);
     }
 
-    public void removeFragment(Fragment fragment){
-        for(int i=0;i<fragments.size();i++){
-            if(fragments.get(i).getPosition().equals(fragment.getPosition())){
-                fragments.remove(i);
-                break;
+    public void removeFragment(Fragment fragment) throws IllegalArgumentException {
+        for (int i=0; i<fragments.size();i++){
+            if (fragments.get(i).equals(fragment)) {
+                fragments.remove(fragment);
+                return;
             }
         }
+        throw new IllegalArgumentException("Fragment does not exist on wall");
     }
 
     public List<Fragment> getFragments(){
@@ -37,4 +38,6 @@ public class Wall extends Box implements IElementVisited {
     public void accept(IElementsVisitor visitor) {
         visitor.visit(this);
     }
+
+
 }

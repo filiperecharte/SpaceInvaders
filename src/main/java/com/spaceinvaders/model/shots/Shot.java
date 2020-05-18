@@ -29,4 +29,5 @@ public class Shot extends Box implements IElementVisited {
     public void accept(IElementsVisitor visitor) {
         visitor.visit(this);
     }
+
 }

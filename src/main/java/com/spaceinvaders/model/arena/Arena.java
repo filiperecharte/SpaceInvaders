@@ -3,6 +3,8 @@ package com.spaceinvaders.model.arena;
 import com.spaceinvaders.model.*;
 import com.spaceinvaders.model.element.ElementsVisitor;
 import com.spaceinvaders.model.element.IElementVisited;
+import com.spaceinvaders.model.collisions.CollideableVisitor;
+import com.spaceinvaders.model.collisions.ICollideableVisited;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.ship.Ship;
@@ -11,6 +13,8 @@ import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.wall.Wall;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Arena extends Box {
@@ -51,6 +55,10 @@ public class Arena extends Box {
         element.accept(new ElementsVisitor(this));
     }
 
+    public void colide(ICollideableVisited collideable,Shot shot){
+        collideable.acceptShot(new CollideableVisitor(this, shot));
+    }
+
     public Ship getShip(){
         return this.ship;
     }
@@ -81,6 +89,16 @@ public class Arena extends Box {
         for (int i=0;i<enemies.size();i++){
             enemies.get(i).update();
         }
+    }
+
+    public Enemy getLeftMostEnemy(){
+       Enemy enemy = Collections.min(enemies, Comparator.comparing(p -> p.getPosition().getX()));
+       return enemy;
+    }
+
+    public Enemy getRightMostEnemy(){
+        Enemy enemy = Collections.max(enemies, Comparator.comparing(p -> p.getPosition().getX()));
+        return enemy;
     }
 
     public String getBackgroundColor() {

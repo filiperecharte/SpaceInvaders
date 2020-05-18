@@ -23,6 +23,7 @@ public class GameView {
         this.arena = arena;
         try {
             Terminal terminal = new DefaultTerminalFactory().createTerminal();
+
             this.screen = new TerminalScreen(terminal);
 
             this.screen.setCursorPosition(null);   // we don't need a cursor
