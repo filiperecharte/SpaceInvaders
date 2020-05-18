@@ -16,19 +16,19 @@ import java.util.List;
 public class Wall extends Box implements IElementVisited {
     private Size size;
     private char c;
-    private Image image;
+    //private Image image;
     private List<Fragment> fragments = new ArrayList<Fragment>();
 
-    public Wall(Position position, Size size, Image image) {
+    public Wall(Position position, Size size) {
         super(position, size);
-        this.image= image;
+        //this.image= image;
     }
 
     public void addFragment(Fragment fragment){
         //adiciona fragmento a lista de fragmentos
         fragments.add(fragment);
 
-        //adiciona pixeis do fragmento a image da wall
+        /*//adiciona pixeis do fragmento a image da wall
         for (int i=0;i<fragment.getSize().getWidth();i++) {
             try {
                 image.getPixelMatrix().addPixel(new Pixel(new Position(fragment.getPosition().getX() + i, fragment.getPosition().getY()), fragment.getChar()));
@@ -40,7 +40,7 @@ public class Wall extends Box implements IElementVisited {
         image.setColor("#000000");
         image.setBold(true);
 
-        image.updateSize();
+        image.updateSize();*/
     }
 
     public void removeFragment(Fragment fragment){
@@ -50,7 +50,7 @@ public class Wall extends Box implements IElementVisited {
                 break;
             }
         }
-        for (int i=0;i<fragment.getSize().getWidth();i++) {
+        /*for (int i=0;i<fragment.getSize().getWidth();i++) {
             if(fragment.getPosition().equals(fragment.getPosition())) {
                 try {
                     image.getPixelMatrix().removePixel(new Position(fragment.getPosition().getX() + i, fragment.getPosition().getY()));
@@ -60,12 +60,12 @@ public class Wall extends Box implements IElementVisited {
                 break;
             }
         }
-        image.updateSize();
+        image.updateSize();*/
     }
 
-    public Image getImage() {
+    /*public Image getImage() {
         return image;
-    }
+    }*/
 
     public List<Fragment> getFragments(){
         return fragments;

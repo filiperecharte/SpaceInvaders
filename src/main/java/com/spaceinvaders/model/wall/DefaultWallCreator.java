@@ -9,7 +9,7 @@ public class DefaultWallCreator implements WallCreator {
 
     @Override
     public Wall build(Position position, Size size) {
-        wall = new Wall(position, size, new Image());
+        wall = new Wall(position, size);
         for(int x=wall.getPosition().getX()+3; x<=wall.getPosition().getX()+5;x++){
             wall.addFragment(new Fragment(new Position(x,wall.getPosition().getY()-3),new Size(1,1),'#'));
     }
