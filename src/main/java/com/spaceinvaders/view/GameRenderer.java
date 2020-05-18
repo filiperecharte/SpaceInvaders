@@ -4,9 +4,11 @@ import com.googlecode.lanterna.TextColor;
 import com.spaceinvaders.model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.spaceinvaders.model.enemy.Enemy;
+import com.spaceinvaders.model.shots.IShotVisited;
 import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.wall.Fragment;
 import com.spaceinvaders.model.wall.Wall;
+import com.spaceinvaders.view.lanternaview.ShotsRendererVisitor;
 import com.spaceinvaders.view.lanternaview.imagesfactories.ArenaImageFactory;
 import com.spaceinvaders.view.lanternaview.imagesfactories.DefaultEnemyImageFactory;
 import com.spaceinvaders.view.lanternaview.imagesfactories.DefaultFragmentImageFactory;
@@ -24,8 +26,7 @@ public class GameRenderer implements Renderer {
     }
 
     public void render(TextGraphics graphics) {
-
-        //graphics.fill(' ');
+        
         TextColor backgroundColor = new TextColor.RGB(128, 128, 128);
 
         new BoxImageRenderer(arena, new ArenaImageFactory().createTextImage(backgroundColor)).render(graphics);
@@ -38,6 +39,11 @@ public class GameRenderer implements Renderer {
                 new BoxImageRenderer(fragment, new DefaultFragmentImageFactory().createTextImage(backgroundColor)).render(graphics);
             }
         }
+        IShotVisited shotVisited;
+        for (Shot shot : arena.getShots()) {
+            shotVisited = (IShotVisited)shot;
+            shotVisited.accept(new ShotsRendererVisitor(backgroundColor, graphics));
+        }
 
         /*for(int i=0;i<arena.getWalls().size();i++)
             new WallRenderer(arena.getWalls().get(i)).render(graphics);*/
@@ -46,9 +52,9 @@ public class GameRenderer implements Renderer {
             new EnemyRenderer(arena.getEnemies().get(i)).render(graphics);
         }*/
 
-        for (Shot shot : arena.getShots()) {
+        /*for (Shot shot : arena.getShots()) {
             new ShotRenderer(shot).render(graphics);
-        }
+        }*/
 
     }
 

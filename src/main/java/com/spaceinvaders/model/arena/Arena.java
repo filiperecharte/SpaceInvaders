@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Arena extends Box{
+public class Arena extends Box {
     private Ship ship;
     private List<Wall> walls;
     private List<Enemy> enemies;
