@@ -5,6 +5,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.spaceinvaders.model.image.Image;
 import com.spaceinvaders.model.image.Pixel;
+import com.spaceinvaders.view.lanternaview.imagesrederers.Renderer;
 
 public class ImageRenderer implements Renderer {
     private Image image;

@@ -1,10 +1,14 @@
 package com.spaceinvaders.view;
 
+import com.googlecode.lanterna.TextColor;
 import com.spaceinvaders.model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.spaceinvaders.model.shots.Shot;
+import com.spaceinvaders.view.lanternaview.imagesfactories.ShipImageFactory;
+import com.spaceinvaders.view.lanternaview.imagesrederers.BoxImageRenderer;
+import com.spaceinvaders.view.lanternaview.imagesrederers.Renderer;
 
-public class GameRenderer implements Renderer{
+public class GameRenderer implements Renderer {
     private Arena arena;
     int counter;
 
@@ -15,7 +19,7 @@ public class GameRenderer implements Renderer{
 
     public void render(TextGraphics graphics) {
         new ArenaRenderer(arena).render(graphics);
-        new ShipRenderer(arena.getShip()).render(graphics);
+        new BoxImageRenderer(arena.getShip(), new ShipImageFactory().createTextImage(new TextColor.RGB(0, 0, 0))).render(graphics);
 
         for(int i=0;i<arena.getWalls().size();i++)
             new WallRenderer(arena.getWalls().get(i)).render(graphics);
