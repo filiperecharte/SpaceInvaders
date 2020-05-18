@@ -6,7 +6,6 @@ import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Translaction;
 import com.spaceinvaders.model.geometry.Vector;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
