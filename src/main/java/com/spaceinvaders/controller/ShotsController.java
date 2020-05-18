@@ -1,10 +1,9 @@
 package com.spaceinvaders.controller;
 
 import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.image.Pixel;
 import com.spaceinvaders.model.shots.IShotVisited;
+import com.spaceinvaders.model.shots.ShotsPoolVisitor;
 import com.spaceinvaders.model.shots.ShipShot;
-import com.spaceinvaders.model.shots.ShotsVisitor;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.geometry.Translaction;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
@@ -31,6 +30,7 @@ public class ShotsController {
 
     public void processShots() {
         Shot shot;
+        IShotVisited shotVisited;
         for (Iterator<Shot> iterator = arena.getShots().iterator(); iterator.hasNext();) {
             shot = iterator.next();
             shotTranslaction.setPosition(shot.getPosition());
@@ -84,7 +84,7 @@ public class ShotsController {
     public void shotToPoolGroup(Shot shot, Iterator<Shot> iterator){
         IShotVisited shotVisited;
         shotVisited = (IShotVisited) shot;
-        shotVisited.accept(new ShotsVisitor(shotPoolGroup));
+        shotVisited.accept(new ShotsPoolVisitor(shotPoolGroup));
         iterator.remove();
     }
 

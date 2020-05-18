@@ -3,7 +3,7 @@ import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.arena.ArenaCreator;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.view.GameView;
+import com.spaceinvaders.view.lanternaview.GameView;
 import java.io.IOException;
 
 public class Application {

@@ -1,6 +1,8 @@
 package com.spaceinvaders.model.arena;
 
 import com.spaceinvaders.model.*;
+import com.spaceinvaders.model.element.ElementsVisitor;
+import com.spaceinvaders.model.element.IElementVisited;
 import com.spaceinvaders.model.collisions.CollideableVisitor;
 import com.spaceinvaders.model.collisions.ICollideableVisited;
 import com.spaceinvaders.model.enemy.Enemy;
@@ -15,7 +17,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Arena extends Box{
+public class Arena extends Box {
     private Ship ship;
     private List<Wall> walls;
     private List<Enemy> enemies;

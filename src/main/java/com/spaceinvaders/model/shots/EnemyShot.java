@@ -1,34 +1,13 @@
 package com.spaceinvaders.model.shots;
 
-import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
-import com.spaceinvaders.model.image.Image;
-import com.spaceinvaders.model.image.ImageCreator;
-import com.spaceinvaders.model.image.Pixel;
 
-public class EnemyShot extends Shot implements IShotVisited, ImageCreator {
+public class EnemyShot extends Shot implements IShotVisited {
 
     public EnemyShot() {
-        super(new Position(0, 0), new Size(1, 1), new Image(), 1, new Vector(0, 1));
-        this.setImage(createImage());
-    }
-
-    @Override
-    public Image createImage() {
-        Image image = new Image();
-
-        try {
-            image.getPixelMatrix().addPixel(new Pixel(new Position(0, 0), '.'));
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        }
-
-        image.setColor("#000000");
-        image.setBold(true);
-
-        return image;
+        super(new Position(0, 0), new Size(1, 1), 1, new Vector(0, 1));
     }
 
     @Override

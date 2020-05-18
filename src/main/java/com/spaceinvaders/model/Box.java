@@ -1,5 +1,6 @@
 package com.spaceinvaders.model;
 
+import com.spaceinvaders.model.element.Element;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 

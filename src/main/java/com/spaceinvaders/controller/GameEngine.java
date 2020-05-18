@@ -6,7 +6,7 @@ import com.spaceinvaders.controller.commands.shipcommands.MoveShipRightCommand;
 import com.spaceinvaders.controller.commands.shipcommands.ShootShipCommand;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
-import com.spaceinvaders.view.GameView;
+import com.spaceinvaders.view.lanternaview.GameView;
 
 import java.io.IOException;
 
