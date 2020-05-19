@@ -79,11 +79,11 @@ public class Arena extends Box {
         return this.shots;
     }
 
-    public void changeEnemiesDir(){
+    /*public void changeEnemiesDir(){
         for (int i=0;i<enemies.size();i++){
             enemies.get(i).setDirection(-enemies.get(i).getDirection());
         }
-    }
+    }*/
 
     public void updateEnemies(){
         for (int i=0;i<enemies.size();i++){

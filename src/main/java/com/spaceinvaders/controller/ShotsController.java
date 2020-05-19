@@ -1,11 +1,11 @@
 package com.spaceinvaders.controller;
 
 import com.spaceinvaders.model.geometry.Position;
+import com.spaceinvaders.model.geometry.Translation;
 import com.spaceinvaders.model.shots.IShotVisited;
 import com.spaceinvaders.model.shots.ShotsPoolVisitor;
 import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.model.geometry.Translaction;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
 import com.spaceinvaders.model.shots.Shot;
 
@@ -15,7 +15,7 @@ import java.util.Iterator;
 
 public class ShotsController {
     private Arena arena;
-    private Translaction shotTranslaction;
+    private Translation shotTranslation;
 
     private ShotPoolGroup shotPoolGroup;
     private Random rand;
@@ -24,7 +24,7 @@ public class ShotsController {
     public ShotsController(Arena arena, ShotPoolGroup shotPoolGroup) {
         this.arena = arena;
         this.shotPoolGroup = shotPoolGroup;
-        shotTranslaction = new Translaction();
+        shotTranslation = new Translation();
         rand = new Random();
     }
 
@@ -33,9 +33,9 @@ public class ShotsController {
         IShotVisited shotVisited;
         for (Iterator<Shot> iterator = arena.getShots().iterator(); iterator.hasNext();) {
             shot = iterator.next();
-            shotTranslaction.setPosition(shot.getPosition());
-            shotTranslaction.setVector(shot.getVelocity());
-            shot.setPosition(shotTranslaction.apply());
+            shotTranslation.setPosition(shot.getPosition());
+            shotTranslation.setVector(shot.getVelocity());
+            shot.setPosition(shotTranslation.apply());
 
             checkShotCollision(shot,iterator);
 

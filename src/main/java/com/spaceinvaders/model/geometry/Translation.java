@@ -1,15 +1,15 @@
 package com.spaceinvaders.model.geometry;
 
-public class Translaction {
+public class Translation {
     private Position position;
     private Vector v;
 
-    public Translaction() {
+    public Translation() {
         position = new Position(0, 0);
         v = new Vector(0, 0);
     }
 
-    public Translaction(Position position, Vector v) {
+    public Translation(Position position, Vector v) {
         this.position = position;
         this.v = v;
     }

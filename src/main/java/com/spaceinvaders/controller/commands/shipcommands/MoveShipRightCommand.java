@@ -3,7 +3,7 @@ package com.spaceinvaders.controller.commands.shipcommands;
 import com.spaceinvaders.controller.commands.Command;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.geometry.Translaction;
+import com.spaceinvaders.model.geometry.Translation;
 import com.spaceinvaders.model.geometry.Vector;
 
 public class MoveShipRightCommand implements Command {
@@ -17,7 +17,7 @@ public class MoveShipRightCommand implements Command {
     public void execute() {
         // move ship 1 unit right
         Position shipPosition = arena.getShipPosition();
-        Translaction translaction = new Translaction(shipPosition, new Vector(1, 0));
-        arena.moveShipTo(translaction.apply());
+        Translation translation = new Translation(shipPosition, new Vector(1, 0));
+        arena.moveShipTo(translation.apply());
     }
 }
