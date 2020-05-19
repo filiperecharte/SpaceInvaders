@@ -28,17 +28,9 @@ public class EnemiesController {
     }
 
     public boolean enemiesNeedToInvertVelocity() {
-        int leftMostEnemyX = arena.getLeftMostEnemy().getPosition().getX();
-        int rightMostEnemyX = arena.getRightMostEnemy().getPosition().getX();
-        int rightMostEnemyWidth = arena.getRightMostEnemy().getSize().getWidth();
-        int arenaX = arena.getPosition().getX();
-        int arenaWidth = arena.getSize().getWidth();
 
-        boolean noEnemies = !arena.getEnemies().isEmpty();
-        boolean leftMostEnemyOut = leftMostEnemyX <= arenaX;
-        boolean rightMostEnemyOut = rightMostEnemyX + rightMostEnemyWidth > arenaX + arenaWidth;
-
-        return noEnemies && (leftMostEnemyOut || rightMostEnemyOut);
+        //return noEnemies && (leftMostEnemyOut || rightMostEnemyOut);
+        return !arena.getEnemies().isEmpty() && (!arena.contain(arena.getLeftMostEnemy()) || !arena.contain(arena.getRightMostEnemy()));
     }
 
     public void updateEnemy(Enemy enemy) {
