@@ -28,8 +28,6 @@ public class EnemiesController {
     }
 
     public boolean enemiesNeedToInvertVelocity() {
-
-        //return noEnemies && (leftMostEnemyOut || rightMostEnemyOut);
         return !arena.getEnemies().isEmpty() && (!arena.contain(arena.getLeftMostEnemy()) || !arena.contain(arena.getRightMostEnemy()));
     }
 
