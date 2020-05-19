@@ -1,4 +1,4 @@
-import com.spaceinvaders.controller.GameEngine;
+import com.spaceinvaders.controller.GameController;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.arena.ArenaCreator;
 import com.spaceinvaders.model.geometry.Position;
@@ -10,9 +10,9 @@ public class Application {
     public static void main(String[] args) {
         Arena arena = new ArenaCreator().createArena(new Position(0, 0), new Size(80, 30), "#808080");
         GameView gameView = new GameView(arena);
-        GameEngine gameEngine = new GameEngine(gameView, arena);
+        GameController gameController = new GameController(gameView, arena);
         try {
-            gameEngine.run();
+            gameController.run();
             gameView.end();
         } catch (IOException e) {
             e.printStackTrace();

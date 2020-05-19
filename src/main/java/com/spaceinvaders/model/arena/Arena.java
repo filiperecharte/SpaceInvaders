@@ -79,26 +79,12 @@ public class Arena extends Box {
         return this.shots;
     }
 
-    /*public void changeEnemiesDir(){
-        for (int i=0;i<enemies.size();i++){
-            enemies.get(i).setDirection(-enemies.get(i).getDirection());
-        }
-    }*/
-
-    public void updateEnemies(){
-        for (int i=0;i<enemies.size();i++){
-            enemies.get(i).update();
-        }
-    }
-
     public Enemy getLeftMostEnemy(){
-       Enemy enemy = Collections.min(enemies, Comparator.comparing(p -> p.getPosition().getX()));
-       return enemy;
+        return Collections.min(enemies, Comparator.comparing(p -> p.getPosition().getX()));
     }
 
     public Enemy getRightMostEnemy(){
-        Enemy enemy = Collections.max(enemies, Comparator.comparing(p -> p.getPosition().getX()));
-        return enemy;
+        return Collections.max(enemies, Comparator.comparing(p -> p.getPosition().getX()));
     }
 
     public String getBackgroundColor() {

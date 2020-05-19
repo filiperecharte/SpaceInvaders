@@ -30,20 +30,21 @@ public class ShotsController {
 
     public void processShots() {
         Shot shot;
-        IShotVisited shotVisited;
-        for (Iterator<Shot> iterator = arena.getShots().iterator(); iterator.hasNext();) {
-            shot = iterator.next();
-            shotTranslation.setPosition(shot.getPosition());
-            shotTranslation.setVector(shot.getVelocity());
-            shot.setPosition(shotTranslation.apply());
-
-            checkShotCollision(shot,iterator);
+        for (Iterator<Shot> shotIterator = arena.getShots().iterator(); shotIterator.hasNext();) {
+            shot = shotIterator.next();
+            updateShot(shot);
+            checkShotCollision(shot,shotIterator);
 
             if (!arena.contain(shot.getPosition())) {
-                shotToPoolGroup(shot,iterator);
+                shotToPoolGroup(shot,shotIterator);
             }
         }
+    }
 
+    public void updateShot(Shot shot) {
+        shotTranslation.setPosition(shot.getPosition());
+        shotTranslation.setVector(shot.getVelocity());
+        shot.setPosition(shotTranslation.apply());
     }
 
     public void generateEnemyShot(){
@@ -55,13 +56,12 @@ public class ShotsController {
         }
     }
 
-    public void checkShotCollision(Shot shot, Iterator<Shot> iterator){
+    public void checkShotCollision(Shot shot, Iterator<Shot> shotIterator){
         for (int i=0;i<arena.getWalls().size();i++) {
             for (int j=0;j<arena.getWalls().get(i).getFragments().size();j++) {
                 if (arena.getWalls().get(i).getFragments().get(j).contain(shot.getPosition())) {
                     arena.colide(arena.getWalls().get(i).getFragments().get(j), shot);
-
-                    shotToPoolGroup(shot,iterator);
+                    shotToPoolGroup(shot,shotIterator);
                 }
             }
         }
@@ -70,22 +70,22 @@ public class ShotsController {
             for (int i = 0; i < arena.getEnemies().size(); i++) {
                 if (arena.getEnemies().get(i).contain(shot.getPosition())) {
                     arena.colide(arena.getEnemies().get(i), shot);
-
-                    shotToPoolGroup(shot, iterator);
+                    shotToPoolGroup(shot, shotIterator);
                 }
             }
         }
 
         if (arena.getShip().contain(shot.getPosition())) {
             arena.colide(arena.getShip(), shot);
+            shotToPoolGroup(shot, shotIterator);
         }
     }
 
-    public void shotToPoolGroup(Shot shot, Iterator<Shot> iterator){
+    public void shotToPoolGroup(Shot shot, Iterator<Shot> shotIterator){
         IShotVisited shotVisited;
         shotVisited = (IShotVisited) shot;
         shotVisited.accept(new ShotsPoolVisitor(shotPoolGroup));
-        iterator.remove();
+        shotIterator.remove();
     }
 
 }

@@ -21,11 +21,6 @@ public class Enemy extends MovableBox implements IElementVisited, ICollideableVi
             throw new IllegalArgumentException("Ship size must be odd");
     }
 
-    public void update() {
-        Translation t = new Translation(this.position,new Vector(direction,0));
-        this.setPosition(t.apply());
-    }
-
     @Override
     public Position getShootPosition() {
         Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, 0));

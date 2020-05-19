@@ -10,19 +10,21 @@ import com.spaceinvaders.view.lanternaview.GameView;
 
 import java.io.IOException;
 
-public class GameEngine {
+public class GameController {
     private boolean isFinished;
     private GameView gameView;
     private Arena arena;
     private ShotPoolGroup shotPoolGroup;
     private ShotsController shotsController;
+    private EnemiesController enemiesController;
 
-    public GameEngine(GameView gameView, Arena arena) {
+    public GameController(GameView gameView, Arena arena) {
         isFinished = false;
         this.gameView = gameView;
         this.arena = arena;
         this.shotPoolGroup = new ShotPoolGroup();
         this.shotsController = new ShotsController(arena, shotPoolGroup);
+        this.enemiesController = new EnemiesController(arena);
     }
 
     public boolean isFinished() {
@@ -54,13 +56,9 @@ public class GameEngine {
     }
 
     public void gameActions(){
-        if (!arena.getEnemies().isEmpty() && (arena.getLeftMostEnemy().getPosition().getX() < 1||
-                arena.getRightMostEnemy().getPosition().getX() + arena.getRightMostEnemy().getSize().getWidth() > arena.getSize().getWidth())) {
-            arena.changeEnemiesDir();
-        }
+        enemiesController.processEnemies();
         shotsController.generateEnemyShot();
         shotsController.processShots();
-        arena.updateEnemies();
     }
 
     public void run() throws IOException {
