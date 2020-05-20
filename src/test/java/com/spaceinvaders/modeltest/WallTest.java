@@ -3,9 +3,6 @@ package com.spaceinvaders.modeltest;
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.image.Image;
-import com.spaceinvaders.model.image.Pixel;
-import com.spaceinvaders.model.image.PixelMatrix;
 import com.spaceinvaders.model.ship.Ship;
 import com.spaceinvaders.model.wall.Fragment;
 import com.spaceinvaders.model.wall.Wall;
@@ -36,26 +33,20 @@ public class WallTest {
         wall.addFragment(new Fragment(new Position(44,80), new Size(4,8)));
 
         assertEquals(4, wall.getFragments().size());
-        assertEquals(new Size());
     }
 
     @Test
     public void removeFragmentTest() throws IllegalArgumentException {
-        wall.addFragment(new Fragment(new Position(1,2),new Size(1,1),'#'));
-        wall.addFragment(new Fragment(new Position(2,2),new Size(1,1),'#'));
-        wall.addFragment(new Fragment(new Position(3,2),new Size(1,1),'#'));
-        wall.addFragment(new Fragment(new Position(4,2),new Size(1,1),'#'));
-        wall.removeFragment(new Fragment(new Position(1,2),new Size(1,1),'#'));
+        wall.addFragment(new Fragment(new Position(1,2),new Size(1,1)));
+        wall.addFragment(new Fragment(new Position(2,2),new Size(1,1)));
+        wall.addFragment(new Fragment(new Position(3,2),new Size(1,1)));
+        wall.addFragment(new Fragment(new Position(4,2),new Size(1,1)));
+        wall.removeFragment(new Fragment(new Position(1,2),new Size(1,1)));
 
         assertEquals(3, wall.getFragments().size());
 
-        ArgumentCaptor<Position> valueCaptor = ArgumentCaptor.forClass(Position.class);
-        verify(mockPixelMatrix, times(1)).removePixel(valueCaptor.capture());
-
-        List<Position> values = valueCaptor.getAllValues();
-
-        assertEquals((new Position(1,2)).getX(),values.get(0).getX());
-        assertEquals((new Position(1,2)).getY(),values.get(0).getY());
+        assertEquals(2,wall.getFragments().get(0).getPosition().getX());
+        assertEquals(2,wall.getFragments().get(0).getPosition().getY());
 
     }
 }
