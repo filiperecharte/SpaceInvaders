@@ -16,16 +16,12 @@ import java.util.Iterator;
 public class ShotsController {
     private Arena arena;
     private Translation shotTranslation;
-
     private ShotPoolGroup shotPoolGroup;
-    private Random rand;
-
 
     public ShotsController(Arena arena, ShotPoolGroup shotPoolGroup) {
         this.arena = arena;
         this.shotPoolGroup = shotPoolGroup;
         shotTranslation = new Translation();
-        rand = new Random();
     }
 
     public void processShots() {
@@ -48,8 +44,11 @@ public class ShotsController {
     }
 
     public void generateEnemyShot(){
-        if (!arena.getEnemies().isEmpty() && rand.nextInt(100)%15==0) { //diminuindo o divisor são gerados mais tiros
-            Position shootEnemyPosition = arena.getEnemies().get(rand.nextInt(arena.getEnemies().size())).getShootPosition();
+        int whenToShoot = makeRandom().nextInt(100);
+        int whatEnemy = makeRandom().nextInt(arena.getEnemies().size());
+
+        if (!arena.getEnemies().isEmpty() && whenToShoot%15==0) { //diminuindo o divisor são gerados mais tiros
+            Position shootEnemyPosition = arena.getEnemies().get(whatEnemy).getShootPosition();
             Shot shot = shotPoolGroup.getEnemyShotPool().extract();
             shot.setPosition(shootEnemyPosition);
             arena.addElement(shot);
@@ -86,6 +85,10 @@ public class ShotsController {
         shotVisited = (IShotVisited) shot;
         shotVisited.accept(new ShotsPoolVisitor(shotPoolGroup));
         shotIterator.remove();
+    }
+
+    public Random makeRandom() {
+        return new Random();
     }
 
 }

@@ -1,4 +1,4 @@
-package com.spaceinvaders.model;
+package com.spaceinvaders.model.box;
 
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;

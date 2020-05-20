@@ -1,6 +1,6 @@
 package com.spaceinvaders.model.wall;
 
-import com.spaceinvaders.model.Box;
+import com.spaceinvaders.model.box.Box;
 import com.spaceinvaders.model.collisions.ICollideableVisited;
 import com.spaceinvaders.model.collisions.ICollideableVisitor;
 import com.spaceinvaders.model.geometry.Position;

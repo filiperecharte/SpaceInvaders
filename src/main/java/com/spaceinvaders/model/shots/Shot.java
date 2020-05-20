@@ -1,7 +1,6 @@
 package com.spaceinvaders.model.shots;
 
-import com.spaceinvaders.model.Box;
-import com.spaceinvaders.model.MovableBox;
+import com.spaceinvaders.model.box.MovableBox;
 import com.spaceinvaders.model.element.IElementVisited;
 import com.spaceinvaders.model.element.IElementsVisitor;
 import com.spaceinvaders.model.geometry.Position;

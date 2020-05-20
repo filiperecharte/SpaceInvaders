@@ -1,6 +1,6 @@
 package com.spaceinvaders.modeltest;
 
-import com.spaceinvaders.model.Box;
+import com.spaceinvaders.model.box.Box;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import org.junit.Test;

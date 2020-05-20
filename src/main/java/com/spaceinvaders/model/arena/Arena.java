@@ -1,6 +1,6 @@
 package com.spaceinvaders.model.arena;
 
-import com.spaceinvaders.model.*;
+import com.spaceinvaders.model.box.Box;
 import com.spaceinvaders.model.element.ElementsVisitor;
 import com.spaceinvaders.model.element.IElementVisited;
 import com.spaceinvaders.model.collisions.CollideableVisitor;
