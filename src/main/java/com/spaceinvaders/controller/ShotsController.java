@@ -1,11 +1,11 @@
 package com.spaceinvaders.controller;
 
 import com.spaceinvaders.model.geometry.Position;
+import com.spaceinvaders.model.geometry.Translation;
 import com.spaceinvaders.model.shots.IShotVisited;
 import com.spaceinvaders.model.shots.ShotsPoolVisitor;
 import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.model.geometry.Translaction;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
 import com.spaceinvaders.model.shots.Shot;
 
@@ -15,7 +15,7 @@ import java.util.Iterator;
 
 public class ShotsController {
     private Arena arena;
-    private Translaction shotTranslaction;
+    private Translation shotTranslation;
 
     private ShotPoolGroup shotPoolGroup;
     private Random rand;
@@ -24,26 +24,27 @@ public class ShotsController {
     public ShotsController(Arena arena, ShotPoolGroup shotPoolGroup) {
         this.arena = arena;
         this.shotPoolGroup = shotPoolGroup;
-        shotTranslaction = new Translaction();
+        shotTranslation = new Translation();
         rand = new Random();
     }
 
     public void processShots() {
         Shot shot;
-        IShotVisited shotVisited;
-        for (Iterator<Shot> iterator = arena.getShots().iterator(); iterator.hasNext();) {
-            shot = iterator.next();
-            shotTranslaction.setPosition(shot.getPosition());
-            shotTranslaction.setVector(shot.getVelocity());
-            shot.setPosition(shotTranslaction.apply());
-
-            checkShotCollision(shot,iterator);
+        for (Iterator<Shot> shotIterator = arena.getShots().iterator(); shotIterator.hasNext();) {
+            shot = shotIterator.next();
+            updateShot(shot);
+            checkShotCollision(shot,shotIterator);
 
             if (!arena.contain(shot.getPosition())) {
-                shotToPoolGroup(shot,iterator);
+                shotToPoolGroup(shot,shotIterator);
             }
         }
+    }
 
+    public void updateShot(Shot shot) {
+        shotTranslation.setPosition(shot.getPosition());
+        shotTranslation.setVector(shot.getVelocity());
+        shot.setPosition(shotTranslation.apply());
     }
 
     public void generateEnemyShot(){
@@ -55,13 +56,12 @@ public class ShotsController {
         }
     }
 
-    public void checkShotCollision(Shot shot, Iterator<Shot> iterator){
+    public void checkShotCollision(Shot shot, Iterator<Shot> shotIterator){
         for (int i=0;i<arena.getWalls().size();i++) {
             for (int j=0;j<arena.getWalls().get(i).getFragments().size();j++) {
                 if (arena.getWalls().get(i).getFragments().get(j).contain(shot.getPosition())) {
                     arena.colide(arena.getWalls().get(i).getFragments().get(j), shot);
-
-                    shotToPoolGroup(shot,iterator);
+                    shotToPoolGroup(shot,shotIterator);
                 }
             }
         }
@@ -70,22 +70,22 @@ public class ShotsController {
             for (int i = 0; i < arena.getEnemies().size(); i++) {
                 if (arena.getEnemies().get(i).contain(shot.getPosition())) {
                     arena.colide(arena.getEnemies().get(i), shot);
-
-                    shotToPoolGroup(shot, iterator);
+                    shotToPoolGroup(shot, shotIterator);
                 }
             }
         }
 
         if (arena.getShip().contain(shot.getPosition())) {
             arena.colide(arena.getShip(), shot);
+            shotToPoolGroup(shot, shotIterator);
         }
     }
 
-    public void shotToPoolGroup(Shot shot, Iterator<Shot> iterator){
+    public void shotToPoolGroup(Shot shot, Iterator<Shot> shotIterator){
         IShotVisited shotVisited;
         shotVisited = (IShotVisited) shot;
         shotVisited.accept(new ShotsPoolVisitor(shotPoolGroup));
-        iterator.remove();
+        shotIterator.remove();
     }
 
 }

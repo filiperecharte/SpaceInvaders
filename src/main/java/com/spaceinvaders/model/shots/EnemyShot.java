@@ -7,7 +7,7 @@ import com.spaceinvaders.model.geometry.Vector;
 public class EnemyShot extends Shot implements IShotVisited {
 
     public EnemyShot() {
-        super(new Position(0, 0), new Size(1, 1), 1, new Vector(0, 1));
+        super(new Position(0, 0), new Size(1, 1), new Vector(0, 1), 1);
     }
 
     @Override

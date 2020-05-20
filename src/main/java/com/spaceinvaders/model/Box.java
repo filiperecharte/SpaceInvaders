@@ -25,4 +25,12 @@ public class Box extends Element {
 
         return checkHorizontal && checkVertical;
     }
+
+    public boolean contain(Box otherBox) {
+        boolean checkWidth = (otherBox.getPosition().getX() + otherBox.getSize().getWidth()) < (this.getPosition().getX() + this.getSize().getWidth());
+        boolean checkHeight = (otherBox.getPosition().getY() + otherBox.getSize().getHeight()) < (this.getPosition().getY() + this.getSize().getHeight());
+        boolean checkX = otherBox.getPosition().getX() > this.getPosition().getX();
+        boolean checkY = otherBox.getPosition().getY() > this.getPosition().getY();
+        return checkWidth && checkHeight && checkX && checkY;
+    }
 }

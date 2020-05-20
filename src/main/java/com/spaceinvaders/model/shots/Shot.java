@@ -1,28 +1,23 @@
 package com.spaceinvaders.model.shots;
 
 import com.spaceinvaders.model.Box;
+import com.spaceinvaders.model.MovableBox;
 import com.spaceinvaders.model.element.IElementVisited;
 import com.spaceinvaders.model.element.IElementsVisitor;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 
-public class Shot extends Box implements IElementVisited {
+public class Shot extends MovableBox implements IElementVisited {
     protected int damage;
-    protected Vector velocity;
 
-    public Shot(Position position, Size size, int damage, Vector velocity) {
-        super(position, size);
+    public Shot(Position position, Size size, Vector initialVelocity, int damage) {
+        super(position, size, initialVelocity);
         this.damage = damage;
-        this.velocity = velocity;
     }
 
     public int getDamage() {
         return damage;
-    }
-
-    public Vector getVelocity() {
-        return velocity;
     }
 
     @Override
