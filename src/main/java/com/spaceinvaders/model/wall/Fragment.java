@@ -16,4 +16,9 @@ public class Fragment extends Box implements ICollideableVisited {
     public void acceptShot(ICollideableVisitor collideableVisitor) {
         collideableVisitor.visit(this);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
 }

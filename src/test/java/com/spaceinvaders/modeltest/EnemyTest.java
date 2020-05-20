@@ -4,45 +4,29 @@ import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.image.Image;
-import com.spaceinvaders.model.ship.Ship;
-import org.junit.Before;
+import com.spaceinvaders.model.geometry.Vector;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
 
 public class EnemyTest {
-    private Image imageMock;
 
-    @Before
-    public void setUp() {
-        imageMock = Mockito.mock(Image.class);
-        when(imageMock.getSize()).thenReturn(new Size(7, 1));
-
+    @Test (expected = IllegalArgumentException.class)
+    public void constructorExceptionTest() throws IllegalArgumentException {
+        new Enemy(new Position(0, 0), new Size(4, 1), new Vector(1, 0));
     }
 
     @Test
-    public void updateTest() {
+    public void getShootPositionTest() {
+
         Enemy enemy = null;
         try {
-            enemy = new Enemy(new Position(10, 3), new Size(7, 1), imageMock);
+            enemy = new Enemy(new Position(15, 20), new Size(3, 1), new Vector(1, 0));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
 
         assert enemy != null;
-        enemy.update();
-
-        assertEquals(11, enemy.getPosition().getX());
-        assertEquals(3, enemy.getPosition().getY());
-
-        enemy.setDirection(-1);
-        enemy.update();
-
-        assertEquals(10, enemy.getPosition().getX());
-        assertEquals(3, enemy.getPosition().getY());
-
+        assertEquals(new Position(16, 1), enemy.getShootPosition());
     }
 }
