@@ -25,19 +25,6 @@ public class ArenaTest {
     }
 
     @Test
-    public void ArenaTestGetBackgrounColor() {
-        assertEquals("FFFFFF", arena.getBackgroundColor());
-
-    }
-
-    @Test
-    public void ArenaTestSetBackgroundColor() {
-        arena.setBackgroundColor("#92a8d1");
-        assertEquals("#92a8d1", arena.getBackgroundColor());
-
-    }
-
-    @Test
     public void ArenaTestCanMove() {
         assertFalse(arena.canMove(new Position(10, 20)));
         assertTrue(arena.canMove(new Position(4,8)));

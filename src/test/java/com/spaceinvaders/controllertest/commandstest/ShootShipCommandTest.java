@@ -1,4 +1,4 @@
-package com.spaceinvaders.controllertest;
+package com.spaceinvaders.controllertest.commandstest;
 
 import com.spaceinvaders.controller.commands.shipcommands.ShootShipCommand;
 import com.spaceinvaders.exceptions.IllegalArgumentException;
@@ -9,10 +9,8 @@ import com.spaceinvaders.model.pools.ShotPoolGroup;
 import com.spaceinvaders.model.ship.Ship;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
 
 public class ShootShipCommandTest {
     private Arena arena;
@@ -32,7 +30,7 @@ public class ShootShipCommandTest {
     }
 
     @Test
-    public void ShootTest() {
+    public void getShootPositionTest() {
             ShootShipCommand shootShipCommand = new ShootShipCommand(arena, new ShotPoolGroup());
             shootShipCommand.execute();
 
