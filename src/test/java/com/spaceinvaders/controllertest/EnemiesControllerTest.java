@@ -19,7 +19,6 @@ import static org.mockito.Mockito.when;
 
 public class EnemiesControllerTest {
     private Arena mockArena;
-    private Vector mockVector;
     private List<Enemy> enemies;
     private EnemiesController enemiesController;
 
@@ -35,10 +34,6 @@ public class EnemiesControllerTest {
         }
 
         mockArena = Mockito.mock(Arena.class);
-
-        mockVector = Mockito.mock(Vector.class);
-        when(mockVector.sub(new Vector(1, 0))).thenReturn(new Vector(-1, 0));
-        when(mockVector.sub(new Vector(-1, 0))).thenReturn(new Vector(1, 0));
 
         when(mockArena.getEnemies()).thenReturn(enemies);
 
@@ -60,15 +55,15 @@ public class EnemiesControllerTest {
 
         when(mockArena.getLeftMostEnemy()).thenReturn(enemies.get(0));
         when(mockArena.getRightMostEnemy()).thenReturn(enemies.get(enemies.size() - 1));
-        when(mockArena.contain(enemies.get(0))).thenReturn(false);
-        when(mockArena.contain(enemies.get(enemies.size() - 1))).thenReturn(true);
+        when(mockArena.containBox(enemies.get(0))).thenReturn(false);
+        when(mockArena.containBox(enemies.get(enemies.size() - 1))).thenReturn(true);
 
         assertTrue(enemiesController.enemiesNeedToInvertVelocity());
 
         when(mockArena.getLeftMostEnemy()).thenReturn(enemies.get(0));
         when(mockArena.getRightMostEnemy()).thenReturn(enemies.get(enemies.size() - 1));
-        when(mockArena.contain(enemies.get(0))).thenReturn(true);
-        when(mockArena.contain(enemies.get(enemies.size() - 1))).thenReturn(true);
+        when(mockArena.containBox(enemies.get(0))).thenReturn(true);
+        when(mockArena.containBox(enemies.get(enemies.size() - 1))).thenReturn(true);
 
         assertFalse(enemiesController.enemiesNeedToInvertVelocity());
 

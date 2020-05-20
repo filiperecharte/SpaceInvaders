@@ -44,13 +44,6 @@ public class Arena extends Box {
         ship.setPosition(position);
     }
 
-    /*public void addElement(Element element) {
-        if (element instanceof Ship) ship = (Ship) element;
-        if (element instanceof Wall) walls.add((Wall) element);
-        if (element instanceof Enemy) enemies.add((Enemy) element);
-        if (element instanceof Shot) shots.add((Shot) element);
-    }*/
-
     public void addElement(IElementVisited element) {
         element.accept(new ElementsVisitor(this));
     }

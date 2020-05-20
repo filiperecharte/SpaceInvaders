@@ -35,7 +35,7 @@ public class ShotsController {
             updateShot(shot);
             checkShotCollision(shot,shotIterator);
 
-            if (!arena.contain(shot.getPosition())) {
+            if (!arena.containPos(shot.getPosition())) {
                 shotToPoolGroup(shot,shotIterator);
             }
         }
@@ -59,7 +59,7 @@ public class ShotsController {
     public void checkShotCollision(Shot shot, Iterator<Shot> shotIterator){
         for (int i=0;i<arena.getWalls().size();i++) {
             for (int j=0;j<arena.getWalls().get(i).getFragments().size();j++) {
-                if (arena.getWalls().get(i).getFragments().get(j).contain(shot.getPosition())) {
+                if (arena.getWalls().get(i).getFragments().get(j).containPos(shot.getPosition())) {
                     arena.colide(arena.getWalls().get(i).getFragments().get(j), shot);
                     shotToPoolGroup(shot,shotIterator);
                 }
@@ -68,14 +68,14 @@ public class ShotsController {
 
         if (shot instanceof ShipShot) {
             for (int i = 0; i < arena.getEnemies().size(); i++) {
-                if (arena.getEnemies().get(i).contain(shot.getPosition())) {
+                if (arena.getEnemies().get(i).containPos(shot.getPosition())) {
                     arena.colide(arena.getEnemies().get(i), shot);
                     shotToPoolGroup(shot, shotIterator);
                 }
             }
         }
 
-        if (arena.getShip().contain(shot.getPosition())) {
+        if (arena.getShip().containPos(shot.getPosition())) {
             arena.colide(arena.getShip(), shot);
             shotToPoolGroup(shot, shotIterator);
         }
