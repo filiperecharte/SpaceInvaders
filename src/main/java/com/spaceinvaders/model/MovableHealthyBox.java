@@ -1,14 +1,15 @@
 package com.spaceinvaders.model;
 
+import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 
-public class MovableBox extends Box {
+public class MovableHealthyBox extends HealthyBox {
     private Vector velocity;
 
-    public MovableBox(Position position, Size size, Vector initialVelocity) {
-        super(position, size);
+    public MovableHealthyBox(Position position, Size size, int health, Vector initialVelocity) throws IllegalArgumentException {
+        super(position, size, health);
         this.velocity = initialVelocity;
     }
 
@@ -18,5 +19,10 @@ public class MovableBox extends Box {
 
     public void setVelocity(Vector velocity) {
         this.velocity = velocity;
+    }
+
+    public void invertVelocity() {
+        velocity.setX(-velocity.getX());
+        velocity.setY(-velocity.getY());
     }
 }
