@@ -3,6 +3,9 @@ package com.spaceinvaders.controllertest;
 import com.spaceinvaders.controller.ShotsController;
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
+import com.spaceinvaders.model.behaviors.DamageBehavior;
+import com.spaceinvaders.model.behaviors.HealthyBehavior;
+import com.spaceinvaders.model.behaviors.MovableBehavior;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
@@ -40,7 +43,7 @@ public class ShotsControllerTest {
         mockArena = Mockito.mock(Arena.class);
         when(mockArena.getShots()).thenReturn(shots);
         try{
-            when(mockArena.getShip()).thenReturn(new Ship(new Position(15, 20), new Size(3, 1)));
+            when(mockArena.getShip()).thenReturn(new Ship(new Position(15, 20), new Size(3, 1),new HealthyBehavior(10)));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
@@ -49,7 +52,7 @@ public class ShotsControllerTest {
 
         shotsController = new ShotsController(mockArena,new ShotPoolGroup());
     }
-    
+
     @Test
     public void processShotsTest() {
 
@@ -65,7 +68,13 @@ public class ShotsControllerTest {
 
     @Test
     public void updateShotTest() {
-        Shot testShot = new Shot(new Position(15, 20), new Size(3, 1), new Vector(1, 0),10);
+        Shot testShot = null;
+        try {
+            testShot = new Shot(new Position(15, 20), new Size(3, 1), new MovableBehavior(new Vector(1,0)), new DamageBehavior(10));
+        } catch(IllegalArgumentException e){
+            e.printStackTrace();
+        }
+        assert testShot != null;
 
         shotsController.updateShot(testShot);
 

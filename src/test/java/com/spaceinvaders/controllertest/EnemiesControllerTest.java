@@ -1,12 +1,10 @@
 package com.spaceinvaders.controllertest;
 
 import com.spaceinvaders.controller.EnemiesController;
-import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.behaviors.MovableBehavior;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 import org.junit.Before;
 import org.junit.Test;
@@ -67,15 +65,15 @@ public class EnemiesControllerTest {
 
         when(mockArena.getLeftMostEnemy()).thenReturn(enemyMocks.get(0));
         when(mockArena.getRightMostEnemy()).thenReturn(enemyMocks.get(enemyMocks.size() - 1));
-        when(mockArena.contain(enemyMocks.get(0))).thenReturn(false);
-        when(mockArena.contain(enemyMocks.get(enemyMocks.size() - 1))).thenReturn(true);
+        when(mockArena.containBox(enemyMocks.get(0))).thenReturn(false);
+        when(mockArena.containBox(enemyMocks.get(enemyMocks.size() - 1))).thenReturn(true);
 
         assertTrue(enemiesController.enemiesNeedToInvertVelocity());
 
         when(mockArena.getLeftMostEnemy()).thenReturn(enemyMocks.get(0));
         when(mockArena.getRightMostEnemy()).thenReturn(enemyMocks.get(enemyMocks.size() - 1));
-        when(mockArena.contain(enemyMocks.get(0))).thenReturn(true);
-        when(mockArena.contain(enemyMocks.get(enemyMocks.size() - 1))).thenReturn(true);
+        when(mockArena.containBox(enemyMocks.get(0))).thenReturn(true);
+        when(mockArena.containBox(enemyMocks.get(enemyMocks.size() - 1))).thenReturn(true);
 
         assertFalse(enemiesController.enemiesNeedToInvertVelocity());
 
