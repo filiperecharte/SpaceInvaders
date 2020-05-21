@@ -7,7 +7,7 @@ import com.spaceinvaders.model.ship.Ship;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class ShipTest {
+/*public class ShipTest {
 
     @Test
     public void getShootPositionTest() {
@@ -28,4 +28,4 @@ public class ShipTest {
     public void constructorExceptionTest() throws IllegalArgumentException {
         Ship ship = new Ship(new Position(10, 3), new Size(6, 1));
     }
-}
+}*/

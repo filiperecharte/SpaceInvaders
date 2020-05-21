@@ -3,6 +3,7 @@ package com.spaceinvaders.controllertest.commandstest;
 import com.spaceinvaders.controller.commands.shipcommands.ShootShipCommand;
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
+import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
@@ -19,7 +20,7 @@ public class ShootShipCommandTest {
 
         Ship ship =null;
         try {
-            ship = new Ship(new Position(10, 10), new Size(3, 1));
+            ship = new Ship(new Position(10, 10), new Size(3, 1), new HealthyBehavior(3));
         }catch (IllegalArgumentException e){
             e.printStackTrace();
         }

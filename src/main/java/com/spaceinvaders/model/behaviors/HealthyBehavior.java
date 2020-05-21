@@ -29,15 +29,11 @@ public class HealthyBehavior {
         this.currentHealth = currentHealth;
     }
 
-    public void incrementHealth(int health) {
-        this.currentHealth += health;
-    }
-
-    public void decrementHealth(int health) {
-        this.currentHealth -= health;
+    public void decrementHealth(int value) {
+        this.currentHealth -= value;
     }
 
     public boolean isDead() {
-        return this.currentHealth == 0;
+        return this.currentHealth <= 0;
     }
 }
