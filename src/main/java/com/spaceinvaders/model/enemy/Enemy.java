@@ -2,6 +2,7 @@ package com.spaceinvaders.model.enemy;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.Box;
+import com.spaceinvaders.model.behaviors.AttackBehavior;
 import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.behaviors.MovableBehavior;
 import com.spaceinvaders.model.element.IElementVisited;
@@ -15,17 +16,14 @@ import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shooter;
 
 public class Enemy extends Box implements IElementVisited, ICollideableVisited, Shooter {
-    private MovableBehavior movableBehavior;
-    private HealthyBehavior healthyBehavior;
+    protected MovableBehavior movableBehavior;
+    protected HealthyBehavior healthyBehavior;
+    protected AttackBehavior attackBehavior;
 
-    public Enemy(Position position, Size size, MovableBehavior movableBehavior, HealthyBehavior healthyBehavior) throws IllegalArgumentException {
+    public Enemy(Position position, Size size) throws IllegalArgumentException {
         super(position, size);
-
         if (size.getWidth() % 2 == 0)
             throw new IllegalArgumentException("Ship size must be odd");
-
-        this.movableBehavior = movableBehavior;
-        this.healthyBehavior = healthyBehavior;
     }
 
     public MovableBehavior getMovableBehavior() {
@@ -42,6 +40,14 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited, 
 
     public void setHealthyBehavior(HealthyBehavior healthyBehavior) {
         this.healthyBehavior = healthyBehavior;
+    }
+
+    public void setAttackBehavior(AttackBehavior attackBehavior) {
+        this.attackBehavior = attackBehavior;
+    }
+
+    public AttackBehavior getAttackBehavior() {
+        return attackBehavior;
     }
 
     @Override
