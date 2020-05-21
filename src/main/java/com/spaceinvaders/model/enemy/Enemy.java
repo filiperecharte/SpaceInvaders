@@ -1,6 +1,7 @@
 package com.spaceinvaders.model.enemy;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
+import com.spaceinvaders.model.box.Box;
 import com.spaceinvaders.model.box.MovableBox;
 import com.spaceinvaders.model.behaviors.AttackBehavior;
 import com.spaceinvaders.model.behaviors.HealthyBehavior;

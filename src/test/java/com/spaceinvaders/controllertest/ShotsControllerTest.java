@@ -49,7 +49,7 @@ public class ShotsControllerTest {
 
         shotsController = new ShotsController(mockArena,new ShotPoolGroup());
     }
-
+    
     @Test
     public void processShotsTest() {
 
