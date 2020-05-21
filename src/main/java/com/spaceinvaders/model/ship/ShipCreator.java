@@ -1,6 +1,7 @@
 package com.spaceinvaders.model.ship;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
+import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 
@@ -11,7 +12,7 @@ public class ShipCreator {
         Ship ship = null;
 
         try {
-            ship = new Ship(new Position(30, 22), new Size(5, 1));
+            ship = new Ship(new Position(30, 22), new Size(5, 1), new HealthyBehavior(3));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }

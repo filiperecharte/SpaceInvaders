@@ -39,7 +39,7 @@ public class ShotsController {
 
     public void updateShot(Shot shot) {
         shotTranslation.setPosition(shot.getPosition());
-        shotTranslation.setVector(shot.getVelocity());
+        shotTranslation.setVector(shot.getMovableBehavior().getVelocity());
         shot.setPosition(shotTranslation.apply());
     }
 

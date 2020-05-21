@@ -3,7 +3,6 @@ package com.spaceinvaders.controller;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Translation;
-import com.spaceinvaders.model.geometry.Vector;
 
 public class EnemiesController {
     private Arena arena;
@@ -23,7 +22,7 @@ public class EnemiesController {
 
     public void invertEnemiesVelocity() {
         for (Enemy enemy : arena.getEnemies()) {
-            enemy.setVelocity(new Vector(0, 0).sub(enemy.getVelocity()));
+            enemy.getMovableBehavior().invertVelocity();
         }
     }
 
@@ -33,7 +32,7 @@ public class EnemiesController {
 
     public void updateEnemy(Enemy enemy) {
         enemyTranslation.setPosition(enemy.getPosition());
-        enemyTranslation.setVector(enemy.getVelocity());
+        enemyTranslation.setVector(enemy.getMovableBehavior().getVelocity());
         enemy.setPosition(enemyTranslation.apply());
     }
 

@@ -3,8 +3,6 @@ package com.spaceinvaders.model.collisions;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.ship.Ship;
-import com.spaceinvaders.model.shots.EnemyShot;
-import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.wall.Fragment;
 
@@ -18,7 +16,7 @@ public class CollideableVisitor implements ICollideableVisitor{
     }
 
     public void visit(Ship ship) {
-        ship.decreaseLife();
+        shot.getDamageBehavior().applyDamage(ship.getHealthyBehavior());
         //diminuir as vidas da ship conforme o shot
     }
 
