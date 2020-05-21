@@ -21,14 +21,14 @@ public class Box extends Element {
         this.size = size;
     }
 
-    public boolean containPos(Position otherPosition) {
+    public boolean contain(Position otherPosition) {
         boolean checkHorizontal = (otherPosition.getX() >= position.getX()) && (otherPosition.getX() <= position.getX() + size.getWidth()-1);
         boolean checkVertical = (otherPosition.getY() >= position.getY()) && (otherPosition.getY() <= position.getY() + size.getHeight()-1);
 
         return checkHorizontal && checkVertical;
     }
 
-    public boolean containBox(Box otherBox) {
+    public boolean contain(Box otherBox) {
         boolean checkWidth = (otherBox.getPosition().getX() + otherBox.getSize().getWidth()) <= (this.getPosition().getX() + this.getSize().getWidth());
         boolean checkHeight = (otherBox.getPosition().getY() + otherBox.getSize().getHeight()) <= (this.getPosition().getY() + this.getSize().getHeight());
         boolean checkX = otherBox.getPosition().getX() >= this.getPosition().getX();

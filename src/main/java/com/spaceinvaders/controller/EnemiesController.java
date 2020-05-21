@@ -27,7 +27,7 @@ public class EnemiesController {
     }
 
     public boolean enemiesNeedToInvertVelocity() {
-        return !arena.getEnemies().isEmpty() && (!arena.containBox(arena.getLeftMostEnemy()) || !arena.containBox(arena.getRightMostEnemy()));
+        return !arena.getEnemies().isEmpty() && (!arena.contain(arena.getLeftMostEnemy()) || !arena.contain(arena.getRightMostEnemy()));
     }
 
     public void updateEnemy(Enemy enemy) {
