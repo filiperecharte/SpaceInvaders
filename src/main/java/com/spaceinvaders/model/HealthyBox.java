@@ -1,6 +1,7 @@
 package com.spaceinvaders.model;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
+import com.spaceinvaders.model.box.Box;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 

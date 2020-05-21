@@ -21,7 +21,6 @@ import static org.mockito.Mockito.*;
 
 public class EnemiesControllerTest {
     private Arena mockArena;
-    private Vector mockVector;
     private List<Enemy> enemies;
     private List<Enemy> enemyMocks;
     private EnemiesController enemiesController;
@@ -46,6 +45,8 @@ public class EnemiesControllerTest {
 
         mockArena = Mockito.mock(Arena.class);
 
+        when(mockArena.getEnemies()).thenReturn(enemies);
+
         when(mockArena.getEnemies()).thenReturn(enemyMocks);
 
         enemiesController = new EnemiesController(mockArena);
@@ -62,6 +63,7 @@ public class EnemiesControllerTest {
 
     @Test
     public void enemiesNeedToInvertVelocityTest() {
+
 
         when(mockArena.getLeftMostEnemy()).thenReturn(enemyMocks.get(0));
         when(mockArena.getRightMostEnemy()).thenReturn(enemyMocks.get(enemyMocks.size() - 1));

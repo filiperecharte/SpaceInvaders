@@ -1,7 +1,7 @@
 package com.spaceinvaders.model.ship;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
-import com.spaceinvaders.model.Box;
+import com.spaceinvaders.model.box.Box;
 import com.spaceinvaders.model.HealthyBox;
 import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.element.IElementVisited;

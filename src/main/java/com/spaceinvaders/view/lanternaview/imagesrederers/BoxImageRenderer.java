@@ -1,12 +1,10 @@
 package com.spaceinvaders.view.lanternaview.imagesrederers;
 
 import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.graphics.TextImage;
-import com.spaceinvaders.model.Box;
+import com.spaceinvaders.model.box.Box;
 import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.view.lanternaview.imagesfactories.ImageFactory;
 
 public class BoxImageRenderer implements Renderer {
     private Box box;

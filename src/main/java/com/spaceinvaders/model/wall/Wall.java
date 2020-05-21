@@ -1,8 +1,8 @@
 package com.spaceinvaders.model.wall;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
-import com.spaceinvaders.model.Box;
-import com.spaceinvaders.model.BoxDilator;
+import com.spaceinvaders.model.box.Box;
+import com.spaceinvaders.model.box.BoxDilator;
 import com.spaceinvaders.model.element.IElementVisited;
 import com.spaceinvaders.model.element.IElementsVisitor;
 import com.spaceinvaders.model.geometry.Position;
