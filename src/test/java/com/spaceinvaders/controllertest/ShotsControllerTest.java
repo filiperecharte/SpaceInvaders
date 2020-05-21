@@ -63,7 +63,7 @@ public class ShotsControllerTest {
 
         shotsControllerSpy.processShots();
 
-        verify(mockArena,times(mockArena.getShots().size())).containPos(Mockito.any());
+        verify(mockArena,times(mockArena.getShots().size())).contain((Position)Mockito.any());
     }
 
     @Test
