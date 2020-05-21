@@ -65,15 +65,15 @@ public class EnemiesControllerTest {
 
         when(mockArena.getLeftMostEnemy()).thenReturn(enemyMocks.get(0));
         when(mockArena.getRightMostEnemy()).thenReturn(enemyMocks.get(enemyMocks.size() - 1));
-        when(mockArena.containBox(enemyMocks.get(0))).thenReturn(false);
-        when(mockArena.containBox(enemyMocks.get(enemyMocks.size() - 1))).thenReturn(true);
+        when(mockArena.contain(enemyMocks.get(0))).thenReturn(false);
+        when(mockArena.contain(enemyMocks.get(enemyMocks.size() - 1))).thenReturn(true);
 
         assertTrue(enemiesController.enemiesNeedToInvertVelocity());
 
         when(mockArena.getLeftMostEnemy()).thenReturn(enemyMocks.get(0));
         when(mockArena.getRightMostEnemy()).thenReturn(enemyMocks.get(enemyMocks.size() - 1));
-        when(mockArena.containBox(enemyMocks.get(0))).thenReturn(true);
-        when(mockArena.containBox(enemyMocks.get(enemyMocks.size() - 1))).thenReturn(true);
+        when(mockArena.contain(enemyMocks.get(0))).thenReturn(true);
+        when(mockArena.contain(enemyMocks.get(enemyMocks.size() - 1))).thenReturn(true);
 
         assertFalse(enemiesController.enemiesNeedToInvertVelocity());
 
