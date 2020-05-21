@@ -2,6 +2,8 @@ package com.spaceinvaders.model.ship;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.Box;
+import com.spaceinvaders.model.HealthyBox;
+import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.element.IElementVisited;
 import com.spaceinvaders.model.element.IElementsVisitor;
 import com.spaceinvaders.model.collisions.ICollideableVisited;
@@ -13,17 +15,24 @@ import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 
 public class Ship extends Box implements IElementVisited, ICollideableVisited, Shooter {
-    private int life=5;
 
-    public Ship(Position position, Size size) throws IllegalArgumentException {
+    private HealthyBehavior healthyBehavior;
+
+    public Ship(Position position, Size size, HealthyBehavior healthyBehavior) throws IllegalArgumentException {
         super(position, size);
 
         if (size.getWidth() % 2 == 0)
             throw new IllegalArgumentException("Ship size must be odd");
+
+        this.healthyBehavior = healthyBehavior;
     }
 
-    public void decreaseLife(){
-        life--;
+    public HealthyBehavior getHealthyBehavior() {
+        return healthyBehavior;
+    }
+
+    public void setHealthyBehavior(HealthyBehavior healthyBehavior) {
+        this.healthyBehavior = healthyBehavior;
     }
 
     @Override

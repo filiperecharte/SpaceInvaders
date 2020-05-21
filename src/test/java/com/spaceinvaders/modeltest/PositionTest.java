@@ -28,9 +28,9 @@ public class PositionTest {
     public void PositionEqualsTest() {
         Position position = new Position(3,4);
 
-        assertTrue(position.equals(new Position(3, 4)));
-        assertFalse(position.equals(new Position(2, 4)));
-        assertFalse(position.equals(new Position(3, 2)));
+        assertEquals(position, new Position(3, 4));
+        assertNotEquals(position, new Position(2, 4));
+        assertNotEquals(position, new Position(3, 2));
     }
 
 }

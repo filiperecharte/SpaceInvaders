@@ -1,33 +1,26 @@
-package com.spaceinvaders.controllertest;
+package com.spaceinvaders.controllertest.commandstest;
 
 import com.spaceinvaders.controller.commands.shipcommands.ShootShipCommand;
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
+import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.image.Image;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
 import com.spaceinvaders.model.ship.Ship;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class ShootShipCommandTest {
     private Arena arena;
-    private Image imageMock;
     @Before
     public void setUp() {
-        imageMock = Mockito.mock(Image.class);
-        when(imageMock.getSize()).thenReturn(new Size(3, 1));
 
         Ship ship =null;
         try {
-            ship = new Ship(new Position(10, 10), new Size(3, 1), imageMock);
+            ship = new Ship(new Position(10, 10), new Size(3, 1), new HealthyBehavior(3));
         }catch (IllegalArgumentException e){
             e.printStackTrace();
         }
@@ -38,7 +31,7 @@ public class ShootShipCommandTest {
     }
 
     @Test
-    public void ShootTest() {
+    public void getShootPositionTest() {
             ShootShipCommand shootShipCommand = new ShootShipCommand(arena, new ShotPoolGroup());
             shootShipCommand.execute();
 

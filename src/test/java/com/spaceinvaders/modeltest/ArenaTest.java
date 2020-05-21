@@ -13,29 +13,15 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 public class ArenaTest {
-    private Ship mockShip;
     private Arena arena;
     @Before
     public void setUp() {
-        mockShip = Mockito.mock(Ship.class);
+        Ship mockShip = Mockito.mock(Ship.class);
         doThrow(NullPointerException.class).when(mockShip).setPosition(new Position(10,20));
         when(mockShip.getPosition()).thenReturn(new Position(10,20));
 
         arena= new Arena(new Position(0, 0), new Size(10, 15),"FFFFFF");
         arena.addElement(mockShip);
-    }
-
-    @Test
-    public void ArenaTestGetBackgrounColor() {
-        assertEquals("FFFFFF", arena.getBackgroundColor());
-
-    }
-
-    @Test
-    public void ArenaTestSetBackgroundColor() {
-        arena.setBackgroundColor("#92a8d1");
-        assertEquals("#92a8d1", arena.getBackgroundColor());
-
     }
 
     @Test

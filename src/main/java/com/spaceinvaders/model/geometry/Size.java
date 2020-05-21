@@ -1,5 +1,7 @@
 package com.spaceinvaders.model.geometry;
 
+import java.util.Objects;
+
 public class Size {
     protected int width;
     protected int height;
@@ -32,11 +34,25 @@ public class Size {
         this.height = height;
     }
 
-    public boolean equals(Size otherSize) {
+    /*public boolean equals(Size otherSize) {
         return (width == otherSize.getWidth()) && (height == otherSize.getHeight());
-    }
+    }*/
 
     public boolean fitIn(Size otherSize) {
         return (width <= otherSize.getWidth()) && (height <= otherSize.getHeight());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Size size = (Size) o;
+        return width == size.width &&
+                height == size.height;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(width, height);
     }
 }

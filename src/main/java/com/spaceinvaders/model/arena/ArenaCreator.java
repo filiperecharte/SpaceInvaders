@@ -17,7 +17,7 @@ public class ArenaCreator {
 
         int Wposx=5; //posicao da primeira parede
         for(int i=0;i<5;i++) {
-            arena.addElement((new DefaultWallCreator()).build(new Position(Wposx, 18), new Size(5, 5)));
+            arena.addElement((new DefaultWallCreator()).build(new Position(Wposx, 18)));
             Wposx+=15;
         }
 
