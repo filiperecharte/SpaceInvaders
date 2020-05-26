@@ -4,6 +4,9 @@ import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Translation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EnemiesController {
     private Arena arena;
     private Translation enemyTranslation;
@@ -18,16 +21,25 @@ public class EnemiesController {
             invertEnemiesVelocity();
         }*/
 
+        boolean enemyChangedVelocity = false;
+        List<Object> toChangeVelocityClasses = new ArrayList<>();
+
         for (Enemy enemy : arena.getEnemies()) {
             if (!arena.contain(enemy)) {
-                invertEnemiesVelocity();
-                for (Enemy targetEnemy : arena.getEnemies()) {
-                    if (enemy.getClass().equals(targetEnemy.getClass())) {
+                enemyChangedVelocity = true;
+                toChangeVelocityClasses.add(enemy.getClass());
+            }
+        }
+
+        if (enemyChangedVelocity) {
+            for (Enemy enemy : arena.getEnemies()) {
+                for (Object enemyClass : toChangeVelocityClasses) {
+                    if (enemyClass.equals(enemy.getClass())) {
                         enemy.getMovableBehavior().invertVelocity();
                     }
                 }
-                break;
             }
+            enemyChangedVelocity = true;
         }
         updateEnemies();
     }
