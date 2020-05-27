@@ -1,6 +1,9 @@
 package com.spaceinvaders.view.lanternaview;
 
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.BasicTextImage;
+import com.googlecode.lanterna.graphics.TextImage;
 import com.spaceinvaders.model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.spaceinvaders.model.enemy.Enemy;
@@ -26,6 +29,9 @@ public class GameRenderer implements Renderer {
         TextColor backgroundColor = new TextColor.RGB(128, 128, 128);
 
         new BoxImageRenderer(arena, new ArenaImageFactory().createTextImage(backgroundColor)).render(graphics);
+
+        graphics.
+
         new BoxImageRenderer(arena.getShip(), new ShipImageFactory().createTextImage(backgroundColor)).render(graphics);
         for (Enemy enemy : arena.getEnemies()) {
             new BoxImageRenderer(enemy, new EnemyImageFactory().makeEnemyImage(enemy,backgroundColor)).render(graphics);
