@@ -22,6 +22,7 @@ public class ShootShipCommand implements Command {
     public void execute() {
         Position shootShipPosition = arena.getShip().getShootPosition();
         Shot shot = shotPool.extract(ShipShot.class);
+        if (shot == null) {shot = arena.getShip().createShot();}
         shot.setPosition(shootShipPosition);
         arena.addElement(shot);
     }

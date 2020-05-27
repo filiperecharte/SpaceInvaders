@@ -56,7 +56,10 @@ public class ShotsController {
         if (!arena.getEnemies().isEmpty() && enemy.getAttackBehavior().readyToShoot(whenToShoot)) {
             Position shootEnemyPosition = enemy.getShootPosition();
 
-            shot = shotPool.extract(enemy.getShotType() );
+            shot = shotPool.extract(enemy.getShotType());
+            if (shot == null){
+                shot = enemy.createShot();
+            }
             shot.setPosition(shootEnemyPosition);
 
             arena.addElement(shot);

@@ -27,24 +27,6 @@ public class ShotPool {
             }
         }
 
-        if (pool.isEmpty() || extractedShot==null){
-            if (shotType.getClass().equals(PowerfulShot.class)){
-                return new PowerfulShot();
-            }
-            else if (shotType.getClass().equals(WeakShot.class)){
-                return new WeakShot();
-            }
-            else if (shotType.getClass().equals(LegendaryShot.class)){
-                return new LegendaryShot();
-            }
-            else if (shotType.getClass().equals(SlickShot.class)){
-                return new SlickShot();
-            }
-            else if (shotType.getClass().equals(ImmatureShot.class)){
-                return new ImmatureShot();
-            }
-        }
-
         return extractedShot;
     }
 

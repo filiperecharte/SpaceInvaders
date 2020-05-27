@@ -30,7 +30,13 @@ public class GameRenderer implements Renderer {
 
         new BoxImageRenderer(arena, new ArenaImageFactory().createTextImage(backgroundColor)).render(graphics);
 
-        graphics.
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#808080"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
+        graphics.putString(3,1,"LIFES");
+        graphics.putString(9,1,Integer.toString(arena.getShip().getLifes()));
+
+        graphics.putString(60,1,"SCORE");
+        graphics.putString(70,1,Integer.toString(arena.getShip().getLifes()));
 
         new BoxImageRenderer(arena.getShip(), new ShipImageFactory().createTextImage(backgroundColor)).render(graphics);
         for (Enemy enemy : arena.getEnemies()) {
