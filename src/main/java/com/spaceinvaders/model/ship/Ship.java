@@ -14,6 +14,7 @@ import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
+import com.spaceinvaders.model.shots.Shot;
 
 public class Ship extends Box implements IElementVisited, ICollideableVisited, Shooter {
 
@@ -40,6 +41,11 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
     public Position getShootPosition() {
         Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, 0));
         return t.apply();
+    }
+
+    @Override
+    public Shot createShot() {
+        return new ShipShot();
     }
 
     @Override

@@ -49,10 +49,10 @@ public class ShotPoolGroup {
     public void put(Object object) {
         for (ObjectPool<?> pool : pools) {
             if (pool.getObjectType().equals(object.getClass())) {
-                pool.put(object);
+                //pool.put(object);
             }
         }
-        throw new IllegalArgumentException("Invalid object type");
+        //throw new IllegalArgumentException("Invalid object type");
     }
 
     public Object extract(Object type) throws IllegalArgumentException {

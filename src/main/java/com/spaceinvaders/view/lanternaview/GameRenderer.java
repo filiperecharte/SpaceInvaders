@@ -10,10 +10,7 @@ import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.wall.Fragment;
 import com.spaceinvaders.model.wall.Wall;
 import com.spaceinvaders.view.lanternaview.ShotsRendererVisitor;
-import com.spaceinvaders.view.lanternaview.imagesfactories.ArenaImageFactory;
-import com.spaceinvaders.view.lanternaview.imagesfactories.DefaultEnemyImageFactory;
-import com.spaceinvaders.view.lanternaview.imagesfactories.DefaultFragmentImageFactory;
-import com.spaceinvaders.view.lanternaview.imagesfactories.ShipImageFactory;
+import com.spaceinvaders.view.lanternaview.imagesfactories.*;
 import com.spaceinvaders.view.lanternaview.imagesrederers.BoxImageRenderer;
 import com.spaceinvaders.view.lanternaview.imagesrederers.Renderer;
 
@@ -33,7 +30,7 @@ public class GameRenderer implements Renderer {
         new BoxImageRenderer(arena, new ArenaImageFactory().createTextImage(backgroundColor)).render(graphics);
         new BoxImageRenderer(arena.getShip(), new ShipImageFactory().createTextImage(backgroundColor)).render(graphics);
         for (Enemy enemy : arena.getEnemies()) {
-            new BoxImageRenderer(enemy, new DefaultEnemyImageFactory().createTextImage(backgroundColor)).render(graphics);
+            new BoxImageRenderer(enemy, new EnemyImageFactory().makeEnemyImage(enemy,backgroundColor)).render(graphics);
         }
         for (Wall wall : arena.getWalls()) {
             for (Fragment fragment : wall.getFragments()) {
