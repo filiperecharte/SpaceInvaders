@@ -42,8 +42,17 @@ public class ShotPoolGroup {
         pools.add(legendaryShotPool);
     }
 
-    public void put(IShotVisited shot) {
+    /*public void put(IShotVisited shot) {
         shot.accept(new ShotsToPoolVisitor(this));
+    }*/
+
+    public void put(Object object) {
+        for (ObjectPool<?> pool : pools) {
+            if (pool.getObjectType().equals(object.getClass())) {
+                pool.put(object);
+            }
+        }
+        throw new IllegalArgumentException("Invalid object type");
     }
 
     public Object extract(Object type) throws IllegalArgumentException {
