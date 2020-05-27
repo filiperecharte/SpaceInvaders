@@ -1,7 +1,7 @@
 package com.spaceinvaders.model.pools.shotpools.enemyshotpools;
 
 import com.spaceinvaders.model.pools.ObjectPool;
-import com.spaceinvaders.model.shots.shotvariants.LegendaryShot;
+import com.spaceinvaders.model.shots.enemyshotvariants.LegendaryShot;
 
 public class LegendaryShotPool extends ObjectPool<LegendaryShot> {
 
@@ -12,5 +12,10 @@ public class LegendaryShotPool extends ObjectPool<LegendaryShot> {
     @Override
     public LegendaryShot create() {
         return new LegendaryShot();
+    }
+
+    @Override
+    public Object getObjectType() {
+        return LegendaryShot.class;
     }
 }

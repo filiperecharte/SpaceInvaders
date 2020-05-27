@@ -13,4 +13,9 @@ public class ShipShotPool extends ObjectPool<ShipShot> {
     public ShipShot create() {
         return new ShipShot();
     }
+
+    @Override
+    public Object getObjectType() {
+        return ShipShot.class;
+    }
 }

@@ -6,23 +6,18 @@ import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.behaviors.DamageBehavior;
 import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.behaviors.MovableBehavior;
-import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
-import com.spaceinvaders.model.pools.shotpools.EnemyShotPool;
 import com.spaceinvaders.model.ship.Ship;
-import com.spaceinvaders.model.shots.EnemyShot;
 import com.spaceinvaders.model.shots.Shot;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;

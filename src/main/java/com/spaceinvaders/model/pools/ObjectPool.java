@@ -20,4 +20,6 @@ public abstract class ObjectPool<T> {
         pool.push(t);
     }
 
+    abstract public Object getObjectType();
+
 }

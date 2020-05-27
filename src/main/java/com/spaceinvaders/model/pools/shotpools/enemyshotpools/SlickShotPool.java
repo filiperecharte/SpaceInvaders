@@ -1,8 +1,7 @@
 package com.spaceinvaders.model.pools.shotpools.enemyshotpools;
 
 import com.spaceinvaders.model.pools.ObjectPool;
-import com.spaceinvaders.model.shots.EnemyShot;
-import com.spaceinvaders.model.shots.shotvariants.SlickShot;
+import com.spaceinvaders.model.shots.enemyshotvariants.SlickShot;
 
 public class SlickShotPool extends ObjectPool<SlickShot> {
 
@@ -13,5 +12,10 @@ public class SlickShotPool extends ObjectPool<SlickShot> {
     @Override
     public SlickShot create() {
         return new SlickShot();
+    }
+
+    @Override
+    public Object getObjectType() {
+        return SlickShot.class;
     }
 }

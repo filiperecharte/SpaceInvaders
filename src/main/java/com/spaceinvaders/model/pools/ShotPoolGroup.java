@@ -1,32 +1,58 @@
 package com.spaceinvaders.model.pools;
 
-import com.spaceinvaders.model.pools.shotpools.EnemyShotPool;
+import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.pools.shotpools.ShipShotPool;
 import com.spaceinvaders.model.pools.shotpools.enemyshotpools.*;
 import com.spaceinvaders.model.shots.IShotVisited;
-import com.spaceinvaders.model.shots.ShotsPoolVisitor;
+import com.spaceinvaders.model.shots.Shooter;
+import com.spaceinvaders.model.shots.Shot;
+import com.spaceinvaders.model.shots.ShotsToPoolVisitor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShotPoolGroup {
     private ShipShotPool shipShotPool;
-    private EnemyShotPool enemyShotPool;
     private WeakShotPool weakShotPool;
     private ImmatureShotPool immatureShotPool;
     private SlickShotPool slickShotPool;
     private PowerfulShotPool powerfulShotPool;
     private LegendaryShotPool legendaryShotPool;
+    List<ObjectPool<?>> pools;
 
     public ShotPoolGroup() {
+        pools = new ArrayList<>();
+
         shipShotPool = new ShipShotPool();
-        enemyShotPool = new EnemyShotPool();
+        pools.add(shipShotPool);
+
         weakShotPool = new WeakShotPool();
+        pools.add(weakShotPool);
+
         immatureShotPool = new ImmatureShotPool();
+        pools.add(immatureShotPool);
+
         slickShotPool = new SlickShotPool();
+        pools.add(slickShotPool);
+
         powerfulShotPool = new PowerfulShotPool();
+        pools.add(powerfulShotPool);
+
         legendaryShotPool = new LegendaryShotPool();
+        pools.add(legendaryShotPool);
     }
 
     public void put(IShotVisited shot) {
-        shot.accept(new ShotsPoolVisitor(this));
+        shot.accept(new ShotsToPoolVisitor(this));
+    }
+
+    public Object extract(Object type) throws IllegalArgumentException {
+        for (ObjectPool<?> pool : pools) {
+            if (pool.getObjectType().equals(type)) {
+                return pool.extract();
+            }
+        }
+        throw new IllegalArgumentException("Invalid object type");
     }
 
     public ShipShotPool getShipShotPool() {
@@ -35,14 +61,6 @@ public class ShotPoolGroup {
 
     public void setShipShotPool(ShipShotPool shipShotPool) {
         this.shipShotPool = shipShotPool;
-    }
-
-    public EnemyShotPool getEnemyShotPool() {
-        return enemyShotPool;
-    }
-
-    public void setEnemyShotPool(EnemyShotPool enemyShotPool) {
-        this.enemyShotPool = enemyShotPool;
     }
 
     public WeakShotPool getWeakShotPool() {

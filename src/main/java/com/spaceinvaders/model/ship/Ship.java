@@ -9,6 +9,7 @@ import com.spaceinvaders.model.element.IElementsVisitor;
 import com.spaceinvaders.model.collisions.ICollideableVisited;
 import com.spaceinvaders.model.collisions.ICollideableVisitor;
 import com.spaceinvaders.model.geometry.Translation;
+import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
@@ -49,5 +50,10 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
     @Override
     public void acceptShot(ICollideableVisitor collideableVisitor) {
         collideableVisitor.visit(this);
+    }
+
+    @Override
+    public Object getShotType() {
+        return ShipShot.class;
     }
 }

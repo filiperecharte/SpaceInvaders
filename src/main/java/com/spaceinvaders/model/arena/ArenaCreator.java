@@ -1,7 +1,7 @@
 package com.spaceinvaders.model.arena;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
-import com.spaceinvaders.model.enemy.*;
+import com.spaceinvaders.model.enemy.enemyvariants.*;
 import com.spaceinvaders.model.ship.ShipCreator;
 import com.spaceinvaders.model.ship.Ship;
 import com.spaceinvaders.model.geometry.Position;

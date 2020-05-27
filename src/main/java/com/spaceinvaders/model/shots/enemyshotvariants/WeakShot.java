@@ -1,4 +1,4 @@
-package com.spaceinvaders.model.shots.shotvariants;
+package com.spaceinvaders.model.shots.enemyshotvariants;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.behaviors.DamageBehavior;
@@ -10,13 +10,13 @@ import com.spaceinvaders.model.shots.IShotVisited;
 import com.spaceinvaders.model.shots.IShotsVisitor;
 import com.spaceinvaders.model.shots.Shot;
 
-public class ImmatureShot extends Shot implements IShotVisited {
+public class WeakShot extends Shot implements IShotVisited {
 
-    public ImmatureShot() {
+    public WeakShot() {
         super(new Position(0, 0), new Size(1, 1));
         this.movableBehavior = new MovableBehavior(new Vector(0, 1));
         try {
-            this.damageBehavior = new DamageBehavior(2);
+            this.damageBehavior = new DamageBehavior(1);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }

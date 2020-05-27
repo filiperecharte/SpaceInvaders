@@ -1,9 +1,10 @@
 package com.spaceinvaders.controller;
 
+import com.spaceinvaders.exceptions.IllegalArgumentException;
+import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Translation;
 import com.spaceinvaders.model.shots.IShotVisited;
-import com.spaceinvaders.model.shots.ShotsPoolVisitor;
 import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.pools.ShotPoolGroup;
@@ -43,16 +44,33 @@ public class ShotsController {
         shot.setPosition(shotTranslation.apply());
     }
 
+
+
     public void generateEnemyShot(){
         int whenToShoot = makeRandom().nextInt(100);
-        int whatEnemy = makeRandom().nextInt(arena.getEnemies().size());
+        int whatEnemyIndex = makeRandom().nextInt(arena.getEnemies().size());
+        Enemy enemy = arena.getEnemies().get(whatEnemyIndex);
 
-        if (!arena.getEnemies().isEmpty() && whenToShoot%15==0) { //diminuindo o divisor são gerados mais tiros
+        if (!arena.getEnemies().isEmpty() && enemy.getAttackBehavior().readyToShoot(whenToShoot)) {
+            Position shootEnemyPosition = enemy.getShootPosition();
+
+            Shot shot = null;
+            try {
+                shot = (Shot) shotPoolGroup.extract(enemy.getShotType());
+            } catch (IllegalArgumentException e) { e.printStackTrace(); }
+
+            assert shot != null;
+            shot.setPosition(shootEnemyPosition);
+
+            arena.addElement(shot);
+        }
+
+        /*if (!arena.getEnemies().isEmpty() && whenToShoot%15==0) { //diminuindo o divisor são gerados mais tiros
             Position shootEnemyPosition = arena.getEnemies().get(whatEnemy).getShootPosition();
             Shot shot = shotPoolGroup.getEnemyShotPool().extract();
             shot.setPosition(shootEnemyPosition);
             arena.addElement(shot);
-        }
+        }*/
     }
 
     public void checkShotCollision(Shot shot, Iterator<Shot> shotIterator){
@@ -81,9 +99,7 @@ public class ShotsController {
     }
 
     public void shotToPoolGroup(Shot shot, Iterator<Shot> shotIterator){
-        IShotVisited shotVisited;
-        shotVisited = (IShotVisited) shot;
-        shotVisited.accept(new ShotsPoolVisitor(shotPoolGroup));
+        shotPoolGroup.put((IShotVisited)shot);
         shotIterator.remove();
     }
 

@@ -1,4 +1,4 @@
-package com.spaceinvaders.model.shots.shotvariants;
+package com.spaceinvaders.model.shots.enemyshotvariants;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.behaviors.DamageBehavior;

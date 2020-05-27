@@ -1,7 +1,7 @@
 package com.spaceinvaders.model.pools.shotpools.enemyshotpools;
 
 import com.spaceinvaders.model.pools.ObjectPool;
-import com.spaceinvaders.model.shots.shotvariants.WeakShot;
+import com.spaceinvaders.model.shots.enemyshotvariants.WeakShot;
 
 public class WeakShotPool extends ObjectPool<WeakShot> {
 
@@ -12,5 +12,10 @@ public class WeakShotPool extends ObjectPool<WeakShot> {
     @Override
     public WeakShot create() {
         return new WeakShot();
+    }
+
+    @Override
+    public Object getObjectType() {
+        return WeakShot.class;
     }
 }

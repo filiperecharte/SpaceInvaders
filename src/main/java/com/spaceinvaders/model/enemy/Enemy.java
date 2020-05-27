@@ -52,10 +52,14 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited, 
         return attackBehavior;
     }
 
-    @Override
     public Position getShootPosition() {
         Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, 0));
         return t.apply();
+    }
+
+    @Override
+    public Object getShotType() {
+        return null;
     }
 
     @Override

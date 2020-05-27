@@ -1,23 +1,18 @@
 package com.spaceinvaders.model.shots;
 
 import com.spaceinvaders.model.pools.ShotPoolGroup;
-import com.spaceinvaders.model.shots.shotvariants.*;
+import com.spaceinvaders.model.shots.enemyshotvariants.*;
 
-public class ShotsPoolVisitor implements IShotsVisitor {
+public class ShotsToPoolVisitor implements IShotsVisitor {
     private ShotPoolGroup shotPoolGroup;
 
-    public ShotsPoolVisitor(ShotPoolGroup shotPoolGroup) {
+    public ShotsToPoolVisitor(ShotPoolGroup shotPoolGroup) {
         this.shotPoolGroup = shotPoolGroup;
     }
 
     @Override
     public void visit(ShipShot shipShot) {
         shotPoolGroup.getShipShotPool().put(shipShot);
-    }
-
-    @Override
-    public void visit(EnemyShot enemyShot) {
-        shotPoolGroup.getEnemyShotPool().put(enemyShot);
     }
 
     @Override
