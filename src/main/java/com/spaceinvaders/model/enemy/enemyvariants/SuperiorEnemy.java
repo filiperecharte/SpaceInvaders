@@ -9,7 +9,9 @@ import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shooter;
+import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.shots.enemyshotvariants.LegendaryShot;
+import com.spaceinvaders.model.shots.enemyshotvariants.WeakShot;
 
 public class SuperiorEnemy extends Enemy implements Shooter {
     public SuperiorEnemy(Position position, Size size) throws IllegalArgumentException {
@@ -20,7 +22,8 @@ public class SuperiorEnemy extends Enemy implements Shooter {
     }
 
     @Override
-    public Object getShotType() {
-        return LegendaryShot.class;
-    }
+    public Shot createShot() { return new LegendaryShot(); }
+
+    @Override
+    public Object getShotType() { return LegendaryShot.class; }
 }

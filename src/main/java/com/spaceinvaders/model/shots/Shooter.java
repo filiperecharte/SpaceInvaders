@@ -4,5 +4,6 @@ import com.spaceinvaders.model.geometry.Position;
 
 public interface Shooter {
     Position getShootPosition();
+    Shot createShot();
     Object getShotType();
 }

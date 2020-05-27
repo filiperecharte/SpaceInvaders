@@ -16,8 +16,9 @@ import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Translation;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shooter;
+import com.spaceinvaders.model.shots.Shot;
 
-public class Enemy extends Box implements IElementVisited, ICollideableVisited, Shooter {
+public class Enemy extends Box implements IElementVisited, ICollideableVisited,Shooter {
     protected MovableBehavior movableBehavior;
     protected HealthyBehavior healthyBehavior;
     protected AttackBehavior attackBehavior;
@@ -61,6 +62,9 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited, 
     public Object getShotType() {
         return null;
     }
+
+    @Override
+    public Shot createShot() { return null; }
 
     @Override
     public void accept(IElementsVisitor visitor) {

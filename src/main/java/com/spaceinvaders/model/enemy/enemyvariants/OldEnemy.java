@@ -9,6 +9,7 @@ import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shooter;
+import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.shots.enemyshotvariants.WeakShot;
 
 public class OldEnemy extends Enemy implements Shooter {
@@ -20,7 +21,10 @@ public class OldEnemy extends Enemy implements Shooter {
     }
 
     @Override
-    public Object getShotType() {
-        return WeakShot.class;
+    public Shot createShot() {
+        return new WeakShot();
     }
+
+    @Override
+    public Object getShotType() { return WeakShot.class; }
 }
