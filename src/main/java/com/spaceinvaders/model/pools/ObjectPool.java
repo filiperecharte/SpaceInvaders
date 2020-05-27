@@ -9,7 +9,7 @@ public abstract class ObjectPool<T> {
         pool = new Stack<>();
     }
 
-    abstract public T create();
+    //abstract public T create();
 
     public T extract() {
         if (pool.empty()) return create();
