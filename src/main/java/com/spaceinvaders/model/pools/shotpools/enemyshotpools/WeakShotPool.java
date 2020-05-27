@@ -10,11 +10,6 @@ public class WeakShotPool extends ObjectPool<WeakShot> {
     }
 
     @Override
-    public WeakShot create() {
-        return new WeakShot();
-    }
-
-    @Override
     public Object getObjectType() {
         return WeakShot.class;
     }

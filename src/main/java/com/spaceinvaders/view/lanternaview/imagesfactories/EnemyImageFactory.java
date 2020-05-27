@@ -9,19 +9,19 @@ import com.spaceinvaders.model.enemy.enemyvariants.*;
 public class EnemyImageFactory{
 
     public TextImage makeEnemyImage(Object enemyType, TextColor backgroundColor){
-        if (enemyType.equals(StrongEnemy.class)){
+        if (enemyType instanceof StrongEnemy){
             return strongEnemyImage(backgroundColor);
         }
-        else if (enemyType.equals(OldEnemy.class)){
+        else if (enemyType instanceof OldEnemy){
             return oldEnemyImage(backgroundColor);
         }
-        else if (enemyType.equals(SuperiorEnemy.class)){
+        else if (enemyType instanceof SuperiorEnemy){
             return superiorEnemyImage(backgroundColor);
         }
-        else if (enemyType.equals(WiseEnemy.class)){
+        else if (enemyType instanceof WiseEnemy){
             return wiseEnemyImage(backgroundColor);
         }
-        else if (enemyType.equals(YoungEnemy.class)){
+        else if (enemyType instanceof YoungEnemy){
             return youngEnemyImage(backgroundColor);
         }
         return null;
@@ -41,10 +41,10 @@ public class EnemyImageFactory{
         TextImage image = new BasicTextImage(5, 1);
 
         image.setCharacterAt(0, 0, new TextCharacter('_', new TextColor.RGB(0, 128, 0), backgroundColor));
+        image.setCharacterAt(1, 0, new TextCharacter('-', new TextColor.RGB(0, 128, 0), backgroundColor));
+        image.setCharacterAt(2, 0, new TextCharacter('0', new TextColor.RGB(0, 128, 0), backgroundColor));
         image.setCharacterAt(3, 0, new TextCharacter('-', new TextColor.RGB(0, 128, 0), backgroundColor));
-        image.setCharacterAt(1, 0, new TextCharacter('0', new TextColor.RGB(0, 128, 0), backgroundColor));
-        image.setCharacterAt(2, 0, new TextCharacter('-', new TextColor.RGB(0, 128, 0), backgroundColor));
-        image.setCharacterAt(3, 0, new TextCharacter('_', new TextColor.RGB(0, 128, 0), backgroundColor));
+        image.setCharacterAt(4, 0, new TextCharacter('_', new TextColor.RGB(0, 128, 0), backgroundColor));
 
         return image;
     }

@@ -10,11 +10,6 @@ public class SlickShotPool extends ObjectPool<SlickShot> {
     }
 
     @Override
-    public SlickShot create() {
-        return new SlickShot();
-    }
-
-    @Override
     public Object getObjectType() {
         return SlickShot.class;
     }

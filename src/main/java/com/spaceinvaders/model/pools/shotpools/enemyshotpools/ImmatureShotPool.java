@@ -10,11 +10,6 @@ public class ImmatureShotPool extends ObjectPool<ImmatureShot> {
     }
 
     @Override
-    public ImmatureShot create() {
-        return new ImmatureShot();
-    }
-
-    @Override
     public Object getObjectType() {
         return ImmatureShot.class;
     }

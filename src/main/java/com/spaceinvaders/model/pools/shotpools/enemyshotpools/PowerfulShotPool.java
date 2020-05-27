@@ -10,11 +10,6 @@ public class PowerfulShotPool extends ObjectPool<PowerfulShot> {
     }
 
     @Override
-    public PowerfulShot create() {
-        return new PowerfulShot();
-    }
-
-    @Override
     public Object getObjectType() {
         return PowerfulShot.class;
     }

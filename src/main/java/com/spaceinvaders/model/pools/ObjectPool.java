@@ -12,8 +12,9 @@ public abstract class ObjectPool<T> {
     //abstract public T create();
 
     public T extract() {
-        if (pool.empty()) return create();
-        return pool.pop();
+        if (!pool.empty())
+         return pool.pop();
+        return null;
     }
 
     public void put(T t) {

@@ -10,11 +10,6 @@ public class ShipShotPool extends ObjectPool<ShipShot> {
     }
 
     @Override
-    public ShipShot create() {
-        return new ShipShot();
-    }
-
-    @Override
     public Object getObjectType() {
         return ShipShot.class;
     }

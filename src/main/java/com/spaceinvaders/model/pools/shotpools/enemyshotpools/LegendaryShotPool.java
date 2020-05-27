@@ -10,11 +10,6 @@ public class LegendaryShotPool extends ObjectPool<LegendaryShot> {
     }
 
     @Override
-    public LegendaryShot create() {
-        return new LegendaryShot();
-    }
-
-    @Override
     public Object getObjectType() {
         return LegendaryShot.class;
     }
