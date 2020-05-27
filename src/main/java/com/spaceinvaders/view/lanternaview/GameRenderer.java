@@ -1,6 +1,5 @@
 package com.spaceinvaders.view.lanternaview;
 
-import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.spaceinvaders.model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -9,7 +8,6 @@ import com.spaceinvaders.model.shots.IShotVisited;
 import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.wall.Fragment;
 import com.spaceinvaders.model.wall.Wall;
-import com.spaceinvaders.view.lanternaview.ShotsRendererVisitor;
 import com.spaceinvaders.view.lanternaview.imagesfactories.*;
 import com.spaceinvaders.view.lanternaview.imagesrederers.BoxImageRenderer;
 import com.spaceinvaders.view.lanternaview.imagesrederers.Renderer;

@@ -54,7 +54,7 @@ public class ShotsController {
         if (!arena.getEnemies().isEmpty() && enemy.getAttackBehavior().readyToShoot(whenToShoot)) {
             Position shootEnemyPosition = enemy.getShootPosition();
 
-            Shot shot = null;
+            /*Shot shot = null;
             try {
                 shot = (Shot) shotPoolGroup.extract(enemy.getShotType());
             } catch (IllegalArgumentException e) { e.printStackTrace(); }
@@ -62,7 +62,7 @@ public class ShotsController {
             assert shot != null;
             shot.setPosition(shootEnemyPosition);
 
-            arena.addElement(shot);
+            arena.addElement(shot);*/
         }
 
         /*if (!arena.getEnemies().isEmpty() && whenToShoot%15==0) { //diminuindo o divisor são gerados mais tiros
@@ -77,8 +77,8 @@ public class ShotsController {
         for (int i=0;i<arena.getWalls().size();i++) {
             for (int j=0;j<arena.getWalls().get(i).getFragments().size();j++) {
                 if (arena.getWalls().get(i).getFragments().get(j).contain(shot.getPosition())) {
-                    arena.colide(arena.getWalls().get(i).getFragments().get(j), shot);
-                    shotToPoolGroup(shot,shotIterator);
+                    //arena.colide(arena.getWalls().get(i).getFragments().get(j), shot);
+                    //shotToPoolGroup(shot,shotIterator);
                 }
             }
         }
@@ -86,21 +86,21 @@ public class ShotsController {
         if (shot instanceof ShipShot) {
             for (int i = 0; i < arena.getEnemies().size(); i++) {
                 if (arena.getEnemies().get(i).contain(shot.getPosition())) {
-                    arena.colide(arena.getEnemies().get(i), shot);
-                    shotToPoolGroup(shot, shotIterator);
+                    //arena.colide(arena.getEnemies().get(i), shot);
+                    //shotToPoolGroup(shot, shotIterator);
                 }
             }
         }
 
         if (arena.getShip().contain(shot.getPosition())) {
-            arena.colide(arena.getShip(), shot);
-            shotToPoolGroup(shot, shotIterator);
+            //arena.colide(arena.getShip(), shot);
+            //shotToPoolGroup(shot, shotIterator);
         }
     }
 
     public void shotToPoolGroup(Shot shot, Iterator<Shot> shotIterator){
-        shotPoolGroup.put((IShotVisited)shot);
-        shotIterator.remove();
+        //shotPoolGroup.put((IShotVisited)shot);
+        //shotIterator.remove();
     }
 
     public Random makeRandom() {
