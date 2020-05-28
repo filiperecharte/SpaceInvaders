@@ -19,17 +19,18 @@ public class GameController {
     private boolean isFinished =false;
 
     public GameController() {
-        gameState = new PlayState(this);
-
         this.gameView = new GameView();
         this.shotsController = new ShotsController();
         this.enemiesController = new EnemiesController();
+
+        gameState = new PlayState(this);
     }
 
-    public void handleInput() throws IOException{
+    public void gameUpdate() throws IOException{
         GameView.keysNames key = gameView.getInput();
 
         gameState.handleInput(key);
+        gameState.update();
     }
 
     public void gameActions(){
@@ -44,7 +45,7 @@ public class GameController {
             if(counter%100==0)
                 gameActions();
             gameView.update();
-            handleInput();
+            gameUpdate();
             counter++;
         }
     }
