@@ -9,42 +9,50 @@ import com.spaceinvaders.model.behaviors.MovableBehavior;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
+import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.model.ship.Ship;
 import com.spaceinvaders.model.shots.Shot;
+import com.spaceinvaders.model.shots.enemyshotvariants.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class ShotsControllerTest {
     private Arena mockArena;
-    private ShotPoolGroup mockShotPoolGroup;
+    private Arena arena;
     private List<Shot> shots;
     private ShotsController shotsController;
 
     @Before
     public void setUp() {
         shots = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            shots.add(new EnemyShot());
-        }
+
+        shots.add(new WeakShot());
+        shots.add(new ImmatureShot());
+        shots.add(new SlickShot());
+        shots.add(new PowerfulShot());
+        shots.add(new LegendaryShot());
 
         mockArena = Mockito.mock(Arena.class);
         when(mockArena.getShots()).thenReturn(shots);
+
+        arena = new Arena(new Position(0, 0), new Size(10, 10), "#000000");
+
+
         try{
             when(mockArena.getShip()).thenReturn(new Ship(new Position(15, 20), new Size(3, 1),new HealthyBehavior(10)));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
 
-        mockShotPoolGroup = Mockito.mock(ShotPoolGroup.class);
-
-        shotsController = new ShotsController(mockArena,new ShotPoolGroup());
+        shotsController = new ShotsController(arena, new ShotPool());
     }
 
     @Test
@@ -58,6 +66,9 @@ public class ShotsControllerTest {
         shotsControllerSpy.processShots();
 
         verify(mockArena,times(mockArena.getShots().size())).contain((Position)Mockito.any());
+
+
+
     }
 
     @Test
@@ -79,27 +90,14 @@ public class ShotsControllerTest {
 
     @Test
     public void generateEnemyShotTest() {
-        /*Random mockRandom = new Random();
+        Random mockRandom = new Random();
         when(mockRandom.nextInt()).thenReturn(15).thenReturn(3);
 
         ShotsController shotsControllerSpy = Mockito.spy(shotsController);
         when(shotsControllerSpy.makeRandom()).thenReturn(mockRandom).thenReturn(mockRandom);
 
-        List<Enemy> enemies = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            try {
-                enemies.add(new Enemy(new Position(15, i), new Size(3, 1), new Vector(1, 0)));
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            }
-        }
-        when(mockShotPoolGroup.getEnemyShotPool()).thenReturn(new EnemyShotPool());
-
-        when(mockArena.getEnemies()).thenReturn(enemies);
-
-
         assertEquals(16, testShot.getPosition().getX());
-        assertEquals(20, testShot.getPosition().getY());*/
+        assertEquals(20, testShot.getPosition().getY());
 
     }
 

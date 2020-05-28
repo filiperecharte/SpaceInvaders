@@ -32,7 +32,6 @@ public class CollideableVisitor implements ICollideableVisitor{
         shot.getDamageBehavior().applyDamage(enemy.getHealthyBehavior());
         if (enemy.getHealthyBehavior().isDead())
             arena.getEnemies().remove(enemy);
-        //aqui depois eliminamos dependendo da strenght do enemy
     }
 
 }

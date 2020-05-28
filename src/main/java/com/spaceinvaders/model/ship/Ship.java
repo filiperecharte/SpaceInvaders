@@ -37,7 +37,7 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
 
     @Override
     public Position getShootPosition() {
-        Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, 0));
+        Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, -1));
         return t.apply();
     }
 
