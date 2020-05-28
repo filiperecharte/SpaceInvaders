@@ -47,7 +47,6 @@ public class PlayState extends GameState{
                 gameController.setGameFinished();
                 break;
             case NONE:
-                (new DoNothingCommand()).execute();
                 break;
         }
     }
