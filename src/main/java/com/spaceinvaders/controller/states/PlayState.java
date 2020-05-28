@@ -15,6 +15,9 @@ public class PlayState extends GameState{
 
     @Override
     public void handleInput(GameView.keysNames input) {
+        if (gameController.getGameArena().getShip().getHealthyBehavior().isDead())
+            gameController.setGameState(new GameOverState(gameController));
+
         switch (input) {
             case LEFT:
                 (new MoveShipLeftCommand(gameController.getGameArena())).execute();

@@ -59,7 +59,15 @@ public class GameController {
         return shotPool;
     }
 
+    public GameView getGameView(){
+        return gameView;
+    }
+
     public void setGameFinished(){
         this.isFinished=true;
+    }
+
+    public void setGameState(GameState gameState){
+        this.gameState = gameState;
     }
 }
