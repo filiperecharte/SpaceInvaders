@@ -9,11 +9,11 @@ public class GameOverState extends GameState{
 
     public GameOverState(GameController gameController) {
         super(gameController);
+        gameController.getGameView().setRenderer(new GameOverRenderer());
     }
 
     @Override
     public void handleInput(GameView.keysNames input) {
-        gameController.getGameView().setRenderer(new GameOverRenderer());
         switch (input) {
             case SPACE:
                 gameController.setGameState(new PlayState(gameController));
@@ -26,5 +26,9 @@ public class GameOverState extends GameState{
                 (new DoNothingCommand()).execute();
                 break;
         }
+    }
+
+    @Override
+    public void update() {
     }
 }

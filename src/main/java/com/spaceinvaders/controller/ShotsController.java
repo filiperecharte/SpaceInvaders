@@ -20,9 +20,7 @@ public class ShotsController {
     private Translation shotTranslation;
     private ShotPool shotPool;
 
-    public ShotsController(Arena arena, ShotPool shotPool) {
-        this.arena = arena;
-        this.shotPool = shotPool;
+    public ShotsController() {
         shotTranslation = new Translation();
     }
 
@@ -97,4 +95,11 @@ public class ShotsController {
         return new Random();
     }
 
+    public void setArena(Arena arena){
+        this.arena=arena;
+    }
+
+    public void setShotPool(ShotPool shotPool){
+        this.shotPool=shotPool;
+    }
 }

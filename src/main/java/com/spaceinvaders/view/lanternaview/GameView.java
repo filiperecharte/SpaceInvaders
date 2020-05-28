@@ -15,12 +15,10 @@ import java.io.IOException;
 public class GameView {
     private TextGraphics graphics;
     private Screen screen;
-    private Arena arena;
     private Renderer renderer;
     public enum keysNames {NONE, LEFT, RIGHT, SPACE, CLOSE};
 
-    public GameView(Arena arena) {
-        this.arena = arena;
+    public GameView() {
         try {
             Terminal terminal = new DefaultTerminalFactory().createTerminal();
 
@@ -33,7 +31,6 @@ public class GameView {
             this.graphics = screen.newTextGraphics();
             graphics.enableModifiers(SGR.BOLD);
 
-            this.renderer = new PlayRenderer(arena);
         } catch (IOException e) {
             e.printStackTrace();
         }

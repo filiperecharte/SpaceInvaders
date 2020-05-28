@@ -1,31 +1,29 @@
 package com.spaceinvaders.controller;
 
+import com.spaceinvaders.controller.states.GameOverState;
 import com.spaceinvaders.controller.states.GameState;
 import com.spaceinvaders.controller.states.PlayState;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.pools.ShotPool;
+import com.spaceinvaders.view.lanternaview.GameOverRenderer;
 import com.spaceinvaders.view.lanternaview.GameView;
 
 import java.io.IOException;
 
 public class GameController {
     private GameView gameView;
-    private Arena arena;
-    private ShotPool shotPool;
     private ShotsController shotsController;
     private EnemiesController enemiesController;
 
     private GameState gameState;
     private boolean isFinished =false;
 
-    public GameController(GameView gameView, Arena arena) {
+    public GameController() {
         gameState = new PlayState(this);
 
-        this.gameView = gameView;
-        this.arena = arena;
-        this.shotPool = new ShotPool();
-        this.shotsController = new ShotsController(arena, shotPool);
-        this.enemiesController = new EnemiesController(arena);
+        this.gameView = new GameView();
+        this.shotsController = new ShotsController();
+        this.enemiesController = new EnemiesController();
     }
 
     public void handleInput() throws IOException{
@@ -51,23 +49,24 @@ public class GameController {
         }
     }
 
-    public Arena getGameArena(){
-        return arena;
-    }
-
-    public ShotPool getGameShotPool(){
-        return shotPool;
-    }
-
-    public GameView getGameView(){
-        return gameView;
-    }
-
     public void setGameFinished(){
         this.isFinished=true;
     }
 
-    public void setGameState(GameState gameState){
-        this.gameState = gameState;
+    public void setGameState(GameState gameState) {
+        this.gameState=gameState;
     }
+
+    public GameView getGameView() {
+        return gameView;
+    }
+
+    public ShotsController getShotsController(){
+        return shotsController;
+    }
+
+    public EnemiesController getEnemiesController(){
+        return enemiesController;
+    }
+
 }

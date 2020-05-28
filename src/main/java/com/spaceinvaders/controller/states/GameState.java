@@ -11,4 +11,5 @@ public abstract class GameState {
     protected GameController gameController;
 
     public abstract void handleInput(GameView.keysNames input);
+    public abstract void update();
 }
