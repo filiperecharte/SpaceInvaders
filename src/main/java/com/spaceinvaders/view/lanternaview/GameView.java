@@ -57,10 +57,11 @@ public class GameView {
                 return keysNames.RIGHT;
 
             case Character:
-
                 if (key.getCharacter() == ' ') {
                     return keysNames.SPACE;
                 }
+                return keysNames.NONE;
+
             case EOF:
                 return keysNames.CLOSE;
 

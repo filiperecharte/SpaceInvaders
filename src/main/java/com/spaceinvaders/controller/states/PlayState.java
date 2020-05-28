@@ -13,7 +13,7 @@ import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.view.lanternaview.GameView;
 import com.spaceinvaders.view.lanternaview.PlayRenderer;
 
-public class PlayState extends GameState{
+public class PlayState extends GameState {
     private Arena arena;
     private ShotPool shotPool;
 

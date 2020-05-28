@@ -10,18 +10,21 @@ import com.spaceinvaders.model.shots.Shot;
 public class ShootShipCommand implements Command {
     private Arena arena;
     private ShotPool shotPool;
-
+    private long counter;
 
     public ShootShipCommand(Arena arena, ShotPool shotPool) {
         this.arena = arena;
         this.shotPool = shotPool;
+        this.counter = counter;
     }
 
     @Override
     public void execute() {
         Position shootShipPosition = arena.getShip().getShootPosition();
         Shot shot = shotPool.extract(ShipShot.class);
-        if (shot == null) {shot = arena.getShip().createShot();}
+        if (shot == null) {
+            shot = arena.getShip().createShot();
+        }
         shot.setPosition(shootShipPosition);
         arena.addElement(shot);
     }
