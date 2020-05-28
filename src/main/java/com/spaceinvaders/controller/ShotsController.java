@@ -45,8 +45,6 @@ public class ShotsController {
         shot.setPosition(shotTranslation.apply());
     }
 
-
-
     public void generateEnemyShot(){
         int whenToShoot = makeRandom().nextInt(100);
         int whatEnemyIndex = makeRandom().nextInt(arena.getEnemies().size());
@@ -57,9 +55,7 @@ public class ShotsController {
             Position shootEnemyPosition = enemy.getShootPosition();
 
             shot = shotPool.extract(enemy.getShotType());
-            if (shot == null){
-                shot = enemy.createShot();
-            }
+            if (shot == null){ shot = enemy.createShot();}
             shot.setPosition(shootEnemyPosition);
 
             arena.addElement(shot);

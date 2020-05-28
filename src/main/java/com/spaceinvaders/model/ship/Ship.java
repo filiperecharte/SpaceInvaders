@@ -17,9 +17,7 @@ import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shot;
 
 public class Ship extends Box implements IElementVisited, ICollideableVisited, Shooter {
-
     private HealthyBehavior healthyBehavior;
-    private int lifes = 3;
 
     public Ship(Position position, Size size, HealthyBehavior healthyBehavior) throws IllegalArgumentException {
         super(position, size);
@@ -30,13 +28,6 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
         this.healthyBehavior = healthyBehavior;
     }
 
-    public int getLifes(){
-        return lifes;
-    }
-
-    public void setLifes(int lifes1){
-        lifes=lifes1;
-    }
     public HealthyBehavior getHealthyBehavior() {
         return healthyBehavior;
     }

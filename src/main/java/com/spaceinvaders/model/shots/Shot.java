@@ -1,6 +1,5 @@
 package com.spaceinvaders.model.shots;
 
-import com.spaceinvaders.model.box.MovableBox;
 import com.spaceinvaders.model.box.Box;
 import com.spaceinvaders.model.behaviors.DamageBehavior;
 import com.spaceinvaders.model.behaviors.MovableBehavior;

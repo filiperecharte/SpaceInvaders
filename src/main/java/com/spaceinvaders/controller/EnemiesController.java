@@ -17,9 +17,6 @@ public class EnemiesController {
     }
 
     public void processEnemies() {
-        /*if (enemiesNeedToInvertVelocity()) {
-            invertEnemiesVelocity();
-        }*/
 
         boolean enemyChangedVelocity = false;
         List<Object> toChangeVelocityClasses = new ArrayList<>();
