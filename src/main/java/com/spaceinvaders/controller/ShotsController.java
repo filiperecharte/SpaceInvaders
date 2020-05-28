@@ -17,94 +17,59 @@ public class ShotsController {
     private Translation shotTranslation;
     private ShotPool shotPool;
 
-    private Iterator<Shot> shotsIterator;
-    private Shot currentShot;
+    private CollisionsController collisionsController;
+    private EnemyShotGenerator enemyShotGenerator;
 
     public ShotsController(Arena arena, ShotPool shotPool) {
         this.arena = arena;
         this.shotPool = shotPool;
         shotTranslation = new Translation();
+        collisionsController = new CollisionsController();
+        enemyShotGenerator = new EnemyShotGenerator();
+    }
+
+    public void processEnemiesShots() {
+        enemyShotGenerator.setArena(arena);
+        enemyShotGenerator.setShotPool(shotPool);
+
+        int whenToShoot = new Random().nextInt(100);
+        int whatEnemyIndex = new Random().nextInt(arena.getEnemies().size());
+        Enemy enemy = arena.getEnemies().get(whatEnemyIndex);
+
+        if (enemyShotGenerator.ready(whenToShoot, enemy)) {
+            arena.addElement(enemyShotGenerator.generateShot(enemy));
+        }
     }
 
     public void processShots() {
-        shotsIterator = arena.getShots().iterator();
+        Iterator<Shot> shotsIterator = arena.getShots().iterator();
         while (shotsIterator.hasNext()) {
-            currentShot = shotsIterator.next();
-            processCollisions();
-            updateShot(currentShot);
+            Shot shot = shotsIterator.next();
 
-            if (!arena.contain(currentShot.getPosition())) {
-                shotToPoolGroup();
+            boolean collision = processCollisions(shot);
+
+            updateShot(shot);
+
+            if (!arena.contain(shot.getPosition()) || collision) {
+                shotPool.put(shot);
+                shotsIterator.remove();
             }
         }
     }
 
-    public void updateShot(Shot shot) {
+    private boolean processCollisions(Shot shot) {
+        collisionsController.setArena(arena);
+        collisionsController.setShot(shot);
+        boolean wallsCollision = collisionsController.processWallsCollisions();
+        boolean enemiesCollision = collisionsController.processEnemiesCollisions();
+        boolean shipCollision = collisionsController.processShipCollision();
+
+        return wallsCollision || enemiesCollision || shipCollision;
+    }
+
+    private void updateShot(Shot shot) {
         shotTranslation.setPosition(shot.getPosition());
         shotTranslation.setVector(shot.getMovableBehavior().getVelocity());
         shot.setPosition(shotTranslation.apply());
     }
-
-    public void generateEnemyShot(){
-        int whenToShoot = makeRandom().nextInt(100);
-        int whatEnemyIndex = makeRandom().nextInt(arena.getEnemies().size());
-        Enemy enemy = arena.getEnemies().get(whatEnemyIndex);
-
-        Shot shot;
-        if (!arena.getEnemies().isEmpty() && enemy.getAttackBehavior().readyToShoot(whenToShoot)) {
-            Position shootEnemyPosition = enemy.getShootPosition();
-
-            shot = shotPool.extract(enemy.getShotType());
-            if (shot == null){ shot = enemy.createShot();}
-            shot.setPosition(shootEnemyPosition);
-
-            arena.addElement(shot);
-        }
-
-    }
-
-    public void processCollisions(){
-        processWallsCollisions();
-        processEnemiesCollisions();
-        processShipCollision();
-    }
-
-    public void processWallsCollisions() {
-        for (int i=0;i<arena.getWalls().size();i++) {
-            for (int j=0;j<arena.getWalls().get(i).getFragments().size();j++) {
-                if (arena.getWalls().get(i).getFragments().get(j).contain(currentShot.getPosition())) {
-                    arena.colide(arena.getWalls().get(i).getFragments().get(j), currentShot);
-                    shotToPoolGroup();
-                }
-            }
-        }
-    }
-
-    public void processEnemiesCollisions() {
-        if (currentShot instanceof ShipShot) {
-            for (int i = 0; i < arena.getEnemies().size(); i++) {
-                if (arena.getEnemies().get(i).contain(currentShot.getPosition())) {
-                    arena.colide(arena.getEnemies().get(i), currentShot);
-                    shotToPoolGroup();
-                }
-            }
-        }
-    }
-
-    public void processShipCollision() {
-        if (arena.getShip().contain(currentShot.getPosition())) {
-            arena.colide(arena.getShip(), currentShot);
-            shotToPoolGroup();
-        }
-    }
-
-    public void shotToPoolGroup(){
-        shotPool.put(currentShot);
-        shotsIterator.remove();
-    }
-
-    public Random makeRandom() {
-        return new Random();
-    }
-
 }
