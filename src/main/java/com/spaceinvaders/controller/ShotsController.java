@@ -1,14 +1,11 @@
 package com.spaceinvaders.controller;
 
-import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Translation;
 import com.spaceinvaders.model.pools.ShotPool;
-import com.spaceinvaders.model.shots.IShotVisited;
 import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.model.pools.ShotPoolGroup;
 import com.spaceinvaders.model.shots.Shot;
 
 import java.util.Random;

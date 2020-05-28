@@ -9,7 +9,6 @@ import com.spaceinvaders.model.behaviors.MovableBehavior;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
-import com.spaceinvaders.model.pools.ShotPoolGroup;
 import com.spaceinvaders.model.ship.Ship;
 import com.spaceinvaders.model.shots.Shot;
 import org.junit.Before;
