@@ -8,19 +8,17 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.spaceinvaders.view.lanternaview.GameRenderer;
+import com.spaceinvaders.view.lanternaview.imagesrederers.Renderer;
 
 import java.io.IOException;
 
 public class GameView {
     private TextGraphics graphics;
     private Screen screen;
-    private Arena arena;
-    private GameRenderer gameRenderer;
+    private Renderer renderer;
     public enum keysNames {NONE, LEFT, RIGHT, SPACE, CLOSE};
 
-    public GameView(Arena arena) {
-        this.arena = arena;
+    public GameView() {
         try {
             Terminal terminal = new DefaultTerminalFactory().createTerminal();
 
@@ -33,7 +31,6 @@ public class GameView {
             this.graphics = screen.newTextGraphics();
             graphics.enableModifiers(SGR.BOLD);
 
-            this.gameRenderer = new GameRenderer(arena);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -41,7 +38,7 @@ public class GameView {
 
     public void update() throws IOException {
         //screen.clear();
-        gameRenderer.render(graphics); //render all objects
+        renderer.render(graphics); //render all objects
         screen.refresh();
     }
 
@@ -74,5 +71,9 @@ public class GameView {
 
     public void end() throws IOException {
         screen.close();
+    }
+
+    public void setRenderer(Renderer renderer){
+        this.renderer=renderer;
     }
 }

@@ -1,10 +1,8 @@
 package com.spaceinvaders.controller;
 
 import com.spaceinvaders.model.enemy.Enemy;
-import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Translation;
 import com.spaceinvaders.model.pools.ShotPool;
-import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.shots.Shot;
 
@@ -23,6 +21,9 @@ public class ShotsController {
     public ShotsController(Arena arena, ShotPool shotPool) {
         this.arena = arena;
         this.shotPool = shotPool;
+    }
+
+    public ShotsController() {
         shotTranslation = new Translation();
         collisionsController = new CollisionsController();
         enemyShotGenerator = new EnemyShotGenerator();
@@ -67,9 +68,18 @@ public class ShotsController {
         return wallsCollision || enemiesCollision || shipCollision;
     }
 
+
     private void updateShot(Shot shot) {
         shotTranslation.setPosition(shot.getPosition());
         shotTranslation.setVector(shot.getMovableBehavior().getVelocity());
         shot.setPosition(shotTranslation.apply());
+    }
+
+    public void setArena(Arena arena){
+        this.arena=arena;
+    }
+
+    public void setShotPool(ShotPool shotPool) {
+        this.shotPool=shotPool;
     }
 }

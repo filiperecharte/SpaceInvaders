@@ -11,8 +11,7 @@ public class EnemiesController {
     private Arena arena;
     private Translation enemyTranslation;
 
-    public EnemiesController(Arena arena) {
-        this.arena = arena;
+    public EnemiesController() {
         this.enemyTranslation = new Translation();
     }
 
@@ -62,5 +61,9 @@ public class EnemiesController {
         for (Enemy enemy : arena.getEnemies()) {
             updateEnemy(enemy);
         }
+    }
+
+    public void setArena(Arena arena){
+        this.arena=arena;
     }
 }

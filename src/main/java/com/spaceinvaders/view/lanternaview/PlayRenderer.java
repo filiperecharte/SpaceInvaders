@@ -15,13 +15,11 @@ import com.spaceinvaders.view.lanternaview.imagesfactories.*;
 import com.spaceinvaders.view.lanternaview.imagesrederers.BoxImageRenderer;
 import com.spaceinvaders.view.lanternaview.imagesrederers.Renderer;
 
-public class GameRenderer implements Renderer {
+public class PlayRenderer implements Renderer {
     private Arena arena;
-    int counter;
 
-    public GameRenderer(Arena arena) {
+    public PlayRenderer(Arena arena) {
         this.arena = arena;
-        counter=0;
     }
 
     public void render(TextGraphics graphics) {
