@@ -57,7 +57,7 @@ public class GameController {
 
     public void gameActions(){
         enemiesController.processEnemies();
-        shotsController.processEnemiesShots();
+        shotsController.generateEnemiesShots();
         shotsController.processShots();
     }
 

@@ -28,7 +28,7 @@ public class ShotsController {
         enemyShotGenerator = new EnemyShotGenerator();
     }
 
-    public void processEnemiesShots() {
+    public void generateEnemiesShots() {
         enemyShotGenerator.setArena(arena);
         enemyShotGenerator.setShotPool(shotPool);
 
