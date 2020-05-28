@@ -2,20 +2,20 @@ package com.spaceinvaders.model.ship;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.box.Box;
-import com.spaceinvaders.model.HealthyBox;
 import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.element.IElementVisited;
 import com.spaceinvaders.model.element.IElementsVisitor;
 import com.spaceinvaders.model.collisions.ICollideableVisited;
 import com.spaceinvaders.model.collisions.ICollideableVisitor;
 import com.spaceinvaders.model.geometry.Translation;
+import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
+import com.spaceinvaders.model.shots.Shot;
 
 public class Ship extends Box implements IElementVisited, ICollideableVisited, Shooter {
-
     private HealthyBehavior healthyBehavior;
 
     public Ship(Position position, Size size, HealthyBehavior healthyBehavior) throws IllegalArgumentException {
@@ -42,6 +42,11 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
     }
 
     @Override
+    public Shot createShot() {
+        return new ShipShot();
+    }
+
+    @Override
     public void accept(IElementsVisitor visitor) {
         visitor.visit(this);
     }
@@ -49,5 +54,10 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
     @Override
     public void acceptShot(ICollideableVisitor collideableVisitor) {
         collideableVisitor.visit(this);
+    }
+
+    @Override
+    public Object getShotType() {
+        return ShipShot.class;
     }
 }

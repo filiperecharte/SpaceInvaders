@@ -34,14 +34,6 @@ public class Size {
         this.height = height;
     }
 
-    /*public boolean equals(Size otherSize) {
-        return (width == otherSize.getWidth()) && (height == otherSize.getHeight());
-    }*/
-
-    public boolean fitIn(Size otherSize) {
-        return (width <= otherSize.getWidth()) && (height <= otherSize.getHeight());
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

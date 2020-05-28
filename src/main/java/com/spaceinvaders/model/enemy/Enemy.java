@@ -2,7 +2,6 @@ package com.spaceinvaders.model.enemy;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.box.Box;
-import com.spaceinvaders.model.box.MovableBox;
 import com.spaceinvaders.model.behaviors.AttackBehavior;
 import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.behaviors.MovableBehavior;
@@ -16,8 +15,9 @@ import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Translation;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shooter;
+import com.spaceinvaders.model.shots.Shot;
 
-public class Enemy extends Box implements IElementVisited, ICollideableVisited, Shooter {
+public class Enemy extends Box implements IElementVisited, ICollideableVisited,Shooter {
     protected MovableBehavior movableBehavior;
     protected HealthyBehavior healthyBehavior;
     protected AttackBehavior attackBehavior;
@@ -52,11 +52,18 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited, 
         return attackBehavior;
     }
 
-    @Override
     public Position getShootPosition() {
         Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, 0));
         return t.apply();
     }
+
+    @Override
+    public Object getShotType() {
+        return null;
+    }
+
+    @Override
+    public Shot createShot() { return null; }
 
     @Override
     public void accept(IElementsVisitor visitor) {

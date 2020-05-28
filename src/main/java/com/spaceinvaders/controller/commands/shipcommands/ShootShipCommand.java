@@ -3,23 +3,25 @@ package com.spaceinvaders.controller.commands.shipcommands;
 import com.spaceinvaders.controller.commands.Command;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.pools.ShotPoolGroup;
+import com.spaceinvaders.model.pools.ShotPool;
+import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.shots.Shot;
 
 public class ShootShipCommand implements Command {
     private Arena arena;
-    private ShotPoolGroup shotPoolGroup;
+    private ShotPool shotPool;
 
 
-    public ShootShipCommand(Arena arena, ShotPoolGroup shotPoolGroup) {
+    public ShootShipCommand(Arena arena, ShotPool shotPool) {
         this.arena = arena;
-        this.shotPoolGroup = shotPoolGroup;
+        this.shotPool = shotPool;
     }
 
     @Override
     public void execute() {
         Position shootShipPosition = arena.getShip().getShootPosition();
-        Shot shot = shotPoolGroup.getShipShotPool().extract();
+        Shot shot = shotPool.extract(ShipShot.class);
+        if (shot == null) {shot = arena.getShip().createShot();}
         shot.setPosition(shootShipPosition);
         arena.addElement(shot);
     }

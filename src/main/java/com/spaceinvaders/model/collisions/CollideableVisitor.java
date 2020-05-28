@@ -17,7 +17,6 @@ public class CollideableVisitor implements ICollideableVisitor{
 
     public void visit(Ship ship) {
         shot.getDamageBehavior().applyDamage(ship.getHealthyBehavior());
-        //diminuir as vidas da ship conforme o shot
     }
 
     public void visit(Fragment wallFragment) {
@@ -30,7 +29,9 @@ public class CollideableVisitor implements ICollideableVisitor{
     }
 
     public void visit(Enemy enemy) {
-        arena.getEnemies().remove(enemy);
+        shot.getDamageBehavior().applyDamage(enemy.getHealthyBehavior());
+        if (enemy.getHealthyBehavior().isDead())
+            arena.getEnemies().remove(enemy);
         //aqui depois eliminamos dependendo da strenght do enemy
     }
 
