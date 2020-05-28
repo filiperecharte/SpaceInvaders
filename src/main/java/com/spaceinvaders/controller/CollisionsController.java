@@ -8,11 +8,6 @@ public class CollisionsController {
     Arena arena;
     Shot shot;
 
-    public CollisionsController(Arena arena, Shot shot) {
-        this.arena = arena;
-        this.shot = shot;
-    }
-
     public CollisionsController() {}
 
     public boolean processWallsCollisions() {
