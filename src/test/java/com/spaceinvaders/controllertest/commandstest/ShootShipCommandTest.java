@@ -6,16 +6,21 @@ import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
+import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.model.ship.Ship;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
 
 public class ShootShipCommandTest {
     private Arena arena;
+    private ShotPool shotPool;
     @Before
     public void setUp() {
+
+        shotPool = Mockito.mock(ShotPool.class);
 
         Ship ship =null;
         try {
@@ -31,7 +36,7 @@ public class ShootShipCommandTest {
 
     @Test
     public void getShootPositionTest() {
-            ShootShipCommand shootShipCommand = new ShootShipCommand(arena, new ShotPoolGroup());
+            ShootShipCommand shootShipCommand = new ShootShipCommand(arena, shotPool);
             shootShipCommand.execute();
 
             assertEquals(1, arena.getShots().size());

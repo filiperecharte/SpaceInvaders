@@ -47,7 +47,8 @@ public class EnemiesControllerTest {
 
         when(mockArena.getEnemies()).thenReturn(enemyMocks);
 
-        enemiesController = new EnemiesController(mockArena);
+        enemiesController = new EnemiesController();
+        enemiesController.setArena(mockArena);
     }
 
     @Test
