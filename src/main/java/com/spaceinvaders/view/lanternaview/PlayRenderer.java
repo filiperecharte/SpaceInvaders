@@ -1,5 +1,6 @@
 package com.spaceinvaders.view.lanternaview;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.BasicTextImage;
@@ -30,8 +31,8 @@ public class PlayRenderer implements Renderer {
 
         graphics.setBackgroundColor(TextColor.Factory.fromString("#808080"));
         graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
-        graphics.putString(3,1,"LIFES");
-        graphics.putString(9,1,Integer.toString(arena.getShip().getHealthyBehavior().getCurrentHealth()));
+        graphics.putString(3,1,"LIFES", SGR.BOLD);
+        graphics.putString(9,1,Integer.toString(arena.getShip().getHealthyBehavior().getCurrentHealth()), SGR.BOLD);
 
         new BoxImageRenderer(arena.getShip(), new ShipImageFactory().createTextImage(backgroundColor)).render(graphics);
         for (Enemy enemy : arena.getEnemies()) {
