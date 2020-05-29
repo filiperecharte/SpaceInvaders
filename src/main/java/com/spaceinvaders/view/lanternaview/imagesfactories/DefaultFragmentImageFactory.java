@@ -9,7 +9,7 @@ import com.googlecode.lanterna.graphics.TextImage;
 public class DefaultFragmentImageFactory implements ImageFactory {
 
     @Override
-    public TextImage createTextImage(TextColor backgroundColor) {
+    public TextImage createTextImage(Object object, TextColor backgroundColor) {
         TextImage image = new BasicTextImage(1, 1);
         image.setCharacterAt(0, 0 , new TextCharacter('#', new TextColor.RGB(0, 0, 0), backgroundColor, SGR.BOLD));
         return image;

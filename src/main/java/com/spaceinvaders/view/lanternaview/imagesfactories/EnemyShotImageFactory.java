@@ -10,7 +10,7 @@ import com.spaceinvaders.model.shots.enemyshotvariants.*;
 
 public class EnemyShotImageFactory {
 
-    public TextImage makeEnemyShotImage(Object shotType, TextColor backgroundColor){
+    public TextImage createTextImage(Object shotType, TextColor backgroundColor){
         if (shotType instanceof ImmatureShot){
             return ImmatureShotImage(backgroundColor);
         }

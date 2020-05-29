@@ -25,26 +25,26 @@ public class ShotsRendererVisitor implements IShotsVisitor {
 
     @Override
     public void visit(WeakShot weakShot) {
-        new BoxImageRenderer(weakShot, new EnemyShotImageFactory().makeEnemyShotImage(weakShot,backgroundColor)).render(graphics);
+        new BoxImageRenderer(weakShot, new EnemyShotImageFactory().createTextImage(weakShot,backgroundColor)).render(graphics);
     }
 
     @Override
     public void visit(ImmatureShot immatureShot) {
-        new BoxImageRenderer(immatureShot, new EnemyShotImageFactory().makeEnemyShotImage(immatureShot, backgroundColor)).render(graphics);
+        new BoxImageRenderer(immatureShot, new EnemyShotImageFactory().createTextImage(immatureShot, backgroundColor)).render(graphics);
     }
 
     @Override
     public void visit(SlickShot slickShot) {
-        new BoxImageRenderer(slickShot, new EnemyShotImageFactory().makeEnemyShotImage(slickShot,backgroundColor)).render(graphics);
+        new BoxImageRenderer(slickShot, new EnemyShotImageFactory().createTextImage(slickShot,backgroundColor)).render(graphics);
     }
 
     @Override
     public void visit(PowerfulShot powerfulShot) {
-        new BoxImageRenderer(powerfulShot, new EnemyShotImageFactory().makeEnemyShotImage(powerfulShot,backgroundColor)).render(graphics);
+        new BoxImageRenderer(powerfulShot, new EnemyShotImageFactory().createTextImage(powerfulShot,backgroundColor)).render(graphics);
     }
 
     @Override
     public void visit(LegendaryShot legendaryShot) {
-        new BoxImageRenderer(legendaryShot, new EnemyShotImageFactory().makeEnemyShotImage(legendaryShot,backgroundColor)).render(graphics);
+        new BoxImageRenderer(legendaryShot, new EnemyShotImageFactory().createTextImage(legendaryShot,backgroundColor)).render(graphics);
     }
 }

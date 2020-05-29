@@ -7,9 +7,9 @@ import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.graphics.TextImage;
 import com.spaceinvaders.model.enemy.enemyvariants.*;
 
-public class EnemyImageFactory{
+public class EnemyImageFactory implements ImageFactory{
 
-    public TextImage makeEnemyImage(Object enemyType, TextColor backgroundColor){
+    public TextImage createTextImage(Object enemyType, TextColor backgroundColor){
         if (enemyType instanceof StrongEnemy){
             return strongEnemyImage(backgroundColor);
         }

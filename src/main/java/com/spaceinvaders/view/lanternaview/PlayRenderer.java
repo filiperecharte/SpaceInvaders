@@ -18,29 +18,36 @@ import com.spaceinvaders.view.lanternaview.imagesrederers.Renderer;
 
 public class PlayRenderer implements Renderer {
     private Arena arena;
+    private ArenaImageFactory arenaImageFactory;
+    private ShipImageFactory shipImageFactory;
+    private EnemyImageFactory enemyImageFactory;
+    private DefaultFragmentImageFactory defaultFragmentImageFactory;
+    private TextColor backgroundColor;
 
     public PlayRenderer(Arena arena) {
         this.arena = arena;
+        this.arenaImageFactory = new ArenaImageFactory();
+        this.shipImageFactory = new ShipImageFactory();
+        this.enemyImageFactory = new EnemyImageFactory();
+        this.defaultFragmentImageFactory = new DefaultFragmentImageFactory();
+        this.backgroundColor = new TextColor.RGB(128, 128, 128);
     }
 
     public void render(TextGraphics graphics) {
-
-        TextColor backgroundColor = new TextColor.RGB(128, 128, 128);
-
-        new BoxImageRenderer(arena, new ArenaImageFactory().createTextImage(backgroundColor)).render(graphics);
+        new BoxImageRenderer(arena, arenaImageFactory.createTextImage(arena,backgroundColor)).render(graphics);
 
         graphics.setBackgroundColor(TextColor.Factory.fromString("#808080"));
         graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
         graphics.putString(3,1,"HEALTH", SGR.BOLD);
         graphics.putString(10,1,Integer.toString(arena.getShip().getHealthyBehavior().getCurrentHealth()), SGR.BOLD);
 
-        new BoxImageRenderer(arena.getShip(), new ShipImageFactory().createTextImage(backgroundColor)).render(graphics);
+        new BoxImageRenderer(arena.getShip(), shipImageFactory.createTextImage(arena.getShip(),backgroundColor)).render(graphics);
         for (Enemy enemy : arena.getEnemies()) {
-            new BoxImageRenderer(enemy, new EnemyImageFactory().makeEnemyImage(enemy,backgroundColor)).render(graphics);
+            new BoxImageRenderer(enemy, enemyImageFactory.createTextImage(enemy,backgroundColor)).render(graphics);
         }
         for (Wall wall : arena.getWalls()) {
             for (Fragment fragment : wall.getFragments()) {
-                new BoxImageRenderer(fragment, new DefaultFragmentImageFactory().createTextImage(backgroundColor)).render(graphics);
+                new BoxImageRenderer(fragment, defaultFragmentImageFactory.createTextImage(fragment, backgroundColor)).render(graphics);
             }
         }
         IShotVisited shotVisited;
