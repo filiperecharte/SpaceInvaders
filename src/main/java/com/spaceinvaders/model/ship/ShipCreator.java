@@ -12,7 +12,7 @@ public class ShipCreator {
         Ship ship = null;
 
         try {
-            ship = new Ship(new Position(30, 22), new Size(5, 1), new HealthyBehavior(3));
+            ship = new Ship(new Position(30, 22), new Size(5, 1), new HealthyBehavior(5));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }

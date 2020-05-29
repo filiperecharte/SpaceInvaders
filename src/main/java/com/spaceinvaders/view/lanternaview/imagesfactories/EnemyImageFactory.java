@@ -41,11 +41,11 @@ public class EnemyImageFactory{
     public TextImage oldEnemyImage(TextColor backgroundColor) {
         TextImage image = new BasicTextImage(5, 1);
 
-        image.setCharacterAt(0, 0, new TextCharacter('_', new TextColor.RGB(0, 128, 0), backgroundColor, SGR.BOLD));
-        image.setCharacterAt(1, 0, new TextCharacter('-', new TextColor.RGB(0, 128, 0), backgroundColor, SGR.BOLD));
-        image.setCharacterAt(2, 0, new TextCharacter('0', new TextColor.RGB(0, 128, 0), backgroundColor, SGR.BOLD));
-        image.setCharacterAt(3, 0, new TextCharacter('-', new TextColor.RGB(0, 128, 0), backgroundColor, SGR.BOLD));
-        image.setCharacterAt(4, 0, new TextCharacter('_', new TextColor.RGB(0, 128, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(0, 0, new TextCharacter('_', new TextColor.RGB(0, 100, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(1, 0, new TextCharacter('-', new TextColor.RGB(0, 100, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(2, 0, new TextCharacter('0', new TextColor.RGB(0, 100, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(3, 0, new TextCharacter('-', new TextColor.RGB(0, 100, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(4, 0, new TextCharacter('_', new TextColor.RGB(0, 100, 0), backgroundColor, SGR.BOLD));
 
         return image;
     }
