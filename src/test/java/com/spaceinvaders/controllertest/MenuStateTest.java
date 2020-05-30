@@ -1,7 +1,6 @@
 package com.spaceinvaders.controllertest;
 
 import com.spaceinvaders.controller.GameController;
-import com.spaceinvaders.controller.states.GameOverState;
 import com.spaceinvaders.controller.states.InformationState;
 import com.spaceinvaders.controller.states.MenuState;
 import com.spaceinvaders.controller.states.playstate.PlayState;

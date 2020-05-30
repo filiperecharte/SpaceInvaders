@@ -1,25 +1,9 @@
 package com.spaceinvaders.controllertest;
 
 import com.spaceinvaders.controller.GameController;
-import com.spaceinvaders.controller.states.GameOverState;
-import com.spaceinvaders.controller.states.GameState;
 import com.spaceinvaders.controller.states.MenuState;
 import com.spaceinvaders.controller.states.playstate.PlayState;
-import com.spaceinvaders.controller.states.playstate.playstatecontrollers.ShotsController;
-import com.spaceinvaders.exceptions.IllegalArgumentException;
-import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.model.behaviors.HealthyBehavior;
-import com.spaceinvaders.model.enemy.enemyvariants.StrongEnemy;
-import com.spaceinvaders.model.enemy.enemyvariants.SuperiorEnemy;
-import com.spaceinvaders.model.enemy.enemyvariants.WiseEnemy;
-import com.spaceinvaders.model.enemy.enemyvariants.YoungEnemy;
 import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.pools.ShotPool;
-import com.spaceinvaders.model.ship.Ship;
-import com.spaceinvaders.model.shots.enemyshotvariants.WeakShot;
-import com.spaceinvaders.model.wall.Fragment;
-import com.spaceinvaders.model.wall.Wall;
 import com.spaceinvaders.view.lanternaview.GameView;
 import org.junit.Before;
 import org.junit.Test;

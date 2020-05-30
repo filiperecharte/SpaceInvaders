@@ -3,7 +3,6 @@ package com.spaceinvaders.controllertest;
 import com.spaceinvaders.controller.GameController;
 import com.spaceinvaders.controller.states.InformationState;
 import com.spaceinvaders.controller.states.MenuState;
-import com.spaceinvaders.controller.states.playstate.PlayState;
 import com.spaceinvaders.view.lanternaview.GameView;
 import org.junit.Before;
 import org.junit.Test;

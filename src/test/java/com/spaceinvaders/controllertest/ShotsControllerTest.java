@@ -1,13 +1,6 @@
 package com.spaceinvaders.controllertest;
 
 import com.spaceinvaders.controller.states.playstate.playstatecontrollers.ShotsController;
-import com.spaceinvaders.exceptions.IllegalArgumentException;
-import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.model.enemy.enemyvariants.*;
-import com.spaceinvaders.model.geometry.Position;
-import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.wall.Fragment;
-import com.spaceinvaders.model.wall.Wall;
 import org.junit.Before;
 
 public class ShotsControllerTest {

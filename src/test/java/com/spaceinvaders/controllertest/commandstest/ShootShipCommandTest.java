@@ -10,7 +10,6 @@ import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.model.ship.Ship;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
 
