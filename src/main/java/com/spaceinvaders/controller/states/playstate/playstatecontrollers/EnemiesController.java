@@ -124,8 +124,9 @@ public class EnemiesController {
     }
 
     public void updateEnemies() {
-        if (arena.getEnemies().isEmpty())
+        if (arena.getEnemies().isEmpty()) {
             addMoreEnemies();
+        }
         for (Enemy enemy : arena.getEnemies()) {
             updateEnemy(enemy);
         }
