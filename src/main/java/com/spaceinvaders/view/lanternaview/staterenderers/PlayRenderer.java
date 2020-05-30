@@ -20,6 +20,7 @@ public class PlayRenderer implements Renderer {
     private ShotImageFactory shotImageFactory;
     private DefaultFragmentImageFactory defaultFragmentImageFactory;
     private TextColor backgroundColor;
+    private BoxImageRenderer boxImageRenderer;
 
     public PlayRenderer(Arena arena) {
         this.arena = arena;
@@ -29,10 +30,13 @@ public class PlayRenderer implements Renderer {
         this.shotImageFactory = new ShotImageFactory();
         this.defaultFragmentImageFactory = new DefaultFragmentImageFactory();
         this.backgroundColor = new TextColor.RGB(128, 128, 128);
+        this.boxImageRenderer = new BoxImageRenderer();
     }
 
     public void render(TextGraphics graphics) {
-        new BoxImageRenderer(arena, arenaImageFactory.createTextImage(new ImageInfo(backgroundColor))).render(graphics);
+        boxImageRenderer.setBox(arena);
+        boxImageRenderer.setImage(arenaImageFactory.createTextImage(new ImageInfo(backgroundColor)));
+        boxImageRenderer.render(graphics);
 
         graphics.setBackgroundColor(TextColor.Factory.fromString("#808080"));
         graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
@@ -40,17 +44,26 @@ public class PlayRenderer implements Renderer {
         graphics.putString(10,1,Integer.toString(arena.getShip().getHealthyBehavior().getCurrentHealth()), SGR.BOLD);
         graphics.putString(3,23,"ESC TO MENU", SGR.BOLD);
 
-        new BoxImageRenderer(arena.getShip(), shipImageFactory.createTextImage(new ImageInfo(backgroundColor))).render(graphics);
+        boxImageRenderer.setBox(arena.getShip());
+        boxImageRenderer.setImage(shipImageFactory.createTextImage(new ImageInfo(backgroundColor)));
+        boxImageRenderer.render(graphics);
+
         for (Enemy enemy : arena.getEnemies()) {
-            new BoxImageRenderer(enemy, enemyImageFactory.createTextImage(new ImageInfo(enemy.getImageName(), backgroundColor))).render(graphics);
+            boxImageRenderer.setBox(enemy);
+            boxImageRenderer.setImage(enemyImageFactory.createTextImage(new ImageInfo(enemy.getImageName(), backgroundColor)));
+            boxImageRenderer.render(graphics);
         }
         for (Wall wall : arena.getWalls()) {
             for (Fragment fragment : wall.getFragments()) {
-                new BoxImageRenderer(fragment, defaultFragmentImageFactory.createTextImage(new ImageInfo(backgroundColor))).render(graphics);
+                boxImageRenderer.setBox(fragment);
+                boxImageRenderer.setImage(defaultFragmentImageFactory.createTextImage(new ImageInfo(backgroundColor)));
+                boxImageRenderer.render(graphics);
             }
         }
         for (Shot shot : arena.getShots()) {
-            new BoxImageRenderer(shot, shotImageFactory.createTextImage(new ImageInfo(shot.getImageName(), backgroundColor)));
+            boxImageRenderer.setBox(shot);
+            boxImageRenderer.setImage(shotImageFactory.createTextImage(new ImageInfo(shot.getImageName(), backgroundColor)));
+            boxImageRenderer.render(graphics);
         }
     }
 }

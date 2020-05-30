@@ -6,7 +6,7 @@ import com.spaceinvaders.model.ship.Ship;
 import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.wall.Fragment;
 
-public class CollideableVisitor implements ICollideableVisitor{
+public class CollideableVisitor implements ICollideableVisitor {
     private Arena arena;
     private Shot shot;
 

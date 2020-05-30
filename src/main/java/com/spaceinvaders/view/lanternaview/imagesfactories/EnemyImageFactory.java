@@ -8,7 +8,7 @@ import com.googlecode.lanterna.graphics.TextImage;
 
 public class EnemyImageFactory implements ImageFactory {
 
-    public TextImage createTextImage(ImageInfo imageInfo){
+    public TextImage createTextImage(ImageInfo imageInfo) {
 
         switch (imageInfo.getImageName()) {
             case "OldEnemyImg":

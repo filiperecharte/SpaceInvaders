@@ -4,7 +4,6 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.graphics.TextImage;
 import com.spaceinvaders.model.box.Box;
-import com.spaceinvaders.model.geometry.Position;
 
 public class BoxImageRenderer implements Renderer {
     private Box box;
@@ -12,6 +11,16 @@ public class BoxImageRenderer implements Renderer {
 
     public BoxImageRenderer(Box box, TextImage image) {
         this.box = box;
+        this.image = image;
+    }
+
+    public BoxImageRenderer() {}
+
+    public void setBox(Box box) {
+        this.box = box;
+    }
+
+    public void setImage(TextImage image) {
         this.image = image;
     }
 
