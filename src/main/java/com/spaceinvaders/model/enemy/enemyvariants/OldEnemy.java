@@ -10,7 +10,6 @@ import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.shots.Shot;
-import com.spaceinvaders.model.shots.enemyshotvariants.WeakShot;
 
 public class OldEnemy extends Enemy implements Shooter {
     public OldEnemy(Position position, Size size) throws IllegalArgumentException {
@@ -23,6 +22,7 @@ public class OldEnemy extends Enemy implements Shooter {
     @Override
     public void processShot(Shot shot) {
         shot.setPosition(getShootPosition());
+        shot.setSize(new Size(1, 1));
         shot.getMovableBehavior().setVelocity(new Vector(0, 1));
         shot.getDamageBehavior().setDamage(1);
         shot.setName("WeakShot");

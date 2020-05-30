@@ -1,7 +1,6 @@
 package com.spaceinvaders.controller.states.playstate.playstatecontrollers;
 
 import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.shots.Shot;
 
 public class CollisionsController {

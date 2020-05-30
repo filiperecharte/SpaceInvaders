@@ -8,7 +8,6 @@ import com.spaceinvaders.model.element.IElementsVisitor;
 import com.spaceinvaders.model.collisions.ICollideableVisited;
 import com.spaceinvaders.model.collisions.ICollideableVisitor;
 import com.spaceinvaders.model.geometry.Translation;
-import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
@@ -35,15 +34,18 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
         this.healthyBehavior = healthyBehavior;
     }
 
-    @Override
-    public Position getShootPosition() {
+    private Position getShootPosition() {
         Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, -1));
         return t.apply();
     }
 
     @Override
-    public Shot createShot() {
-        return new ShipShot();
+    public void processShot(Shot shot) {
+        shot.setPosition(getShootPosition());
+        shot.setSize(new Size(1, 1));
+        shot.getMovableBehavior().setVelocity(new Vector(0, -1));
+        shot.getDamageBehavior().setDamage(1);
+        shot.setName("ShipShot");
     }
 
     @Override
@@ -54,10 +56,5 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
     @Override
     public void acceptShot(ICollideableVisitor collideableVisitor) {
         collideableVisitor.visit(this);
-    }
-
-    @Override
-    public Object getShotType() {
-        return ShipShot.class;
     }
 }

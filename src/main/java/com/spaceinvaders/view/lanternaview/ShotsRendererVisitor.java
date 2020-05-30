@@ -2,8 +2,6 @@ package com.spaceinvaders.view.lanternaview;
 
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.spaceinvaders.model.shots.IShotsVisitor;
-import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.shots.enemyshotvariants.*;
 import com.spaceinvaders.view.lanternaview.imagesfactories.EnemyShotImageFactory;
 import com.spaceinvaders.view.lanternaview.imagesfactories.ShipShotImageFactory;

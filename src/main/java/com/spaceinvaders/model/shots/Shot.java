@@ -18,8 +18,8 @@ public class Shot extends Box implements IElementVisited {
         this.name = name;
     }
 
-    public Shot(Position position, Size size) {
-        super(position, size);
+    public Shot() {
+        super(new Position(0, 0), new Size(1, 1));
     }
 
     public MovableBehavior getMovableBehavior() {

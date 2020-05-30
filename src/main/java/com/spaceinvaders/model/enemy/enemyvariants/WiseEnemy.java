@@ -10,8 +10,6 @@ import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.shots.Shot;
-import com.spaceinvaders.model.shots.enemyshotvariants.SlickShot;
-import com.spaceinvaders.model.shots.enemyshotvariants.WeakShot;
 
 public class WiseEnemy extends Enemy implements Shooter {
     public WiseEnemy(Position position, Size size) throws IllegalArgumentException {
@@ -22,10 +20,11 @@ public class WiseEnemy extends Enemy implements Shooter {
     }
 
     @Override
-    public Shot createShot() {
-        return new SlickShot();
+    public void processShot(Shot shot) {
+        shot.setPosition(getShootPosition());
+        shot.setSize(new Size(1, 1));
+        shot.getMovableBehavior().setVelocity(new Vector(0, 1));
+        shot.getDamageBehavior().setDamage(3);
+        shot.setName("SlickShot");
     }
-
-    @Override
-    public Object getShotType() { return SlickShot.class; }
 }

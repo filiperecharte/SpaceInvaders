@@ -5,7 +5,6 @@ import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.graphics.TextImage;
-import com.spaceinvaders.model.shots.ShipShot;
 
 public class ShipShotImageFactory implements ImageFactory{
 
