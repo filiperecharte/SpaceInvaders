@@ -2,9 +2,7 @@ package com.spaceinvaders.controller.commands.shipcommands;
 
 import com.spaceinvaders.controller.commands.Command;
 import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.pools.ShotPool;
-import com.spaceinvaders.model.shots.ShipShot;
 import com.spaceinvaders.model.shots.Shot;
 
 public class ShootShipCommand implements Command {
@@ -18,12 +16,8 @@ public class ShootShipCommand implements Command {
 
     @Override
     public void execute() {
-        Position shootShipPosition = arena.getShip().getShootPosition();
-        Shot shot = shotPool.extract(ShipShot.class);
-        if (shot == null) {
-            shot = arena.getShip().createShot();
-        }
-        shot.setPosition(shootShipPosition);
+        Shot shot = shotPool.extract();
+        arena.getShip().processShot(shot);
         arena.addElement(shot);
     }
 }

@@ -10,20 +10,22 @@ import com.spaceinvaders.model.geometry.Size;
 import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.shots.Shot;
-import com.spaceinvaders.model.shots.enemyshotvariants.LegendaryShot;
-import com.spaceinvaders.model.shots.enemyshotvariants.WeakShot;
 
 public class SuperiorEnemy extends Enemy implements Shooter {
     public SuperiorEnemy(Position position, Size size) throws IllegalArgumentException {
-        super(position, size);
+        super(position, size, "SuperiorEnemyImg");
         movableBehavior = new MovableBehavior(new Vector(2, 0));
         healthyBehavior = new HealthyBehavior(10);
         attackBehavior = new AttackBehavior(5);
     }
 
     @Override
-    public Shot createShot() { return new LegendaryShot(); }
-
-    @Override
-    public Object getShotType() { return LegendaryShot.class; }
+    public void processShot(Shot shot) {
+        shot.setPosition(getShootPosition());
+        shot.setSize(new Size(1, 1));
+        shot.getMovableBehavior().setVelocity(new Vector(0, 1));
+        shot.getDamageBehavior().setDamage(5);
+        shot.setName("LegendaryShot");
+        shot.setImageName("LegendaryShotImg");
+    }
 }

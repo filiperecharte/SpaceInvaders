@@ -9,6 +9,10 @@ public class MovableBehavior {
         this.velocity = velocity;
     }
 
+    public MovableBehavior() {
+        this.velocity = new Vector(1, 1);
+    }
+
     public Vector getVelocity() {
         return velocity;
     }

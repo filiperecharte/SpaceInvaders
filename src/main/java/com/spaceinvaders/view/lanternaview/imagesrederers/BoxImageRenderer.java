@@ -4,7 +4,6 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.graphics.TextImage;
 import com.spaceinvaders.model.box.Box;
-import com.spaceinvaders.model.geometry.Position;
 
 public class BoxImageRenderer implements Renderer {
     private Box box;
@@ -15,9 +14,18 @@ public class BoxImageRenderer implements Renderer {
         this.image = image;
     }
 
+    public BoxImageRenderer() {}
+
+    public void setBox(Box box) {
+        this.box = box;
+    }
+
+    public void setImage(TextImage image) {
+        this.image = image;
+    }
+
     @Override
     public void render(TextGraphics graphics) {
-        Position boxPosition = box.getPosition();
         graphics.drawImage(new TerminalPosition(box.getPosition().getX(), box.getPosition().getY()), image);
     }
 }

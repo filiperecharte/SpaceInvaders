@@ -13,6 +13,11 @@ public class HealthyBehavior {
         this.currentHealth = health;
     }
 
+    public HealthyBehavior() {
+        this.totalHealth = 1;
+        this.currentHealth = 1;
+    }
+
     public int getTotalHealth() {
         return totalHealth;
     }

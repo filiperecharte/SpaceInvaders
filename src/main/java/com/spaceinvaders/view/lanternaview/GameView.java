@@ -1,7 +1,6 @@
 package com.spaceinvaders.view.lanternaview;
 
 import com.googlecode.lanterna.SGR;
-import com.spaceinvaders.model.arena.Arena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
