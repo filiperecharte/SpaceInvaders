@@ -15,6 +15,7 @@ public class GameController {
     public GameController() {
         this.gameView = new GameView();
         gameState = new MenuState(this);
+
     }
 
     public void gameUpdate() throws IOException{
@@ -30,6 +31,10 @@ public class GameController {
             gameUpdate();
         }
         gameView.end();
+    }
+
+    public boolean isGameFinished() {
+        return this.isFinished;
     }
 
     public void setGameFinished(){
