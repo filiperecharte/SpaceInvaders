@@ -34,7 +34,7 @@ public class EnemyTest {
 
         assert enemy != null;
         assertEquals(16,  enemy.getShootPosition().getX());
-        assertEquals(20, enemy.getShootPosition().getY());
+        assertEquals(21, enemy.getShootPosition().getY());
 
     }
 }

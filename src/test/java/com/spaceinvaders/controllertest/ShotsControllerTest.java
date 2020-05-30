@@ -6,19 +6,16 @@ import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.enemy.enemyvariants.*;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.shots.enemyshotvariants.*;
 import com.spaceinvaders.model.wall.Fragment;
 import com.spaceinvaders.model.wall.Wall;
 import org.junit.Before;
-
-import static org.junit.Assert.assertEquals;
 
 public class ShotsControllerTest {
     ShotsController shotsController;
 
     @Before
     public void setUp() {
-        Arena arena = new Arena(new Position(0, 0), new Size(10, 10), "#000000");
+        /*Arena arena = new Arena(new Position(0, 0), new Size(10, 10), "#000000");
         try {
             arena.addElement(new WeakShot());
             arena.addElement(new YoungEnemy(new Position(3, 2), new Size(2, 1)));
@@ -35,7 +32,7 @@ public class ShotsControllerTest {
 
         ShotPool shotPool = new ShotPool();
 
-        shotsController = new ShotsController(arena, shotPool);
+        shotsController = new ShotsController(arena, shotPool);*/
     }
 
     /*@Test

@@ -94,7 +94,7 @@ public class CollisionsControllerTest {
 
     @Test
     public void processEnemiesCollisionsTest() {
-        Shot shot = new ShipShot();
+        Shot shot = new Shot(new Position(3, 5), new Size(1, 1), "ShipShot", "ShipShotImg");
         shot.setPosition(new Position(3, 5));
         collisionsController.setShot(shot);
         assertTrue(collisionsController.processEnemiesCollisions());

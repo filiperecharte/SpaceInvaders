@@ -19,4 +19,8 @@ public abstract class ObjectPool<T> {
     public void put(T t) {
         pool.push(t);
     }
+
+    public Stack<T> getPool() {
+        return pool;
+    }
 }

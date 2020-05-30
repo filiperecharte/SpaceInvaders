@@ -30,6 +30,13 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited, 
             throw new IllegalArgumentException("Ship size must be odd");
     }
 
+    public Enemy(Position position, Size size) throws IllegalArgumentException {
+        super(position, size);
+        this.imageName = "";
+        if (size.getWidth() % 2 == 0)
+            throw new IllegalArgumentException("Ship size must be odd");
+    }
+
     public MovableBehavior getMovableBehavior() {
         return movableBehavior;
     }
@@ -58,7 +65,7 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited, 
         return imageName;
     }
 
-    protected Position getShootPosition() {
+    public Position getShootPosition() {
         Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, 1));
         return t.apply();
     }

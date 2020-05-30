@@ -34,7 +34,7 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
         this.healthyBehavior = healthyBehavior;
     }
 
-    private Position getShootPosition() {
+    public Position getShootPosition() {
         Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, -1));
         return t.apply();
     }
