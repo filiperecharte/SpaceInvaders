@@ -1,6 +1,6 @@
 package com.spaceinvaders.controllertest;
 
-import com.spaceinvaders.controller.states.playState.CollisionsController;
+import com.spaceinvaders.controller.states.playstate.CollisionsController;
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.behaviors.HealthyBehavior;

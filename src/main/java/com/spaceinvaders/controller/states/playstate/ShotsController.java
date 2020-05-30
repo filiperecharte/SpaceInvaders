@@ -1,4 +1,4 @@
-package com.spaceinvaders.controller.states.playState;
+package com.spaceinvaders.controller.states.playstate;
 
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Translation;
@@ -21,9 +21,7 @@ public class ShotsController {
     public ShotsController(Arena arena, ShotPool shotPool) {
         this.arena = arena;
         this.shotPool = shotPool;
-    }
 
-    public ShotsController() {
         shotTranslation = new Translation();
         collisionsController = new CollisionsController();
         enemyShotGenerator = new EnemyShotGenerator();
@@ -79,7 +77,4 @@ public class ShotsController {
         this.arena=arena;
     }
 
-    public void setShotPool(ShotPool shotPool) {
-        this.shotPool=shotPool;
-    }
 }

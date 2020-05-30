@@ -1,11 +1,9 @@
-package com.spaceinvaders.controller.states.playState;
+package com.spaceinvaders.controller.states.playstate;
 
 import com.spaceinvaders.controller.states.GameOverState;
 import com.spaceinvaders.controller.states.GameState;
 import com.spaceinvaders.controller.states.MenuState;
-import com.spaceinvaders.controller.states.playState.EnemiesController;
 import com.spaceinvaders.controller.GameController;
-import com.spaceinvaders.controller.states.playState.ShotsController;
 import com.spaceinvaders.controller.commands.shipcommands.MoveShipLeftCommand;
 import com.spaceinvaders.controller.commands.shipcommands.MoveShipRightCommand;
 import com.spaceinvaders.controller.commands.shipcommands.ShootShipCommand;
@@ -29,12 +27,9 @@ public class PlayState extends GameState {
         super(gameController);
         this.arena = new ArenaCreator().createArena(new Position(0, 0), new Size(80, 30), "#808080");
         this.shotPool = new ShotPool();
-        this.shotsController = new ShotsController();
-        this.enemiesController = new EnemiesController();
+        this.shotsController = new ShotsController(arena,shotPool);
+        this.enemiesController = new EnemiesController(arena);
 
-        enemiesController.setArena(arena);
-        shotsController.setArena(arena);
-        shotsController.setShotPool(shotPool);
         gameController.getGameView().setRenderer(new PlayRenderer(arena));
     }
 

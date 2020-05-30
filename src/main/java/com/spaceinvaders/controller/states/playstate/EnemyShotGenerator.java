@@ -1,12 +1,10 @@
-package com.spaceinvaders.controller.states.playState;
+package com.spaceinvaders.controller.states.playstate;
 
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.model.shots.Shot;
-
-import java.util.Random;
 
 public class EnemyShotGenerator {
     private Arena arena;

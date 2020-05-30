@@ -1,6 +1,6 @@
 package com.spaceinvaders.controllertest;
 
-import com.spaceinvaders.controller.states.playState.ShotsController;
+import com.spaceinvaders.controller.states.playstate.ShotsController;
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.enemy.enemyvariants.*;
@@ -51,9 +51,9 @@ public class ShotsControllerTest {
 
         verify(mockArena,times(mockArena.getShots().size())).contain((Position)Mockito.any());
 
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void updateShotTest() {
         Shot testShot = null;
         try {
@@ -68,9 +68,9 @@ public class ShotsControllerTest {
         assertEquals(16, testShot.getPosition().getX());
         assertEquals(20, testShot.getPosition().getY());
 
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void generateEnemyShotTest() {
         Random mockRandom = new Random();
         when(mockRandom.nextInt()).thenReturn(15).thenReturn(3);

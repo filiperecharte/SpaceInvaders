@@ -1,4 +1,4 @@
-package com.spaceinvaders.controller.states.playState;
+package com.spaceinvaders.controller.states.playstate;
 
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
@@ -22,8 +22,10 @@ public class EnemiesController {
     private static final int ENEMIES_Y_DISTANCE = 1;
     private int new_first_enemy_y = FIRST_ENEMY_Y;
 
-    public EnemiesController() {
+    public EnemiesController(Arena arena) {
         this.enemyTranslation = new Translation();
+
+        this.arena = arena;
     }
 
     public void processEnemies() {
@@ -99,15 +101,6 @@ public class EnemiesController {
             currentEnemyX += ENEMIES_X_DISTANCE;
         }
 
-        // Strong Enemy
-        currentEnemyY -= ENEMIES_Y_DISTANCE;
-        currentEnemyX = FIRST_ENEMY_X;
-        for(int i = 0; i < NUMBER_ENEMIES_ROW; i++) {
-            try {
-                arena.addElement(new StrongEnemy(new Position(currentEnemyX, currentEnemyY), new Size(3, 1)));
-            } catch (IllegalArgumentException e) { e.printStackTrace(); }
-            currentEnemyX += ENEMIES_X_DISTANCE;
-        }
 
         // Superior Enemy
         currentEnemyY -= ENEMIES_Y_DISTANCE;
@@ -115,6 +108,16 @@ public class EnemiesController {
         for(int i = 0; i < NUMBER_ENEMIES_ROW; i++) {
             try {
                 arena.addElement(new SuperiorEnemy(new Position(currentEnemyX+5, currentEnemyY), new Size(5, 1)));
+            } catch (IllegalArgumentException e) { e.printStackTrace(); }
+            currentEnemyX += ENEMIES_X_DISTANCE;
+        }
+
+        // Strong Enemy
+        currentEnemyY -= ENEMIES_Y_DISTANCE;
+        currentEnemyX = FIRST_ENEMY_X;
+        for(int i = 0; i < NUMBER_ENEMIES_ROW; i++) {
+            try {
+                arena.addElement(new StrongEnemy(new Position(currentEnemyX, currentEnemyY), new Size(3, 1)));
             } catch (IllegalArgumentException e) { e.printStackTrace(); }
             currentEnemyX += ENEMIES_X_DISTANCE;
         }
@@ -128,7 +131,4 @@ public class EnemiesController {
         }
     }
 
-    public void setArena(Arena arena){
-        this.arena=arena;
-    }
 }

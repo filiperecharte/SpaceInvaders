@@ -1,4 +1,4 @@
-package com.spaceinvaders.controller.states.playState;
+package com.spaceinvaders.controller.states.playstate;
 
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.shots.ShipShot;

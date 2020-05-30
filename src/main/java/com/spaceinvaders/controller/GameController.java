@@ -9,7 +9,6 @@ import java.io.IOException;
 public class GameController {
     private GameView gameView;
 
-
     private GameState gameState;
     private boolean isFinished = false;
 

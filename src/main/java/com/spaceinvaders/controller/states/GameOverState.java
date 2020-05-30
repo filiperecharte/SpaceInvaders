@@ -2,7 +2,7 @@ package com.spaceinvaders.controller.states;
 
 import com.spaceinvaders.controller.GameController;
 import com.spaceinvaders.controller.commands.shipcommands.DoNothingCommand;
-import com.spaceinvaders.controller.states.playState.PlayState;
+import com.spaceinvaders.controller.states.playstate.PlayState;
 import com.spaceinvaders.view.lanternaview.staterenderers.GameOverRenderer;
 import com.spaceinvaders.view.lanternaview.GameView;
 

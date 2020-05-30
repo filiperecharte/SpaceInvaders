@@ -1,6 +1,6 @@
 package com.spaceinvaders.controllertest;
 
-import com.spaceinvaders.controller.states.playState.EnemiesController;
+import com.spaceinvaders.controller.states.playstate.EnemiesController;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.behaviors.MovableBehavior;
 import com.spaceinvaders.model.enemy.Enemy;
