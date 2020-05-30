@@ -28,7 +28,7 @@ public class InformationStateTest {
 
     @Test
     public void handleInputTest() {
-        
+
         when(gameController.isGameFinished()).thenReturn(true);
         informationState.handleInput(GameView.keysNames.CLOSE);
         assertTrue(gameController.isGameFinished());
