@@ -21,10 +21,10 @@ public class OldEnemy extends Enemy implements Shooter {
     }
 
     @Override
-    public Shot createShot() {
-        return new WeakShot();
+    public void processShot(Shot shot) {
+        shot.setPosition(getShootPosition());
+        shot.getMovableBehavior().setVelocity(new Vector(0, 1));
+        shot.getDamageBehavior().setDamage(1);
+        shot.setName("WeakShot");
     }
-
-    @Override
-    public Object getShotType() { return WeakShot.class; }
 }

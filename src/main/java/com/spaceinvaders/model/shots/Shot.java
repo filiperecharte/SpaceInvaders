@@ -9,13 +9,13 @@ import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
 
 public class Shot extends Box implements IElementVisited {
-    protected DamageBehavior damageBehavior;
-    protected MovableBehavior movableBehavior;
+    private DamageBehavior damageBehavior;
+    private MovableBehavior movableBehavior;
+    private String name;
 
-    public Shot(Position position, Size size, MovableBehavior movableBehavior, DamageBehavior damageBehavior) {
+    public Shot(Position position, Size size, String name) {
         super(position, size);
-        this.movableBehavior = movableBehavior;
-        this.damageBehavior = damageBehavior;
+        this.name = name;
     }
 
     public Shot(Position position, Size size) {
@@ -36,6 +36,14 @@ public class Shot extends Box implements IElementVisited {
 
     public void setDamageBehavior(DamageBehavior damageBehavior) {
         this.damageBehavior = damageBehavior;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

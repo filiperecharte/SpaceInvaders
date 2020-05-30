@@ -17,7 +17,7 @@ import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.shots.Shot;
 
-public class Enemy extends Box implements IElementVisited, ICollideableVisited,Shooter {
+public class Enemy extends Box implements IElementVisited, ICollideableVisited, Shooter {
     protected MovableBehavior movableBehavior;
     protected HealthyBehavior healthyBehavior;
     protected AttackBehavior attackBehavior;
@@ -52,18 +52,13 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited,S
         return attackBehavior;
     }
 
-    public Position getShootPosition() {
+    protected Position getShootPosition() {
         Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, 1));
         return t.apply();
     }
 
     @Override
-    public Object getShotType() {
-        return null;
-    }
-
-    @Override
-    public Shot createShot() { return null; }
+    public void processShot(Shot shot) {}
 
     @Override
     public void accept(IElementsVisitor visitor) {
