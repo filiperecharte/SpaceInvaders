@@ -46,6 +46,7 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
         shot.getMovableBehavior().setVelocity(new Vector(0, -1));
         shot.getDamageBehavior().setDamage(1);
         shot.setName("ShipShot");
+        shot.setImageName("ShipShotImg");
     }
 
     @Override

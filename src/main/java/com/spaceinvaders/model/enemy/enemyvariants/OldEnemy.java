@@ -13,7 +13,7 @@ import com.spaceinvaders.model.shots.Shot;
 
 public class OldEnemy extends Enemy implements Shooter {
     public OldEnemy(Position position, Size size) throws IllegalArgumentException {
-        super(position, size);
+        super(position, size, "OldEnemyImg");
         movableBehavior = new MovableBehavior(new Vector(1, 0));
         healthyBehavior = new HealthyBehavior(10);
         attackBehavior = new AttackBehavior(15);
@@ -26,5 +26,6 @@ public class OldEnemy extends Enemy implements Shooter {
         shot.getMovableBehavior().setVelocity(new Vector(0, 1));
         shot.getDamageBehavior().setDamage(1);
         shot.setName("WeakShot");
+        shot.setImageName("WeakShotImg");
     }
 }

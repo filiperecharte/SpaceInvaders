@@ -22,7 +22,7 @@ public class CollisionsController {
     }
 
     public boolean processEnemiesCollisions() {
-        if (shot instanceof ShipShot) {
+        if (shot.getName().equals("ShipShot")) {
             for (int i = 0; i < arena.getEnemies().size(); i++) {
                 if (arena.getEnemies().get(i).contain(shot.getPosition())) {
                     arena.colide(arena.getEnemies().get(i), shot);

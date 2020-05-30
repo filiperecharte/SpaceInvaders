@@ -13,7 +13,7 @@ import com.spaceinvaders.model.shots.Shot;
 
 public class SuperiorEnemy extends Enemy implements Shooter {
     public SuperiorEnemy(Position position, Size size) throws IllegalArgumentException {
-        super(position, size);
+        super(position, size, "SuperiorEnemyImg");
         movableBehavior = new MovableBehavior(new Vector(2, 0));
         healthyBehavior = new HealthyBehavior(10);
         attackBehavior = new AttackBehavior(5);
@@ -26,5 +26,6 @@ public class SuperiorEnemy extends Enemy implements Shooter {
         shot.getMovableBehavior().setVelocity(new Vector(0, 1));
         shot.getDamageBehavior().setDamage(5);
         shot.setName("LegendaryShot");
+        shot.setImageName("LegendaryShotImg");
     }
 }

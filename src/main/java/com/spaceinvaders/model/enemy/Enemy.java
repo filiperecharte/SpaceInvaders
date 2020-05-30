@@ -21,9 +21,11 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited, 
     protected MovableBehavior movableBehavior;
     protected HealthyBehavior healthyBehavior;
     protected AttackBehavior attackBehavior;
+    protected String imageName;
 
-    public Enemy(Position position, Size size) throws IllegalArgumentException {
+    public Enemy(Position position, Size size, String imageName) throws IllegalArgumentException {
         super(position, size);
+        this.imageName = imageName;
         if (size.getWidth() % 2 == 0)
             throw new IllegalArgumentException("Ship size must be odd");
     }
@@ -44,12 +46,16 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited, 
         this.healthyBehavior = healthyBehavior;
     }
 
+    public AttackBehavior getAttackBehavior() {
+        return attackBehavior;
+    }
+
     public void setAttackBehavior(AttackBehavior attackBehavior) {
         this.attackBehavior = attackBehavior;
     }
 
-    public AttackBehavior getAttackBehavior() {
-        return attackBehavior;
+    public String getImageName() {
+        return imageName;
     }
 
     protected Position getShootPosition() {

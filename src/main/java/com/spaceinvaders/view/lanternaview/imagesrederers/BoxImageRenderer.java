@@ -17,7 +17,6 @@ public class BoxImageRenderer implements Renderer {
 
     @Override
     public void render(TextGraphics graphics) {
-        Position boxPosition = box.getPosition();
         graphics.drawImage(new TerminalPosition(box.getPosition().getX(), box.getPosition().getY()), image);
     }
 }
