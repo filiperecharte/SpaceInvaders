@@ -10,12 +10,10 @@ import com.spaceinvaders.model.shots.Shot;
 public class ShootShipCommand implements Command {
     private Arena arena;
     private ShotPool shotPool;
-    private long counter;
 
     public ShootShipCommand(Arena arena, ShotPool shotPool) {
         this.arena = arena;
         this.shotPool = shotPool;
-        this.counter = counter;
     }
 
     @Override

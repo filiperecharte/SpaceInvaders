@@ -58,4 +58,19 @@ public class PlayState extends GameState {
         }
     }
 
+    public Arena getArena() {
+        return arena;
+    }
+
+    public void setArena(Arena arena) {
+        this.arena = arena;
+    }
+
+    public ShotPool getShotPool() {
+        return shotPool;
+    }
+
+    public void setShotPool(ShotPool shotPool) {
+        this.shotPool = shotPool;
+    }
 }

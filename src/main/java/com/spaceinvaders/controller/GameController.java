@@ -14,13 +14,10 @@ public class GameController {
     private GameState gameState;
     private boolean isFinished = false;
 
-    private long counter;
-
     public GameController() {
         this.gameView = new GameView();
         this.shotsController = new ShotsController();
         this.enemiesController = new EnemiesController();
-        counter = 0;
 
         gameState = new PlayState(this);
     }
@@ -39,18 +36,19 @@ public class GameController {
     }
 
     public void run() throws IOException {
-        counter=0;
+        long counter=0;
         while (!isFinished) {
             if(counter%100==0) {
-                //gameActions();
-                enemiesController.processEnemies();
-                shotsController.generateEnemiesShots();
-                shotsController.processShots();
+                gameActions();
             }
             gameView.update();
             gameUpdate();
             counter++;
         }
+    }
+
+    public boolean isGameFinished() {
+        return this.isFinished;
     }
 
     public void setGameFinished(){
@@ -71,9 +69,5 @@ public class GameController {
 
     public EnemiesController getEnemiesController() {
         return enemiesController;
-    }
-
-    public long getCounter() {
-        return counter;
     }
 }

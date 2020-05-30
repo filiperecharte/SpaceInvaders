@@ -33,4 +33,12 @@ public class ShotPool {
     public void put(Shot shot) {
         pool.add(shot);
     }
+
+    public List<Shot> getPool() {
+        return pool;
+    }
+
+    public void setPool(List<Shot> pool) {
+        this.pool = pool;
+    }
 }
