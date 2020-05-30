@@ -21,6 +21,7 @@ public class MenuState extends GameState{
             case INF:
                 gameController.setGameState(new InformationState(gameController));
                 break;
+            case ESC:
 
             case CLOSE:
                 gameController.setGameFinished();

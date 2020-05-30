@@ -35,6 +35,7 @@ public class GameController {
             gameView.update();
             gameUpdate();
         }
+        gameView.end();
     }
 
     public void setGameFinished(){

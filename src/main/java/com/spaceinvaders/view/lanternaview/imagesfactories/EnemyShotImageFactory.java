@@ -31,13 +31,13 @@ public class EnemyShotImageFactory {
 
     public TextImage ImmatureShotImage(TextColor backgroundColor) {
         TextImage image = new BasicTextImage(1, 1);
-        image.setCharacterAt(0, 0 , new TextCharacter('*', new TextColor.RGB(0, 0, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(0, 0 , new TextCharacter('.', new TextColor.RGB(0, 0, 0), backgroundColor, SGR.BOLD));
         return image;
     }
 
     public TextImage LegendaryShotImage(TextColor backgroundColor) {
         TextImage image = new BasicTextImage(1, 1);
-        image.setCharacterAt(0, 0 , new TextCharacter('.', new TextColor.RGB(0, 0, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(0, 0 , new TextCharacter('*', new TextColor.RGB(0, 0, 0), backgroundColor, SGR.BOLD));
         return image;
     }
 

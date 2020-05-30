@@ -27,11 +27,11 @@ public class GameOverRenderer implements Renderer {
         graphics.putString(14,14," /__/ .__/\\__,_\\__\\___|  \\__\\___/ | .__/_\\__,_|\\_, |", SGR.BOLD);
         graphics.putString(14,15,"    |_|                           |_|          |__/ ", SGR.BOLD);
 
-        graphics.setForegroundColor(TextColor.Factory.fromString("#B22222"));
-        graphics.putString(18,16,"               _         _                          ", SGR.BOLD);
-        graphics.putString(18,17,"  ___ ___ __  | |_ ___  | |___ __ ___ _____         ", SGR.BOLD);
-        graphics.putString(18,18," / -_|_-</ _| |  _/ _ \\ | / -_) _` \\ V / -_)        ", SGR.BOLD);
-        graphics.putString(18,19," \\___/__/\\__|  \\__\\___/ |_\\___\\__,_|\\_/\\___|        ", SGR.BOLD);
+        graphics.setForegroundColor(TextColor.Factory.fromString("#00008B"));
+        graphics.putString(18,16,"               _                            ", SGR.BOLD);
+        graphics.putString(18,17,"  ___ ___ __  | |_ ___   _ __  ___ _ _ _  _ ", SGR.BOLD);
+        graphics.putString(18,18," / -_|_-</ _| |  _/ _ \\ | '  \\/ -_) ' \\ || |", SGR.BOLD);
+        graphics.putString(18,19," \\___/__/\\__|  \\__\\___/ |_|_|_\\___|_||_\\_,_|", SGR.BOLD);
 
     }
 }

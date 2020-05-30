@@ -67,7 +67,7 @@ public class ArenaCreator {
         currentEnemyX = FIRST_ENEMY_X;
         for(int i = 0; i < NUMBER_ENEMIES_ROW; i++) {
             try {
-                arena.addElement(new StrongEnemy(new Position(currentEnemyX, currentEnemyY), new Size(3, 1)));
+                arena.addElement(new StrongEnemy(new Position(currentEnemyX+5, currentEnemyY), new Size(5, 1)));
             } catch (IllegalArgumentException e) { e.printStackTrace(); }
             currentEnemyX += ENEMIES_X_DISTANCE;
         }
@@ -77,7 +77,7 @@ public class ArenaCreator {
         currentEnemyX = FIRST_ENEMY_X;
         for(int i = 0; i < NUMBER_ENEMIES_ROW; i++) {
             try {
-                arena.addElement(new SuperiorEnemy(new Position(currentEnemyX+5, currentEnemyY), new Size(5, 1)));
+                arena.addElement(new SuperiorEnemy(new Position(currentEnemyX, currentEnemyY), new Size(5, 1)));
             } catch (IllegalArgumentException e) { e.printStackTrace(); }
             currentEnemyX += ENEMIES_X_DISTANCE;
         }

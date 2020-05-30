@@ -29,11 +29,13 @@ public class EnemyImageFactory implements ImageFactory{
     }
 
     public TextImage strongEnemyImage(TextColor backgroundColor) {
-        TextImage image = new BasicTextImage(3, 1);
+        TextImage image = new BasicTextImage(5, 1);
 
-        image.setCharacterAt(0, 0, new TextCharacter('/', new TextColor.RGB(0, 0, 128), backgroundColor, SGR.BOLD));
-        image.setCharacterAt(1, 0, new TextCharacter('o', new TextColor.RGB(0, 0, 128), backgroundColor, SGR.BOLD));
-        image.setCharacterAt(2, 0, new TextCharacter('\\', new TextColor.RGB(0, 0, 128), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(0, 0, new TextCharacter('/', new TextColor.RGB(128, 0, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(1, 0, new TextCharacter('~', new TextColor.RGB(128, 0, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(2, 0, new TextCharacter('^', new TextColor.RGB(128, 0, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(3, 0, new TextCharacter('~', new TextColor.RGB(128, 0, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(4, 0, new TextCharacter('/', new TextColor.RGB(128, 0, 0), backgroundColor, SGR.BOLD));
 
         return image;
     }
@@ -51,13 +53,11 @@ public class EnemyImageFactory implements ImageFactory{
     }
 
     public TextImage superiorEnemyImage(TextColor backgroundColor) {
-        TextImage image = new BasicTextImage(5, 1);
+        TextImage image = new BasicTextImage(3, 1);
 
-        image.setCharacterAt(0, 0, new TextCharacter('/', new TextColor.RGB(128, 0, 0), backgroundColor, SGR.BOLD));
-        image.setCharacterAt(1, 0, new TextCharacter('~', new TextColor.RGB(128, 0, 0), backgroundColor, SGR.BOLD));
-        image.setCharacterAt(2, 0, new TextCharacter('^', new TextColor.RGB(128, 0, 0), backgroundColor, SGR.BOLD));
-        image.setCharacterAt(3, 0, new TextCharacter('~', new TextColor.RGB(128, 0, 0), backgroundColor, SGR.BOLD));
-        image.setCharacterAt(4, 0, new TextCharacter('/', new TextColor.RGB(128, 0, 0), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(0, 0, new TextCharacter('/', new TextColor.RGB(0, 0, 128), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(1, 0, new TextCharacter('o', new TextColor.RGB(0, 0, 128), backgroundColor, SGR.BOLD));
+        image.setCharacterAt(2, 0, new TextCharacter('\\', new TextColor.RGB(0, 0, 128), backgroundColor, SGR.BOLD));
 
         return image;
     }
