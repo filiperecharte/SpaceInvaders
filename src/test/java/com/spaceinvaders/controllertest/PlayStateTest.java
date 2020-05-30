@@ -1,7 +1,7 @@
 package com.spaceinvaders.controllertest;
 
 import com.spaceinvaders.controller.GameController;
-import com.spaceinvaders.controller.states.PlayState;
+import com.spaceinvaders.controller.states.playstate.PlayState;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.view.lanternaview.GameView;
 import org.junit.Test;

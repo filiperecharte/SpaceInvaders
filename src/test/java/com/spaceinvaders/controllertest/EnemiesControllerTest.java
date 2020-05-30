@@ -1,6 +1,6 @@
 package com.spaceinvaders.controllertest;
 
-import com.spaceinvaders.controller.states.playstate.EnemiesController;
+import com.spaceinvaders.controller.states.playstate.playstatecontrollers.EnemiesController;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.behaviors.MovableBehavior;
 import com.spaceinvaders.model.enemy.Enemy;
@@ -47,8 +47,7 @@ public class EnemiesControllerTest {
 
         when(mockArena.getEnemies()).thenReturn(enemyMocks);
 
-        enemiesController = new EnemiesController();
-        enemiesController.setArena(mockArena);
+        enemiesController = new EnemiesController(mockArena);
     }
 
     @Test

@@ -7,6 +7,8 @@ import com.spaceinvaders.controller.GameController;
 import com.spaceinvaders.controller.commands.shipcommands.MoveShipLeftCommand;
 import com.spaceinvaders.controller.commands.shipcommands.MoveShipRightCommand;
 import com.spaceinvaders.controller.commands.shipcommands.ShootShipCommand;
+import com.spaceinvaders.controller.states.playstate.playstatecontrollers.EnemiesController;
+import com.spaceinvaders.controller.states.playstate.playstatecontrollers.ShotsController;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.arena.ArenaCreator;
 import com.spaceinvaders.model.geometry.Position;

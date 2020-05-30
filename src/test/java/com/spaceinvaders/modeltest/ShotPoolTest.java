@@ -31,6 +31,7 @@ public class ShotPoolTest {
 
         assertEquals(0, shotPool.getPool().size());
 
+        shotPool.put(new Shot(new Position(3, 3), new Size(1, 1)));
         Shot shot = shotPool.extract(Shot.class);
         assertEquals(0, shotPool.getPool().size());
         shotPool.put(shot);

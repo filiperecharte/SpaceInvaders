@@ -1,6 +1,6 @@
 package com.spaceinvaders.controllertest;
 
-import com.spaceinvaders.controller.states.playstate.ShotsController;
+import com.spaceinvaders.controller.states.playstate.playstatecontrollers.ShotsController;
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.enemy.enemyvariants.*;
