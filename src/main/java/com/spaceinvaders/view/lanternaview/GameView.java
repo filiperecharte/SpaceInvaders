@@ -16,7 +16,7 @@ public class GameView {
     private TextGraphics graphics;
     private Screen screen;
     private Renderer renderer;
-    public enum keysNames {NONE, LEFT, RIGHT, SPACE, CLOSE};
+    public enum keysNames {NONE, LEFT, RIGHT, SPACE, CLOSE, INF, ESC};
 
     public GameView() {
         try {
@@ -60,7 +60,12 @@ public class GameView {
                 if (key.getCharacter() == ' ') {
                     return keysNames.SPACE;
                 }
+                else if (key.getCharacter() == 'I' || key.getCharacter() == 'i'){
+                    return keysNames.INF;
+                }
                 return keysNames.NONE;
+            case Escape:
+                return keysNames.ESC;
 
             case EOF:
                 return keysNames.CLOSE;

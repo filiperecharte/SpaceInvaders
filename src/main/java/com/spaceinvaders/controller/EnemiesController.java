@@ -20,6 +20,7 @@ public class EnemiesController {
     private static final int NUMBER_ENEMIES_ROW = 8;
     private static final int ENEMIES_X_DISTANCE = 5;
     private static final int ENEMIES_Y_DISTANCE = 1;
+    private int new_first_enemy_y = FIRST_ENEMY_Y;
 
     public EnemiesController() {
         this.enemyTranslation = new Translation();
@@ -45,7 +46,6 @@ public class EnemiesController {
                     }
                 }
             }
-            enemyChangedVelocity = true;
         }
         updateEnemies();
     }
@@ -68,7 +68,7 @@ public class EnemiesController {
     }
 
     public void addMoreEnemies(){
-        int new_first_enemy_y = FIRST_ENEMY_Y + 1;
+        new_first_enemy_y++;
         // Old Enemy
         int currentEnemyX = FIRST_ENEMY_X;
         int currentEnemyY = new_first_enemy_y;

@@ -4,12 +4,12 @@ import com.spaceinvaders.controller.GameController;
 import com.spaceinvaders.controller.commands.shipcommands.DoNothingCommand;
 import com.spaceinvaders.view.lanternaview.GameOverRenderer;
 import com.spaceinvaders.view.lanternaview.GameView;
+import com.spaceinvaders.view.lanternaview.MenuRenderer;
 
-public class GameOverState extends GameState{
-
-    public GameOverState(GameController gameController) {
+public class MenuState extends GameState{
+    public MenuState(GameController gameController) {
         super(gameController);
-        gameController.getGameView().setRenderer(new GameOverRenderer());
+        gameController.getGameView().setRenderer(new MenuRenderer());
     }
 
     @Override
@@ -18,12 +18,12 @@ public class GameOverState extends GameState{
             case SPACE:
                 gameController.setGameState(new PlayState(gameController));
                 break;
+            case INF:
+                gameController.setGameState(new InformationState(gameController));
+                break;
 
             case CLOSE:
                 gameController.setGameFinished();
-                break;
-            case ESC:
-                gameController.setGameState(new MenuState(gameController));
                 break;
             case NONE:
                 (new DoNothingCommand()).execute();

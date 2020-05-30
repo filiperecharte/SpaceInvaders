@@ -20,7 +20,7 @@ public class ShotsRendererVisitor implements IShotsVisitor {
 
     @Override
     public void visit(ShipShot shipShot) {
-        new BoxImageRenderer(shipShot, new ShipShotImageFactory().makeShipShotImage(shipShot,backgroundColor)).render(graphics);
+        new BoxImageRenderer(shipShot, new ShipShotImageFactory().createTextImage(shipShot,backgroundColor)).render(graphics);
     }
 
     @Override

@@ -7,9 +7,9 @@ import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.graphics.TextImage;
 import com.spaceinvaders.model.shots.ShipShot;
 
-public class ShipShotImageFactory {
+public class ShipShotImageFactory implements ImageFactory{
 
-    public TextImage makeShipShotImage(Object shotType, TextColor backgroundColor){
+    public TextImage createTextImage(Object shotType, TextColor backgroundColor){
         if (shotType instanceof ShipShot){
             return ShipShotImage(backgroundColor);
         }

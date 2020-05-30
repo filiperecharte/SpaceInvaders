@@ -17,6 +17,8 @@ public class PlayState extends GameState {
     private Arena arena;
     private ShotPool shotPool;
 
+    private long counter = 0;
+
     public PlayState(GameController gameController) {
         super(gameController);
         this.arena = new ArenaCreator().createArena(new Position(0, 0), new Size(80, 30), "#808080");
@@ -34,15 +36,15 @@ public class PlayState extends GameState {
             case LEFT:
                 (new MoveShipLeftCommand(arena)).execute();
                 break;
-
             case RIGHT:
                 (new MoveShipRightCommand(arena)).execute();
                 break;
-
             case SPACE:
                 (new ShootShipCommand(arena, shotPool)).execute();
                 break;
-
+            case ESC:
+                gameController.setGameState(new MenuState(gameController));
+                break;
             case CLOSE:
                 gameController.setGameFinished();
                 break;
@@ -56,6 +58,13 @@ public class PlayState extends GameState {
         if (arena.getShip().getHealthyBehavior().isDead()) {
             gameController.setGameState(new GameOverState(gameController));
         }
+
+        if(counter%130==0) {
+            gameController.getEnemiesController().processEnemies();
+            gameController.getShotsController().generateEnemiesShots();
+            gameController.getShotsController().processShots();
+        }
+        counter++;
     }
 
 }

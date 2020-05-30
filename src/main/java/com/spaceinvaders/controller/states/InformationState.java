@@ -2,28 +2,25 @@ package com.spaceinvaders.controller.states;
 
 import com.spaceinvaders.controller.GameController;
 import com.spaceinvaders.controller.commands.shipcommands.DoNothingCommand;
-import com.spaceinvaders.view.lanternaview.GameOverRenderer;
 import com.spaceinvaders.view.lanternaview.GameView;
+import com.spaceinvaders.view.lanternaview.InformationRenderer;
+import com.spaceinvaders.view.lanternaview.MenuRenderer;
 
-public class GameOverState extends GameState{
-
-    public GameOverState(GameController gameController) {
+public class InformationState extends GameState{
+    public InformationState(GameController gameController) {
         super(gameController);
-        gameController.getGameView().setRenderer(new GameOverRenderer());
+        gameController.getGameView().setRenderer(new InformationRenderer());
     }
 
     @Override
     public void handleInput(GameView.keysNames input) {
         switch (input) {
-            case SPACE:
-                gameController.setGameState(new PlayState(gameController));
+            case ESC:
+                gameController.setGameState(new MenuState(gameController));
                 break;
 
             case CLOSE:
                 gameController.setGameFinished();
-                break;
-            case ESC:
-                gameController.setGameState(new MenuState(gameController));
                 break;
             case NONE:
                 (new DoNothingCommand()).execute();
