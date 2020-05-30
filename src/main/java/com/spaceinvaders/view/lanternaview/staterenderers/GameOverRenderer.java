@@ -5,8 +5,6 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.spaceinvaders.view.lanternaview.imagesrederers.Renderer;
 
-import java.awt.*;
-
 public class GameOverRenderer implements Renderer {
     @Override
     public void render(TextGraphics graphics) {

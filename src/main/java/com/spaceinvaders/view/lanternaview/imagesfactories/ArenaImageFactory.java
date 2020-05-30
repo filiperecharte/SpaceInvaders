@@ -9,10 +9,10 @@ import com.googlecode.lanterna.graphics.TextImage;
 public class ArenaImageFactory implements ImageFactory {
 
     @Override
-    public TextImage createTextImage(Object object, TextColor backgroundColor) {
+    public TextImage createTextImage(ImageInfo imageInfo) {
 
         TextImage image = new BasicTextImage(100, 100);
-        image.setAll(new TextCharacter(' ', new TextColor.RGB(0, 0, 0), backgroundColor, SGR.BOLD));
+        image.setAll(new TextCharacter(' ', new TextColor.RGB(0, 0, 0), imageInfo.getBackgroundColor(), SGR.BOLD));
         return image;
     }
 }

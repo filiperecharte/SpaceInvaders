@@ -11,6 +11,10 @@ public class AttackBehavior {
         this.attackFactor = attackFactor;
     }
 
+    public AttackBehavior() {
+        this.attackFactor = 15;
+    }
+
     public int getAttackFactor() {
         return attackFactor;
     }

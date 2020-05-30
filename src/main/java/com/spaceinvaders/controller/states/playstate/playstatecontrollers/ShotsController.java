@@ -2,8 +2,8 @@ package com.spaceinvaders.controller.states.playstate.playstatecontrollers;
 
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Translation;
-import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.model.arena.Arena;
+import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.model.shots.Shot;
 
 import java.util.Random;
@@ -14,9 +14,7 @@ public class ShotsController {
     private Arena arena;
     private Translation shotTranslation;
     private ShotPool shotPool;
-
     private CollisionsController collisionsController;
-    private EnemyShotGenerator enemyShotGenerator;
 
     public ShotsController(Arena arena, ShotPool shotPool) {
         this.arena = arena;
@@ -24,19 +22,18 @@ public class ShotsController {
 
         shotTranslation = new Translation();
         collisionsController = new CollisionsController();
-        enemyShotGenerator = new EnemyShotGenerator();
     }
 
     public void generateEnemiesShots() {
-        enemyShotGenerator.setArena(arena);
-        enemyShotGenerator.setShotPool(shotPool);
 
         int whenToShoot = new Random().nextInt(100);
         int whatEnemyIndex = new Random().nextInt(arena.getEnemies().size());
         Enemy enemy = arena.getEnemies().get(whatEnemyIndex);
 
-        if (enemyShotGenerator.ready(whenToShoot, enemy)) {
-            arena.addElement(enemyShotGenerator.generateShot(enemy));
+        if (readyToShoot(enemy, whenToShoot)) {
+            Shot shot = shotPool.extract();
+            enemy.processShot(shot);
+            arena.addElement(shot);
         }
     }
 
@@ -54,6 +51,10 @@ public class ShotsController {
                 shotsIterator.remove();
             }
         }
+    }
+
+    private boolean readyToShoot(Enemy enemy, int randomValue) {
+        return (!arena.getEnemies().isEmpty()) && (enemy.getAttackBehavior().readyToShoot(randomValue));
     }
 
     private boolean processCollisions(Shot shot) {

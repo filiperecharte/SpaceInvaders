@@ -2,7 +2,6 @@ package com.spaceinvaders.modeltest;
 
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.model.shots.Shot;
 import org.junit.Before;
 import org.junit.Test;

@@ -11,6 +11,10 @@ public class DamageBehavior {
         this.damage = damage;
     }
 
+    public DamageBehavior() {
+        this.damage = 1;
+    }
+
     public int getDamage() {
         return damage;
     }

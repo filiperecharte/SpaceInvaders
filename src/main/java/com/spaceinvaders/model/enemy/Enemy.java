@@ -17,13 +17,15 @@ import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.shots.Shooter;
 import com.spaceinvaders.model.shots.Shot;
 
-public class Enemy extends Box implements IElementVisited, ICollideableVisited,Shooter {
+public class Enemy extends Box implements IElementVisited, ICollideableVisited, Shooter {
     protected MovableBehavior movableBehavior;
     protected HealthyBehavior healthyBehavior;
     protected AttackBehavior attackBehavior;
+    protected String imageName;
 
-    public Enemy(Position position, Size size) throws IllegalArgumentException {
+    public Enemy(Position position, Size size, String imageName) throws IllegalArgumentException {
         super(position, size);
+        this.imageName = imageName;
         if (size.getWidth() % 2 == 0)
             throw new IllegalArgumentException("Ship size must be odd");
     }
@@ -44,26 +46,25 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited,S
         this.healthyBehavior = healthyBehavior;
     }
 
-    public void setAttackBehavior(AttackBehavior attackBehavior) {
-        this.attackBehavior = attackBehavior;
-    }
-
     public AttackBehavior getAttackBehavior() {
         return attackBehavior;
     }
 
-    public Position getShootPosition() {
+    public void setAttackBehavior(AttackBehavior attackBehavior) {
+        this.attackBehavior = attackBehavior;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    protected Position getShootPosition() {
         Translation t = new Translation(this.position, new Vector((this.size.getWidth() - 1) / 2, 1));
         return t.apply();
     }
 
     @Override
-    public Object getShotType() {
-        return null;
-    }
-
-    @Override
-    public Shot createShot() { return null; }
+    public void processShot(Shot shot) {}
 
     @Override
     public void accept(IElementsVisitor visitor) {
