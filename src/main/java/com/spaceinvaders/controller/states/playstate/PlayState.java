@@ -13,7 +13,6 @@ import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.arena.ArenaCreator;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.view.lanternaview.GameView;
 import com.spaceinvaders.view.lanternaview.staterenderers.PlayRenderer;
 

@@ -6,7 +6,6 @@ import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.enemy.enemyvariants.*;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.model.shots.enemyshotvariants.*;
 import com.spaceinvaders.model.wall.Fragment;
 import com.spaceinvaders.model.wall.Wall;

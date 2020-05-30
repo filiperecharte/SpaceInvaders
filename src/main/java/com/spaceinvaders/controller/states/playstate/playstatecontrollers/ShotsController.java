@@ -2,7 +2,6 @@ package com.spaceinvaders.controller.states.playstate.playstatecontrollers;
 
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Translation;
-import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.shots.Shot;
 
