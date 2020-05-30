@@ -3,6 +3,7 @@ package com.spaceinvaders.controllertest;
 import com.spaceinvaders.controller.states.playstate.playstatecontrollers.EnemiesController;
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.behaviors.MovableBehavior;
+import com.spaceinvaders.model.box.Box;
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Vector;
@@ -39,6 +40,7 @@ public class EnemiesControllerTest {
             Enemy enemyMock = Mockito.mock(Enemy.class);
             when(enemyMock.getMovableBehavior()).thenReturn(movableBehavior);
             enemyMocks.add(enemyMock);
+
         }
 
         mockArena = Mockito.mock(Arena.class);
@@ -48,6 +50,20 @@ public class EnemiesControllerTest {
         when(mockArena.getEnemies()).thenReturn(enemyMocks);
 
         enemiesController = new EnemiesController(mockArena);
+    }
+
+    @Test
+    public void processEnemiesTest() {
+        when(mockArena.contain((Box)Mockito.any())).thenReturn(false);
+
+        EnemiesController spy = spy(enemiesController);
+        doNothing().when(spy).updateEnemies();
+
+        spy.processEnemies();
+
+        for (int i = 0; i < 5; i++) {
+            verify(enemyMocks.get(i), times(5)).getMovableBehavior();
+        }
     }
 
     @Test
@@ -93,4 +109,25 @@ public class EnemiesControllerTest {
         enemiesController.updateEnemy(enemyMock);
         assertEquals(new Position(16, 20), finalEnemyPositionCapture.getValue());
     }
+
+    @Test
+    public void updateEnemiesTest() {
+        EnemiesController spy = spy(enemiesController);
+        doNothing().when(spy).addMoreEnemies();
+
+        for(int i =0;i<5;i++){
+            doNothing().when(spy).updateEnemy(enemyMocks.get(i));
+        }
+
+        spy.updateEnemies();
+
+        verify(spy, times(0)).addMoreEnemies();
+
+        for(int i =0;i<5;i++){
+            verify(spy, times(5)).updateEnemy(Mockito.any());
+        }
+
+    }
+
+
 }

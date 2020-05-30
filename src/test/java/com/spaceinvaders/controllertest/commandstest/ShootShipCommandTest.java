@@ -41,7 +41,7 @@ public class ShootShipCommandTest {
 
             assertEquals(1, arena.getShots().size());
             assertEquals(11, arena.getShots().get(0).getPosition().getX());
-            assertEquals(10, arena.getShots().get(0).getPosition().getY());
+            assertEquals(9, arena.getShots().get(0).getPosition().getY());
 
             shootShipCommand.execute();
             assertEquals(2, arena.getShots().size());

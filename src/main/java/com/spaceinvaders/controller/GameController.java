@@ -14,7 +14,6 @@ public class GameController {
 
     public GameController() {
         this.gameView = new GameView();
-        gameState = new MenuState(this);
 
     }
 
@@ -26,6 +25,7 @@ public class GameController {
     }
 
     public void run() throws IOException {
+        gameState = new MenuState(this);
         while (!isFinished) {
             gameView.update();
             gameUpdate();

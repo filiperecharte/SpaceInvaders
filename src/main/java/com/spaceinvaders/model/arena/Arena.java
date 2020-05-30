@@ -41,7 +41,8 @@ public class Arena extends Box {
     }
 
     public void moveShipTo(Position position) {
-        ship.setPosition(position);
+        if (canMove(position))
+            ship.setPosition(position);
     }
 
     public void addElement(IElementVisited element) {
