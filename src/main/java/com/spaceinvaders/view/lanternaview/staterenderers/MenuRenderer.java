@@ -1,4 +1,4 @@
-package com.spaceinvaders.view.lanternaview;
+package com.spaceinvaders.view.lanternaview.staterenderers;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;

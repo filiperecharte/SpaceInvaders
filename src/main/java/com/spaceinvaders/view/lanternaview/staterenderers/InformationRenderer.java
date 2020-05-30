@@ -1,4 +1,4 @@
-package com.spaceinvaders.view.lanternaview;
+package com.spaceinvaders.view.lanternaview.staterenderers;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
@@ -71,6 +71,9 @@ public class InformationRenderer implements Renderer {
 
         graphics.setForegroundColor(TextColor.Factory.fromString("#800000"));
         graphics.putString(67,21,"/~^~/",SGR.BOLD);
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
+        graphics.putString(30,23,"ESC TO MENU", SGR.BOLD);
 
     }
 }

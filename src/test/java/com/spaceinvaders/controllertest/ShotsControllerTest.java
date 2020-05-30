@@ -1,31 +1,18 @@
 package com.spaceinvaders.controllertest;
 
-import com.spaceinvaders.controller.ShotsController;
+import com.spaceinvaders.controller.states.playState.ShotsController;
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
-import com.spaceinvaders.model.behaviors.DamageBehavior;
-import com.spaceinvaders.model.behaviors.HealthyBehavior;
-import com.spaceinvaders.model.behaviors.MovableBehavior;
 import com.spaceinvaders.model.enemy.enemyvariants.*;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.geometry.Vector;
 import com.spaceinvaders.model.pools.ShotPool;
-import com.spaceinvaders.model.ship.Ship;
-import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.shots.enemyshotvariants.*;
 import com.spaceinvaders.model.wall.Fragment;
 import com.spaceinvaders.model.wall.Wall;
 import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mockito;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
 
 public class ShotsControllerTest {
     ShotsController shotsController;

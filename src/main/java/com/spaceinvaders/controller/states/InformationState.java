@@ -3,8 +3,7 @@ package com.spaceinvaders.controller.states;
 import com.spaceinvaders.controller.GameController;
 import com.spaceinvaders.controller.commands.shipcommands.DoNothingCommand;
 import com.spaceinvaders.view.lanternaview.GameView;
-import com.spaceinvaders.view.lanternaview.InformationRenderer;
-import com.spaceinvaders.view.lanternaview.MenuRenderer;
+import com.spaceinvaders.view.lanternaview.staterenderers.InformationRenderer;
 
 public class InformationState extends GameState{
     public InformationState(GameController gameController) {

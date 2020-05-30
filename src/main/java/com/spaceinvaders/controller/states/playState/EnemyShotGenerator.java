@@ -1,4 +1,4 @@
-package com.spaceinvaders.controller;
+package com.spaceinvaders.controller.states.playState;
 
 import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.enemy.Enemy;

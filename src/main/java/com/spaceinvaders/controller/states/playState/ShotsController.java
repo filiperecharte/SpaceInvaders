@@ -1,4 +1,4 @@
-package com.spaceinvaders.controller;
+package com.spaceinvaders.controller.states.playState;
 
 import com.spaceinvaders.model.enemy.Enemy;
 import com.spaceinvaders.model.geometry.Translation;

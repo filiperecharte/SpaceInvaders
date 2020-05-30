@@ -8,7 +8,7 @@ import com.googlecode.lanterna.graphics.TextImage;
 import com.spaceinvaders.model.enemy.enemyvariants.*;
 import com.spaceinvaders.model.shots.enemyshotvariants.*;
 
-public class EnemyShotImageFactory {
+public class EnemyShotImageFactory implements ImageFactory{
 
     public TextImage createTextImage(Object shotType, TextColor backgroundColor){
         if (shotType instanceof ImmatureShot){

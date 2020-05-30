@@ -2,9 +2,9 @@ package com.spaceinvaders.controller.states;
 
 import com.spaceinvaders.controller.GameController;
 import com.spaceinvaders.controller.commands.shipcommands.DoNothingCommand;
-import com.spaceinvaders.view.lanternaview.GameOverRenderer;
+import com.spaceinvaders.controller.states.playState.PlayState;
 import com.spaceinvaders.view.lanternaview.GameView;
-import com.spaceinvaders.view.lanternaview.MenuRenderer;
+import com.spaceinvaders.view.lanternaview.staterenderers.MenuRenderer;
 
 public class MenuState extends GameState{
     public MenuState(GameController gameController) {

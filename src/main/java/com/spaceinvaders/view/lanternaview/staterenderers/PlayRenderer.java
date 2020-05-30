@@ -1,4 +1,4 @@
-package com.spaceinvaders.view.lanternaview;
+package com.spaceinvaders.view.lanternaview.staterenderers;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
@@ -12,6 +12,7 @@ import com.spaceinvaders.model.shots.IShotVisited;
 import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.wall.Fragment;
 import com.spaceinvaders.model.wall.Wall;
+import com.spaceinvaders.view.lanternaview.ShotsRendererVisitor;
 import com.spaceinvaders.view.lanternaview.imagesfactories.*;
 import com.spaceinvaders.view.lanternaview.imagesrederers.BoxImageRenderer;
 import com.spaceinvaders.view.lanternaview.imagesrederers.Renderer;
@@ -40,6 +41,7 @@ public class PlayRenderer implements Renderer {
         graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
         graphics.putString(3,1,"HEALTH", SGR.BOLD);
         graphics.putString(10,1,Integer.toString(arena.getShip().getHealthyBehavior().getCurrentHealth()), SGR.BOLD);
+        graphics.putString(3,23,"ESC TO MENU", SGR.BOLD);
 
         new BoxImageRenderer(arena.getShip(), shipImageFactory.createTextImage(arena.getShip(),backgroundColor)).render(graphics);
         for (Enemy enemy : arena.getEnemies()) {
@@ -55,6 +57,8 @@ public class PlayRenderer implements Renderer {
             shotVisited = (IShotVisited)shot;
             shotVisited.accept(new ShotsRendererVisitor(backgroundColor, graphics));
         }
+
+
     }
 
 }

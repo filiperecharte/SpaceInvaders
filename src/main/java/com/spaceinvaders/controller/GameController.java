@@ -2,24 +2,19 @@ package com.spaceinvaders.controller;
 
 import com.spaceinvaders.controller.states.GameState;
 import com.spaceinvaders.controller.states.MenuState;
-import com.spaceinvaders.controller.states.PlayState;
 import com.spaceinvaders.view.lanternaview.GameView;
 
 import java.io.IOException;
 
 public class GameController {
     private GameView gameView;
-    private ShotsController shotsController;
-    private EnemiesController enemiesController;
+
 
     private GameState gameState;
     private boolean isFinished = false;
 
     public GameController() {
         this.gameView = new GameView();
-        this.shotsController = new ShotsController();
-        this.enemiesController = new EnemiesController();
-
         gameState = new MenuState(this);
     }
 
@@ -50,11 +45,4 @@ public class GameController {
         return gameView;
     }
 
-    public ShotsController getShotsController() {
-        return shotsController;
-    }
-
-    public EnemiesController getEnemiesController() {
-        return enemiesController;
-    }
 }
