@@ -24,8 +24,8 @@ public class SuperiorEnemy extends Enemy implements Shooter {
         shot.setPosition(getShootPosition());
         shot.setSize(new Size(1, 1));
         shot.getMovableBehavior().setVelocity(new Vector(0, 1));
-        shot.getDamageBehavior().setDamage(5);
-        shot.setName("LegendaryShot");
-        shot.setImageName("LegendaryShotImg");
+        shot.getDamageBehavior().setDamage(4);
+        shot.setName("SlickShot");
+        shot.setImageName("SlickShotImg");
     }
 }

@@ -25,7 +25,7 @@ public class WiseEnemy extends Enemy implements Shooter {
         shot.setSize(new Size(1, 1));
         shot.getMovableBehavior().setVelocity(new Vector(0, 1));
         shot.getDamageBehavior().setDamage(3);
-        shot.setName("SlickShot");
-        shot.setImageName("SlickShotImg");
+        shot.setName("LegendaryShot");
+        shot.setImageName("LegendaryShotImg");
     }
 }

@@ -24,7 +24,7 @@ public class StrongEnemy extends Enemy implements Shooter {
         shot.setPosition(getShootPosition());
         shot.setSize(new Size(1, 1));
         shot.getMovableBehavior().setVelocity(new Vector(0, 1));
-        shot.getDamageBehavior().setDamage(4);
+        shot.getDamageBehavior().setDamage(5);
         shot.setName("PowerfulShot");
         shot.setImageName("PowerfulShotImg");
     }
