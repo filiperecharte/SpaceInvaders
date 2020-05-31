@@ -88,11 +88,11 @@ We decided to use the **State pattern** because it makes our code cleaner and or
 **Imlementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
-  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/State.png">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/VisitPattern.png">
 </p>
 
 These classes can be found in the following files:
-* [GameController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameController.java)</br>
+* [IElementVisited](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameController.java)</br>
 * [GameState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/GameState.java)</br>
 * [GameOverState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/GameOverState.java)</br>
 * [PlayState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/PlayState.java)</br>
@@ -102,21 +102,35 @@ These classes can be found in the following files:
 **Consequences**</br>
 The code is a lot more organized. Our GameController is much more simple and every state has it's own behavior for each key pressed by the player. As a result, we can add new states or change existing ones independently of each other, reducing the maintenance cost.
 
-### Organizing the images to render
+### The game objects should be visited by a visitor
 **Problem in context**</br>
-We have a lot of object images to draw, different images of the same objects. So we need to find a way that makes our rendering code well structured.
+We need to add some elements to the arena or check if a shot colided with a game object. The problem is that we would need to have a bunch of if (... instance of ...) for each game object and if we add a game object, we would have to add a new if (... instance of ...) in every class which uses it.
 
 **The Pattern**</br>
-To solve this problem we use a variation of the **Factory pattern**. We replace direct object construction calls (using the new operator) with calls to a special factory method. The objects are still created via the new operator, but it’s being called from within the factory method, and that method will build and return the desired object accordingly to the ImageInfo passed as a parameter.
+We find out that the Visitor Pattern can be very helpful in this situation because we get rid of all the if (... instance of ...) and we have a class Visitor, which have a visit() method for each game object with the visited object in the parameters. The objects which are visited by a visitor implements the interface visited which has a accept() method, giving the visitor the visited object.
 
-**Implementation**</br>
+**Imlementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
-  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/viewFactories.png">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/VisitorPattern.png">
 </p>
 
+These classes can be found in the following files:
+* [IElementVisited](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/element/IElementVisited.java)</br>
+* [IElementVisitor](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders//model/element/IElementVisitor.java)</br>
+* [ElementVisitor](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders//model/element/IElementVisitor.java)</br>
+* [ICollideableVisited](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/collisions/ICollideableVisited.java)</br>
+* [ICollideableVisitor](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/collisions/ICollideableVisitor.java)</br>
+* [CollideableVisitor](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/collisions/CollideableVisitor.java)</br>
+* [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/enemy/Enemy.java)</br>
+* [Ship](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/ship/Ship.java)</br>
+* [Shot](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/shot/Shot.java)</br>
+* [Wall](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/wall/Wall.java)</br>
+* [Fragment](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/wall/Fragment.java)</br>
+* [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/arena/Arena.java)</br>
+
 **Consequences**</br>
-Basically our interface has a method that receives the type of object to build/choose and then returns a text image. That method is common to all factories. In factories that build different images, like the enemies and shots factories, we decided to build methods that return the text image to be rendered. In that case, the implementation of createTextImage method will only decide wich factory method (that builds the desired image) should be returned.
+If we need to add more elements to arena, we only need to add visit methods to the visitor, instead of changing multiples classes and add multiple if (... instanceof ...). Also, makes the code more organize. However, it may be dificult to understand the purpose of those classes, we lose a bit of class encapsulation and is more complex to implement than simply using instanceof.
 
 ## Code smells and Refactoring suggestions
 
