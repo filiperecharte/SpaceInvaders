@@ -71,7 +71,7 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited, 
     }
 
     @Override
-    public void processShot(Shot shot) {}
+    public void recycleShot(Shot shot) {}
 
     @Override
     public void accept(IElementsVisitor visitor) {

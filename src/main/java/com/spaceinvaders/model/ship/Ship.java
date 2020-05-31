@@ -40,7 +40,7 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
     }
 
     @Override
-    public void processShot(Shot shot) {
+    public void recycleShot(Shot shot) {
         shot.setPosition(getShootPosition());
         shot.setSize(new Size(1, 1));
         shot.getMovableBehavior().setVelocity(new Vector(0, -1));
