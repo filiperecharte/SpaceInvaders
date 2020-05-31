@@ -62,7 +62,7 @@ This Design Pattern decoupled our invoker from each specific command, because th
 We have to make different objects of the same type. For example, we have an object Wall and we need to create walls with different designs. Also, we have an object enemy and other object ship, and we would like to have those objects with different designs and behaviors. It would be useful if we have diferent factories in order to create those objects in different ways.</br></br>
 
 **The Pattern**</br>
-We will use a variation of the **Factory Method** where we have multiple factories creating the same object with different designs and behaviors. It makes the creation of those objects easier and more organized. For example, if we want to add a wall with a different design, we just need to create one factory class for the object.</br></br>
+We will not use exactly the **Factory Method** but an aproximation to that, where we have multiple factories creating the same object with different designs and behaviors. It makes the creation of those objects easier and more organized. For example, if we want to add a wall with a different design, we just need to create one factory class for the object.</br></br>
 
 **Implementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
@@ -206,6 +206,12 @@ We are using Mockito framework in our tests to create mocks and set the exact re
 * In the view package, some tests failed because we are using functions from the Graphics class, and unfortunately this class does not have a constructor wich creates problems using Mockito. Running those tests we were confronted with a *java.lang.NullPointerException*.</br>Due to that the view tests didn't go as expected.
 
 * When we were creating tests, we had some difficulties testing **private methods**, **void methods** or **methods with random functions**. Some of those methods were obvious and did not require testing, but others were more complicated and we had to find a way to test them. One aproach we used to solve this problem was creating a class with public methods and use those methods in the method that was being tested. This does not test the method we want but we do not need to test it anymore because we tested the dependent methods, and makes the method simple enough to not test it. The problem is that we break a bit of class encapsulation, because instead of having only one class with one responsability, we have more. For example, we wanted to test the method generateEnemiesShots() in [ShotsController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/ShotsController.java), which has a random function inside. In order to test it, we created the class [EnemiesShotsGenerator](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/EnemiesShotsGenerator.java) with the methods generate() and enemyReadyToShoot(), which were simpler to test. Then, we change the method that we want to test, calling the [EnemiesShotsGenerator](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/EnemiesShotsGenerator.java) methods and the method turned simple enough to not require testing it.</br> We made this decision because we knew that our project would be simple and we would not lose too much encapsulation, and also because it is more important for this method to have a good test coverage than an excelent design.
+
+	## Playing the game
+
+<p align="center">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/spaceInvaders.gif">
+</p>
 
 ## Self-evaluation
 
