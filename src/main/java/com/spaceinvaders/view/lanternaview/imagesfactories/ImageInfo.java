@@ -20,15 +20,8 @@ public class ImageInfo {
         return imageName;
     }
 
-    public void setImageName(String objectName) {
-        this.imageName = objectName;
-    }
-
     public TextColor getBackgroundColor() {
         return backgroundColor;
     }
 
-    public void setBackgroundColor(TextColor backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
 }

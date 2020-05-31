@@ -22,12 +22,10 @@ public class Arena extends Box {
     private List<Wall> walls;
     private List<Enemy> enemies;
     private List<Shot> shots;
-    private String backgroundColor;
 
 
-    public Arena(Position position, Size size, String backgroundColor){
+    public Arena(Position position, Size size){
         super(position,size);
-        this.backgroundColor=backgroundColor;
         this.enemies = new ArrayList<>();
         this.walls = new ArrayList<>();
         this.shots = new ArrayList<>();
