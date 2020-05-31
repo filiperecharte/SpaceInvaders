@@ -113,7 +113,7 @@ We find out that the **Visitor Pattern** can be very helpful in this situation b
 **Implementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
-  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/VisitorPattern.png">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/VisitorPatternSmall.png">
 </p>
 
 These classes can be found in the following files:
