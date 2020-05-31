@@ -7,20 +7,6 @@ The ship has some walls protecting it from the enemies and has a limited number 
 The enemies can also fire at the ship and have different strengths.</br>
 **Project Collaborators:** Pedro Azevedo (up201806728@fe.up.pt) and Filipe Recharte (up201806743@fe.up.pt) for LPOO 2019/2020
 
-## Implemented Features
-
-* **Moving SpaceShip** - The player is able to control the ship moving it to the left or right.</br>
-* **Enemies** - The game has enemies that will shoot against the ship.</br>
-* **Walls** - . The ship is partially protected by several stationary defense walls.</br>
-* **Enemy Shooting** - The aliens attempt to destroy the ship by firing at it.</br>
-* **Ship Shooting** - The ship attempts to kill all enemies by firing at them.</br>
-* **SpaceShip with Lifes** - The ship has lifes that decrease when a shot hits the ship.</br>
-* **Enemies with strength** - Some enemies are more difficult to kill than others.</br>
-
-## Planned Features not implemented
-
-* **Score** - The player has a score.</br>
-
 ## Design
 ### MVC
 In this project, we decide to follow the architectural pattern **Model-View-Controller(MVC)**.
