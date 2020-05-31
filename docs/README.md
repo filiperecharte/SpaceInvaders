@@ -102,6 +102,22 @@ These classes can be found in the following files:
 **Consequences**</br>
 The code is a lot more organized. Our GameController is much more simple and every state has it's own behavior for each key pressed by the player. As a result, we can add new states or change existing ones independently of each other, reducing the maintenance cost.
 
+### Organizing the images to render
+**Problem in context**</br>
+We have a lot of object images to draw, different images of the same objects. So we need to find a way that makes our rendering code well structured.
+
+**The Pattern**</br>
+To solve this problem we use a variation of the **Factory pattern**. We replace direct object construction calls (using the new operator) with calls to a special factory method. The objects are still created via the new operator, but it’s being called from within the factory method, and that method will build and return the desired object accordingly to the ImageInfo passed as a parameter.
+
+**Implementation**</br>
+The following figure shows how the pattern’s roles were mapped to the game classes.</br>
+<p align="center">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/viewFactories.png">
+</p>
+
+**Consequences**</br>
+Basically our interface has a method that receives the type of object to build/choose and then returns a text image. That method is common to all factories. In factories that build different images, like the enemies and shots factories, we decided to build methods that return the text image to be rendered. In that case, the implementation of createTextImage method will only decide wich factory method (that builds the desired image) should be returned.
+
 ## Code smells and Refactoring suggestions
 
 ### Long Parameter List
