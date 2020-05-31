@@ -3,24 +3,33 @@ package com.spaceinvaders.controllertest;
 import com.spaceinvaders.controller.states.playstate.playstatecontrollers.ShotsController;
 import com.spaceinvaders.exceptions.IllegalArgumentException;
 import com.spaceinvaders.model.arena.Arena;
+import com.spaceinvaders.model.behaviors.DamageBehavior;
+import com.spaceinvaders.model.behaviors.MovableBehavior;
 import com.spaceinvaders.model.enemy.enemyvariants.*;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
-import com.spaceinvaders.model.shots.enemyshotvariants.*;
+import com.spaceinvaders.model.geometry.Vector;
+import com.spaceinvaders.model.pools.ShotPool;
+import com.spaceinvaders.model.shots.Shot;
 import com.spaceinvaders.model.wall.Fragment;
 import com.spaceinvaders.model.wall.Wall;
 import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.doNothing;
 
 public class ShotsControllerTest {
-    ShotsController shotsController;
+    /*ShotsController shotsController;
 
     @Before
     public void setUp() {
         Arena arena = new Arena(new Position(0, 0), new Size(10, 10), "#000000");
         try {
-            arena.addElement(new WeakShot());
+            arena.addElement(new Shot(new Position(2, 9), new Size(1, 1),"WeakShot","WeakShotImg"));
             arena.addElement(new YoungEnemy(new Position(3, 2), new Size(2, 1)));
             arena.addElement(new WiseEnemy(new Position(5, 2), new Size(2, 1)));
             arena.addElement(new StrongEnemy(new Position(7, 2), new Size(2, 1)));
@@ -38,7 +47,7 @@ public class ShotsControllerTest {
         shotsController = new ShotsController(arena, shotPool);
     }
 
-    /*@Test
+    @Test
     public void processShotsTest() {
 
         ShotsController shotsControllerSpy = Mockito.spy(shotsController);

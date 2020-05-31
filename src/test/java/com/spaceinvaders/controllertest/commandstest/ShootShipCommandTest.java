@@ -6,7 +6,9 @@ import com.spaceinvaders.model.arena.Arena;
 import com.spaceinvaders.model.behaviors.HealthyBehavior;
 import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.model.geometry.Size;
+import com.spaceinvaders.model.pools.ShotPool;
 import com.spaceinvaders.model.ship.Ship;
+import com.spaceinvaders.model.shots.Shot;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -20,6 +22,7 @@ public class ShootShipCommandTest {
     public void setUp() {
 
         shotPool = Mockito.mock(ShotPool.class);
+        Mockito.when(shotPool.extract()).thenReturn(new Shot());
 
         Ship ship =null;
         try {
