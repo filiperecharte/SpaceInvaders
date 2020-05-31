@@ -7,6 +7,20 @@ The ship has some walls protecting it from the enemies and has a limited number 
 The enemies can also fire at the ship and have different strengths.</br>
 **Project Collaborators:** Pedro Azevedo (up201806728@fe.up.pt) and Filipe Recharte (up201806743@fe.up.pt) for LPOO 2019/2020
 
+## Implemented Features
+
+* **Moving SpaceShip** - The player is able to control the ship moving it to the left or right.</br>
+* **Enemies** - The game has enemies that will shoot against the ship.</br>
+* **Walls** - . The ship is partially protected by several stationary defense walls.</br>
+* **Enemy Shooting** - The aliens attempt to destroy the ship by firing at it.</br>
+* **Ship Shooting** - The ship attempts to kill all enemies by firing at them.</br>
+* **SpaceShip with Lifes** - The ship has lifes that decrease when a shot hits the ship.</br>
+* **Enemies with strength** - Some enemies are more difficult to kill than others.</br>
+
+## Planned Features not implemented
+
+* **Score** - The player has a score.</br>
+
 ## Design
 ### MVC
 In this project, we decide to follow the architectural pattern **Model-View-Controller(MVC)**.
@@ -175,9 +189,8 @@ The [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/mai
 An alternative way that we think might help is to separate the arena from the ship and join them in a class that contains all of the information and objects of the game, so that the arena would be independent from the ship and other elements that we might create in the future.
 
 ### Data class
-We use Data class in [Size](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/geometry/Size.java), [Vector](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/geometry/Vector.java), [Pixel](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/image/Pixel.java), [Box](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/Box.java), [Element](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/Element.java), [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/Enemy.java) and [Fragment](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/Fragment.java).
-The classes [Enemy](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/Enemy.java) and [Fragment](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/Fragment.java) are incompleted at this point and we will add behaviors later in the project.
-In the remaining classes, we will, for example, implement methods like **equals()** to verify if two objects of the same class are equal. However, as those classes are the base of the project, we would like to keep them as simple as possible, with few behaviors, since they do not know anything about the game.
+We use Data class in [Vector](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/geometry/Vector.java) and [Element](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/Element.java).
+We could, for example, implement methods like **equals()** to verify if two objects of the same class are equal. However, as those classes are the base of the project, we would like to keep them as simple as possible, with few behaviors, since they do not know anything about the game.
 
 ## Testing
 The following screenshot shows our **tests coverage**.</br>
@@ -193,12 +206,6 @@ We are using Mockito framework in our tests to create mocks and set the exact re
 * In the view package, some tests failed because we are using functions from the Graphics class, and unfortunately this class does not have a constructor wich creates problems using Mockito. Running those tests we were confronted with a *java.lang.NullPointerException*.</br>Due to that the view tests didn't go as expected.
 
 * When we were creating tests, we had some difficulties testing **private methods**, **void methods** or **methods with random functions**. Some of those methods were obvious and did not require testing, but others were more complicated and we had to find a way to test them. One aproach we used to solve this problem was creating a class with public methods and use those methods in the method that was being tested. This does not test the method we want but we do not need to test it anymore because we tested the dependent methods, and makes the method simple enough to not test it. The problem is that we break a bit of class encapsulation, because instead of having only one class with one responsability, we have more. For example, we wanted to test the method generateEnemiesShots() in [ShotsController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/ShotsController.java), which has a random function inside. In order to test it, we created the class [EnemiesShotsGenerator](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/EnemiesShotsGenerator.java) with the methods generate() and enemyReadyToShoot(), which were simpler to test. Then, we change the method that we want to test, calling the [EnemiesShotsGenerator](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/EnemiesShotsGenerator.java) methods and the method turned simple enough to not require testing it.</br> We made this decision because we knew that our project would be simple and we would not lose too much encapsulation, and also because it is more important for this method to have a good test coverage than an excelent design.
-
-## Playing the game
-
-<p align="center">
-  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/spaceInvaders.gif">
-</p>
 
 ## Self-evaluation
 
