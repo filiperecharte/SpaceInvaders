@@ -105,10 +105,10 @@ The code is a lot more organized. Our GameController is much more simple and eve
 
 ### The game objects should be visited by a visitor
 **Problem in context**</br>
-We need to add some elements to the arena or check if a shot colided with a game object. The problem is that we would need to have a bunch of if (... instance of ...) for each game object and if we add a game object, we would have to add a new if (... instance of ...) in every class which uses it.
+We need to add some elements to the arena or check if a shot colided with a game object. The problem is that we would need to have a bunch of if (... instanceof ...) for each game object and if we add a game object, we would have to add a new if (... instanceof ...) in every class which uses it.
 
 **The Pattern**</br>
-We find out that the Visitor Pattern can be very helpful in this situation because we get rid of all the if (... instance of ...) and we have a class Visitor, which have a visit() method for each game object with the visited object in the parameters. The objects which are visited by a visitor implements the interface visited which has a accept() method, giving the visitor the visited object.
+We find out that the **Visitor Pattern** can be very helpful in this situation because we get rid of all the if (... instanceof ...) and we have a class Visitor, which have a visit() method for each game object with the visited object in the parameters. The objects which are visited by a visitor implements the interface visited which has a accept() method, giving the visitor the visited object.
 
 **Imlementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
@@ -118,8 +118,8 @@ The following figure shows how the pattern’s roles were mapped to the game cla
 
 These classes can be found in the following files:
 * [IElementVisited](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/element/IElementVisited.java)</br>
-* [IElementVisitor](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders//model/element/IElementVisitor.java)</br>
-* [ElementVisitor](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders//model/element/IElementVisitor.java)</br>
+* [IElementVisitor](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/element/IElementVisitor.java)</br>
+* [ElementVisitor](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/element/IElementVisitor.java)</br>
 * [ICollideableVisited](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/collisions/ICollideableVisited.java)</br>
 * [ICollideableVisitor](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/collisions/ICollideableVisitor.java)</br>
 * [CollideableVisitor](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/collisions/CollideableVisitor.java)</br>
@@ -132,6 +132,29 @@ These classes can be found in the following files:
 
 **Consequences**</br>
 If we need to add more elements to arena, we only need to add visit methods to the visitor, instead of changing multiples classes and add multiple if (... instanceof ...). Also, makes the code more organize. However, it may be dificult to understand the purpose of those classes, we lose a bit of class encapsulation and is more complex to implement than simply using instanceof.
+
+### We should recicle shots
+**Problem in context**</br>
+We are making a game with lots of enemies shooting everywhere. It would be too inefficient if whenever a shot collide to some game object or goes out of bonus we move it to trash, and whenever a shooter shot, we create a complete new shot.
+
+**The Pattern**</br>
+To resolve that, we decided to use the **Object Pool Design Pattern**. In the Object Pool Design pattern, we have a pool of objects (in this case we have a pool of shots) and, instead of moving one shot to trash, we move it to the shot pool. Also, instead of creating a new shot, we extract one shot from the pool and use the [Shooters](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/shots/Shooter.java) to recycle it.
+
+**Imlementation**</br>
+The following figure shows how the pattern’s roles were mapped to the game classes.</br>
+<p align="center">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/ObjectPoolPattern.png">
+</p>
+
+These classes can be found in the following files:
+* [ObjectPool<T>](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/pools/ObjectPool.java)</br>
+* [ShotPool](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/pools/ShotPool.java)</br>
+* [ShotsController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/ShotsController.java)</br>
+* [EnemiesShotsGenerator](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/EnemiesShotsGenerator.java)</br>
+* [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/arena/Arena.java)</br>
+
+**Consequences**</br>
+Improve preformance. Harder to implement than simply destroying and creating shots. Even harder when we are dealing with more complex objects with subclasses.
 
 ### Organizing the images to render
 **Problem in context**</br>
