@@ -55,7 +55,7 @@ public class Ship extends Box implements IElementVisited, ICollideableVisited, S
     }
 
     @Override
-    public void acceptShot(ICollideableVisitor collideableVisitor) {
+    public void accept(ICollideableVisitor collideableVisitor) {
         collideableVisitor.visit(this);
     }
 }

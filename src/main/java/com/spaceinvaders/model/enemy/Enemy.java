@@ -79,7 +79,7 @@ public class Enemy extends Box implements IElementVisited, ICollideableVisited, 
     }
 
     @Override
-    public void acceptShot(ICollideableVisitor collideableVisitor) {
+    public void accept(ICollideableVisitor collideableVisitor) {
         collideableVisitor.visit(this);
     }
 }
