@@ -17,7 +17,7 @@ public class ShootShipCommand implements Command {
     @Override
     public void execute() {
         Shot shot = shotPool.extract();
-        arena.getShip().processShot(shot);
+        arena.getShip().recycleShot(shot);
         arena.addElement(shot);
     }
 }

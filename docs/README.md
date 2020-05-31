@@ -40,7 +40,7 @@ We needed to implement the commands in a way that would allow us to easily add n
 We decided to use the **Command pattern** because it makes our code cleaner and help us developing the game, allowing us to add new commands to it, manipulate them whenever we want, and change their inner details of how to perform without changing the calling of the command. </br></br>
 
 **Implementation**</br>
-The following figure shows how the pattern’s roles were mapped to the game classes.</br>
+The following figure shows how the pattern's roles were mapped to the game classes.</br>
 <p align="center">
   <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/Command%20(1).png">
 </p>
@@ -64,7 +64,7 @@ We have to make different objects of the same type. For example, we have an obje
 **The Pattern**</br>
 We will use a variation of the **Factory Method** where we have multiple factories creating the same object with different designs and behaviors. It makes the creation of those objects easier and more organized. For example, if we want to add a wall with a different design, we just need to create one factory class for the object.</br></br>
 
-**Imlementation**</br>
+**Implementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
   <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/docs/imgs/FactoryMethod.png">
@@ -86,7 +86,7 @@ We needed to implement menus and messages to let the user know whats happening o
 **The Pattern**</br>
 We decided to use the **State pattern** because it makes our code cleaner and organized letting the user navigate through the different menus. Instead of implementing all behaviors on its own, the original object, called context, that is our GameController, stores a reference to one of the state objects that represents its current state, and delegates all the state-related work to that object.
 
-**Imlementation**</br>
+**Implementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
   <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/State%20(1).png">
@@ -110,7 +110,7 @@ We need to add some elements to the arena or check if a shot colided with a game
 **The Pattern**</br>
 We find out that the **Visitor Pattern** can be very helpful in this situation because we get rid of all the if (... instanceof ...) and we have a class Visitor, which have a visit() method for each game object with the visited object in the parameters. The objects which are visited by a visitor implements the interface visited which has a accept() method, giving the visitor the visited object.
 
-**Imlementation**</br>
+**Implementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
   <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/VisitorPattern.png">
@@ -140,7 +140,7 @@ We are making a game with lots of enemies shooting everywhere. It would be too i
 **The Pattern**</br>
 To resolve that, we decided to use the **Object Pool Design Pattern**. In the Object Pool Design pattern, we have a pool of objects (in this case we have a pool of shots) and, instead of moving one shot to trash, we move it to the shot pool. Also, instead of creating a new shot, we extract one shot from the pool and use the [Shooters](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/shots/Shooter.java) to recycle it.
 
-**Imlementation**</br>
+**Implementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
   <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/ObjectPoolPattern.png">
@@ -230,17 +230,19 @@ This help us avoid some code smells making our code more organized, and give us 
 ---
 
 ## Testing
-The following screenshot shows our **tests coverage** at this point.</br>
+The following screenshot shows our **tests coverage**.</br>
 <p align="center">
-  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/docs/imgs/TestCoverage.png">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/TestCoverage.png">
 </p>
 
-The **mutation testing report** can be accessed [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/intermediate/docs/test_reports/pitest).</br></br>
-We are using Mockito framework in our tests to create mocks and set the exact return values it should give us to perform the test we want. For example on the [Arena Test](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/test/java/com/spaceinvaders/modeltest/ArenaTest.java).</br>
-In the command tests ([MoveShipLeftCommandTest](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/test/java/com/spaceinvaders/controllertest/MoveShipLeftCommandTest.java) and [MoveShipRightCommandTest](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/test/java/com/spaceinvaders/controllertest/MoveShipRightCommandTest.java)) we use ArgumentCaptor to see if the arguments passed to the functions that we are not testing are correct.</br></br>
+The **mutation testing report** can be accessed [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/docs/test_reports/pitest_2).</br></br>
+We are using Mockito framework in our tests to create mocks and set the exact return values it should give us to perform the test we want.</br>
 **Notes**</br>
-We have two tests on the view package, one to test the **arena rendering** and other to test the **ship rendering**.These tests fail because we are using functions from the Graphics class, and unfortunately this class does not have a constructor wich creates problems using Mockito. Running those tests we are confronted with a *java.lang.NullPointerException*.</br>
-Due to that they are commented and can be found [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/intermediate/src/test/java/com/spaceinvaders/viewtest).
+* Some test coverage results are very low because there are some classes that don't need to be tested like the [GameController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameController.java) class, wich has a lot of methods containing calls to other methods that are already being tested in their respective classes. 
+* Other classes have a lot of trivial methods like getters and setters, that we are not testing. Most of the view package contains graphic functions to put strings on the screen, and testing them is useless. This can explain the low test coverage values on the view package.
+* In the view package, some tests failed because we are using functions from the Graphics class, and unfortunately this class does not have a constructor wich creates problems using Mockito. Running those tests we were confronted with a *java.lang.NullPointerException*.</br>Due to that the view tests didn't go as expected.
+
+* When we were creating tests, we had some difficulties testing **private methods**, **void methods** or **methods with random functions**. Some of those methods were obvious and did not require testing, but others were more complicated and we had to find a way to test them. One aproach we used to solve this problem was creating a class with public methods and use those methods in the method that was being tested. This does not test the method we want but we do not need to test it anymore because we tested the dependent methods, and makes the method simple enough to not test it. The problem is that we break a bit of class encapsulation, because instead of having only one class with one responsability, we have more. For example, we wanted to test the method generateEnemiesShots() in [ShotsController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/ShotsController.java), which has a random function inside. In order to test it, we created the class [EnemiesShotsGenerator](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/EnemiesShotsGenerator.java) with the methods generate() and enemyReadyToShoot(), which were simpler to test. Then, we change the method that we want to test, calling the [EnemiesShotsGenerator](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/playstatecontrollers/EnemiesShotsGenerator.java) methods and the method turned simple enough to not require testing it.</br> We made this decision because we knew that our project would be simple and we would not lose too much encapsulation, and also because it is more important for this method to have a good test coverage than an excelent design.
 
 ## Self-evaluation
 

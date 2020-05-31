@@ -18,7 +18,7 @@ public class EnemiesShotsGenerator {
 
     public void generate() {
         Shot shot = shotPool.extract();
-        enemyToShoot.processShot(shot);
+        enemyToShoot.recycleShot(shot);
         arena.addElement(shot);
     }
 
