@@ -50,7 +50,7 @@ public class Arena extends Box {
     }
 
     public void collide(ICollideableVisited collideable, Shot shot){
-        collideable.acceptShot(new CollideableVisitor(this, shot));
+        collideable.accept(new CollideableVisitor(this, shot));
     }
 
     public Ship getShip(){

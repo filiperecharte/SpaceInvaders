@@ -13,7 +13,7 @@ public class Fragment extends Box implements ICollideableVisited {
     }
 
     @Override
-    public void acceptShot(ICollideableVisitor collideableVisitor) {
+    public void accept(ICollideableVisitor collideableVisitor) {
         collideableVisitor.visit(this);
     }
 
