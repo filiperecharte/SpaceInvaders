@@ -16,7 +16,7 @@ public class EnemyTest {
 
     @Test (expected = IllegalArgumentException.class)
     public void constructorExceptionTest() throws IllegalArgumentException {
-        new Enemy(new Position(0, 0), new Size(4, 1));
+        new Enemy(new Position(0, 0), new Size(4, 1), "StrongEnemyImg");
     }
 
     @Test
@@ -24,7 +24,7 @@ public class EnemyTest {
 
         Enemy enemy = null;
         try {
-            enemy = new Enemy(new Position(15, 20), new Size(3, 1));
+            enemy = new Enemy(new Position(15, 20), new Size(3, 1),"StrongEnemyImg");
             enemy.setMovableBehavior(new MovableBehavior(new Vector(1, 0)));
             enemy.setHealthyBehavior(new HealthyBehavior(5));
             enemy.setAttackBehavior(new AttackBehavior(15));

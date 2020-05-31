@@ -81,11 +81,4 @@ public class Arena extends Box {
         return Collections.max(enemies, Comparator.comparing(p -> p.getPosition().getX()));
     }
 
-    public String getBackgroundColor() {
-        return backgroundColor;
-    }
-
-    public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
 }

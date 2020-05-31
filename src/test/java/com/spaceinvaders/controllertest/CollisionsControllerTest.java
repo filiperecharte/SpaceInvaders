@@ -48,9 +48,9 @@ public class CollisionsControllerTest {
         List<Enemy> enemies = new ArrayList<>();
 
         try {
-            enemies.add(new Enemy(new Position(3, 5), new Size(3, 1)));
-            enemies.add(new Enemy(new Position(6, 5), new Size(3, 1)));
-            enemies.add(new Enemy(new Position(9, 5), new Size(3, 1)));
+            enemies.add(new Enemy(new Position(3, 5), new Size(3, 1),"StrongEnemyImg"));
+            enemies.add(new Enemy(new Position(6, 5), new Size(3, 1),"StrongEnemyImg"));
+            enemies.add(new Enemy(new Position(9, 5), new Size(3, 1),"StrongEnemyImg"));
         } catch (IllegalArgumentException e) { e.printStackTrace(); }
 
         Ship ship = null;
@@ -71,30 +71,30 @@ public class CollisionsControllerTest {
 
     @Test
     public void processWallsCollisionsTest() {
-        Shot shot = new Shot(new Position(2, 10), new Size(1, 1));
+        Shot shot = new Shot(new Position(2, 10), new Size(1, 1),"WeakShot","WeakShotImg");
         collisionsController.setShot(shot);
         assertTrue(collisionsController.processWallsCollisions());
 
-        shot = new Shot(new Position(3, 10), new Size(1, 1));
+        shot = new Shot(new Position(3, 10), new Size(1, 1),"WeakShot","WeakShotImg");
         collisionsController.setShot(shot);
         assertTrue(collisionsController.processWallsCollisions());
 
-        shot = new Shot(new Position(4, 10), new Size(1, 1));
+        shot = new Shot(new Position(4, 10), new Size(1, 1),"LegendaryShot","LegendaryShotImg");
         collisionsController.setShot(shot);
         assertTrue(collisionsController.processWallsCollisions());
 
-        shot = new Shot(new Position(2, 9), new Size(1, 1));
+        shot = new Shot(new Position(2, 9), new Size(1, 1),"WeakShot","WeakShotImg");
         collisionsController.setShot(shot);
         assertFalse(collisionsController.processWallsCollisions());
 
-        shot = new Shot(new Position(5, 10), new Size(1, 1));
+        shot = new Shot(new Position(5, 10), new Size(1, 1),"WeakShot","WeakShotImg");
         collisionsController.setShot(shot);
         assertFalse(collisionsController.processWallsCollisions());
     }
 
     @Test
     public void processEnemiesCollisionsTest() {
-        Shot shot = new Shot(new Position(3, 5), new Size(1, 1), "ShipShot", "ShipShotImg");
+        Shot shot = new Shot(new Position(3, 5), new Size(1, 1),"ShipShot","ShipShotImg");
         shot.setPosition(new Position(3, 5));
         collisionsController.setShot(shot);
         assertTrue(collisionsController.processEnemiesCollisions());
@@ -115,22 +115,22 @@ public class CollisionsControllerTest {
         collisionsController.setShot(shot);
         assertFalse(collisionsController.processEnemiesCollisions());
 
-        Shot shot2 = new Shot(new Position(3, 5), new Size(1, 1));
+        Shot shot2 = new Shot(new Position(3, 5), new Size(1, 1),"WeakShot","WeakShotImg");
         collisionsController.setShot(shot2);
         assertFalse(collisionsController.processEnemiesCollisions());
     }
 
     @Test
     public void processShipCollisionTest() {
-        Shot shot = new Shot(new Position(10, 10), new Size(1, 1));
+        Shot shot = new Shot(new Position(10, 10), new Size(1, 1),"ShipShot","ShipShotImg");
         collisionsController.setShot(shot);
         assertTrue(collisionsController.processShipCollision());
 
-        shot = new Shot(new Position(14, 10), new Size(1, 1));
+        shot = new Shot(new Position(14, 10), new Size(1, 1),"ShipShot","ShipShotImg");
         collisionsController.setShot(shot);
         assertTrue(collisionsController.processShipCollision());
 
-        shot = new Shot(new Position(16, 10), new Size(1, 1));
+        shot = new Shot(new Position(16, 10), new Size(1, 1),"ShipShot","ShipShotImg");
         collisionsController.setShot(shot);
         assertFalse(collisionsController.processShipCollision());
     }
