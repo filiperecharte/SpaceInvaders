@@ -230,17 +230,17 @@ This help us avoid some code smells making our code more organized, and give us 
 ---
 
 ## Testing
-The following screenshot shows our **tests coverage** at this point.</br>
+The following screenshot shows our **tests coverage**.</br>
 <p align="center">
-  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/docs/imgs/TestCoverage.png">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/TestCoverage.png">
 </p>
 
-The **mutation testing report** can be accessed [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/intermediate/docs/test_reports/pitest).</br></br>
-We are using Mockito framework in our tests to create mocks and set the exact return values it should give us to perform the test we want. For example on the [Arena Test](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/test/java/com/spaceinvaders/modeltest/ArenaTest.java).</br>
-In the command tests ([MoveShipLeftCommandTest](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/test/java/com/spaceinvaders/controllertest/MoveShipLeftCommandTest.java) and [MoveShipRightCommandTest](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/test/java/com/spaceinvaders/controllertest/MoveShipRightCommandTest.java)) we use ArgumentCaptor to see if the arguments passed to the functions that we are not testing are correct.</br></br>
+The **mutation testing report** can be accessed [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/docs/test_reports/pitest_2).</br></br>
+We are using Mockito framework in our tests to create mocks and set the exact return values it should give us to perform the test we want.</br>
 **Notes**</br>
-We have two tests on the view package, one to test the **arena rendering** and other to test the **ship rendering**.These tests fail because we are using functions from the Graphics class, and unfortunately this class does not have a constructor wich creates problems using Mockito. Running those tests we are confronted with a *java.lang.NullPointerException*.</br>
-Due to that they are commented and can be found [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/intermediate/src/test/java/com/spaceinvaders/viewtest).
+* Some test coverage results are very low because there are some classes that don't need to be tested like the [GameController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameController.java) class that has a lot of methods containing calls to other methods that are already being tested in their respective classes. 
+* Other classes have a lot of trivial methods like getters and setters, that we are not testing. Most of the view package contains graphic functions to put strings on the screen, and testing them is useless. This can explain the low test coverage values on the view package.
+* In the view package, some tests failed because we are using functions from the Graphics class, and unfortunately this class does not have a constructor wich creates problems using Mockito. Running those tests we were confronted with a *java.lang.NullPointerException*.</br>Due to that the view tests didn't go as expected.
 
 ## Self-evaluation
 
