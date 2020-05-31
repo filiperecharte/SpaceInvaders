@@ -49,8 +49,4 @@ public class Position {
         return Objects.hash(x, y);
     }
 
-    /*public boolean equals(Position otherPosition) {
-        return (x == otherPosition.getX()) && (y == otherPosition.getY());
-    }*/
-
 }

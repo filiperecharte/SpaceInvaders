@@ -9,11 +9,6 @@ public class BoxImageRenderer implements Renderer {
     private Box box;
     private TextImage image;
 
-    public BoxImageRenderer(Box box, TextImage image) {
-        this.box = box;
-        this.image = image;
-    }
-
     public BoxImageRenderer() {}
 
     public void setBox(Box box) {

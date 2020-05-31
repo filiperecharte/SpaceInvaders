@@ -18,20 +18,8 @@ public class HealthyBehavior {
         this.currentHealth = 1;
     }
 
-    public int getTotalHealth() {
-        return totalHealth;
-    }
-
-    public void setTotalHealth(int totalHealth) {
-        this.totalHealth = totalHealth;
-    }
-
     public int getCurrentHealth() {
         return currentHealth;
-    }
-
-    public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
     }
 
     public void decrementHealth(int value) {

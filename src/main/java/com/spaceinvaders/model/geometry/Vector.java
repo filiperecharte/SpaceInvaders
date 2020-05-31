@@ -30,11 +30,4 @@ public class Vector {
         this.y = y;
     }
 
-    public Vector add(Vector otherVector) {
-        return new Vector(this.x + otherVector.getX(), this.y + otherVector.y);
-    }
-
-    public Vector sub(Vector otherVector) {
-        return new Vector(this.x - otherVector.getX(), this.y - otherVector.getY());
-    }
 }
