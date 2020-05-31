@@ -19,6 +19,12 @@ public class Shot extends Box implements IElementVisited {
         this.imageName = imageName;
     }
 
+    public Shot(Position position, Size size) {
+        super(position, size);
+        this.name = "";
+        this.imageName = "";
+    }
+
     public Shot() {
         super(new Position(0, 0), new Size(1, 1));
         damageBehavior = new DamageBehavior();

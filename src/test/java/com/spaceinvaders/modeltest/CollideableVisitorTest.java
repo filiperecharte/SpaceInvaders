@@ -27,6 +27,6 @@ public class CollideableVisitorTest {
         assertEquals(23, arena.getWalls().get(0).getFragments().size());
 
     }
-    
+
 
 }

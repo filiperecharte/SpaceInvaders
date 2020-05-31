@@ -27,7 +27,7 @@ public class ShotsControllerTest {
 
     @Before
     public void setUp() {
-        Arena arena = new Arena(new Position(0, 0), new Size(10, 10), "#000000");
+        /*Arena arena = new Arena(new Position(0, 0), new Size(10, 10), "#000000");
         try {
             arena.addElement(new Shot(new Position(2, 9), new Size(1, 1),"WeakShot","WeakShotImg"));
             arena.addElement(new YoungEnemy(new Position(3, 2), new Size(2, 1)));

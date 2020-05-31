@@ -4,7 +4,6 @@ import com.spaceinvaders.controller.GameController;
 import com.spaceinvaders.controller.states.GameOverState;
 import com.spaceinvaders.controller.states.MenuState;
 import com.spaceinvaders.controller.states.playstate.PlayState;
-import com.spaceinvaders.model.geometry.Position;
 import com.spaceinvaders.view.lanternaview.GameView;
 import org.junit.Before;
 import org.junit.Test;

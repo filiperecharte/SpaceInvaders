@@ -38,7 +38,7 @@ public class ShootShipCommandTest {
 
     @Test
     public void getShootPositionTest() {
-            ShootShipCommand shootShipCommand = new ShootShipCommand(arena, shotPool);
+            ShootShipCommand shootShipCommand = new ShootShipCommand(arena, new ShotPool());
             shootShipCommand.execute();
 
             assertEquals(1, arena.getShots().size());
