@@ -10,26 +10,26 @@ The enemies can also fire at the ship and have different strengths.</br>
 ## Implemented Features
 
 * **Moving SpaceShip** - The player is able to control the ship moving it to the left or right.</br>
-
-## Planned Features
-
 * **Enemies** - The game has enemies that will shoot against the ship.</br>
 * **Walls** - . The ship is partially protected by several stationary defense walls.</br>
 * **Enemy Shooting** - The aliens attempt to destroy the ship by firing at it.</br>
 * **Ship Shooting** - The ship attempts to kill all enemies by firing at them.</br>
-* **Score** - The player has a score.</br>
 * **SpaceShip with Lifes** - The ship has lifes that decrease when a shot hits the ship.</br>
 * **Enemies with strength** - Some enemies are more difficult to kill than others.</br>
+
+## Planned Features not implemented
+
+* **Score** - The player has a score.</br>
 
 ## Design
 ### MVC
 In this project, we decide to follow the architectural pattern **Model-View-Controller(MVC)**.
 #### Model
-We use the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/) package to store all the data of the game.
+We use the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/src/main/java/com/spaceinvaders/model) package to store all the data of the game.
 #### View
-Our [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/view) package is the only package that imports lanterna and it is used only to display images from the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/) on the screen and receive inputs from the user.
+Our [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/src/main/java/com/spaceinvaders/view) package is the only package that imports lanterna and it is used only to display images from the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/) on the screen and receive inputs from the user.
 #### Controller
-Finally, we have a [Controller](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/controller/) package that uses the input from the [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/view) and updates the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/) data, by sending the respective command from the specific input. Also, it uses the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/) data to render the images to the screen.
+Finally, we have a [Controller](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/src/main/java/com/spaceinvaders/controller/) package that uses the input from the [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/src/main/java/com/spaceinvaders/view/lanternaview) and updates the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/src/main/java/com/spaceinvaders/model) data, by sending the respective command from the specific input. Also, it uses the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/src/main/java/com/spaceinvaders/model) data to render the images to the screen.
 In conclusion, we use the Model to store information, the View to interact with the user and the Controller to execute the rules of the game.
 
 ### The data to perform a command should be encapsulated
@@ -39,22 +39,23 @@ We needed to implement the commands in a way that would allow us to easily add n
 **The Pattern**</br>
 We decided to use the **Command pattern** because it makes our code cleaner and help us developing the game, allowing us to add new commands to it, manipulate them whenever we want, and change their inner details of how to perform without changing the calling of the command. </br></br>
 
-**Imlementation**</br>
+**Implementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
-  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/docs/imgs/Command.png">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/Command%20(1).png">
 </p>
 
 These classes can be found in the following files:
-* [GameView](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/view/GameView.java)</br>
-* [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/arena/Arena.java)</br>
-* [GameEngine](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/controller/GameEngine.java)</br>
-* [Command](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/controller/commands/Command.java)</br>
-* [MoveShipLeftCommand](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/controller/commands/shipcommands/MoveShipLeftCommand.java)</br>
-* [MoveShipRightCommand](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/controller/commands/shipcommands/MoveShipRightCommand.java)</br>
+* [GameView](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/lanternaview/GameView.java)</br>
+* [Arena](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model/arena/Arena.java)</br>
+* [GameController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameController.java)</br>
+* [Command](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/commands/Command.java)</br>
+* [MoveShipLeftCommand](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/commands/shipcommands/MoveShipLeftCommand.java)</br>
+* [MoveShipRightCommand](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/commands/shipcommands/MoveShipRightCommand.java)</br>
+* [ShootShipCommand](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/commands/shipcommands/ShootShipCommand.java)</br>
 
 **Consequences**</br> 
-This Design Pattern decoupled our invoker from each specific command, because the invoker does not need to know anything about what the command does. All of that is now encapsulated on each command. **Our GameEngine does not know anything about moving the ship.**</br>
+This Design Pattern decoupled our invoker from each specific command, because the invoker does not need to know anything about what the command does. All of that is now encapsulated on each command. **Our PlayState does not know anything about moving the ship or shooting.**</br>
 
 ### Different factories should create objects of different types
 **Problem in context**</br>
@@ -88,11 +89,11 @@ We decided to use the **State pattern** because it makes our code cleaner and or
 **Imlementation**</br>
 The following figure shows how the pattern’s roles were mapped to the game classes.</br>
 <p align="center">
-  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/VisitPattern.png">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/State%20(1).png">
 </p>
 
 These classes can be found in the following files:
-* [IElementVisited](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameController.java)</br>
+* [GameController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameController.java)</br>
 * [GameState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/GameState.java)</br>
 * [GameOverState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/GameOverState.java)</br>
 * [PlayState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/PlayState.java)</br>
@@ -131,6 +132,30 @@ These classes can be found in the following files:
 
 **Consequences**</br>
 If we need to add more elements to arena, we only need to add visit methods to the visitor, instead of changing multiples classes and add multiple if (... instanceof ...). Also, makes the code more organize. However, it may be dificult to understand the purpose of those classes, we lose a bit of class encapsulation and is more complex to implement than simply using instanceof.
+
+### Organizing the images to render
+**Problem in context**</br>
+We have a lot of object images to draw, different images of the same objects. So we need to find a way that makes our rendering code well structured.
+
+**The Pattern**</br>
+To solve this problem we use a variation of the **Factory pattern**. We replace direct object construction calls (using the new operator) with calls to a special factory method. The objects are still created via the new operator, but it’s being called from within the factory method, and that method will build and return the desired object accordingly to the [ImageInfo](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/lanternaview/imagesfactories/ImageInfo.java) passed as a parameter.
+
+**Implementation**</br>
+The following figure shows how the pattern’s roles were mapped to the game classes.</br>
+<p align="center">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/FactoryView.png">
+</p>
+
+These classes can be found in the following files:
+* [ImageFactory](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/lanternaview/imagesfactories/ImageFactory.java)</br>
+* [ArenaImageFactory](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/lanternaview/imagesfactories/ArenaImageFactory.java)</br>
+* [ShipImageFactory](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/lanternaview/imagesfactories/ShipImageFactory.java)</br>
+* [ShotImageFactory](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/lanternaview/imagesfactories/ShotImageFactory.java)</br>
+* [EnemyImageFactory](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/lanternaview/imagesfactories/EnemyImageFactory.java)</br>
+* [DefaultFragmentImageFactory](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/lanternaview/imagesfactories/DefaultFragmentImageFactory.java)</br>
+
+**Consequences**</br>
+Basically our interface has a method that receives the type of object to build/choose and then returns a text image. That method is common to all factories. In factories that build different images, like the enemies and shots factories, we decided to build methods that return the text image to be rendered. In that case, the implementation of createTextImage method will only decide wich factory method (that builds the desired image) should be returned.
 
 ## Code smells and Refactoring suggestions
 
