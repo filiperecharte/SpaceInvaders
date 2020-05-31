@@ -22,6 +22,7 @@ public class Arena extends Box {
     private List<Wall> walls;
     private List<Enemy> enemies;
     private List<Shot> shots;
+    private long score;
 
 
     public Arena(Position position, Size size){
@@ -29,6 +30,7 @@ public class Arena extends Box {
         this.enemies = new ArrayList<>();
         this.walls = new ArrayList<>();
         this.shots = new ArrayList<>();
+        this.score = 0;
     }
 
     public boolean canMove(Position position) {
@@ -79,4 +81,11 @@ public class Arena extends Box {
         return Collections.max(enemies, Comparator.comparing(p -> p.getPosition().getX()));
     }
 
+    public void increaseScore(){
+        score+=10;
+    }
+
+    public long getScore(){
+        return score;
+    }
 }

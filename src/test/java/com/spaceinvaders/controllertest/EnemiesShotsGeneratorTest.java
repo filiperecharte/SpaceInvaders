@@ -26,7 +26,7 @@ public class EnemiesShotsGeneratorTest {
         ShotPool shotPoolMock = Mockito.mock(ShotPool.class);
         when(shotPoolMock.extract()).thenReturn(new Shot());
 
-        arena = new Arena(new Position(0, 0), new Size(10, 10), "");
+        arena = new Arena(new Position(0, 0), new Size(10, 10));
         enemiesShotsGenerator = new EnemiesShotsGenerator(arena, shotPoolMock);
     }
 
