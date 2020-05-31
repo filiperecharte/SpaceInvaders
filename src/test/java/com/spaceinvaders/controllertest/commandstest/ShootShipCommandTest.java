@@ -17,11 +17,11 @@ import static org.junit.Assert.assertEquals;
 
 public class ShootShipCommandTest {
     private Arena arena;
-    private ShotPool shotPool;
+
     @Before
     public void setUp() {
 
-        shotPool = Mockito.mock(ShotPool.class);
+        ShotPool shotPool = Mockito.mock(ShotPool.class);
         Mockito.when(shotPool.extract()).thenReturn(new Shot());
 
         Ship ship =null;

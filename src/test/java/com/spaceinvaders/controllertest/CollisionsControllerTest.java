@@ -24,7 +24,6 @@ import static org.mockito.Mockito.when;
 
 public class CollisionsControllerTest {
     private CollisionsController collisionsController;
-    private Arena mockArena;
 
     @Before
     public void setUp() {
@@ -59,7 +58,7 @@ public class CollisionsControllerTest {
             ship = new Ship(new Position(10, 10), new Size(5, 3), new HealthyBehavior(10));
         } catch (IllegalArgumentException e) { e.printStackTrace(); }
 
-        mockArena = Mockito.mock(Arena.class);
+        Arena mockArena = Mockito.mock(Arena.class);
 
         when(mockArena.getWalls()).thenReturn(walls);
         when(mockArena.getEnemies()).thenReturn(enemies);

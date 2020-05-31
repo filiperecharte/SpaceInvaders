@@ -57,20 +57,4 @@ public class PlayStateTest {
         playState.handleInput(GameView.keysNames.CLOSE);
         assertTrue(gameController.isGameFinished());
     }
-
-    @Test
-    public void updateTest(){
-        /*Arena arena = Mockito.mock(Arena.class);
-        Ship ship = Mockito.mock(Ship.class);
-        HealthyBehavior hb = Mockito.mock(HealthyBehavior.class);
-        when(arena.getShip()).thenReturn(ship);
-        when(ship.getHealthyBehavior()).thenReturn(hb);
-        when(hb.isDead()).thenReturn(true);
-        Mockito.doNothing().when(gameController).setGameState(Mockito.any(MenuState.class));
-        playState.update();
-
-        Mockito.verify(gameController, times(1)).setGameState(Mockito.any(MenuState.class));
-    */
-
-    }
 }
