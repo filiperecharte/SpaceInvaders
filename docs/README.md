@@ -15,7 +15,7 @@ We use the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/ma
 #### View
 Our [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/) package is the only package that imports lanterna and it is used only to display images from the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/intermediate/src/main/java/com/spaceinvaders/model/) on the screen and receive inputs from the user.
 #### Controller
-Finally, we have a [Controller](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/src/main/java/com/spaceinvaders/controller/) package that uses the input from the [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/src/main/java/com/spaceinvaders/view/lanternaview) and updates the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/src/main/java/com/spaceinvaders/model) data, by sending the respective command from the specific input. Also, it uses the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/src/main/java/com/spaceinvaders/model) data and [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/src/main/java/com/spaceinvaders/view/lanternaview) to render the images to the screen.
+Finally, we have a [Controller](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/src/main/java/com/spaceinvaders/controller/) package that uses the input from the [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/lanternaview) and updates the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model) data, by sending the respective command from the specific input. Also, it uses the [Model](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/model) data and [View](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/view/lanternaview) to render the images to the screen.
 In conclusion, we use the Model to store information, the View to interact with the user and the Controller to execute the rules of the game.
 
 ### The data to perform a command should be encapsulated
@@ -189,7 +189,7 @@ The following screenshot shows our **tests coverage**.</br>
   <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/TestCoverage.png">
 </p>
 
-The **mutation testing report** can be accessed [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/tree/master/docs/test_reports/pitest_2).</br></br>
+The **mutation testing report** can be accessed [here](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/test_reports/pitest_2).</br></br>
 We are using Mockito framework in our tests to create mocks and set the exact return values it should give us to perform the test we want.</br>
 **Notes**</br>
 * Some test coverage results are very low because there are some classes that don't need to be tested, like the [GameController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameController.java) class, wich has a lot of methods containing calls to other methods that are already being tested in their respective classes. </br>
