@@ -78,6 +78,30 @@ These classes can be found in the following files:
 **Consequences**</br>
 We do not have to create different classes for different wall types. We can have only one product wall and have different factories to create the Wall with different designs
 
+### The game needs a structure to let the player navigate through menus
+**Problem in context**</br>
+We needed to implement menus and messages to let the user know whats happening on the game. For that we could use a bunch of if states but that would make our code unorganized and uncertain.
+
+**The Pattern**</br>
+We decided to use the **State pattern** because it makes our code cleaner and organized letting the user navigate through the different menus. Instead of implementing all behaviors on its own, the original object, called context, that is our GameController, stores a reference to one of the state objects that represents its current state, and delegates all the state-related work to that object.
+
+**Imlementation**</br>
+The following figure shows how the pattern’s roles were mapped to the game classes.</br>
+<p align="center">
+  <img src="https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/docs/imgs/State.png">
+</p>
+
+These classes can be found in the following files:
+* [GameController](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/GameController.java)</br>
+* [GameState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/GameState.java)</br>
+* [GameOverState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/GameOverState.java)</br>
+* [PlayState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/playstate/PlayState.java)</br>
+* [MenuState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/MenuState.java)</br>
+* [InformationState](https://github.com/FEUP-LPOO/lpoo-2020-g16/blob/master/src/main/java/com/spaceinvaders/controller/states/InformationState.java)</br>
+
+**Consequences**</br>
+The code is a lot more organized. Our GameController is much more simple and every state has it's own behavior for each key pressed by the player. As a result, we can add new states or change existing ones independently of each other, reducing the maintenance cost.
+
 ## Code smells and Refactoring suggestions
 
 ### Long Parameter List
