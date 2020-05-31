@@ -49,7 +49,7 @@ public class Arena extends Box {
         element.accept(new ElementsVisitor(this));
     }
 
-    public void colide(ICollideableVisited collideable,Shot shot){
+    public void collide(ICollideableVisited collideable, Shot shot){
         collideable.acceptShot(new CollideableVisitor(this, shot));
     }
 

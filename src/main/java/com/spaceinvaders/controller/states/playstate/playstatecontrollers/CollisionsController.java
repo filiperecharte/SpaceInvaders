@@ -13,7 +13,7 @@ public class CollisionsController {
         for (int i=0;i<arena.getWalls().size();i++) {
             for (int j=0;j<arena.getWalls().get(i).getFragments().size();j++) {
                 if (arena.getWalls().get(i).getFragments().get(j).contain(shot.getPosition())) {
-                    arena.colide(arena.getWalls().get(i).getFragments().get(j), shot);
+                    arena.collide(arena.getWalls().get(i).getFragments().get(j), shot);
                     return true;
                 }
             }
@@ -25,7 +25,7 @@ public class CollisionsController {
         if (shot.getName().equals("ShipShot")) {
             for (int i = 0; i < arena.getEnemies().size(); i++) {
                 if (arena.getEnemies().get(i).contain(shot.getPosition())) {
-                    arena.colide(arena.getEnemies().get(i), shot);
+                    arena.collide(arena.getEnemies().get(i), shot);
                     return true;
                 }
             }
@@ -35,7 +35,7 @@ public class CollisionsController {
 
     public boolean processShipCollision() {
         if (arena.getShip().contain(shot.getPosition())) {
-            arena.colide(arena.getShip(), shot);
+            arena.collide(arena.getShip(), shot);
             return true;
         }
         return false;
