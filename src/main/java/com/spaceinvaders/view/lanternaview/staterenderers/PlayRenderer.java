@@ -44,6 +44,9 @@ public class PlayRenderer implements Renderer {
         graphics.putString(10,1,Integer.toString(arena.getShip().getHealthyBehavior().getCurrentHealth()), SGR.BOLD);
         graphics.putString(3,23,"ESC TO MENU", SGR.BOLD);
 
+        graphics.putString(65,1,"SCORE", SGR.BOLD);
+        graphics.putString(75,1,Long.toString(arena.getScore()), SGR.BOLD);
+
         boxImageRenderer.setBox(arena.getShip());
         boxImageRenderer.setImage(shipImageFactory.createTextImage(new ImageInfo(backgroundColor)));
         boxImageRenderer.render(graphics);

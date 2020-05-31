@@ -22,7 +22,7 @@ public class ShotsControllerTest {
 
     @Test
     public void processShotsTest1() {
-        Arena arena = new Arena(new Position(0, 0), new Size(10, 10), "");
+        Arena arena = new Arena(new Position(0, 0), new Size(10, 10));
         try {
             arena.addElement(new Ship(new Position(0, 0), new Size(5, 1), new HealthyBehavior(1)));
 
@@ -41,7 +41,7 @@ public class ShotsControllerTest {
 
     @Test
     public void processShotsTest2() {
-        Arena arena = new Arena(new Position(0, 0), new Size(10, 10), "");
+        Arena arena = new Arena(new Position(0, 0), new Size(10, 10));
         try {
             arena.addElement(new Ship(new Position(0, 0), new Size(5, 1), new HealthyBehavior(1)));
 
@@ -60,7 +60,7 @@ public class ShotsControllerTest {
 
     @Test
     public void processShotsTest3() {
-        Arena arena = new Arena(new Position(0, 0), new Size(10, 10), "");
+        Arena arena = new Arena(new Position(0, 0), new Size(10, 10));
         try {
             arena.addElement(new Ship(new Position(0, 0), new Size(5, 1), new HealthyBehavior(1)));
 
@@ -85,7 +85,7 @@ public class ShotsControllerTest {
 
     @Test
     public void processShotsTest4() {
-        Arena arena = new Arena(new Position(0, 0), new Size(10, 10), "");
+        Arena arena = new Arena(new Position(0, 0), new Size(10, 10));
         try {
             arena.addElement(new Ship(new Position(0, 0), new Size(5, 1), new HealthyBehavior(1)));
 

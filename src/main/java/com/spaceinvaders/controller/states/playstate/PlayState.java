@@ -27,7 +27,7 @@ public class PlayState extends GameState {
 
     public PlayState(GameController gameController) {
         super(gameController);
-        this.arena = new ArenaCreator().createArena(new Position(0, 0), new Size(80, 30), "#808080");
+        this.arena = new ArenaCreator().createArena(new Position(0, 0), new Size(80, 30));
         this.shotPool = new ShotPool();
         this.shotsController = new ShotsController(arena,shotPool);
         this.enemiesController = new EnemiesController(arena);

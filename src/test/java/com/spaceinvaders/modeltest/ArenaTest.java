@@ -20,7 +20,7 @@ public class ArenaTest {
         doThrow(NullPointerException.class).when(mockShip).setPosition(new Position(10,20));
         when(mockShip.getPosition()).thenReturn(new Position(10,20));
 
-        arena= new Arena(new Position(0, 0), new Size(10, 15),"FFFFFF");
+        arena= new Arena(new Position(0, 0), new Size(10, 15));
         arena.addElement(mockShip);
     }
 

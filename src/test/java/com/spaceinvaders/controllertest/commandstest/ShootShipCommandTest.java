@@ -32,7 +32,7 @@ public class ShootShipCommandTest {
         }
         assert  ship != null;
 
-        arena= new Arena(new Position(0, 0), new Size(10, 15),"FFFFFF");
+        arena= new Arena(new Position(0, 0), new Size(10, 15));
         arena.addElement(ship);
     }
 

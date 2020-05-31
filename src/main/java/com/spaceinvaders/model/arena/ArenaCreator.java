@@ -20,8 +20,8 @@ public class ArenaCreator {
     private static final int ENEMIES_X_DISTANCE = 5;
     private static final int ENEMIES_Y_DISTANCE = 1;
 
-    public Arena createArena(Position position,Size size, String backgroundColor) {
-        Arena arena = new Arena(position,size, backgroundColor);
+    public Arena createArena(Position position,Size size) {
+        Arena arena = new Arena(position,size);
         Ship ship = new ShipCreator().createShip();
         arena.addElement(ship);
 

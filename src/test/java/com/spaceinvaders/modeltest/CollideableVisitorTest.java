@@ -25,7 +25,7 @@ public class CollideableVisitorTest {
 
     @Before
     public void setUp() throws IllegalArgumentException {
-        arena= new Arena(new Position(0, 0), new Size(10, 15),"FFFFFF");
+        arena= new Arena(new Position(0, 0), new Size(10, 15));
         shot = new Shot(new Position(3, 5), new Size(1, 1),"ShipShot","ShipShotImg");
         enemy = new Enemy(new Position(15, 20), new Size(3, 1),"StrongEnemyImg");
         arena.addElement(enemy);

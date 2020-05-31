@@ -30,8 +30,10 @@ public class CollideableVisitor implements ICollideableVisitor {
 
     public void visit(Enemy enemy) {
         shot.getDamageBehavior().applyDamage(enemy.getHealthyBehavior());
-        if (enemy.getHealthyBehavior().isDead())
+        if (enemy.getHealthyBehavior().isDead()) {
             arena.getEnemies().remove(enemy);
+            arena.increaseScore();
+        }
     }
 
 }
